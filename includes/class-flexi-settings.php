@@ -15,7 +15,7 @@ if (!defined('WPINC')) {
 }
 
 /**
- * AIOVG_Admin_Settings class.
+ * flexi_Admin_Settings class.
  *
  * @since 1.0.0
  */
@@ -101,11 +101,12 @@ class FLEXI_Admin_Settings
     {
         $tabs = array(
             'general'  => __('General', 'flexi'),
-            'gallery'  => __('gallery', 'flexi'),
-            'advanced' => __('Advanced', 'flexi')
+            'gallery'  => __('Gallery', 'flexi'),
+            'form' => __('Form', 'flexi'),
+            'preview' => __('Preview', 'flexi')
         );
 
-        return apply_filters('aiovg_settings_tabs', $tabs);
+        return apply_filters('flexi_settings_tabs', $tabs);
     }
 
     /**
@@ -118,69 +119,66 @@ class FLEXI_Admin_Settings
     {
         $sections = array(
             array(
-                'id'    => 'aiovg_general_settings',
+                'id'    => 'flexi_general_settings',
                 'title' => __('General Settings', 'flexi'),
                 'tab'   => 'general'
             ),
             array(
-                'id'    => 'aiovg_player_settings',
+                'id'    => 'flexi_player_settings',
                 'title' => __('Player Settings', 'flexi'),
                 'tab'   => 'general'
             ),
             array(
-                'id'    => 'aiovg_videos_settings',
+                'id'    => 'flexi_videos_settings',
                 'title' => __('Videos Layout', 'flexi'),
                 'tab'   => 'gallery'
             ),
             array(
-                'id'    => 'aiovg_categories_settings',
+                'id'    => 'flexi_categories_settings',
                 'title' => __('Categories Layout', 'flexi'),
                 'tab'   => 'gallery'
             ),
             array(
-                'id'    => 'aiovg_video_settings',
+                'id'    => 'flexi_video_settings',
                 'title' => __('Single Video Page', 'flexi'),
                 'tab'   => 'gallery'
             ),
             array(
-                'id'    => 'aiovg_image_settings',
+                'id'    => 'flexi_image_settings',
                 'title' => __('Image Settings', 'flexi'),
                 'tab'   => 'gallery'
             ),
             array(
-                'id'    => 'aiovg_page_settings',
+                'id'    => 'flexi_page_settings',
                 'title' => __('Page Settings', 'flexi'),
-                'tab'   => 'advanced'
+                'tab'   => 'form'
             ),
             array(
-                'id'          => 'aiovg_permalink_settings',
+                'id'          => 'flexi_permalink_settings',
                 'title'       => __('Permalink Slugs', 'flexi'),
                 'description' => __('NOTE: Just make sure that, after updating the fields in this section, you flush the rewrite rules by visiting "Settings > Permalinks". Otherwise you\'ll still see the old links.', 'flexi'),
-                'tab'         => 'advanced'
+                'tab'         => 'form'
             ),
             array(
-                'id'          => 'aiovg_socialshare_settings',
+                'id'          => 'flexi_socialshare_settings',
                 'title'       => __('Socialshare Buttons', 'flexi'),
                 'description' => __('Select social share buttons galleryed in the single video pages.', 'flexi'),
-                'tab'         => 'advanced'
+                'tab'         => 'form'
             ),
             array(
-                'id'          => 'aiovg_privacy_settings',
+                'id'          => 'flexi_privacy_settings',
                 'title'       => __('Privacy Settings', 'flexi'),
                 'description' => __('These options will help with privacy restrictions such as GDPR and the EU Cookie Law.', 'flexi'),
-                'tab'         => 'advanced'
+                'tab'         => 'form'
+            ),
+            array(
+                'id'    => 'flexi_page_settings',
+                'title' => __('Preview Settings', 'flexi'),
+                'tab'   => 'preview'
             )
         );
 
-        if (false !== get_option('aiovg_brand_settings')) {
-            $sections[] = array(
-                'id'    => 'aiovg_brand_settings',
-                'title' => __('Logo & Branding', 'flexi'),
-                'tab'   => 'general'
-            );
-        }
-
-        return apply_filters('aiovg_settings_sections', $sections);
+        return apply_filters('flexi_settings_sections', $sections);
     }
 
     /**
@@ -191,10 +189,16 @@ class FLEXI_Admin_Settings
      */
     public function get_fields()
     {
-        //$video_templates = aiovg_get_video_templates();
-        $video_templates = 'classic';
+
         $fields = array(
-            'aiovg_general_settings' => array(
+            'flexi_general_settings' => array(
+                array(
+                    'name'              => 'my_login',
+                    'label'             => __('Select Login Page', 'flexi'),
+                    'description'       => __('Login page where user enters username & passwords.', 'flexi'),
+                    'type'              => 'pages',
+                    'sanitize_callback' => 'sanitize_key'
+                ),
                 array(
                     'name'              => 'delete_plugin_data',
                     'label'             => __('Remove data on uninstall?', 'flexi'),
@@ -210,13 +214,13 @@ class FLEXI_Admin_Settings
                     'sanitize_callback' => 'intval'
                 )
             ),
-            'aiovg_player_settings' => array(
+            'flexi_player_settings' => array(
                 array(
                     'name'              => 'width',
                     'label'             => __('Width', 'flexi'),
                     'description'       => __('In pixels. Maximum width of the player. Leave this field empty to scale 100% of its enclosing container/html element.', 'flexi'),
                     'type'              => 'text',
-                    'sanitize_callback' => 'aiovg_sanitize_int'
+                    'sanitize_callback' => 'flexi_sanitize_int'
                 ),
                 array(
                     'name'              => 'ratio',
@@ -288,7 +292,7 @@ class FLEXI_Admin_Settings
                         'volume'     => __('Volume', 'flexi'),
                         'fullscreen' => __('Fullscreen', 'flexi')
                     ),
-                    'sanitize_callback' => 'aiovg_sanitize_array'
+                    'sanitize_callback' => 'flexi_sanitize_array'
                 ),
                 array(
                     'name'              => 'use_native_controls',
@@ -301,18 +305,11 @@ class FLEXI_Admin_Settings
                         'dailymotion' => __('Dailymotion', 'flexi'),
                         'facebook'    => __('Facebook', 'flexi')
                     ),
-                    'sanitize_callback' => 'aiovg_sanitize_array'
+                    'sanitize_callback' => 'flexi_sanitize_array'
                 )
             ),
-            'aiovg_videos_settings' => array(
-                array(
-                    'name'              => 'template',
-                    'label'             => __('Select Template', 'flexi'),
-                    'description'       => 'uuuuuu',
-                    'type'              => 'select',
-                    'options'           => $video_templates,
-                    'sanitize_callback' => 'sanitize_key'
-                ),
+            'flexi_videos_settings' => array(
+
                 array(
                     'name'              => 'columns',
                     'label'             => __('Columns', 'flexi'),
@@ -379,7 +376,7 @@ class FLEXI_Admin_Settings
                         'duration' => __('Video Duration', 'flexi'),
                         'excerpt'  => __('Video Excerpt', 'flexi')
                     ),
-                    'sanitize_callback' => 'aiovg_sanitize_array'
+                    'sanitize_callback' => 'flexi_sanitize_array'
                 ),
                 array(
                     'name'              => 'excerpt_length',
@@ -389,7 +386,7 @@ class FLEXI_Admin_Settings
                     'sanitize_callback' => 'intval'
                 ),
             ),
-            'aiovg_categories_settings' => array(
+            'flexi_categories_settings' => array(
                 array(
                     'name'              => 'template',
                     'label'             => __('Select Template', 'flexi'),
@@ -464,7 +461,7 @@ class FLEXI_Admin_Settings
                     'sanitize_callback' => 'intval'
                 )
             ),
-            'aiovg_video_settings' => array(
+            'flexi_video_settings' => array(
                 array(
                     'name'              => 'gallery',
                     'label'             => __('Show / Hide', 'flexi'),
@@ -477,7 +474,7 @@ class FLEXI_Admin_Settings
                         'views'    => __('Views Count', 'flexi'),
                         'related'  => __('Related Videos', 'flexi')
                     ),
-                    'sanitize_callback' => 'aiovg_sanitize_array'
+                    'sanitize_callback' => 'flexi_sanitize_array'
                 ),
                 array(
                     'name'              => 'has_comments',
@@ -487,13 +484,13 @@ class FLEXI_Admin_Settings
                     'sanitize_callback' => 'intval'
                 )
             ),
-            'aiovg_image_settings' => array(
+            'flexi_image_settings' => array(
                 array(
                     'name'              => 'width',
                     'label'             => __('Width', 'flexi'),
                     'description'       => __('Always 100% of its enclosing container/html element.', 'flexi'),
                     'type'              => 'html',
-                    'sanitize_callback' => 'aiovg_sanitize_int'
+                    'sanitize_callback' => 'flexi_sanitize_int'
                 ),
                 array(
                     'name'              => 'ratio',
@@ -503,25 +500,25 @@ class FLEXI_Admin_Settings
                     'sanitize_callback' => 'floatval'
                 ),
             ),
-            'aiovg_page_settings' => array(
+            'flexi_page_settings' => array(
                 array(
                     'name'              => 'category',
                     'label'             => __('Single Category Page', 'flexi'),
-                    'description'       => __('This is the page where the videos from a particular category is galleryed. The [aiovg_category] short code must be on this page.', 'flexi'),
+                    'description'       => __('This is the page where the videos from a particular category is galleryed. The [flexi_category] short code must be on this page.', 'flexi'),
                     'type'              => 'pages',
                     'sanitize_callback' => 'sanitize_key'
                 ),
                 array(
                     'name'              => 'search',
                     'label'             => __('Search Page', 'flexi'),
-                    'description'       => __('This is the page where the search results are galleryed. The [aiovg_search] short code must be on this page.', 'flexi'),
+                    'description'       => __('This is the page where the search results are galleryed. The [flexi_search] short code must be on this page.', 'flexi'),
                     'type'              => 'pages',
                     'sanitize_callback' => 'sanitize_key'
                 ),
                 array(
                     'name'              => 'user_videos',
                     'label'             => __('User Videos Page', 'flexi'),
-                    'description'       => __('This is the page where the videos from an user is galleryed. The [aiovg_user_videos] short code must be on this page.', 'flexi'),
+                    'description'       => __('This is the page where the videos from an user is galleryed. The [flexi_user_videos] short code must be on this page.', 'flexi'),
                     'type'              => 'pages',
                     'sanitize_callback' => 'sanitize_key'
                 ),
@@ -533,16 +530,16 @@ class FLEXI_Admin_Settings
                     'sanitize_callback' => 'sanitize_key'
                 )
             ),
-            'aiovg_permalink_settings' => array(
+            'flexi_permalink_settings' => array(
                 array(
                     'name'              => 'video',
                     'label'             => __('Video Detail Page', 'flexi'),
-                    'description'       => __('Replaces the SLUG value used by custom post type "aiovg_videos".', 'flexi'),
+                    'description'       => __('Replaces the SLUG value used by custom post type "flexi_videos".', 'flexi'),
                     'type'              => 'text',
                     'sanitize_callback' => 'sanitize_text_field'
                 )
             ),
-            'aiovg_socialshare_settings' => array(
+            'flexi_socialshare_settings' => array(
                 array(
                     'name'              => 'services',
                     'label'             => __('Enable Services', 'flexi'),
@@ -555,10 +552,10 @@ class FLEXI_Admin_Settings
                         'pinterest' => __('Pinterest', 'flexi'),
                         'whatsapp'  => __('WhatsApp', 'flexi')
                     ),
-                    'sanitize_callback' => 'aiovg_sanitize_array'
+                    'sanitize_callback' => 'flexi_sanitize_array'
                 )
             ),
-            'aiovg_privacy_settings' => array(
+            'flexi_privacy_settings' => array(
                 array(
                     'name'              => 'show_consent',
                     'label'             => __('GDPR - Show Consent', 'flexi'),
@@ -583,60 +580,8 @@ class FLEXI_Admin_Settings
             )
         );
 
-        if (false !== get_option('aiovg_brand_settings')) {
-            $fields['aiovg_brand_settings'] = array(
-                array(
-                    'name'              => 'show_logo',
-                    'label'             => __('Show Logo', 'flexi'),
-                    'description'       => __('Check this option to show the watermark on the video.', 'flexi'),
-                    'type'              => 'checkbox',
-                    'sanitize_callback' => 'intval'
-                ),
-                array(
-                    'name'              => 'logo_image',
-                    'label'             => __('Logo Image', 'flexi'),
-                    'description'       => __('Upload the image file of your logo. We recommend using the transparent PNG format with width below 100 pixels. If you do not enter any image, no logo will galleryed.', 'flexi'),
-                    'type'              => 'file',
-                    'sanitize_callback' => 'esc_url_raw'
-                ),
-                array(
-                    'name'              => 'logo_link',
-                    'label'             => __('Logo Link', 'flexi'),
-                    'description'       => __('The URL to visit when the watermark image is clicked. Clicking a logo will have no affect unless this is configured.', 'flexi'),
-                    'type'              => 'text',
-                    'sanitize_callback' => 'esc_url_raw'
-                ),
-                array(
-                    'name'              => 'logo_position',
-                    'label'             => __('Logo Position', 'flexi'),
-                    'description'       => __('This sets the corner in which to gallery the watermark.', 'flexi'),
-                    'type'              => 'select',
-                    'options'           => array(
-                        'topleft'     => __('Top Left', 'flexi'),
-                        'topright'    => __('Top Right', 'flexi'),
-                        'bottomleft'  => __('Bottom Left', 'flexi'),
-                        'bottomright' => __('Bottom Right', 'flexi')
-                    ),
-                    'sanitize_callback' => 'sanitize_key'
-                ),
-                array(
-                    'name'              => 'logo_margin',
-                    'label'             => __('Logo Margin', 'flexi'),
-                    'description'       => __('The distance, in pixels, of the logo from the edges of the gallery.', 'flexi'),
-                    'type'              => 'text',
-                    'sanitize_callback' => 'floatval'
-                ),
-                array(
-                    'name'              => 'copyright_text',
-                    'label'             => __('Copyright Text', 'flexi'),
-                    'description'       => __('Text that is shown when a user right-clicks the player with the mouse.', 'flexi'),
-                    'type'              => 'text',
-                    'sanitize_callback' => 'sanitize_text_field'
-                )
-            );
-        }
 
-        return apply_filters('aiovg_settings_fields', $fields);
+        return apply_filters('flexi_settings_fields', $fields);
     }
 
     /**
@@ -920,8 +865,8 @@ class FLEXI_Admin_Settings
         $id    = $args['section'] . '[' . $args['id'] . ']';
         $label = isset($args['options']['button_label']) ? $args['options']['button_label'] : __('Choose File', 'flexi');
 
-        $html  = sprintf('<input type="text" class="%1$s-text aiovg-url" id="%2$s[%3$s]" name="%2$s[%3$s]" value="%4$s"/>', $size, $args['section'], $args['id'], $value);
-        $html .= '<input type="button" class="button aiovg-browse" value="' . $label . '" />';
+        $html  = sprintf('<input type="text" class="%1$s-text flexi-url" id="%2$s[%3$s]" name="%2$s[%3$s]" value="%4$s"/>', $size, $args['section'], $args['id'], $value);
+        $html .= '<input type="button" class="button flexi-browse" value="' . $label . '" />';
         $html .= $this->get_field_description($args);
 
         echo $html;
@@ -955,7 +900,7 @@ class FLEXI_Admin_Settings
         $value = esc_attr($this->get_option($args['id'], $args['section'], '#ffffff'));
         $size  = isset($args['size']) && !is_null($args['size']) ? $args['size'] : 'regular';
 
-        $html  = sprintf('<input type="text" class="%1$s-text aiovg-color-picker" id="%2$s[%3$s]" name="%2$s[%3$s]" value="%4$s" data-default-color="%5$s" />', $size, $args['section'], $args['id'], $value, '#ffffff');
+        $html  = sprintf('<input type="text" class="%1$s-text flexi-color-picker" id="%2$s[%3$s]" name="%2$s[%3$s]" value="%4$s" data-default-color="%5$s" />', $size, $args['section'], $args['id'], $value, '#ffffff');
         $html .= $this->get_field_description($args);
 
         echo $html;
