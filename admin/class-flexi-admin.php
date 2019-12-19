@@ -141,6 +141,13 @@ class Flexi_Admin
 			'manage_options',
 			'edit-tags.php?taxonomy=flexi_category&post_type=flexi'
 		);
+		add_submenu_page(
+			'flexi',
+			__('Flexi Tags', 'flexi'),
+			__('Tags', 'flexi'),
+			'manage_options',
+			'edit-tags.php?taxonomy=flexi_tag&post_type=flexi'
+		);
 	}
 
 	/**

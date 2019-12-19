@@ -422,7 +422,12 @@ class Flexi_Post_Types
                         'single'                => 'Flexi Category',
                         'post_types'            => array('flexi'),
                     ),
-
+                    array(
+                        'taxonomy'              => 'flexi_tag',
+                        'plural'                => 'Flexi Tags',
+                        'single'                => 'Flexi Tag',
+                        'post_types'            => array('flexi'),
+                    ),
                 ),
             ),
 
