@@ -241,7 +241,7 @@ class Flexi_Post_Types
 
                 'singular'              => 'Flexi Post',
                 'plural'                => 'Flexi Posts',
-                'menu_name'             => 'Flexi',
+                'menu_name'             => 'flexi',
 
                 /**
                  * A short description of what your post type is. As far as I know, this isn't used anywhere
@@ -342,7 +342,7 @@ class Flexi_Post_Types
                 /**
                  * Whether to show post type in the admin menu. 'show_ui' must be true for this to work.
                  */
-                'show_in_menu'          => true,
+                'show_in_menu'          => false,
 
                 /**
                  * Sets the query_var key for this post type. If set to TRUE, the post type name will be used.
@@ -359,7 +359,7 @@ class Flexi_Post_Types
                 /**
                  * Whether individual post type items are available for selection in navigation menus.
                  */
-                'show_in_nav_menus'     => true,
+                'show_in_nav_menus'     => false,
 
                 /**
                  * What WordPress features the post type supports.  Many arguments are strictly useful on

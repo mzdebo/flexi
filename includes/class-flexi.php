@@ -80,6 +80,11 @@ class Flexi
 		$this->set_locale();
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
+
+		// Path to the plugin directory
+		if (!defined('FLEXI_PLUGIN_DIR')) {
+			define('FLEXI_PLUGIN_DIR', plugin_dir_path(dirname(__FILE__)));
+		}
 	}
 
 	/**
@@ -165,6 +170,8 @@ class Flexi
 
 		$this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_styles');
 		$this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts');
+
+		$this->loader->add_action('admin_menu', $plugin_admin, 'admin_menu');
 	}
 
 	/**
