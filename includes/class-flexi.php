@@ -112,6 +112,11 @@ class Flexi
 		require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-flexi-post_types.php';
 
 		/**
+		 * Flexi setting class file
+		 */
+		require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-flexi-settings.php';
+
+		/**
 		 * The class responsible for orchestrating the actions and filters of the
 		 * core plugin.
 		 */
@@ -172,6 +177,11 @@ class Flexi
 		$this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts');
 
 		$this->loader->add_action('admin_menu', $plugin_admin, 'admin_menu');
+
+		//Settings
+		$settings = new FLEXI_Admin_Settings();
+		$this->loader->add_action('admin_menu', $settings, 'admin_menu');
+		$this->loader->add_action('admin_init', $settings, 'admin_init');
 	}
 
 	/**
