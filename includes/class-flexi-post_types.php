@@ -221,6 +221,36 @@ class Flexi_Post_Types
     }
 
     /**
+     * Move "Categories" submenu under our plugin's main menu.
+     *
+     * @since  1.6.5
+     * @param  string $parent_file The parent file.
+     * @return string $parent_file The parent file.
+     */
+    public function tag_parent_file($parent_file)
+    {
+        global $submenu_file, $current_screen;
+
+        if ('flexi_tag' == $current_screen->taxonomy) {
+            $submenu_file = 'edit-tags.php?taxonomy=flexi_tag&amp;post_type=flexi';
+            $parent_file  = 'flexi';
+        }
+
+        return $parent_file;
+    }
+    public function taxonomy_parent_file($parent_file)
+    {
+        global $submenu_file, $current_screen;
+
+        if ('flexi_category' == $current_screen->taxonomy) {
+            $submenu_file = 'edit-tags.php?taxonomy=flexi_category&amp;post_type=flexi';
+            $parent_file  = 'flexi';
+        }
+
+        return $parent_file;
+    }
+
+    /**
      * Create post types
      */
     public function create_custom_post_type()
@@ -427,6 +457,7 @@ class Flexi_Post_Types
                         'plural'                => 'Flexi Tags',
                         'single'                => 'Flexi Tag',
                         'post_types'            => array('flexi'),
+
                     ),
                 ),
             ),

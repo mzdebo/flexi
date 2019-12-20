@@ -110,7 +110,7 @@ class Flexi_Admin
 	public function admin_menu()
 	{
 		add_menu_page(
-			__('xxxx', 'flexi'),
+			__('flexi', 'flexi'),
 			__('Flexi Gallery', 'flexi'),
 			'manage_options',
 			'flexi',
@@ -134,19 +134,20 @@ class Flexi_Admin
 			'manage_options',
 			'edit.php?post_type=flexi'
 		);
+
 		add_submenu_page(
 			'flexi',
 			__('Flexi Categories', 'flexi'),
 			__('Categories', 'flexi'),
 			'manage_options',
-			'edit-tags.php?taxonomy=flexi_category&post_type=flexi'
+			'edit-tags.php?taxonomy=flexi_category&amp;post_type=flexi'
 		);
 		add_submenu_page(
 			'flexi',
 			__('Flexi Tags', 'flexi'),
 			__('Tags', 'flexi'),
 			'manage_options',
-			'edit-tags.php?taxonomy=flexi_tag&post_type=flexi'
+			'edit-tags.php?taxonomy=flexi_tag&amp;post_type=flexi'
 		);
 	}
 
@@ -157,7 +158,6 @@ class Flexi_Admin
 	 */
 	public function display_dashboard_content()
 	{
-
 		require FLEXI_PLUGIN_DIR  . 'admin/partials/dashboard.php';
 	}
 }

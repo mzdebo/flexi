@@ -171,8 +171,10 @@ class Flexi
 		//custom post type
 		$plugin_post_types = new Flexi_Post_Types();
 		$this->loader->add_action('init', $plugin_post_types, 'create_custom_post_type', 999);
-		$plugin_admin = new Flexi_Admin($this->get_plugin_name(), $this->get_version());
+		$this->loader->add_filter('parent_file', $plugin_post_types, 'tag_parent_file');
+		$this->loader->add_filter('parent_file', $plugin_post_types, 'taxonomy_parent_file');
 
+		$plugin_admin = new Flexi_Admin($this->get_plugin_name(), $this->get_version());
 		$this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_styles');
 		$this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts');
 
