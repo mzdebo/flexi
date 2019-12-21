@@ -106,6 +106,9 @@ class Flexi
 	private function load_dependencies()
 	{
 
+		// Flexi-gallery shortcode
+		require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-flexi-gallery.php';
+
 		/**
 		 * Custom Post Types (flexi & flexi_category)
 		 */
@@ -184,6 +187,9 @@ class Flexi
 		$settings = new FLEXI_Admin_Settings();
 		$this->loader->add_action('admin_menu', $settings, 'admin_menu');
 		$this->loader->add_action('admin_init', $settings, 'admin_init');
+
+		//Gallery shortcode [flexi_gallery]
+		$gallery = new Flexi_Public_Gallery();
 	}
 
 	/**
