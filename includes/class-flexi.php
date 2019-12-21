@@ -106,6 +106,10 @@ class Flexi
 	private function load_dependencies()
 	{
 
+		//Include common functions 
+		require_once plugin_dir_path(dirname(__FILE__)) . 'includes/functions.php';
+
+
 		// Flexi-gallery shortcode
 		require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-flexi-gallery.php';
 

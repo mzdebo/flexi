@@ -1,5 +1,5 @@
 <?php
 //Loop file for gallery
-echo the_post_thumbnail('thumbnail') . '<br>';
+echo "<img src='" . esc_url(flexi_image_src('thumbnail', $post)) . "'><br>";
 echo get_the_title();
 echo "<br>";
