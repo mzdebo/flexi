@@ -25,7 +25,7 @@ foreach ($this->sections as $section) {
 ?>
 
 <div id="flexi-settings" class="wrap flexi-settings">
-    <h1><?php esc_html_e('Plugin Settings', 'all-in-one-video-gallery'); ?></h1>
+    <h1><?php esc_html_e('Plugin Settings', 'flexi'); ?></h1>
 
     <?php settings_errors(); ?>
 
