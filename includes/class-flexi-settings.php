@@ -124,13 +124,14 @@ class FLEXI_Admin_Settings
                 'tab'   => 'general'
             ),
             array(
-                'id'    => 'flexi_player_settings',
-                'title' => __('Player Settings', 'flexi'),
+                'id'    => 'flexi_image_settings',
+                'title' => __('Image Settings', 'flexi'),
                 'tab'   => 'general'
             ),
+            
             array(
-                'id'    => 'flexi_videos_settings',
-                'title' => __('Videos Layout', 'flexi'),
+                'id'    => 'flexi_image_layout_settings',
+                'title' => __('Image Layout', 'flexi'),
                 'tab'   => 'gallery'
             ),
             array(
@@ -138,44 +139,32 @@ class FLEXI_Admin_Settings
                 'title' => __('Categories Layout', 'flexi'),
                 'tab'   => 'gallery'
             ),
-            array(
-                'id'    => 'flexi_video_settings',
-                'title' => __('Single Video Page', 'flexi'),
-                'tab'   => 'gallery'
-            ),
-            array(
-                'id'    => 'flexi_image_settings',
-                'title' => __('Image Settings', 'flexi'),
-                'tab'   => 'gallery'
-            ),
+           
+            
             array(
                 'id'    => 'flexi_page_settings',
-                'title' => __('Page Settings', 'flexi'),
+                'title' => __('Submission Form Settings', 'flexi'),
                 'tab'   => 'form'
+            ),
+            
+                      
+            array(
+                'id'    => 'flexi_page_settings',
+                'title' => __('Preview Settings', 'flexi'),
+                'tab'   => 'preview'
             ),
             array(
                 'id'          => 'flexi_permalink_settings',
                 'title'       => __('Permalink Slugs', 'flexi'),
                 'description' => __('NOTE: Just make sure that, after updating the fields in this section, you flush the rewrite rules by visiting "Settings > Permalinks". Otherwise you\'ll still see the old links.', 'flexi'),
-                'tab'         => 'form'
+                'tab'         => 'preview'
             ),
             array(
-                'id'          => 'flexi_socialshare_settings',
-                'title'       => __('Socialshare Buttons', 'flexi'),
-                'description' => __('Select social share buttons galleryed in the single video pages.', 'flexi'),
-                'tab'         => 'form'
+                'id'          => 'flexi_lightbox_settings',
+                'title'       => __('Popup Settings', 'flexi'),
+                'description' => __('NOTE: These settings are applied only if lightbox/popup is enabled.', 'flexi'),
+                'tab'         => 'preview'
             ),
-            array(
-                'id'          => 'flexi_privacy_settings',
-                'title'       => __('Privacy Settings', 'flexi'),
-                'description' => __('These options will help with privacy restrictions such as GDPR and the EU Cookie Law.', 'flexi'),
-                'tab'         => 'form'
-            ),
-            array(
-                'id'    => 'flexi_page_settings',
-                'title' => __('Preview Settings', 'flexi'),
-                'tab'   => 'preview'
-            )
         );
 
         return apply_filters('flexi_settings_sections', $sections);
@@ -199,336 +188,22 @@ class FLEXI_Admin_Settings
                     'type'              => 'pages',
                     'sanitize_callback' => 'sanitize_key'
                 ),
-                array(
-                    'name'              => 'delete_plugin_data',
-                    'label'             => __('Remove data on uninstall?', 'flexi'),
-                    'description'       => __('Check this box to delete all of the plugin data (database stored content) when uninstalled', 'flexi'),
-                    'type'              => 'checkbox',
-                    'sanitize_callback' => 'intval'
-                ),
-                array(
-                    'name'              => 'delete_media_files',
-                    'label'             => __('Delete media files?', 'flexi'),
-                    'description'       => __('Check this box to also delete the associated media files when a video post or a video category is deleted', 'flexi'),
-                    'type'              => 'checkbox',
-                    'sanitize_callback' => 'intval'
-                )
+                
             ),
-            'flexi_player_settings' => array(
-                array(
-                    'name'              => 'width',
-                    'label'             => __('Width', 'flexi'),
-                    'description'       => __('In pixels. Maximum width of the player. Leave this field empty to scale 100% of its enclosing container/html element.', 'flexi'),
-                    'type'              => 'text',
-                    'sanitize_callback' => 'flexi_sanitize_int'
-                ),
-                array(
-                    'name'              => 'ratio',
-                    'label'             => __('Ratio', 'flexi'),
-                    'description'       => sprintf(
-                        '%s<br /><br /><strong>%s:</strong><br />"56.25" - %s<br />"62.5" - %s<br />"75" - %s<br />"67" - %s<br />"100" - %s<br />"41.7" - %s',
-                        __("In percentage. 1 to 100. Calculate player's height using the ratio value entered.", 'flexi'),
-                        __('Examples', 'flexi'),
-                        __('Wide Screen TV', 'flexi'),
-                        __('Monitor Screens', 'flexi'),
-                        __('Classic TV', 'flexi'),
-                        __('Photo Camera', 'flexi'),
-                        __('Square', 'flexi'),
-                        __('Cinemascope', 'flexi')
-                    ),
-                    'type'              => 'text',
-                    'sanitize_callback' => 'floatval'
-                ),
-                array(
-                    'name'              => 'autoplay',
-                    'label'             => __('Autoplay', 'flexi'),
-                    'description'       => __('Check this to start playing the video as soon as it is ready', 'flexi'),
-                    'type'              => 'checkbox',
-                    'sanitize_callback' => 'intval'
-                ),
-                array(
-                    'name'              => 'loop',
-                    'label'             => __('Loop', 'flexi'),
-                    'description'       => __('Check this, so that the video will start over again, every time it is finished', 'flexi'),
-                    'type'              => 'checkbox',
-                    'sanitize_callback' => 'intval'
-                ),
-                array(
-                    'name'              => 'muted',
-                    'label'             => __('Muted', 'flexi'),
-                    'description'       => __('Check this to turn OFF the audio output of the video by default', 'flexi'),
-                    'type'              => 'checkbox',
-                    'sanitize_callback' => 'intval'
-                ),
-                array(
-                    'name'              => 'preload',
-                    'label'             => __('Preload', 'flexi'),
-                    'description'       => sprintf(
-                        '%s<br /><br />%s<br />%s<br />%s',
-                        __('Specifies if and how the video should be loaded when the page loads.', 'flexi'),
-                        __('"Auto" - the video should be loaded entirely when the page loads', 'flexi'),
-                        __('"Metadata" - only metadata should be loaded when the page loads', 'flexi'),
-                        __('"None" - the video should not be loaded when the page loads', 'flexi')
-                    ),
-                    'type'              => 'select',
-                    'options'           => array(
-                        'auto'     => __('Auto', 'flexi'),
-                        'metadata' => __('Metadata', 'flexi'),
-                        'none'     => __('None', 'flexi')
-                    ),
-                    'sanitize_callback' => 'sanitize_key'
-                ),
-                array(
-                    'name'              => 'controls',
-                    'label'             => __('Player Controls', 'flexi'),
-                    'description'       => '',
-                    'type'              => 'multicheck',
-                    'options'           => array(
-                        'playpause'  => __('Play / Pause', 'flexi'),
-                        'current'    => __('Current Time', 'flexi'),
-                        'progress'   => __('Progressbar', 'flexi'),
-                        'duration'   => __('Duration', 'flexi'),
-                        'tracks'     => __('Subtitles', 'flexi'),
-                        'volume'     => __('Volume', 'flexi'),
-                        'fullscreen' => __('Fullscreen', 'flexi')
-                    ),
-                    'sanitize_callback' => 'flexi_sanitize_array'
-                ),
-                array(
-                    'name'              => 'use_native_controls',
-                    'label'             => __('Use Native Controls', 'flexi'),
-                    'description'       => __('Enables native player controls on the selected source types. For example, uses YouTube Player for playing YouTube videos & Vimeo Player for playing Vimeo videos. Note that none of our custom player features will work on the selected sources.', 'flexi'),
-                    'type'              => 'multicheck',
-                    'options'           => array(
-                        'youtube'     => __('YouTube', 'flexi'),
-                        'vimeo'       => __('Vimeo', 'flexi'),
-                        'dailymotion' => __('Dailymotion', 'flexi'),
-                        'facebook'    => __('Facebook', 'flexi')
-                    ),
-                    'sanitize_callback' => 'flexi_sanitize_array'
-                )
-            ),
-            'flexi_videos_settings' => array(
+            
+            'flexi_image_layout_settings' => array(
 
-                array(
-                    'name'              => 'columns',
-                    'label'             => __('Columns', 'flexi'),
-                    'description'       => __('Enter the number of columns you like to have in the gallery view.', 'flexi'),
-                    'type'              => 'number',
-                    'min'               => 1,
-                    'max'               => 12,
-                    'step'              => 1,
-                    'sanitize_callback' => 'intval'
-                ),
-                array(
-                    'name'              => 'limit',
-                    'label'             => __('Limit (per page)', 'flexi'),
-                    'description'       => __('Number of videos to show per page. Use a value of "0" to show all videos.', 'flexi'),
-                    'type'              => 'number',
-                    'sanitize_callback' => 'intval'
-                ),
-                array(
-                    'name'              => 'orderby',
-                    'label'             => __('Order By', 'flexi'),
-                    'description'       => '',
-                    'type'              => 'select',
-                    'options'           => array(
-                        'title' => __('Title', 'flexi'),
-                        'date'  => __('Date Posted', 'flexi'),
-                        'views' => __('Views Count', 'flexi'),
-                        'rand'  => __('Random', 'flexi')
-                    ),
-                    'sanitize_callback' => 'sanitize_key'
-                ),
-                array(
-                    'name'              => 'order',
-                    'label'             => __('Order', 'flexi'),
-                    'description'       => '',
-                    'type'              => 'select',
-                    'options'           => array(
-                        'asc'  => __('Ascending', 'flexi'),
-                        'desc' => __('Descending', 'flexi')
-                    ),
-                    'sanitize_callback' => 'sanitize_key'
-                ),
-                array(
-                    'name'              => 'thumbnail_style',
-                    'label'             => __('Thumbnail Style', 'flexi'),
-                    'description'       => '',
-                    'type'              => 'select',
-                    'options'           => array(
-                        'standard'   => __('Image Top Aligned', 'flexi'),
-                        'image-left' => __('Image Left Aligned', 'flexi')
-                    ),
-                    'sanitize_callback' => 'sanitize_key'
-                ),
-                array(
-                    'name'              => 'gallery',
-                    'label'             => __('Show / Hide', 'flexi'),
-                    'description'       => '',
-                    'type'              => 'multicheck',
-                    'options'           => array(
-                        'count'    => __('Videos Count', 'flexi'),
-                        'category' => __('Category Name', 'flexi'),
-                        'date'     => __('Date Added', 'flexi'),
-                        'user'     => __('Author Name', 'flexi'),
-                        'views'    => __('Views Count', 'flexi'),
-                        'duration' => __('Video Duration', 'flexi'),
-                        'excerpt'  => __('Video Excerpt', 'flexi')
-                    ),
-                    'sanitize_callback' => 'flexi_sanitize_array'
-                ),
-                array(
-                    'name'              => 'excerpt_length',
-                    'label'             => __('Excerpt Length', 'flexi'),
-                    'description'       => __('Number of characters.', 'flexi'),
-                    'type'              => 'number',
-                    'sanitize_callback' => 'intval'
-                ),
+          
             ),
             'flexi_categories_settings' => array(
-                array(
-                    'name'              => 'template',
-                    'label'             => __('Select Template', 'flexi'),
-                    'description'       => '',
-                    'type'              => 'select',
-                    'options'           => array(
-                        'grid' => __('Grid', 'flexi'),
-                        'list' => __('List', 'flexi')
-                    ),
-                    'sanitize_callback' => 'sanitize_key'
-                ),
-                array(
-                    'name'              => 'columns',
-                    'label'             => __('Columns', 'flexi'),
-                    'description'       => __('Enter the number of columns you like to have in your categories page.', 'flexi'),
-                    'type'              => 'number',
-                    'min'               => 1,
-                    'max'               => 12,
-                    'step'              => 1,
-                    'sanitize_callback' => 'intval'
-                ),
-                array(
-                    'name'              => 'orderby',
-                    'label'             => __('Order by', 'flexi'),
-                    'description'       => '',
-                    'type'              => 'select',
-                    'options'           => array(
-                        'id'    => __('ID', 'flexi'),
-                        'count' => __('Count', 'flexi'),
-                        'name'  => __('Name', 'flexi'),
-                        'slug'  => __('Slug', 'flexi')
-                    ),
-                    'sanitize_callback' => 'sanitize_key'
-                ),
-                array(
-                    'name'              => 'order',
-                    'label'             => __('Order', 'flexi'),
-                    'description'       => '',
-                    'type'              => 'select',
-                    'options'           => array(
-                        'asc'  => __('Ascending', 'flexi'),
-                        'desc' => __('Descending', 'flexi')
-                    ),
-                    'sanitize_callback' => 'sanitize_key'
-                ),
-                array(
-                    'name'              => 'hierarchical',
-                    'label'             => __('Show Hierarchy', 'flexi'),
-                    'description'       => __('Check this to show the child categories', 'flexi'),
-                    'type'              => 'checkbox',
-                    'sanitize_callback' => 'intval'
-                ),
-                array(
-                    'name'              => 'show_description',
-                    'label'             => __('Show Description', 'flexi'),
-                    'description'       => __('Check this to show the categories description', 'flexi'),
-                    'type'              => 'checkbox',
-                    'sanitize_callback' => 'intval'
-                ),
-                array(
-                    'name'              => 'show_count',
-                    'label'             => __('Show Videos Count', 'flexi'),
-                    'description'       => __('Check this to show the videos count next to the category name', 'flexi'),
-                    'type'              => 'checkbox',
-                    'sanitize_callback' => 'intval'
-                ),
-                array(
-                    'name'              => 'hide_empty',
-                    'label'             => __('Hide Empty Categories', 'flexi'),
-                    'description'       => __('Check this to hide categories with no videos', 'flexi'),
-                    'type'              => 'checkbox',
-                    'sanitize_callback' => 'intval'
-                )
+                
             ),
-            'flexi_video_settings' => array(
-                array(
-                    'name'              => 'gallery',
-                    'label'             => __('Show / Hide', 'flexi'),
-                    'description'       => '',
-                    'type'              => 'multicheck',
-                    'options'           => array(
-                        'category' => __('Category Name', 'flexi'),
-                        'date'     => __('Date Added', 'flexi'),
-                        'user'     => __('Author Name', 'flexi'),
-                        'views'    => __('Views Count', 'flexi'),
-                        'related'  => __('Related Videos', 'flexi')
-                    ),
-                    'sanitize_callback' => 'flexi_sanitize_array'
-                ),
-                array(
-                    'name'              => 'has_comments',
-                    'label'             => __('Enable Comments', 'flexi'),
-                    'description'       => __('Allow visitors to comment videos using the standard WordPress comment form. Comments are public', 'flexi'),
-                    'type'              => 'checkbox',
-                    'sanitize_callback' => 'intval'
-                )
-            ),
+            
             'flexi_image_settings' => array(
-                array(
-                    'name'              => 'width',
-                    'label'             => __('Width', 'flexi'),
-                    'description'       => __('Always 100% of its enclosing container/html element.', 'flexi'),
-                    'type'              => 'html',
-                    'sanitize_callback' => 'flexi_sanitize_int'
-                ),
-                array(
-                    'name'              => 'ratio',
-                    'label'             => __('Ratio', 'flexi'),
-                    'description'       => __("In percentage. 1 to 100. Calculate images's height using the ratio value entered.", 'flexi'),
-                    'type'              => 'text',
-                    'sanitize_callback' => 'floatval'
-                ),
+                
             ),
             'flexi_page_settings' => array(
-                array(
-                    'name'              => 'category',
-                    'label'             => __('Single Category Page', 'flexi'),
-                    'description'       => __('This is the page where the videos from a particular category is galleryed. The [flexi_category] short code must be on this page.', 'flexi'),
-                    'type'              => 'pages',
-                    'sanitize_callback' => 'sanitize_key'
-                ),
-                array(
-                    'name'              => 'search',
-                    'label'             => __('Search Page', 'flexi'),
-                    'description'       => __('This is the page where the search results are galleryed. The [flexi_search] short code must be on this page.', 'flexi'),
-                    'type'              => 'pages',
-                    'sanitize_callback' => 'sanitize_key'
-                ),
-                array(
-                    'name'              => 'user_videos',
-                    'label'             => __('User Videos Page', 'flexi'),
-                    'description'       => __('This is the page where the videos from an user is galleryed. The [flexi_user_videos] short code must be on this page.', 'flexi'),
-                    'type'              => 'pages',
-                    'sanitize_callback' => 'sanitize_key'
-                ),
-                array(
-                    'name'              => 'player',
-                    'label'             => __('Player Page', 'flexi'),
-                    'description'       => __('This is the page used to show the video player.', 'flexi'),
-                    'type'              => 'pages',
-                    'sanitize_callback' => 'sanitize_key'
-                )
+                
             ),
             'flexi_permalink_settings' => array(
                 array(
@@ -539,45 +214,17 @@ class FLEXI_Admin_Settings
                     'sanitize_callback' => 'sanitize_text_field'
                 )
             ),
-            'flexi_socialshare_settings' => array(
+            'flexi_lightbox_settings' => array(
                 array(
-                    'name'              => 'services',
-                    'label'             => __('Enable Services', 'flexi'),
-                    'description'       => '',
-                    'type'              => 'multicheck',
-                    'options'           => array(
-                        'facebook'  => __('Facebook', 'flexi'),
-                        'twitter'   => __('Twitter', 'flexi'),
-                        'linkedin'  => __('Linkedin', 'flexi'),
-                        'pinterest' => __('Pinterest', 'flexi'),
-                        'whatsapp'  => __('WhatsApp', 'flexi')
-                    ),
-                    'sanitize_callback' => 'flexi_sanitize_array'
-                )
-            ),
-            'flexi_privacy_settings' => array(
-                array(
-                    'name'              => 'show_consent',
-                    'label'             => __('GDPR - Show Consent', 'flexi'),
-                    'description'       => __('Ask for consent before loading YouTube / Vimeo content.', 'flexi'),
+                    'name'              => 'lightbox_switch',
+                    'label'             => __('Enable Lightbox or Popup', 'flexi'),
+                    'description'       => __('If popup is unchecked, It will open content in single dedicated page.', 'flexi'),
                     'type'              => 'checkbox',
                     'sanitize_callback' => 'intval'
                 ),
-                array(
-                    'name'              => 'consent_message',
-                    'label'             => __('GDPR - Consent Message', 'flexi'),
-                    'description'       => '',
-                    'type'              => 'wysiwyg',
-                    'sanitize_callback' => 'wp_kses_post'
-                ),
-                array(
-                    'name'              => 'consent_button_label',
-                    'label'             => __('GDPR - Consent Button Label', 'flexi'),
-                    'description'       => '',
-                    'type'              => 'text',
-                    'sanitize_callback' => 'sanitize_text_field'
-                )
-            )
+            ),
+           
+            
         );
 
 

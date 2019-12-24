@@ -16,6 +16,7 @@ class Flexi_Public_Gallery
         $args = array(
             'post_type' => 'flexi',
             'order'   => 'DESC',
+            'posts_per_page' => '10',
         );
         if (!empty($args)) {
             //wp_reset_query();

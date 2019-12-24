@@ -53,6 +53,9 @@ class Flexi_Admin
 
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
+		if ( FLEXI_VERSION !== get_option( 'flexi_version' ) ) {	
+			$defaults = flexi_get_default_settings();
+		}
 	}
 
 	/**
