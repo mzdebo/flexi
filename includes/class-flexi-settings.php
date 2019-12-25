@@ -228,7 +228,7 @@ class FLEXI_Admin_Settings
                     'sanitize_callback' => 'sanitize_key'
                 ),
                 array(
-                    'name'              => 'edit_upg_page',
+                    'name'              => 'edit_flexi_page',
                     'label'             => __('Edit Flexi Post Page', 'flexi'),
                     'description'       => __('Page with shortcode [flexi-edit]. Lets visitor to edit submitted post.', 'flexi'),
                     'type'              => 'pages',
