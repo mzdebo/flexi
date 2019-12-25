@@ -131,7 +131,7 @@ class FLEXI_Admin_Settings
             
             array(
                 'id'    => 'flexi_image_layout_settings',
-                'title' => __('Image Layout', 'flexi'),
+                'title' => __('Gallery Layout', 'flexi'),
                 'tab'   => 'gallery'
             ),
             array(
@@ -142,15 +142,16 @@ class FLEXI_Admin_Settings
            
             
             array(
-                'id'    => 'flexi_page_settings',
+                'id'    => 'flexi_form_settings',
                 'title' => __('Submission Form Settings', 'flexi'),
                 'tab'   => 'form'
             ),
             
                       
             array(
-                'id'    => 'flexi_page_settings',
+                'id'    => 'flexi_preview_settings',
                 'title' => __('Preview Settings', 'flexi'),
+                'description' => __('Detail & Popup page displays full content.', 'flexi'),
                 'tab'   => 'preview'
             ),
             array(
@@ -159,12 +160,7 @@ class FLEXI_Admin_Settings
                 'description' => __('NOTE: Just make sure that, after updating the fields in this section, you flush the rewrite rules by visiting "Settings > Permalinks". Otherwise you\'ll still see the old links.', 'flexi'),
                 'tab'         => 'preview'
             ),
-            array(
-                'id'          => 'flexi_lightbox_settings',
-                'title'       => __('Popup Settings', 'flexi'),
-                'description' => __('NOTE: These settings are applied only if lightbox/popup is enabled.', 'flexi'),
-                'tab'         => 'preview'
-            ),
+           
         );
 
         return apply_filters('flexi_settings_sections', $sections);
@@ -192,11 +188,73 @@ class FLEXI_Admin_Settings
             ),
             
             'flexi_image_layout_settings' => array(
+                array(
+                    'name'              => 'main_page',
+                    'label'             => __('Main Gallery Page', 'flexi'),
+                    'description'       => __('Page with shortcode [flexi-gallery]', 'flexi'),
+                    'type'              => 'pages',
+                    'sanitize_callback' => 'sanitize_key'
+                ),
+                array(
+                    'name'              => 'my_gallery',
+                    'label'             => __('Member "My Gallery" Page', 'flexi'),
+                    'description'       => __('Page with shortcode [flexi-gallery user="show_mine"]. Display gallery of own posts.', 'flexi'),
+                    'type'              => 'pages',
+                    'sanitize_callback' => 'sanitize_key'
+                ),
 
           
             ),
-            'flexi_categories_settings' => array(
+            'flexi_form_settings' => array(
+                array(
+                    'name'              => 'publish',
+                    'label'             => __('Auto approve post', 'flexi'),
+                    'description'       => __('Automatically publish Post as soon as user submit.', 'flexi'),
+                    'type'              => 'checkbox',
+                    'sanitize_callback' => 'intval'
+                ),
+                array(
+                    'name'              => 'post_image_page',
+                    'label'             => __('Submission form for Image', 'flexi'),
+                    'description'       => __('Page which will be used at frontend to let users to submit images.', 'flexi'),
+                    'type'              => 'pages',
+                    'sanitize_callback' => 'sanitize_key'
+                ),
+                array(
+                    'name'              => 'post_embed_page',
+                    'label'             => __('Submission form for video URL', 'flexi'),
+                    'description'       => __('Frontend page to submit YouTube, Vimeo, DailyMotions & more 30+ video urls.', 'flexi'),
+                    'type'              => 'pages',
+                    'sanitize_callback' => 'sanitize_key'
+                ),
+                array(
+                    'name'              => 'edit_upg_page',
+                    'label'             => __('Edit Flexi Post Page', 'flexi'),
+                    'description'       => __('Page with shortcode [flexi-edit]. Lets visitor to edit submitted post.', 'flexi'),
+                    'type'              => 'pages',
+                    'sanitize_callback' => 'sanitize_key'
+                ),
+
+          
+            ),
+            'flexi_preview_settings' => array(
+                array(
+                    'name'              => 'lightbox_switch',
+                    'label'             => __('Enable Lightbox or Popup', 'flexi'),
+                    'description'       => __('If popup is unchecked, It will open content in single dedicated page.', 'flexi'),
+                    'type'              => 'checkbox',
+                    'sanitize_callback' => 'intval'
+                ),
                 
+            ),
+            'flexi_categories_settings' => array(
+                array(
+                    'name'              => 'global_album',
+                    'label'             => __('Default Post Category', 'flexi'),
+                    'description'       => __('This category will be selected if no category is assigned by visitor.', 'flexi'),
+                    'type'              => 'category',
+                    'sanitize_callback' => 'sanitize_key'
+                ),
             ),
             
             'flexi_image_settings' => array(
@@ -214,15 +272,7 @@ class FLEXI_Admin_Settings
                     'sanitize_callback' => 'sanitize_text_field'
                 )
             ),
-            'flexi_lightbox_settings' => array(
-                array(
-                    'name'              => 'lightbox_switch',
-                    'label'             => __('Enable Lightbox or Popup', 'flexi'),
-                    'description'       => __('If popup is unchecked, It will open content in single dedicated page.', 'flexi'),
-                    'type'              => 'checkbox',
-                    'sanitize_callback' => 'intval'
-                ),
-            ),
+           
            
             
         );
@@ -571,6 +621,36 @@ class FLEXI_Admin_Settings
         );
 
         $html  = wp_dropdown_pages($dropdown_args);
+        $html .= $this->get_field_description($args);
+
+        echo $html;
+    }
+
+     /**
+     * List categories
+     *
+     * @since 1.0.0
+     * @param array $args Settings field args.
+     */
+    public function callback_category($args)
+    {
+        $dropdown_args = array(
+            'show_option_none'  => '-- ' . __('Select category', 'flexi') . ' --',
+            'option_none_value' => -1,
+            'selected'          => esc_attr($this->get_option($args['id'], $args['section'], -1)),
+            'name'              => $args['section'] . '[' . $args['id'] . ']',
+            'id'                => $args['section'] . '[' . $args['id'] . ']',
+            'echo'              => 0,
+            'show_count' => 1,
+            'hierarchical' => 1,
+            'taxonomy' => 'flexi_category',
+            'value_field' => 'slug',
+            'hide_empty' => 0
+
+
+        );
+       
+        $html  =  wp_dropdown_categories($dropdown_args);
         $html .= $this->get_field_description($args);
 
         echo $html;
