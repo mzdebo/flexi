@@ -16,9 +16,11 @@ function flexi_image_src($size='thumbnail', $post = '')
     }
 }
 
-//Get link of the image based on lightbox enabled
-function flexi_image_link($size='full',$post='')
+//Get link and added attributes of the image based on lightbox
+function flexi_image_data($size='full',$post='')
 {
+    $data=array();
+    $data['title']=get_the_title();
     $lightbox_settings = get_option( 'flexi_lightbox_settings' );
     if ( empty( $lightbox_settings['lightbox_switch'] ) ) {
         $lightbox=false;
@@ -33,12 +35,15 @@ function flexi_image_link($size='full',$post='')
 
         if($lightbox)
         {
-            return flexi_image_src('full', $post);
+            $data['url']=flexi_image_src('full', $post);
+            $data['extra']='data-fancybox="image"';
         }
         else
         {
-            return get_permalink();
+            $data['url']=get_permalink();
+            $data['extra']='';
         }
+        return $data;
 }
 /**
  * Get default plugin settings.

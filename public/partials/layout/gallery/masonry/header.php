@@ -41,7 +41,21 @@
 .flexi_masonry-item:hover {
     filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, .3));
 }
+
+flexi_figcaption {
+    display: none;
+}
 </style>
+<script>
+jQuery(document).ready(function() {
+
+    jQuery('[data-fancybox]').fancybox({
+        caption: function(instance, item) {
+            return jQuery(this).find('flexi_figcaption').html();
+        }
+    });
+});
+</script>
 <div id="flexi_gallery">
     <flexi>
         <div class="flexi_masonry">
