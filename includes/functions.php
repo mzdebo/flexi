@@ -58,6 +58,33 @@ function flexi_get_default_settings() {
     return;	
 }
 
+/**
+ * Get the value of a settings field
+ *
+ * @param string $field_name settings field name
+ * @param string $section the section name this field belongs to
+ * @param string $default default text if it's not found
+ *
+ * @return mixed
+ */
+function flexi_get_option($field_name, $section = 'flexi_preview_settings', $default = '')
+{
+
+	$options = (array) get_option($section);
+
+    if (isset($options[$field_name])) 
+    {
+		return $options[$field_name];
+    } else 
+    {
+        //Set the default value if not found
+        flexi_set_option($field_name, $section, $default);
+		
+	}
+
+	return $default;
+}
+
 //Set options in settings
 function flexi_set_option($field_name, $section = 'flexi_general_settings', $default = '')
 {

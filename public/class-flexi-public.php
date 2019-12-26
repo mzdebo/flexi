@@ -102,5 +102,18 @@ class Flexi_Public
 
 		wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/flexi-public.js', array('jquery'), $this->version, false);
 		wp_enqueue_script($this->plugin_name.'_fancybox', plugin_dir_url(__FILE__) . 'js/jquery.fancybox.min.js', array('jquery'), $this->version, false);
+		
+		
+		// Localize the script with new data
+		$translation_array = array(
+			'delete_string' => __('Are you sure you want to delete?', 'flexi'),
+			'ajaxurl' => admin_url('admin-ajax.php'),
+		);
+
+		// register our main script but do not enqueue it yet
+		wp_register_script( 'flexi_load_more', plugin_dir_url(__FILE__) . 'js/flexi_load_more.js', array('jquery'),$this->version );
+	
+		wp_localize_script('flexi_load_more', 'myAjax', $translation_array);
+		wp_enqueue_script('flexi_load_more');
 	}
 }
