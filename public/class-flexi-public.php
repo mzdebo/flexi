@@ -103,7 +103,7 @@ class Flexi_Public
 		wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/flexi-public.js', array('jquery'), $this->version, false);
 		wp_enqueue_script($this->plugin_name.'_fancybox', plugin_dir_url(__FILE__) . 'js/jquery.fancybox.min.js', array('jquery'), $this->version, false);
 		
-		
+		global $wp_query; 
 		// Localize the script with new data
 		$translation_array = array(
 			'delete_string' => __('Are you sure you want to delete?', 'flexi'),

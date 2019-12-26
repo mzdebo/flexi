@@ -11,7 +11,6 @@ jQuery(document).ready(function() {
 
   jQuery(".flexi_load_more").click(function(e) {
     e.preventDefault();
-    post_id = jQuery(this).attr("data-post_id");
     gallery_layout = jQuery(this).attr("gallery_layout");
     popup = jQuery(this).attr("popup");
     max_paged = jQuery(this).attr("data-paged");
@@ -28,7 +27,6 @@ jQuery(document).ready(function() {
       url: myAjax.ajaxurl,
       data: {
         action: "flexi_load_more",
-        post_id: post_id,
         paged: paged,
         gallery_layout: gallery_layout,
         popup: popup

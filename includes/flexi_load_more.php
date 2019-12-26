@@ -7,7 +7,6 @@ function flexi_load_more()
 {
 	global $wp_query;
 	global $post;
-	$post_id = $_REQUEST["post_id"];
 	$paged = $_REQUEST["paged"];
 	$layout = $_REQUEST['gallery_layout'];
 	$popup = $_REQUEST['popup'];
