@@ -3,7 +3,8 @@
 require FLEXI_PLUGIN_DIR  . 'public/partials/layout/gallery/masonry/footer.php';
 
 //If AJAX loading is enabled
-if(false)
+$navigation=flexi_get_option('navigation', 'flexi_image_layout_settings', 'scroll');
+if($navigation=='scroll' || $navigation=='button')
 {
 // AJAX lazy loading
     echo "<div style='clear:both;'></div>";

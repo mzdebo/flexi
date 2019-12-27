@@ -202,7 +202,18 @@ class FLEXI_Admin_Settings
                     'type'              => 'pages',
                     'sanitize_callback' => 'sanitize_key'
                 ),
-
+                array(
+                    'name'              => 'navigation',
+                    'label'             => __( 'Navigation Style', 'flexi' ),
+                    'description'       => '',
+                    'type'              => 'radio',
+					'options'           => array(
+						'pagenavi'    => __( 'Page Number', 'flexi' ),
+						'button' => __( 'Load More Button', 'flexi' ),
+						'scroll'  => __( ' Mouse Scroll', 'flexi' )	
+					),
+					'sanitize_callback' => 'sanitize_key'
+                ),
           
             ),
             'flexi_form_settings' => array(

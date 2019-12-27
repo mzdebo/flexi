@@ -104,9 +104,10 @@ class Flexi_Public
 		wp_enqueue_script($this->plugin_name.'_fancybox', plugin_dir_url(__FILE__) . 'js/jquery.fancybox.min.js', array('jquery'), $this->version, false);
 		
 		//If basic page navigation
-		if(true)
+		$navigation=flexi_get_option('navigation', 'flexi_image_layout_settings', 'scroll');
+		if($navigation=='pagenavi')
 		{
-
+				//Not required for page navi
 		}
 		else
 		{
@@ -118,7 +119,7 @@ class Flexi_Public
 		);
 
 		//If scroll ajax is enabled 
-		if(true)
+		if($navigation=='scroll')
 		{
 			// register our main script but do not enqueue it yet
 			wp_register_script( 'flexi_load_more', plugin_dir_url(__FILE__) . 'js/flexi_load_more_scroll.js', array('jquery'),$this->version );
