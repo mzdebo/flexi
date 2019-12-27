@@ -11,10 +11,12 @@ jQuery(document).ready(function() {
 
   jQuery(".flexi_load_more").click(function(e) {
     e.preventDefault();
-    gallery_layout = jQuery(this).attr("gallery_layout");
-    popup = jQuery(this).attr("popup");
-    max_paged = jQuery(this).attr("data-paged");
-    reset = jQuery(this).attr("data-reset");
+    //gallery_layout = jQuery(this).attr("gallery_layout");
+    //popup = jQuery(this).attr("popup");
+    gallery_layout = jQuery("#gallery_layout").text();
+    popup = jQuery("#popup").text();
+    max_paged = jQuery("#paged").text();
+    reset = jQuery("#reset").text();
 
     if (reset == "true") {
       paged = 1;

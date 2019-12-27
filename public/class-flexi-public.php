@@ -103,6 +103,13 @@ class Flexi_Public
 		wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/flexi-public.js', array('jquery'), $this->version, false);
 		wp_enqueue_script($this->plugin_name.'_fancybox', plugin_dir_url(__FILE__) . 'js/jquery.fancybox.min.js', array('jquery'), $this->version, false);
 		
+		//If basic page navigation
+		if(true)
+		{
+
+		}
+		else
+		{
 		global $wp_query; 
 		// Localize the script with new data
 		$translation_array = array(
@@ -110,10 +117,20 @@ class Flexi_Public
 			'ajaxurl' => admin_url('admin-ajax.php'),
 		);
 
-		// register our main script but do not enqueue it yet
-		wp_register_script( 'flexi_load_more', plugin_dir_url(__FILE__) . 'js/flexi_load_more.js', array('jquery'),$this->version );
-	
+		//If scroll ajax is enabled 
+		if(true)
+		{
+			// register our main script but do not enqueue it yet
+			wp_register_script( 'flexi_load_more', plugin_dir_url(__FILE__) . 'js/flexi_load_more_scroll.js', array('jquery'),$this->version );
+		}
+		else
+		{
+			// register our main script but do not enqueue it yet
+			wp_register_script( 'flexi_load_more', plugin_dir_url(__FILE__) . 'js/flexi_load_more_button.js', array('jquery'),$this->version );
+
+		}
 		wp_localize_script('flexi_load_more', 'myAjax', $translation_array);
 		wp_enqueue_script('flexi_load_more');
+	}
 	}
 }
