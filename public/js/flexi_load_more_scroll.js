@@ -8,8 +8,8 @@ jQuery(document).ready(function() {
     e.preventDefault();
     gallery_layout = jQuery("#gallery_layout").text();
     popup = jQuery("#popup").text();
-    max_paged = jQuery(this).attr("data-paged");
-    reset = jQuery(this).attr("data-reset");
+    max_paged = jQuery("#paged").text();
+    reset = jQuery("#reset").text();
 
     if (reset == "true") {
       paged = 1;
@@ -51,6 +51,7 @@ jQuery(document).ready(function() {
           jQuery("#flexi_no_record").hide();
           // alert("response complete");
           if (paged > max_paged) {
+            //Stop scrolling. No more post left.
             canBeLoaded = false;
           }
         }
