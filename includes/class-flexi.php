@@ -197,6 +197,7 @@ class Flexi
 
 		//Gallery shortcode [flexi_gallery]
 		$gallery = new Flexi_Public_Gallery();
+				
 	}
 
 	/**

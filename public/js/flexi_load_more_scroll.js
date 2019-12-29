@@ -8,7 +8,7 @@ jQuery(document).ready(function() {
     e.preventDefault();
     gallery_layout = jQuery("#gallery_layout").text();
     popup = jQuery("#popup").text();
-    max_paged = jQuery("#paged").text();
+    max_paged = jQuery("#max_paged").text();
     reset = jQuery("#reset").text();
 
     if (reset == "true") {

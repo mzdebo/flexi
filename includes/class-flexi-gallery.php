@@ -2,17 +2,21 @@
 //[flexi-gallery] shortcode
 class Flexi_Public_Gallery
 {
-    public function __construct()
+	public function __construct()
     {
 
-        add_shortcode('flexi-gallery', array($this, 'flexi_gallery'));
+		add_shortcode('flexi-gallery', array($this, 'flexi_gallery'));
+		$query_arg=array();
+		$aa="..";
     }
 
+	
 
-    public function flexi_gallery($params)
+	public function flexi_gallery($params)
     {
         global $post;
-        global $wp_query;
+		global $wp_query;
+		
 
         //Album
         //Get redirected sub album
@@ -42,8 +46,8 @@ class Flexi_Public_Gallery
 
         //Page Navigation
         $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-        $postsperpage=1;
-        $perrow = 3;
+		$postsperpage=flexi_get_option('perpage', 'flexi_image_layout_settings', 10);
+        $perrow = flexi_get_option('perrow', 'flexi_image_layout_settings', 3);
         if (isset($params['perpage']) && $params['perpage'] > 0) $postsperpage = $params['perpage'];
         if (isset($params['perrow']) && $params['perrow'] > 0) $perrow = $params['perrow'];
         if (isset($params['page'])) $page = $params['page'];
@@ -78,9 +82,7 @@ class Flexi_Public_Gallery
 		else
 			$layout = 'masonry';
 
-        
-
-        if ($album != "" && $keyword != "")
+    if ($album != "" && $keyword != "")
 		$relation = "AND";
 	else
 		$relation = "OR";
@@ -131,7 +133,7 @@ class Flexi_Public_Gallery
 		//var_dump($args);
 
         if (!empty($args)) {
-            //wp_reset_query();
+	
             $query = new WP_Query($args);
             $count = 0;
             $put = "";
@@ -143,8 +145,10 @@ class Flexi_Public_Gallery
             endwhile;
             require FLEXI_PLUGIN_DIR  . 'public/partials/layout/gallery/attach_footer.php';
             $put = ob_get_clean();
-            wp_reset_query();
+			wp_reset_query();
+		
             return $put;
         }
-    }
+	}
+
 }

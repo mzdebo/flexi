@@ -10,7 +10,6 @@ function flexi_load_more()
 	$paged = $_REQUEST["paged"];
 	$layout = $_REQUEST['gallery_layout'];
 	$popup = $_REQUEST['popup'];
-	
 
 	ob_start();
 	
@@ -23,8 +22,8 @@ function flexi_load_more()
 	//var_dump($response);
 
 	//Default settings 
-	$postsperpage = 1;
-	$perrow = 1;
+	$postsperpage=flexi_get_option('perpage', 'flexi_image_layout_settings', 10);
+    $perrow = flexi_get_option('perrow', 'flexi_image_layout_settings', 3);
 	$orderby = '';
 	$page = '#';
 
@@ -53,8 +52,6 @@ function flexi_load_more()
 	$count = 0;
 	while ($query->have_posts()) : $query->the_post();
 		$count++;
-        
-        //echo get_the_title()."<br>";
         require FLEXI_PLUGIN_DIR  . 'public/partials/layout/gallery/masonry/loop.php';
 
 	endwhile;

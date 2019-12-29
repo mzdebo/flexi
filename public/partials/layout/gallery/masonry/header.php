@@ -1,6 +1,7 @@
 <style>
 .flexi_masonry {
-    columns: 1;
+    columns: <?php echo $perrow;
+    ?>;
     column-gap: 10px;
 }
 

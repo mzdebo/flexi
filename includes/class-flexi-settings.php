@@ -131,22 +131,21 @@ class FLEXI_Admin_Settings
             
             array(
                 'id'    => 'flexi_image_layout_settings',
-                'title' => __('Gallery Layout', 'flexi'),
+                'title' => __('Gallery Settings', 'flexi'),
                 'tab'   => 'gallery'
             ),
-            array(
-                'id'    => 'flexi_categories_settings',
-                'title' => __('Categories Layout', 'flexi'),
-                'tab'   => 'gallery'
-            ),
-           
+                     
             
             array(
                 'id'    => 'flexi_form_settings',
                 'title' => __('Submission Form Settings', 'flexi'),
                 'tab'   => 'form'
             ),
-            
+            array(
+                'id'    => 'flexi_categories_settings',
+                'title' => __('Category Settings', 'flexi'),
+                'tab'   => 'form'
+            ),
                       
             array(
                 'id'    => 'flexi_preview_settings',
@@ -200,6 +199,22 @@ class FLEXI_Admin_Settings
                     'label'             => __('Member "My Gallery" Page', 'flexi'),
                     'description'       => __('Page with shortcode [flexi-gallery user="show_mine"]. Display gallery of own posts.', 'flexi'),
                     'type'              => 'pages',
+                    'sanitize_callback' => 'sanitize_key'
+                ),
+                array(
+                    'name'              => 'perpage',
+                    'label'             => __('Post per page', 'flexi'),
+                    'description'       => __('Number of images/post/videos to be shown at a time.', 'flexi'),
+                    'type'              => 'number',
+                    'min' => '1',
+                    'sanitize_callback' => 'sanitize_key'
+                ),
+                array(
+                    'name'              => 'perrow',
+                    'label'             => __('Number of Columns', 'flexi'),
+                    'description'       => __('Maximum number of post to be shown horizontally. May automatically change based on screen size.', 'flexi'),
+                    'type'              => 'number',
+                    'min' => '1',
                     'sanitize_callback' => 'sanitize_key'
                 ),
                 array(
