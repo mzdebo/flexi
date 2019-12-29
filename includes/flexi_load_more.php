@@ -7,10 +7,15 @@ function flexi_load_more()
 {
 	global $wp_query;
 	global $post;
-	$paged = $_REQUEST["paged"];
+	$paged = $_REQUEST["max_paged"];
 	$layout = $_REQUEST['gallery_layout'];
 	$popup = $_REQUEST['popup'];
-
+	$album = $_REQUEST['album'];
+	$search =  $_REQUEST['search'];
+	$postsperpage= $_REQUEST['postsperpage'];
+	$orderby= $_REQUEST['orderby'];
+	$user= $_REQUEST['user'];
+	$keyword= $_REQUEST['keyword'];
 	ob_start();
 	
 	// A default response holder, which will have data for sending back to our js file
@@ -21,25 +26,58 @@ function flexi_load_more()
 
 	//var_dump($response);
 
-	//Default settings 
-	$postsperpage=flexi_get_option('perpage', 'flexi_image_layout_settings', 10);
-    $perrow = flexi_get_option('perrow', 'flexi_image_layout_settings', 3);
-	$orderby = '';
-	$page = '#';
+
+        //Publish Status
+        $post_status = array('publish');
+
+    
+    if ($album != "" && $keyword != "")
+		$relation = "AND";
+	else
+		$relation = "OR";
+
+	if ($album != "" || $keyword != "") {
+		$args = array(
+			'post_type' => 'flexi',
+			'paged' => $paged,
+			's' => $search,
+			'posts_per_page' => $postsperpage,
+			'orderby' => $orderby,
+			'order'   => 'DESC',
+			'author_name' => $user,
+			'tax_query' => array(
+				'relation' => $relation,
+				array(
+					'taxonomy' => 'flexi_category',
+					'field'    => 'slug',
+					'terms'    => explode(',', $album),
+					//'terms'    => array( 'mobile', 'sports' ),
+					//'include_children' => 0 //It will not include post of sub categories
+				),
+
+				array(
+					'taxonomy' => 'flexi_tag',
+					'field'    => 'slug',
+					'terms'    => explode(',', $keyword),
+					//'terms'    => array( 'mobile', 'sports' ),
+				),
+
+			)
+		);
+	} else {
+		$args = array(
+			'post_type' => 'flexi',
+			's' => $search,
+			'paged' => $paged,
+			'posts_per_page' => $postsperpage,
+			'author_name' => $user,
+			'post_status' => $post_status,
+			'orderby' => $orderby,
+			'order'   => 'DESC',
 
 
-
-	$post_status = array('publish');
-	$author_show = false;
-
-
-	$args = array(
-		'post_type' => 'flexi',
-		'posts_per_page' => $postsperpage,
-		'paged' => $paged,
-		'post_status' => $post_status,
-	);
-	//echo $post_id;
+		);
+	}
 
 	$query = new WP_Query($args);
 

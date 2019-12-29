@@ -9,6 +9,12 @@ jQuery(document).ready(function() {
     gallery_layout = jQuery("#gallery_layout").text();
     popup = jQuery("#popup").text();
     max_paged = jQuery("#max_paged").text();
+    album = jQuery("#album").text();
+    search = jQuery("#search").text();
+    postsperpage = jQuery("#postsperpage").text();
+    orderby = jQuery("#orderby").text();
+    user = jQuery("#user").text();
+    keyword = jQuery("#keyword").text();
     reset = jQuery("#reset").text();
 
     if (reset == "true") {
@@ -25,9 +31,15 @@ jQuery(document).ready(function() {
         url: myAjax.ajaxurl,
         data: {
           action: "flexi_load_more",
-          paged: paged,
+          max_paged: paged,
           gallery_layout: gallery_layout,
-          popup: popup
+          popup: popup,
+          album: album,
+          search: search,
+          postsperpage: postsperpage,
+          orderby: orderby,
+          user: user,
+          keyword: keyword
         },
         beforeSend: function() {
           //alert("about to send");
