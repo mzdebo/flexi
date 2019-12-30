@@ -116,6 +116,9 @@ class Flexi
 		// Flexi-gallery shortcode
 		require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-flexi-gallery.php';
 
+		// Flexi Detail page
+		require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-flexi-detail.php';
+
 		/**
 		 * Custom Post Types (flexi & flexi_category)
 		 */
@@ -197,6 +200,9 @@ class Flexi
 
 		//Gallery shortcode [flexi_gallery]
 		$gallery = new Flexi_Public_Gallery();
+
+		$detail = new Flexi_Public_Detail();
+		$this->loader->add_action( 'the_content', $detail, 'the_content', 20 );
 				
 	}
 

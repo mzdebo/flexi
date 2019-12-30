@@ -33,7 +33,7 @@ function flexi_image_data($size='full',$post='')
 {
     $data=array();
     $data['title']=get_the_title();
-    $lightbox_settings = get_option( 'flexi_preview_settings' );
+    $lightbox_settings = get_option( 'flexi_detail_settings' );
     if ( empty( $lightbox_settings['lightbox_switch'] ) ) {
         $lightbox=false;
     }
@@ -66,7 +66,7 @@ function flexi_image_data($size='full',$post='')
 function flexi_get_default_settings() {
     
     //Lightbox Enabled
-    flexi_set_option('lightbox_switch', 'flexi_preview_settings', 1);
+    flexi_set_option('lightbox_switch', 'flexi_detail_settings', 1);
     return;	
 }
 
@@ -79,7 +79,7 @@ function flexi_get_default_settings() {
  *
  * @return mixed
  */
-function flexi_get_option($field_name, $section = 'flexi_preview_settings', $default = '')
+function flexi_get_option($field_name, $section = 'flexi_detail_settings', $default = '')
 {
     //Example
     //flexi_get_option('field_name', 'setting_name', 'default_value');

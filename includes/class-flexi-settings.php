@@ -103,7 +103,7 @@ class FLEXI_Admin_Settings
             'general'  => __('General', 'flexi'),
             'gallery'  => __('Gallery', 'flexi'),
             'form' => __('Form', 'flexi'),
-            'preview' => __('Preview', 'flexi')
+            'detail' => __('Detail', 'flexi')
         );
 
         return apply_filters('flexi_settings_tabs', $tabs);
@@ -148,16 +148,16 @@ class FLEXI_Admin_Settings
             ),
                       
             array(
-                'id'    => 'flexi_preview_settings',
-                'title' => __('Preview Settings', 'flexi'),
+                'id'    => 'flexi_detail_settings',
+                'title' => __('Detail Page Settings', 'flexi'),
                 'description' => __('Detail & Popup page displays full content.', 'flexi'),
-                'tab'   => 'preview'
+                'tab'   => 'detail'
             ),
             array(
                 'id'          => 'flexi_permalink_settings',
-                'title'       => __('Permalink Slugs', 'flexi'),
+                'title'       => __('Permalink URL Slugs', 'flexi'),
                 'description' => __('NOTE: Just make sure that, after updating the fields in this section, you flush the rewrite rules by visiting "Settings > Permalinks". Otherwise you\'ll still see the old links.', 'flexi'),
-                'tab'         => 'preview'
+                'tab'         => 'detail'
             ),
            
         );
@@ -263,7 +263,7 @@ class FLEXI_Admin_Settings
 
           
             ),
-            'flexi_preview_settings' => array(
+            'flexi_detail_settings' => array(
                 array(
                     'name'              => 'lightbox_switch',
                     'label'             => __('Enable Lightbox or Popup', 'flexi'),

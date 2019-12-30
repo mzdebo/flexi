@@ -74,7 +74,7 @@ class Flexi_Public_Gallery
 		if (isset($params['popup']))
 		$popup  = $params['popup'];
 	else
-		$popup = flexi_get_option('lightbox_switch', 'flexi_preview_settings', 1);
+		$popup = flexi_get_option('lightbox_switch', 'flexi_detail_settings', 1);
 
         //Layout
         if (isset($params['layout']))
