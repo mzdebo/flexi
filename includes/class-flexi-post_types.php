@@ -267,8 +267,8 @@ class Flexi_Post_Types
                 /**
                  * Post type name/slug. Max of 20 characters! Uppercase and spaces not allowed.
                  */
-                'slug'                  => 'flexi',
 
+                'slug'                  => 'flexi',
                 'singular'              => 'Flexi Post',
                 'plural'                => 'Flexi Posts',
                 'menu_name'             => 'flexi',
@@ -309,7 +309,7 @@ class Flexi_Post_Types
                  */
                 'rewrite' => array(
                     /* The slug to use for individual posts of this type. */
-                    'slug'       => 'flexi', // string (defaults to the post type name)
+                    'slug'       => flexi_get_option('slug', 'flexi_permalink_settings', 'flexi'), // string (defaults to the post type name)
                     /* Whether to show the $wp_rewrite->front slug in the permalink. */
                     'with_front' => true, // bool (defaults to TRUE)
                     /* Whether to allow single post pagination via the <!--nextpage--> quicktag. */

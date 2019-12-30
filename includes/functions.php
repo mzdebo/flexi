@@ -81,6 +81,8 @@ function flexi_get_default_settings() {
  */
 function flexi_get_option($field_name, $section = 'flexi_preview_settings', $default = '')
 {
+    //Example
+    //flexi_get_option('field_name', 'setting_name', 'default_value');
 
 	$options = (array) get_option($section);
 
@@ -100,7 +102,8 @@ function flexi_get_option($field_name, $section = 'flexi_preview_settings', $def
 //Set options in settings
 function flexi_set_option($field_name, $section = 'flexi_general_settings', $default = '')
 {
-
+//Example
+//flexi_set_option('field_name', 'setting_name', 'default_value');
     $options = (array) get_option($section);
    	$options[$field_name] = $default;
 	update_option($section, $options);

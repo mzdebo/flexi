@@ -291,9 +291,9 @@ class FLEXI_Admin_Settings
             ),
             'flexi_permalink_settings' => array(
                 array(
-                    'name'              => 'video',
-                    'label'             => __('Video Detail Page', 'flexi'),
-                    'description'       => __('Replaces the SLUG value used by custom post type "flexi_videos".', 'flexi'),
+                    'name'              => 'slug',
+                    'label'             => __('Image Detail Page', 'flexi'),
+                    'description'       => __('Replaces the SLUG value used by custom post type "flexi".', 'flexi'),
                     'type'              => 'text',
                     'sanitize_callback' => 'sanitize_text_field'
                 )
