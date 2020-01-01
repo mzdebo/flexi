@@ -30,239 +30,248 @@
 class Flexi
 {
 
-	/**
-	 * The loader that's responsible for maintaining and registering all hooks that power
-	 * the plugin.
-	 *
-	 * @since    1.0.0
-	 * @access   protected
-	 * @var      Flexi_Loader    $loader    Maintains and registers all hooks for the plugin.
-	 */
-	protected $loader;
+ /**
+  * The loader that's responsible for maintaining and registering all hooks that power
+  * the plugin.
+  *
+  * @since    1.0.0
+  * @access   protected
+  * @var      Flexi_Loader    $loader    Maintains and registers all hooks for the plugin.
+  */
+ protected $loader;
 
-	/**
-	 * The unique identifier of this plugin.
-	 *
-	 * @since    1.0.0
-	 * @access   protected
-	 * @var      string    $plugin_name    The string used to uniquely identify this plugin.
-	 */
-	protected $plugin_name;
+ /**
+  * The unique identifier of this plugin.
+  *
+  * @since    1.0.0
+  * @access   protected
+  * @var      string    $plugin_name    The string used to uniquely identify this plugin.
+  */
+ protected $plugin_name;
 
-	/**
-	 * The current version of the plugin.
-	 *
-	 * @since    1.0.0
-	 * @access   protected
-	 * @var      string    $version    The current version of the plugin.
-	 */
-	protected $version;
+ /**
+  * The current version of the plugin.
+  *
+  * @since    1.0.0
+  * @access   protected
+  * @var      string    $version    The current version of the plugin.
+  */
+ protected $version;
 
-	/**
-	 * Define the core functionality of the plugin.
-	 *
-	 * Set the plugin name and the plugin version that can be used throughout the plugin.
-	 * Load the dependencies, define the locale, and set the hooks for the admin area and
-	 * the public-facing side of the site.
-	 *
-	 * @since    1.0.0
-	 */
-	public function __construct()
-	{
-		if (defined('FLEXI_VERSION')) {
-			$this->version = FLEXI_VERSION;
-		} else {
-			$this->version = '1.0.0';
-		}
-		$this->plugin_name = 'flexi';
+ /**
+  * Define the core functionality of the plugin.
+  *
+  * Set the plugin name and the plugin version that can be used throughout the plugin.
+  * Load the dependencies, define the locale, and set the hooks for the admin area and
+  * the public-facing side of the site.
+  *
+  * @since    1.0.0
+  */
+ public function __construct()
+ {
+  if (defined('FLEXI_VERSION')) {
+   $this->version = FLEXI_VERSION;
+  } else {
+   $this->version = '1.0.0';
+  }
+  $this->plugin_name = 'flexi';
 
-		$this->load_dependencies();
-		$this->set_locale();
-		$this->define_admin_hooks();
-		$this->define_public_hooks();
+  $this->load_dependencies();
+  $this->set_locale();
+  $this->define_admin_hooks();
+  $this->define_public_hooks();
 
-		// Path to the plugin directory
-		if (!defined('FLEXI_PLUGIN_DIR')) {
-			define('FLEXI_PLUGIN_DIR', plugin_dir_path(dirname(__FILE__)));
-		}
-	}
+  // Path to the plugin directory
+  if (!defined('FLEXI_PLUGIN_DIR')) {
+   define('FLEXI_PLUGIN_DIR', plugin_dir_path(dirname(__FILE__)));
+  }
+ }
 
-	/**
-	 * Load the required dependencies for this plugin.
-	 *
-	 * Include the following files that make up the plugin:
-	 *
-	 * - Flexi_Loader. Orchestrates the hooks of the plugin.
-	 * - Flexi_i18n. Defines internationalization functionality.
-	 * - Flexi_Admin. Defines all hooks for the admin area.
-	 * - Flexi_Public. Defines all hooks for the public side of the site.
-	 *
-	 * Create an instance of the loader which will be used to register the hooks
-	 * with WordPress.
-	 *
-	 * @since    1.0.0
-	 * @access   private
-	 */
-	private function load_dependencies()
-	{
+ /**
+  * Load the required dependencies for this plugin.
+  *
+  * Include the following files that make up the plugin:
+  *
+  * - Flexi_Loader. Orchestrates the hooks of the plugin.
+  * - Flexi_i18n. Defines internationalization functionality.
+  * - Flexi_Admin. Defines all hooks for the admin area.
+  * - Flexi_Public. Defines all hooks for the public side of the site.
+  *
+  * Create an instance of the loader which will be used to register the hooks
+  * with WordPress.
+  *
+  * @since    1.0.0
+  * @access   private
+  */
+ private function load_dependencies()
+ {
+  //Include CMB2 Framework
+  require_once plugin_dir_path(dirname(__FILE__)) . 'includes/cmb2/init.php';
 
-		//Include common functions 
-		require_once plugin_dir_path(dirname(__FILE__)) . 'includes/functions.php';
+  //Include common functions
+  require_once plugin_dir_path(dirname(__FILE__)) . 'includes/functions.php';
 
-		//Load More on gallery scroll
-		require_once plugin_dir_path(dirname(__FILE__)) . 'includes/flexi_load_more.php';
+  //Load More on gallery scroll
+  require_once plugin_dir_path(dirname(__FILE__)) . 'includes/flexi_load_more.php';
 
+  // Flexi-gallery shortcode
+  require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-flexi-gallery.php';
 
-		// Flexi-gallery shortcode
-		require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-flexi-gallery.php';
+  // Flexi Detail page
+  require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-flexi-detail.php';
 
-		// Flexi Detail page
-		require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-flexi-detail.php';
+  /**
+   * Custom Post Types (flexi & flexi_category)
+   */
+  require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-flexi-post_types.php';
 
-		/**
-		 * Custom Post Types (flexi & flexi_category)
-		 */
-		require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-flexi-post_types.php';
+//Generate meta-boxes
+  require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-flexi-metabox.php';
 
-		/**
-		 * Flexi setting class file
-		 */
-		require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-flexi-settings.php';
+  /**
+   * Flexi setting class file
+   */
+  require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-flexi-settings.php';
 
-		/**
-		 * The class responsible for orchestrating the actions and filters of the
-		 * core plugin.
-		 */
-		require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-flexi-loader.php';
+  /**
+   * The class responsible for orchestrating the actions and filters of the
+   * core plugin.
+   */
+  require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-flexi-loader.php';
 
-		/**
-		 * The class responsible for defining internationalization functionality
-		 * of the plugin.
-		 */
-		require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-flexi-i18n.php';
+  /**
+   * The class responsible for defining internationalization functionality
+   * of the plugin.
+   */
+  require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-flexi-i18n.php';
 
-		/**
-		 * The class responsible for defining all actions that occur in the admin area.
-		 */
-		require_once plugin_dir_path(dirname(__FILE__)) . 'admin/class-flexi-admin.php';
+  /**
+   * The class responsible for defining all actions that occur in the admin area.
+   */
+  require_once plugin_dir_path(dirname(__FILE__)) . 'admin/class-flexi-admin.php';
 
-		/**
-		 * The class responsible for defining all actions that occur in the public-facing
-		 * side of the site.
-		 */
-		require_once plugin_dir_path(dirname(__FILE__)) . 'public/class-flexi-public.php';
+  /**
+   * The class responsible for defining all actions that occur in the public-facing
+   * side of the site.
+   */
+  require_once plugin_dir_path(dirname(__FILE__)) . 'public/class-flexi-public.php';
 
-		$this->loader = new Flexi_Loader();
-	}
+  $this->loader = new Flexi_Loader();
+ }
 
-	/**
-	 * Define the locale for this plugin for internationalization.
-	 *
-	 * Uses the Flexi_i18n class in order to set the domain and to register the hook
-	 * with WordPress.
-	 *
-	 * @since    1.0.0
-	 * @access   private
-	 */
-	private function set_locale()
-	{
+ /**
+  * Define the locale for this plugin for internationalization.
+  *
+  * Uses the Flexi_i18n class in order to set the domain and to register the hook
+  * with WordPress.
+  *
+  * @since    1.0.0
+  * @access   private
+  */
+ private function set_locale()
+ {
 
-		$plugin_i18n = new Flexi_i18n();
+  $plugin_i18n = new Flexi_i18n();
 
-		$this->loader->add_action('plugins_loaded', $plugin_i18n, 'load_plugin_textdomain');
-	}
+  $this->loader->add_action('plugins_loaded', $plugin_i18n, 'load_plugin_textdomain');
+ }
 
-	/**
-	 * Register all of the hooks related to the admin area functionality
-	 * of the plugin.
-	 *
-	 * @since    1.0.0
-	 * @access   private
-	 */
-	private function define_admin_hooks()
-	{
-		//custom post type
-		$plugin_post_types = new Flexi_Post_Types();
-		$this->loader->add_action('init', $plugin_post_types, 'create_custom_post_type', 999);
-		$this->loader->add_filter('parent_file', $plugin_post_types, 'tag_parent_file');
-		$this->loader->add_filter('parent_file', $plugin_post_types, 'taxonomy_parent_file');
+ /**
+  * Register all of the hooks related to the admin area functionality
+  * of the plugin.
+  *
+  * @since    1.0.0
+  * @access   private
+  */
+ private function define_admin_hooks()
+ {
+  //custom post type
+  $plugin_post_types = new Flexi_Post_Types();
+  $this->loader->add_action('init', $plugin_post_types, 'create_custom_post_type', 999);
+  $this->loader->add_filter('parent_file', $plugin_post_types, 'tag_parent_file');
+  $this->loader->add_filter('parent_file', $plugin_post_types, 'taxonomy_parent_file');
 
-		$plugin_admin = new Flexi_Admin($this->get_plugin_name(), $this->get_version());
-		$this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_styles');
-		$this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts');
+  $plugin_admin = new Flexi_Admin($this->get_plugin_name(), $this->get_version());
+  $this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_styles');
+  $this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts');
 
-		$this->loader->add_action('admin_menu', $plugin_admin, 'admin_menu');
+  $this->loader->add_action('admin_menu', $plugin_admin, 'admin_menu');
 
-		//Settings
-		$settings = new FLEXI_Admin_Settings();
-		$this->loader->add_action('admin_menu', $settings, 'admin_menu');
-		$this->loader->add_action('admin_init', $settings, 'admin_init');
+  //Settings
+  $settings = new FLEXI_Admin_Settings();
+  $this->loader->add_action('admin_menu', $settings, 'admin_menu');
+  $this->loader->add_action('admin_init', $settings, 'admin_init');
 
-		//Gallery shortcode [flexi_gallery]
-		$gallery = new Flexi_Public_Gallery();
+  //Gallery shortcode [flexi_gallery]
+  $gallery = new Flexi_Public_Gallery();
 
-		$detail = new Flexi_Public_Detail();
-		$this->loader->add_action( 'the_content', $detail, 'the_content', 20 );
-				
-	}
+  //Detail Page
+  $detail = new Flexi_Public_Detail();
+  $this->loader->add_action('the_content', $detail, 'the_content', 20);
 
-	/**
-	 * Register all of the hooks related to the public-facing functionality
-	 * of the plugin.
-	 *
-	 * @since    1.0.0
-	 * @access   private
-	 */
-	private function define_public_hooks()
-	{
+//Generate Meta-box
+  $meta = new Flexi_Meta_boxes();
+  $this->loader->add_action('cmb2_admin_init', $meta, 'register_meta_box');
 
-		$plugin_public = new Flexi_Public($this->get_plugin_name(), $this->get_version());
+ }
 
-		$this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_styles');
-		$this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_scripts');
-	}
+ /**
+  * Register all of the hooks related to the public-facing functionality
+  * of the plugin.
+  *
+  * @since    1.0.0
+  * @access   private
+  */
+ private function define_public_hooks()
+ {
 
-	/**
-	 * Run the loader to execute all of the hooks with WordPress.
-	 *
-	 * @since    1.0.0
-	 */
-	public function run()
-	{
-		$this->loader->run();
-	}
+  $plugin_public = new Flexi_Public($this->get_plugin_name(), $this->get_version());
 
-	/**
-	 * The name of the plugin used to uniquely identify it within the context of
-	 * WordPress and to define internationalization functionality.
-	 *
-	 * @since     1.0.0
-	 * @return    string    The name of the plugin.
-	 */
-	public function get_plugin_name()
-	{
-		return $this->plugin_name;
-	}
+  $this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_styles');
+  $this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_scripts');
+ }
 
-	/**
-	 * The reference to the class that orchestrates the hooks with the plugin.
-	 *
-	 * @since     1.0.0
-	 * @return    Flexi_Loader    Orchestrates the hooks of the plugin.
-	 */
-	public function get_loader()
-	{
-		return $this->loader;
-	}
+ /**
+  * Run the loader to execute all of the hooks with WordPress.
+  *
+  * @since    1.0.0
+  */
+ public function run()
+ {
+  $this->loader->run();
+ }
 
-	/**
-	 * Retrieve the version number of the plugin.
-	 *
-	 * @since     1.0.0
-	 * @return    string    The version number of the plugin.
-	 */
-	public function get_version()
-	{
-		return $this->version;
-	}
+ /**
+  * The name of the plugin used to uniquely identify it within the context of
+  * WordPress and to define internationalization functionality.
+  *
+  * @since     1.0.0
+  * @return    string    The name of the plugin.
+  */
+ public function get_plugin_name()
+ {
+  return $this->plugin_name;
+ }
+
+ /**
+  * The reference to the class that orchestrates the hooks with the plugin.
+  *
+  * @since     1.0.0
+  * @return    Flexi_Loader    Orchestrates the hooks of the plugin.
+  */
+ public function get_loader()
+ {
+  return $this->loader;
+ }
+
+ /**
+  * Retrieve the version number of the plugin.
+  *
+  * @since     1.0.0
+  * @return    string    The version number of the plugin.
+  */
+ public function get_version()
+ {
+  return $this->version;
+ }
 }
