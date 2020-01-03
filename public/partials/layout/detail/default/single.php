@@ -1,2 +1,3 @@
 <?php
-echo "am liking it";
+echo "<img src='" . flexi_image_src('large') . "' >";
+echo "<br>am liking it";

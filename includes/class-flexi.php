@@ -105,6 +105,12 @@ class Flexi
   */
  private function load_dependencies()
  {
+  //[flexi-form] & [flexi-form-tag] shortcode
+  require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-flexi-form.php';
+
+  //Render HTML Form tags
+  require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-flexi-html_form.php';
+
   //Include CMB2 Framework
   require_once plugin_dir_path(dirname(__FILE__)) . 'includes/cmb2/init.php';
 
@@ -114,7 +120,7 @@ class Flexi
   //Load More on gallery scroll
   require_once plugin_dir_path(dirname(__FILE__)) . 'includes/flexi_load_more.php';
 
-  // Flexi-gallery shortcode
+  // [Flexi-gallery] shortcode
   require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-flexi-gallery.php';
 
   // Flexi Detail page
@@ -203,7 +209,7 @@ class Flexi
   $this->loader->add_action('admin_init', $settings, 'admin_init');
 
   //Gallery shortcode [flexi_gallery]
-  $gallery = new Flexi_Public_Gallery();
+  $gallery = new Flexi_Shortcode_Gallery();
 
   //Detail Page
   $detail = new Flexi_Public_Detail();
@@ -212,6 +218,9 @@ class Flexi
 //Generate Meta-box
   $meta = new Flexi_Meta_boxes();
   $this->loader->add_action('cmb2_admin_init', $meta, 'register_meta_box');
+
+  //[flexi-form] & [flexi-form-tag]
+  $form = new Flexi_Shortcode_Form();
 
  }
 
