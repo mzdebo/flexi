@@ -17,10 +17,10 @@ class Flexi_Shortcode_Form
   add_shortcode('flexi-form-tag', array($this, 'render_tags'));
  }
 
- public function render_form($params, $content = null)
+ //Get values of submitted form and send back array with it's values
+ public function get_form_params()
  {
-
-  $attr = shortcode_atts(array(
+  $value = array(
    'class'         => 'pure-form pure-form-stacked',
    'title'         => 'Submit',
    'preview'       => 'default',
@@ -30,7 +30,16 @@ class Flexi_Shortcode_Form
    'tag_taxonomy'  => 'flexi_tag',
    'ajax'          => 'true',
    'media_private' => 'false',
-  ), $params);
+  );
+
+  return $value;
+
+ }
+
+ public function render_form($params, $content = null)
+ {
+
+  $attr = shortcode_atts($this->get_form_params(), $params);
 
   $abc = "";
   ob_start();
@@ -41,13 +50,51 @@ class Flexi_Shortcode_Form
 
   } else {
 
-   ?>
+   if ('false' == $attr['ajax']) {
 
-    <?php
-if ('false' == $attr['ajax']) {
     echo '<form class="' . $attr['class'] . '" method="post" enctype="multipart/form-data" action="">';
+
    } else {
-    echo '<div id="flexi_form">
+
+    ?>
+
+    <div id="flexi_ajax">
+
+        <!-- Image loader -->
+        <div id='flexi_loader' style='display: none;'>
+
+            <br>
+            <?php echo __("Uploading", "flexi"); ?>
+            <div class="flexi_progress-bar">
+                <span id="flexi_progress" class="flexi_progress-bar-load" style="width: 0%;text-align: center;"></span>
+            </div>
+            <br>
+            <?php echo __("Processing", "flexi"); ?>
+            <div class="flexi_progress-bar">
+                <span id="flexi_progress_process" class="flexi_progress-bar-process" style="width: 0%;text-align: center;"></span>
+            </div>
+
+
+        </div>
+
+
+        <div class='flexi_response'></div>
+        <div id="flexi_after_response" style='display: none;'>
+            <a href='<?php echo admin_url('admin-ajax.php?action=flexi_send_again&post_id=' . get_the_ID()); ?>' class='flexi_send_again'>
+                <?php echo __('Post again', 'flexi'); ?>
+            </a> |
+            <?php
+if (flexi_get_option('my_gallery', 'flexi_image_layout_settings', '0') != '0') {
+     echo "<a href='" . esc_url(get_page_link(flexi_get_option('my_gallery', 'flexi_image_layout_settings', '0') != '0')) . "' >" . __('My Gallery', 'flexi') . "</a>";
+    }
+
+    ?>
+        </div>
+
+    </div>
+
+<?php
+echo '<div id="flexi_form">
 <form
 id="flexi-request-form"
 class="flexi_ajax_post ' . $attr['class'] . '"
@@ -65,6 +112,7 @@ action="' . admin_url("admin-ajax.php") . '"
    echo '<input type="hidden" name="form_name" value="' . $attr['name'] . '">';
    echo '<input type="hidden" name="media_private" value="' . $attr['media_private'] . '">';
    echo '<input type="hidden" name="form_attach" value="' . $attr['id'] . '">';
+   echo '<input type="hidden" name="upload_type" value="flexi">';
 
    echo '</form></div>';
 

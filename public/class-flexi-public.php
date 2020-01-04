@@ -103,6 +103,7 @@ class Flexi_Public
   wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/flexi-public.js', array('jquery'), $this->version, false);
   wp_enqueue_script($this->plugin_name . '_fancybox', plugin_dir_url(__FILE__) . 'js/jquery.fancybox.min.js', array('jquery'), $this->version, false);
   wp_enqueue_script($this->plugin_name . '_tags', plugin_dir_url(__FILE__) . '/js/jquery.tagsinput.js', '', $this->version, false);
+
   //If basic page navigation
   $navigation = flexi_get_option('navigation', 'flexi_image_layout_settings', 'scroll');
   if ('pagenavi' == $navigation) {
@@ -124,8 +125,15 @@ class Flexi_Public
     wp_register_script('flexi_load_more', plugin_dir_url(__FILE__) . 'js/flexi_load_more_button.js', array('jquery'), $this->version);
 
    }
+
    wp_localize_script('flexi_load_more', 'myAjax', $translation_array);
    wp_enqueue_script('flexi_load_more');
+
+   //Ajax form submission
+   wp_register_script('flexi_ajax_post', plugin_dir_url(__FILE__) . 'js/flexi_ajax_post.js', array('jquery'), $this->version);
+   //wp_localize_script('flexi_ajax_post', 'myAjax', $translation_array);
+   wp_enqueue_script('flexi_ajax_post');
+
   }
  }
 }

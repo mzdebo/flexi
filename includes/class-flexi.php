@@ -120,6 +120,9 @@ class Flexi
   //Load More on gallery scroll
   require_once plugin_dir_path(dirname(__FILE__)) . 'includes/flexi_load_more.php';
 
+  //Load Ajax form submit
+  require_once plugin_dir_path(dirname(__FILE__)) . 'includes/flexi_ajax_post.php';
+
   // [Flexi-gallery] shortcode
   require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-flexi-gallery.php';
 
