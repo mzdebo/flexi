@@ -67,7 +67,7 @@ class Flexi_Shortcode_Form
             </a> |
             <?php
 if (flexi_get_option('my_gallery', 'flexi_image_layout_settings', '0') != '0') {
-     echo "<a href='" . esc_url(get_page_link(flexi_get_option('my_gallery', 'flexi_image_layout_settings', '0') != '0')) . "' >" . __('My Gallery', 'flexi') . "</a>";
+     echo "<a href='" . esc_url(get_page_link(flexi_get_option('my_gallery', 'flexi_image_layout_settings', '0'))) . "' >" . __('My Gallery', 'flexi') . "</a>";
     }
 
     ?>
@@ -117,7 +117,7 @@ action="' . admin_url("admin-ajax.php") . '"
   $content  = '';
   $category = '';
 
-  var_dump($attr);
+  //var_dump($attr);
 
   $files = array();
   if (isset($_FILES['user-submitted-image'])) {
@@ -161,13 +161,13 @@ action="' . admin_url("admin-ajax.php") . '"
 
    if (flexi_get_option('publish', 'flexi_form_settings', 1) == 1) {
 
-    echo "<h2>" . __('Successfully posted.', 'flexi') . "</h2>";
+    echo "<div class='flexi_success'>" . __('Successfully posted.', 'flexi') . "</div>";
 
     if (flexi_get_option('my_gallery', 'flexi_image_layout_settings', '0') != '0') {
      echo "<br><a href='" . esc_url(get_page_link(flexi_get_option('my_gallery', 'flexi_image_layout_settings', '0'))) . "' class=\"pure-button\">" . __('My Gallery', 'flexi') . "</a><br><br>";
     }
    } else {
-    echo "<h2>" . __('Your submission is under review.', 'flexi') . "</h2>";
+    echo "<div class='flexi_warning'>" . __('Your submission is under review.', 'flexi') . "</div>";
    }
 
   } else {

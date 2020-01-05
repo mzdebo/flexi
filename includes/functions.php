@@ -17,6 +17,8 @@ function flexi_default_args($params)
  );
  if (isset($_POST['user-submitted-title'])) {
   $value['user-submitted-title'] = sanitize_text_field($_POST['user-submitted-title']);
+ } else {
+  $value['user-submitted-title'] = '';
  }
 
  if (isset($_POST['user-submitted-content'])) {
@@ -24,14 +26,20 @@ function flexi_default_args($params)
   $content          = str_replace("[", "[[", $content);
   $content          = str_replace("]", "]]", $content);
   $value['content'] = $content;
+ } else {
+  $value['content'] = "";
  }
 
  if (isset($_POST['cat'])) {
   $value['category'] = intval($_POST['cat']);
+ } else {
+  $value['category'] = flexi_get_option('global_album', 'flexi_categories_settings', '');
  }
 
  if (isset($_POST['tags'])) {
   $value['tags'] = $_POST['tags'];
+ } else {
+  $value['tags'] = '';
  }
 
  return shortcode_atts($value, $params);
@@ -56,10 +64,6 @@ function flexi_submit($title, $files, $content, $category, $preview, $tags = '')
   $newPost['error'][] = 'required-title';
  }
 
- if (empty($category)) {
-  $newPost['error'][] = 'required-category';
- }
-
  //if (empty($content))  $newPost['error'][] = 'required-description';
 
  $newPost['error'][] = apply_filters('flexi_verify_submit', "");
@@ -79,10 +83,6 @@ function flexi_submit($title, $files, $content, $category, $preview, $tags = '')
   //error_log("File count ".$file_count);
 
   $newPost['error'] = array_unique(array_merge($file_data['error'], $newPost['error']));
- }
-
- if ('-1' == $category) {
-  $newPost['error'][] = 'required-category';
  }
 
  foreach ($newPost['error'] as $e) {
@@ -111,7 +111,9 @@ function flexi_submit($title, $files, $content, $category, $preview, $tags = '')
    //echo "Successfully added $x <hr>";
    $post_id = $newPost['id'];
 
-   wp_set_object_terms($post_id, array($category), $taxonomy);
+   if ('' != $category) {
+    wp_set_object_terms($post_id, array($category), $taxonomy);
+   }
 
    if (taxonomy_exists($tag_taxonomy)) {
     //Set TAGS
