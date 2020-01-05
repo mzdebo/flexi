@@ -241,7 +241,7 @@ class FLEXI_Admin_Settings
     array(
      'name'              => 'default_user',
      'label'             => __('Assign default user', 'flexi'),
-     'description'       => __('Type the username to assign for guest submit else administrator is assigned.', 'flexi'),
+     'description'       => __('Type the username to assign for guest submit else no author is assigned.', 'flexi'),
      'type'              => 'text',
      'size'              => '20',
      'sanitize_callback' => 'sanitize_key',

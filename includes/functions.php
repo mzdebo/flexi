@@ -1,4 +1,22 @@
 <?php
+//Get post button link
+function flexi_get_button_url($param = '', $ajax = true, $type = 'post_image_page', $setting_tab = 'flexi_form_settings')
+{
+ if ($ajax) {
+  $url = 'admin-ajax.php?action=flexi_send_again&post_id=' . $param;
+ } else {
+  $default_post = flexi_get_option($type, $setting_tab, '0');
+  if ('0' != $default_post) {
+   $url = esc_url(get_page_link($default_post));
+  } else {
+   $url = "#";
+  }
+
+ }
+ return $url;
+
+}
+
 //Default reference replaced by settings and attributes
 function flexi_default_args($params)
 {
@@ -340,9 +358,12 @@ function flexi_get_author()
  if (is_user_logged_in()) {
   $author_id = get_current_user_id();
  } else {
-  $the_user  = get_user_by('login', flexi_get_option('default_user', 'flexi_form_settings', '0'));
-  $author_id = $the_user->ID;
-
+  $the_user = get_user_by('login', flexi_get_option('default_user', 'flexi_form_settings', '0'));
+  if (!empty($the_user)) {
+   $author_id = $the_user->ID;
+  } else {
+   $author_id = 0;
+  }
  }
 
  return $author_id;

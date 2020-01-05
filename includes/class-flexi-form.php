@@ -62,15 +62,17 @@ class Flexi_Shortcode_Form
 
         <div class='flexi_response'></div>
         <div id="flexi_after_response" style='display: none;'>
-            <a href='<?php echo admin_url('admin-ajax.php?action=flexi_send_again&post_id=' . get_the_ID()); ?>' class='flexi_send_again'>
+
+        <a href='<?php echo flexi_get_button_url(get_the_ID(), true); ?>' class='flexi_send_again'>
                 <?php echo __('Post again', 'flexi'); ?>
             </a> |
-            <?php
-if (flexi_get_option('my_gallery', 'flexi_image_layout_settings', '0') != '0') {
-     echo "<a href='" . esc_url(get_page_link(flexi_get_option('my_gallery', 'flexi_image_layout_settings', '0'))) . "' >" . __('My Gallery', 'flexi') . "</a>";
-    }
 
-    ?>
+
+            <a href='<?php echo flexi_get_button_url('', false, 'my_gallery', 'flexi_image_layout_settings'); ?>' class='button'>
+                <?php echo __('My Gallery', 'flexi'); ?>
+            </a>
+
+
         </div>
 
     </div>
@@ -163,12 +165,18 @@ action="' . admin_url("admin-ajax.php") . '"
 
     echo "<div class='flexi_success'>" . __('Successfully posted.', 'flexi') . "</div>";
 
-    if (flexi_get_option('my_gallery', 'flexi_image_layout_settings', '0') != '0') {
-     echo "<br><a href='" . esc_url(get_page_link(flexi_get_option('my_gallery', 'flexi_image_layout_settings', '0'))) . "' class=\"pure-button\">" . __('My Gallery', 'flexi') . "</a><br><br>";
-    }
    } else {
     echo "<div class='flexi_warning'>" . __('Your submission is under review.', 'flexi') . "</div>";
    }
+   ?>
+   <a href='<?php echo flexi_get_button_url('', false); ?>' class='button'>
+                <?php echo __('Post again', 'flexi'); ?>
+            </a>
+ |
+            <a href='<?php echo flexi_get_button_url('', false, 'my_gallery', 'flexi_image_layout_settings'); ?>' class='button'>
+                <?php echo __('My Gallery', 'flexi'); ?>
+            </a>
+<?php
 
   } else {
 
@@ -180,9 +188,9 @@ action="' . admin_url("admin-ajax.php") . '"
    }
 
    if ('file-type' == $e) {
-    echo "<h1>" . __('Invalid file', 'flexi') . "</h1>";
+    echo "<div class='flexi_error'>" . __('Invalid File', 'flexi') . " " . $e . "</div>";
    } else {
-    echo "<h1>" . __('Error occurred', 'flexi') . "</h1>";
+    echo "<div class='flexi_error'>" . __('Submission failed', 'flexi') . " " . $e . "</div>";
    }
   }
  }
