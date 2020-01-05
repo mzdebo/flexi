@@ -17,29 +17,11 @@ class Flexi_Shortcode_Form
   add_shortcode('flexi-form-tag', array($this, 'render_tags'));
  }
 
- //Get values of submitted form and send back array with it's values
- public function get_form_params()
- {
-  $value = array(
-   'class'         => 'pure-form pure-form-stacked',
-   'title'         => 'Submit',
-   'preview'       => 'default',
-   'name'          => '',
-   'id'            => get_the_ID(),
-   'taxonomy'      => 'flexi_category',
-   'tag_taxonomy'  => 'flexi_tag',
-   'ajax'          => 'true',
-   'media_private' => 'false',
-  );
-
-  return $value;
-
- }
-
  public function render_form($params, $content = null)
  {
-
-  $attr = shortcode_atts($this->get_form_params(), $params);
+  $attr = flexi_default_args($params);
+  // $attr  = shortcode_atts($value, $params);
+  //var_dump($attr);
 
   $abc = "";
   ob_start();
@@ -135,31 +117,21 @@ action="' . admin_url("admin-ajax.php") . '"
   $content  = '';
   $category = '';
 
+  var_dump($attr);
+
   $files = array();
   if (isset($_FILES['user-submitted-image'])) {
    $files = $_FILES['user-submitted-image'];
   }
 
-  $preview = $attr['preview'];
-
-  $title = sanitize_text_field($_POST['user-submitted-title']);
-  if (isset($_POST['user-submitted-content'])) {
-   $content = flexi_sanitize_content($_POST['user-submitted-content']);
-  }
-
-  if (isset($_POST['cat'])) {
-   $category = intval($_POST['cat']);
-  }
-
-  if (isset($_POST['tags'])) {
-   $tags = $_POST['tags'];
-  }
-
-  $content = str_replace("[", "[[", $content);
-  $content = str_replace("]", "]]", $content);
+  $preview  = $attr['preview'];
+  $title    = $attr['user-submitted-title'];
+  $content  = $attr['content'];
+  $category = $attr['category'];
+  $tags     = $attr['tags'];
 
   //$result = array();
-  $result = flexi_submit($title, $files, $content, $category, $preview, 'flexi', 'flexi_category', $tags, 'flexi_tag');
+  $result = flexi_submit($title, $files, $content, $category, $preview, $tags);
   //flexi_log($title . '-' . $content . '-' . $category . '-' . $preview . '-' . $tags);
   //var_dump($result);
 

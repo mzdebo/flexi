@@ -1,12 +1,54 @@
 <?php
+//Default reference replaced by settings and attributes
+function flexi_default_args($params)
+{
+ $value = array(
+  'class'         => 'pure-form pure-form-stacked',
+  'title'         => 'Submit',
+  'preview'       => 'default',
+  'name'          => '',
+  'id'            => get_the_ID(),
+  'taxonomy'      => 'flexi_category',
+  'tag_taxonomy'  => 'flexi_tag',
+  'upload_type'   => 'flexi',
+  'ajax'          => 'true',
+  'media_private' => 'false',
+  '',
+ );
+ if (isset($_POST['user-submitted-title'])) {
+  $value['user-submitted-title'] = sanitize_text_field($_POST['user-submitted-title']);
+ }
+
+ if (isset($_POST['user-submitted-content'])) {
+  $content          = flexi_sanitize_content($_POST['user-submitted-content']);
+  $content          = str_replace("[", "[[", $content);
+  $content          = str_replace("]", "]]", $content);
+  $value['content'] = $content;
+ }
+
+ if (isset($_POST['cat'])) {
+  $value['category'] = intval($_POST['cat']);
+ }
+
+ if (isset($_POST['tags'])) {
+  $value['tags'] = $_POST['tags'];
+ }
+
+ return shortcode_atts($value, $params);
+}
+
 //Submits new post.
 //$title = Title of post
 //$files = files selected
 //$content= Description
 //category =Album name
 //$preview = layout name for post detail page. Not required if lightbox is enabled.
-function flexi_submit($title, $files, $content, $category, $preview, $post_type = 'flexi', $taxonomy = 'flexi_category', $tags = '', $tag_taxonomy = 'flexi_tag')
+function flexi_submit($title, $files, $content, $category, $preview, $tags = '')
 {
+ $post_type    = 'flexi';
+ $taxonomy     = 'flexi_category';
+ $tag_taxonomy = 'flexi_tag';
+
  $newPost            = array('id' => false, 'error' => false);
  $newPost['error'][] = "";
  $file_count         = 0;

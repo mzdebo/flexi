@@ -7,7 +7,7 @@ jQuery(document).ready(function() {
     var formData = new FormData(form);
     var i = 0;
     var progress = true;
-    alert("start");
+    //alert("start");
 
     jQuery.ajax({
       type: "post",

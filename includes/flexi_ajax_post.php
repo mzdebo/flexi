@@ -29,18 +29,76 @@ function flexi_ajax_post()
   exit(json_encode($response));
  }
 
- $attr = array(
-  'class'         => 'pure-form pure-form-stacked',
-  'title'         => 'Submit',
-  'preview'       => 'default',
-  'name'          => '',
-  'id'            => get_the_ID(),
-  'taxonomy'      => 'flexi_category',
-  'tag_taxonomy'  => 'flexi_tag',
-  'ajax'          => 'true',
-  'media_private' => 'false',
- );
- $form = new Flexi_Shortcode_Form();
- $form->process_forms($attr);
+ $attr          = flexi_default_args('');
+ $preview       = $attr['preview'];
+ $title         = $attr['user-submitted-title'];
+ $content       = $attr['content'];
+ $category      = $attr['category'];
+ $tags          = $attr['tags'];
+ $upload_type   = $attr['upload_type'];
+ $post_taxonomy = $attr['taxonomy'];
+ $tag_taxonomy  = $attr['tag_taxonomy'];
 
+ if ('flexi' == $upload_type) {
+
+  $files = array();
+  if (isset($_FILES['user-submitted-image'])) {
+   $files = $_FILES['user-submitted-image'];
+  }
+
+  $result  = flexi_submit($title, $files, $content, $category, $preview, $tags);
+  $post_id = false;
+  if (isset($result['id'])) {
+   $post_id = $result['id'];
+  }
+
+  $error = false;
+  if (isset($result['error'])) {
+   $error = array_filter(array_unique($result['error']));
+  }
+
+  if ($post_id) {
+   //Submit extra fields data
+   for ($x = 1; $x <= 10; $x++) {
+    if (isset($_POST['flexi_field_' . $x])) {
+     add_post_meta($post_id, 'flexi_field_' . $x, $_POST['flexi_field_' . $x]);
+    }
+
+   }
+
+   do_action("flexi_submit_complete");
+   $response['type'] = "success";
+
+   if (flexi_get_option('publish', 'flexi_form_settings', 1) == 1) {
+
+    $response['msg'] = "<div class='flexi_success'>" . __('Successfully posted.', 'flexi') . "</div>";
+   } else {
+
+    $response['msg'] = "<div class='flexi_warning'>" . __('Your submission is under review.', 'flexi') . "</div>";
+   }
+
+  } else {
+   $err = '';
+   for ($x = 0; $x < count($result['error']); $x++) {
+    $err .= $result['error'][$x] . " | ";
+   }
+
+   if (in_array('file-type', $result['error'])) {
+    $response['msg'] = "<div class='flexi_error'>" . __('Check your file type.', 'flexi') . " " . __('Submission failed', 'flexi') . "</div>";
+   } else if (in_array('required-category', $result['error'])) {
+    $response['msg'] = "<div class='flexi_error'>" . __('Category is not specified.', 'flexi') . " " . __('Submission failed', 'flexi') . "</div>";
+   } else {
+    $response['msg'] = "<div class='flexi_error'>" . __('Submission failed', 'flexi') . "<br>" . __('Error message: ') . $err . "</div>";
+   }
+
+  }
+
+ } else {
+  $result['error'][] = "Upload Type Not Supported. Check your form parameters.";
+ }
+ // Don't forget to exit at the end of processing
+ //upg_log($result['error']);
+ $data = json_encode($response);
+ echo $data;
+ die();
 }
