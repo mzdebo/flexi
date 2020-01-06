@@ -1,4 +1,17 @@
 <?php
+//Displays login link
+function flexi_login_link()
+{
+ $login = flexi_get_option('my_login', 'flexi_general_settings', '0');
+
+ if ('0' != $login) {
+  $linku = get_permalink($login);
+  echo "<a href='" . $linku . "' class='button'>" . __("Login Please !", "flexi") . "</a>";
+ } else {
+  echo __("Login Please !", "flexi");
+ }
+}
+
 //Get post button link
 function flexi_get_button_url($param = '', $ajax = true, $type = 'post_image_page', $setting_tab = 'flexi_form_settings')
 {

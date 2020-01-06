@@ -123,11 +123,6 @@ class FLEXI_Admin_Settings
     'title' => __('General Settings', 'flexi'),
     'tab'   => 'general',
    ),
-   array(
-    'id'    => 'flexi_image_settings',
-    'title' => __('Image Settings', 'flexi'),
-    'tab'   => 'general',
-   ),
 
    array(
     'id'    => 'flexi_image_layout_settings',

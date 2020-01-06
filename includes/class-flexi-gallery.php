@@ -72,10 +72,23 @@ class Flexi_Shortcode_Gallery
   }
 
   //Author
-  $user = '';
+  if (isset($params['user'])) {
+   $user = $params['user'];
+  } else {
+   $user = "";
+  }
 
   //Publish Status
   $post_status = array('publish');
+
+  if ("show_mine" == $user) {
+   if (is_user_logged_in()) {
+    $current_user = wp_get_current_user();
+    $user         = $current_user->user_login;
+    $post_status  = array('draft', 'publish');
+   }
+
+  }
 
   //Popup
   if (isset($params['popup'])) {
@@ -140,6 +153,13 @@ class Flexi_Shortcode_Gallery
   }
 
   //var_dump($args);
+
+  //Empty array if not logged in
+  if (!is_user_logged_in() & isset($params['user']) && "show_mine" == $params['user']) {
+   flexi_login_link();
+
+   $args = array();
+  }
 
   if (!empty($args)) {
 
