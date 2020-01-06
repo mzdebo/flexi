@@ -173,7 +173,7 @@ class FLEXI_Admin_Settings
     array(
      'name'              => 'my_login',
      'label'             => __('Select Login Page', 'flexi'),
-     'description'       => __('Login page where user enters username & passwords.', 'flexi'),
+     'description'       => __('Login page where user enters username & passwords. Install 3rd party plugins eg. BuddyPress, Ultimate-Member', 'flexi'),
      'type'              => 'pages',
      'sanitize_callback' => 'sanitize_key',
     ),
@@ -222,6 +222,14 @@ class FLEXI_Admin_Settings
       'scroll'   => __(' Mouse Scroll', 'flexi'),
      ),
      'sanitize_callback' => 'sanitize_key',
+    ),
+    array(
+     'name'              => 'gallery_layout',
+     'label'             => __('Select gallery layout', 'flexi'),
+     'description'       => __('Selected layout will be used as default layout, if not specified in shortcode parameter.', 'flexi'),
+     'type'              => 'layout',
+     'sanitize_callback' => 'sanitize_key',
+     'step'              => 'gallery',
     ),
 
    ),
@@ -272,6 +280,14 @@ class FLEXI_Admin_Settings
      'description'       => __('If popup is unchecked, It will open content in single dedicated page.', 'flexi'),
      'type'              => 'checkbox',
      'sanitize_callback' => 'intval',
+    ),
+    array(
+     'name'              => 'detail_layout',
+     'label'             => __('Select Detail layout', 'flexi'),
+     'description'       => __('Selected layout will be used as default layout, if not specified in shortcode parameter.', 'flexi'),
+     'type'              => 'layout',
+     'sanitize_callback' => 'sanitize_key',
+     'step'              => 'detail',
     ),
 
    ),
@@ -515,6 +531,32 @@ class FLEXI_Admin_Settings
    $html .= sprintf('<option value="%s"%s>%s</option>', $key, selected($value, $key, false), $label);
   }
   $html .= sprintf('</select>');
+  $html .= $this->get_field_description($args);
+
+  echo $html;
+ }
+
+/**
+ * layout selection a selectbox for a settings field.
+ *
+ * @since 1.0.0
+ * @param array $args Settings field args.
+ */
+ public function callback_layout($args)
+ {
+  $dropdown_args = array(
+   'show_option_none'  => '-- ' . __('Select layout', 'flexi') . ' --',
+   'option_none_value' => -1,
+   'selected'          => esc_attr($this->get_option($args['id'], $args['section'], -1)),
+   'name'              => $args['section'] . '[' . $args['id'] . ']',
+   'id'                => $args['section'] . '[' . $args['id'] . ']',
+   'echo'              => 0,
+   'folder'            => isset($args['step']) && !is_null($args['step']) ? $args['step'] : 'gallery',
+
+  );
+  // echo $args['name'] . "--------";
+  //var_dump($args);
+  $html = flexi_layout_list($dropdown_args);
   $html .= $this->get_field_description($args);
 
   echo $html;

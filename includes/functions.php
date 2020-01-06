@@ -1,4 +1,41 @@
 <?php
+//Layout List select box
+//parameters 'selected layout',"input field name","form | media | grid",'show eye icon true | false'
+function flexi_layout_list($args = '')
+{
+ $defaults = array(
+  'folder'      => 'detail',
+  'name'        => 'layout_name',
+  'id'          => '',
+  'class'       => '',
+  'value_field' => 'ID',
+ );
+
+ $parsed_args = wp_parse_args($args, $defaults);
+
+ $output = '';
+ // Back-compat with old system where both id and name were based on $name argument
+ if (empty($parsed_args['id'])) {
+  $parsed_args['id'] = $parsed_args['name'];
+ }
+
+ $output = "<select name='" . esc_attr($parsed_args['name']) . "' id='" . esc_attr($parsed_args['id']) . "'>\n";
+
+ $dir      = FLEXI_BASE_DIR . 'public/partials/layout/' . $parsed_args['folder'] . '/';
+ $filelist = "";
+ $files    = array_map("htmlspecialchars", scandir($dir));
+ //echo $dir;
+ foreach ($files as $file) {
+  if (!strpos($file, '.') && "." != $file && ".." != $file) {
+   $output .= sprintf('<option value="%s">%s layout</option>' . PHP_EOL, $file, $file);
+  }
+ }
+
+ $output .= "</select>\n";
+
+ return $output;
+}
+
 //Displays login link
 function flexi_login_link()
 {
