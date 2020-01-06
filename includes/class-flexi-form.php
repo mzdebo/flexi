@@ -20,25 +20,39 @@ class Flexi_Shortcode_Form
  public function render_form($params, $content = null)
  {
   $attr = flexi_default_args($params);
-  // $attr  = shortcode_atts($value, $params);
-  //var_dump($attr);
-
-  $abc = "";
+  $abc  = "";
   ob_start();
 
-  if (isset($_POST['flexi-nonce']) && wp_verify_nonce($_POST['flexi-nonce'], 'flexi-nonce')) {
+  $check_enable_form = flexi_get_option('enable_form', 'flexi_form_settings', 'everyone');
 
-   $this->process_forms($attr);
+  $enable_form_access = true;
 
+  if ('everyone' == $check_enable_form) {
+   $enable_form_access = true;
+  } else if ('member' == $check_enable_form) {
+   if (!is_user_logged_in()) {
+    $enable_form_access = false;
+    flexi_login_link();
+   }
   } else {
+   $enable_form_access = false;
+   echo __("Submission disabled", 'flexi');
+  }
 
-   if ('false' == $attr['ajax']) {
+  if ($enable_form_access) {
+   if (isset($_POST['flexi-nonce']) && wp_verify_nonce($_POST['flexi-nonce'], 'flexi-nonce')) {
 
-    echo '<form class="' . $attr['class'] . '" method="post" enctype="multipart/form-data" action="">';
+    $this->process_forms($attr);
 
    } else {
 
-    ?>
+    if ('false' == $attr['ajax']) {
+
+     echo '<form class="' . $attr['class'] . '" method="post" enctype="multipart/form-data" action="">';
+
+    } else {
+
+     ?>
 
     <div id="flexi_ajax">
 
@@ -86,24 +100,24 @@ method="post"
 enctype="multipart/form-data"
 action="' . admin_url("admin-ajax.php") . '"
 >';
+    }
+
+    echo do_shortcode($content);
+
+    wp_nonce_field('flexi-nonce', 'flexi-nonce', false);
+    echo '<input type="hidden" name="action" value="flexi_ajax_post">';
+    echo '<input type="hidden" name="preview" value="' . $attr['preview'] . '">';
+    echo '<input type="hidden" name="form_name" value="' . $attr['name'] . '">';
+    echo '<input type="hidden" name="media_private" value="' . $attr['media_private'] . '">';
+    echo '<input type="hidden" name="form_attach" value="' . $attr['id'] . '">';
+    echo '<input type="hidden" name="upload_type" value="flexi">';
+
+    echo '</form></div>';
+
    }
-
-   echo do_shortcode($content);
-
-   wp_nonce_field('flexi-nonce', 'flexi-nonce', false);
-   echo '<input type="hidden" name="action" value="flexi_ajax_post">';
-   echo '<input type="hidden" name="preview" value="' . $attr['preview'] . '">';
-   echo '<input type="hidden" name="form_name" value="' . $attr['name'] . '">';
-   echo '<input type="hidden" name="media_private" value="' . $attr['media_private'] . '">';
-   echo '<input type="hidden" name="form_attach" value="' . $attr['id'] . '">';
-   echo '<input type="hidden" name="upload_type" value="flexi">';
-
-   echo '</form></div>';
-
-   $abc = ob_get_clean();
-   return $abc;
   }
-
+  $abc = ob_get_clean();
+  return $abc;
  }
 
  //Examine & save the form submitted

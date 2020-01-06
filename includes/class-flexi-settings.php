@@ -235,6 +235,18 @@ class FLEXI_Admin_Settings
    ),
    'flexi_form_settings'         => array(
     array(
+     'name'              => 'enable_form',
+     'label'             => __('Form submission access', 'flexi'),
+     'description'       => __('It will enable/disable frontend form as specified.', 'flexi'),
+     'type'              => 'select',
+     'options'           => array(
+      'everyone'     => __('Everyone', 'flexi'),
+      'member'       => __('Only members', 'flexi'),
+      'disable_form' => __('Disable submission', 'flexi'),
+     ),
+     'sanitize_callback' => 'sanitize_key',
+    ),
+    array(
      'name'              => 'publish',
      'label'             => __('Auto approve post', 'flexi'),
      'description'       => __('Automatically publish Post as soon as user submit.', 'flexi'),
