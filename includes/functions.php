@@ -50,7 +50,7 @@ function flexi_login_link()
 }
 
 //Get post button link
-function flexi_get_button_url($param = '', $ajax = true, $type = 'post_image_page', $setting_tab = 'flexi_form_settings')
+function flexi_get_button_url($param = '', $ajax = true, $type = 'submission_form', $setting_tab = 'flexi_form_settings')
 {
  if ($ajax) {
   $url = 'admin-ajax.php?action=flexi_send_again&post_id=' . $param;
@@ -507,7 +507,7 @@ function flexi_create_pages()
   flexi_set_option('main_page', 'flexi_image_layout_settings', $aid);
 
   $str_post_image = '
-		[flexi-form class="pure-form pure-form-stacked" title="Submit to UPG" name="my_form" ajax="true"]
+		[flexi-form class="pure-form pure-form-stacked" title="Submit to Flexi" name="my_form" ajax="true"]
 		[flexi-form-tag type="post_title" title="Title" value="" placeholder="main title"]
 		[flexi-form-tag type="category" title="Select category" taxonomy="flexi_cate" filter="image"]
 		[flexi-form-tag type="tag" title="Insert tag"]
@@ -518,21 +518,7 @@ function flexi_create_pages()
 		';
 
   $bid = wp_insert_post(array('post_title' => 'Post Image', 'post_content' => $str_post_image, 'post_type' => 'page', 'post_status' => 'publish'));
-  flexi_set_option('post_image_page', 'flexi_form_settings', $bid);
-
-  $str_post_embed = '
-  [flexi-form class="pure-form pure-form-stacked" title="Submit to UPG" name="my_form" ajax="true" post_type="video_url"]
-  [flexi-form-tag type="post_title" title="Video Title" value="" placeholder="main title"]
-  [flexi-form-tag type="category" title="Select category" taxonomy="flexi_cate" filter="embed" ]
-  [flexi-form-tag type="tag" title="Insert tag"]
-  [flexi-form-tag type="article" title="Description"  placeholder="Content"]
-  [flexi-form-tag type="video_url" title="Submit public embed URL" placeholder="http://" required="true"]
-  [flexi-form-tag type="submit" name="submit" value="Submit URL"]
-  [/flexi-form]
-  ';
-
-  $cid = wp_insert_post(array('post_title' => 'Post Video URL', 'post_content' => $str_post_embed, 'post_type' => 'page', 'post_status' => 'publish'));
-  flexi_set_option('post_embed_page', 'flexi_form_settings', $cid);
+  flexi_set_option('submission_form', 'flexi_form_settings', $bid);
 
   $did = wp_insert_post(array('post_title' => 'My Gallery', 'post_content' => '[flexi-gallery user="show_mine"]', 'post_type' => 'page', 'post_status' => 'publish'));
   flexi_set_option('my_gallery', 'flexi_image_layout_settings', $did);

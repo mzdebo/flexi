@@ -250,16 +250,9 @@ class FLEXI_Admin_Settings
      'sanitize_callback' => 'sanitize_key',
     ),
     array(
-     'name'              => 'post_image_page',
+     'name'              => 'submission_form',
      'label'             => __('Submission form', 'flexi'),
-     'description'       => __('Page which will be used at frontend to let users to submit images.', 'flexi'),
-     'type'              => 'pages',
-     'sanitize_callback' => 'sanitize_key',
-    ),
-    array(
-     'name'              => 'post_embed_page',
-     'label'             => __('Submission form for video URL', 'flexi'),
-     'description'       => __('Frontend page to submit YouTube, Vimeo, DailyMotions & more 30+ video urls.', 'flexi'),
+     'description'       => __('Page which will be used at frontend to let users to submit flexi post.', 'flexi'),
      'type'              => 'pages',
      'sanitize_callback' => 'sanitize_key',
     ),
