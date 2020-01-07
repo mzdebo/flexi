@@ -103,6 +103,7 @@ class Flexi_Public
   wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/flexi-public.js', array('jquery'), $this->version, false);
   wp_enqueue_script($this->plugin_name . '_fancybox', plugin_dir_url(__FILE__) . 'js/jquery.fancybox.min.js', array('jquery'), $this->version, false);
   wp_enqueue_script($this->plugin_name . '_tags', plugin_dir_url(__FILE__) . '/js/jquery.tagsinput.js', '', $this->version, false);
+  wp_enqueue_script($this->plugin_name . '_tags_filter', plugin_dir_url(__FILE__) . '/js/filter-tags.js', '', $this->version, false);
 
   //If basic page navigation
   $navigation = flexi_get_option('navigation', 'flexi_image_layout_settings', 'scroll');

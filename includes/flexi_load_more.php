@@ -86,6 +86,7 @@ function flexi_load_more()
  $gallery_layout = flexi_get_option('gallery_layout', 'flexi_image_layout_settings', 'masonry');
  $count          = 0;
  while ($query->have_posts()): $query->the_post();
+  $tags = flexi_get_taxonony_raw($post->ID, 'flexi_tag');
   $count++;
   require FLEXI_PLUGIN_DIR . 'public/partials/layout/gallery/' . $gallery_layout . '/loop.php';
 

@@ -1,4 +1,38 @@
 <?php
+//display taxonomy terms without links: separated with commas
+function flexi_get_taxonony_raw($post_id, $taxonomy_name)
+{
+ $terms = wp_get_post_terms($post_id, $taxonomy_name);
+ $count = count($terms);
+ $data  = '';
+ if ($count > 0) {
+  foreach ($terms as $term) {
+   $data .= $term->slug . ",";
+  }
+ }
+ return rtrim($data, ',') . ',';
+}
+
+//Generate gallery_tags link
+function flexi_generate_tags($tags_array, $upg_tag_class = 'upg_tags', $filter_class = 'filter_tag')
+{
+ $taglink = '';
+ if (count($tags_array) > 1) {
+  $taglink .= '<ul class="' . $upg_tag_class . '">';
+
+  $taglink .= '<li><a href="javascript:void(0)" id="show_all" class="' . $filter_class . ' active">' . __('Show All', 'wp-upg') . '</a></li>';
+  if (count($tags_array) > 1) {
+   foreach ($tags_array as $tags => $value) {
+    $taglink .= '<li><a href="javascript:void(0)" id="' . $tags . '" class="' . $filter_class . '">' . $value . '</a></li>';
+   }
+  }
+
+  $taglink .= '</ul>';
+ }
+
+ return $taglink;
+}
+
 //Layout List select box
 //parameters 'selected layout',"input field name","form | media | grid",'show eye icon true | false'
 function flexi_layout_list($args = '')

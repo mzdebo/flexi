@@ -224,6 +224,13 @@ class FLEXI_Admin_Settings
      'sanitize_callback' => 'sanitize_key',
     ),
     array(
+     'name'              => 'gallery_tags',
+     'label'             => __('Gallery sorting tags', 'flexi'),
+     'description'       => __('Shows tags above gallery, only if few tags available.', 'flexi'),
+     'type'              => 'checkbox',
+     'sanitize_callback' => 'intval',
+    ),
+    array(
      'name'              => 'gallery_layout',
      'label'             => __('Select gallery layout', 'flexi'),
      'description'       => __('Selected layout will be used as default layout, if not specified in shortcode parameter.', 'flexi'),

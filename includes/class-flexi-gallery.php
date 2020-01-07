@@ -35,8 +35,17 @@ class Flexi_Shortcode_Gallery
   }
 
   //Tags
+  $show_tag = false;
+  if (flexi_get_option('gallery_tags', 'flexi_image_layout_settings', 1) == 1) {
+   $show_tag = true;
+  }
   if (isset($params['tag_show'])) {
-   $show_tag = $params['tag_show'];
+   if ('off' == $params['tag_show']) {
+    $show_tag = false;
+   } else {
+    $show_tag = true;
+   }
+
   }
 
   //Keyword
@@ -164,6 +173,23 @@ class Flexi_Shortcode_Gallery
   if (!empty($args)) {
 
    $query = new WP_Query($args);
+
+   //Generate tags array
+   if ($show_tag) {
+    //Get the tags only
+    $tags_array = array();
+    while ($query->have_posts()): $query->the_post();
+     foreach (wp_get_post_terms($post->ID, 'flexi_tag') as $t) {
+      $tags_array[$t->slug] = $t->name;
+     }
+     // this adds to the array in the form ['slug']=>'name'
+    endwhile;
+    // de-dupe
+    $tags_array = array_unique($tags_array);
+    natcasesort($tags_array);
+    //print_r($tags_array);
+   }
+
    $count = 0;
    $put   = "";
    ob_start();
