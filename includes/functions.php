@@ -1,6 +1,57 @@
 <?php
+//Return album name with and without link
+function flexi_get_album($post_id, $type)
+{
+ //$type values can be term_id,slug,name,url
+ $categories = get_the_terms($post_id, 'flexi_category');
+ foreach ((array) $categories as $category) {
+  if ('url' == $type) {
+   return flexi_get_category_page_link($category, 'flexi_category');
+  } else {
+   if (isset($category->$type)) {
+    return $category->$type;
+   } else {
+    return '';
+   }
+
+  }
+ }
+}
+
+//returns album/category url. 'flexi_category' is $taxonomy. $term is a album slug name.
+function flexi_get_category_page_link($term, $taxonomy)
+{
+
+ $link = '/';
+
+ if (flexi_set_option('main_page', 'flexi_image_layout_settings', 0) > 0) {
+  $link = get_permalink(flexi_set_option('main_page', 'flexi_image_layout_settings', 0));
+
+  if ('' != get_option('permalink_structure')) {
+   $link = user_trailingslashit(trailingslashit($link) . $term->slug);
+   //$link = add_query_arg( $taxonomy, $term->slug, $link );
+  } else {
+   //echo "----------------";
+   $link = add_query_arg($taxonomy, $term->slug, $link);
+  }
+ }
+
+ return $link;
+}
+
+//Get details of post based on post_id
+function get_detail($post_id, $field)
+{
+ $post = get_post($post_id);
+ if ($post) {
+  return $post->$field;
+ } else {
+  return '';
+ }
+}
+
 //display taxonomy terms without links: separated with commas
-function flexi_get_taxonony_raw($post_id, $taxonomy_name)
+function flexi_get_taxonomy_raw($post_id, $taxonomy_name)
 {
  $terms = wp_get_post_terms($post_id, $taxonomy_name);
  $count = count($terms);
@@ -53,15 +104,15 @@ function flexi_layout_list($args = '')
   $parsed_args['id'] = $parsed_args['name'];
  }
 
- $output = "<select name='" . esc_attr($parsed_args['name']) . "' id='" . esc_attr($parsed_args['id']) . "'>\n";
-
+ $output   = "<select name='" . esc_attr($parsed_args['name']) . "' id='" . esc_attr($parsed_args['id']) . "'>\n";
+ $value    = $args['selected'];
  $dir      = FLEXI_BASE_DIR . 'public/partials/layout/' . $parsed_args['folder'] . '/';
  $filelist = "";
  $files    = array_map("htmlspecialchars", scandir($dir));
  //echo $dir;
  foreach ($files as $file) {
   if (!strpos($file, '.') && "." != $file && ".." != $file) {
-   $output .= sprintf('<option value="%s">%s layout</option>' . PHP_EOL, $file, $file);
+   $output .= sprintf('<option value="%s" %s >%s layout</option>' . PHP_EOL, $file, selected($value, $file, false), $file);
   }
  }
 
@@ -91,7 +142,12 @@ function flexi_get_button_url($param = '', $ajax = true, $type = 'submission_for
  } else {
   $default_post = flexi_get_option($type, $setting_tab, '0');
   if ('0' != $default_post) {
-   $url = esc_url(get_page_link($default_post));
+   if ('' == $param) {
+    $url = esc_url(get_page_link($default_post));
+   } else {
+    $url = esc_url(add_query_arg('id', $param, get_page_link($default_post)));
+   }
+
   } else {
    $url = "#";
   }
@@ -115,7 +171,7 @@ function flexi_default_args($params)
   'upload_type'   => 'flexi',
   'ajax'          => 'true',
   'media_private' => 'false',
-  '',
+  'edit'          => 'false',
  );
  if (isset($_POST['user-submitted-title'])) {
   $value['user-submitted-title'] = sanitize_text_field($_POST['user-submitted-title']);
@@ -142,6 +198,15 @@ function flexi_default_args($params)
   $value['tags'] = $_POST['tags'];
  } else {
   $value['tags'] = '';
+ }
+
+ if (isset($_POST['edit'])) {
+  $value['edit'] = $_POST['edit'];
+ }
+ if (isset($_POST['flexi_id'])) {
+  $value['flexi_id'] = $_POST['flexi_id'];
+ } else {
+  $value['flexi_id'] = '0';
  }
 
  return shortcode_atts($value, $params);
@@ -273,6 +338,69 @@ function flexi_submit($title, $files, $content, $category, $preview, $tags = '')
 
  do_action('flexi_insert_after', $newPost);
  return $newPost;
+}
+
+//Update/edit the post with reference of post ID
+function flexi_update_post($post_id, $title, $files, $content, $category, $tags = '')
+{
+ $updatePost['error'][] = array('id' => false, 'error' => false);
+ $updatePost['error'][] = "";
+ if (empty($title)) {
+  $updatePost['error'][] = 'required-title';
+ }
+
+ $updatePost['error'][] = apply_filters('flexi_verify_submit', "");
+ $file_count            = 0;
+
+ if (flexi_get_option('publish', 'flexi_form_settings', 1) == 1) {
+  $new_post = array(
+   'ID'           => $post_id,
+   'post_title'   => $title,
+   'post_content' => $content,
+   'post_status'  => 'publish',
+  );
+ } else {
+  $new_post = array(
+   'ID'           => $post_id,
+   'post_title'   => $title,
+   'post_content' => $content,
+   'post_status'  => 'draft',
+  );
+ }
+
+ // Update the post into the database
+ $pid = wp_update_post($new_post);
+ if (is_wp_error($pid)) {
+  return false;
+ } else {
+  //Update post meta fields
+  for ($x = 1; $x <= 10; $x++) {
+   if (isset($_POST["flexi_field_" . $x])) {
+    update_post_meta($post_id, "flexi_field_" . $x, sanitize_text_field($_POST["flexi_field_" . $x]));
+   } else {
+    update_post_meta($post_id, "flexi_field_" . $x, '');
+   }
+  }
+
+  //Set category
+  if ('' != $category) {
+   wp_set_object_terms($post_id, array($category), 'flexi_category');
+  }
+
+  //Set TAGS
+  //if($tags!='')
+  wp_set_object_terms($post_id, explode(",", $tags), 'flexi_tag');
+  //flexi_log($tags . "---");
+
+  foreach ($updatePost['error'] as $e) {
+   if (!empty($e)) {
+    unset($updatePost['id']);
+
+   }
+  }
+
+  return $updatePost;
+ }
 }
 
 //During image upload process, it check the file is valid image type.

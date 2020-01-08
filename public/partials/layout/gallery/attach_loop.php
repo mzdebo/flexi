@@ -1,5 +1,5 @@
 <?php
-$tags = flexi_get_taxonony_raw($post->ID, 'flexi_tag');
+$tags = flexi_get_taxonomy_raw($post->ID, 'flexi_tag');
 
 //If classic page navigation selected
 if ('pagenavi' == $navigation) {

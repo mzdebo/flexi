@@ -42,7 +42,11 @@ class Flexi_Shortcode_Form
   if ($enable_form_access) {
    if (isset($_POST['flexi-nonce']) && wp_verify_nonce($_POST['flexi-nonce'], 'flexi-nonce')) {
 
-    $this->process_forms($attr);
+    if ("false" == $_POST['edit']) {
+     $this->process_new_forms($attr);
+    } else {
+     $this->process_update_forms($attr);
+    }
 
    } else {
 
@@ -109,7 +113,11 @@ action="' . admin_url("admin-ajax.php") . '"
     echo '<input type="hidden" name="preview" value="' . $attr['preview'] . '">';
     echo '<input type="hidden" name="form_name" value="' . $attr['name'] . '">';
     echo '<input type="hidden" name="media_private" value="' . $attr['media_private'] . '">';
-    echo '<input type="hidden" name="form_attach" value="' . $attr['id'] . '">';
+    echo '<input type="hidden" name="edit" value="' . $attr['edit'] . '">';
+    if (isset($_GET['id'])) {
+     echo '<input type="hidden" name="flexi_id" value="' . $_GET['id'] . '">';
+    }
+
     echo '<input type="hidden" name="upload_type" value="flexi">';
 
     echo '</form></div>';
@@ -121,7 +129,7 @@ action="' . admin_url("admin-ajax.php") . '"
  }
 
  //Examine & save the form submitted
- public function process_forms($attr)
+ public function process_new_forms($attr)
  {
   $title    = '';
   $author   = '';
@@ -177,7 +185,7 @@ action="' . admin_url("admin-ajax.php") . '"
 
    if (flexi_get_option('publish', 'flexi_form_settings', 1) == 1) {
 
-    echo "<div class='flexi_success'>" . __('Successfully posted.', 'flexi') . "</div>";
+    echo "<div class='flexi_success'>" . __('Successfully posted', 'flexi') . "</div>";
 
    } else {
     echo "<div class='flexi_warning'>" . __('Your submission is under review.', 'flexi') . "</div>";
@@ -209,6 +217,61 @@ action="' . admin_url("admin-ajax.php") . '"
   }
  }
 
+ //Examine & update the old form submitted
+ public function process_update_forms($attr)
+ {
+  $title    = '';
+  $author   = '';
+  $url      = '';
+  $email    = '';
+  $tags     = '';
+  $captcha  = '';
+  $verify   = '';
+  $content  = '';
+  $category = '';
+  if (isset($_POST['flexi_id'])) {
+   $post_id = $_POST['flexi_id'];
+  }
+
+  //var_dump($attr);
+
+  $files = array();
+  if (isset($_FILES['user-submitted-image'])) {
+   $files = $_FILES['user-submitted-image'];
+  }
+
+  $preview  = $attr['preview'];
+  $title    = $attr['user-submitted-title'];
+  $content  = $attr['content'];
+  $category = $attr['category'];
+  $tags     = $attr['tags'];
+
+  $result = flexi_update_post($post_id, $title, $files, $content, $category, $tags);
+
+  if ($result) {
+   do_action("flexi_submit_complete");
+
+   if (flexi_get_option('publish', 'flexi_form_settings', 1) == 1) {
+
+    echo "<div class='flexi_success'>" . __('Successfully posted', 'flexi') . "</div>";
+
+   } else {
+    echo "<div class='flexi_warning'>" . __('Your submission is under review.', 'flexi') . "</div>";
+   }
+  } else {
+   echo "FAIL";
+  }
+  ?>
+   <a href='<?php echo flexi_get_button_url($post_id, false, 'edit_flexi_page', 'flexi_form_settings'); ?>' class='button'>
+                <?php echo __('Edit again', 'flexi'); ?>
+            </a> |
+ <a href='<?php echo flexi_get_button_url('', false, 'my_gallery', 'flexi_image_layout_settings'); ?>' class='button'>
+                <?php echo __('My Gallery', 'flexi'); ?>
+            </a>
+  <?php
+
+ }
+
  public function render_tags($params)
  {
   $attr = shortcode_atts(array(
@@ -220,6 +283,7 @@ action="' . admin_url("admin-ajax.php") . '"
    'id'             => '',
    'placeholder'    => '',
    'value'          => '',
+   'edit'           => '',
    'required'       => '',
    'editor'         => '',
    'type'           => '',
@@ -242,7 +306,11 @@ action="' . admin_url("admin-ajax.php") . '"
   if ('post_title' == $attr['type']) {
    echo $frm->addLabelFor("user-submitted-title", $attr['title']);
    // arguments: type, name, value
-   echo $frm->addInput('text', "user-submitted-title", $attr['value'], array('placeholder' => $attr['placeholder'], 'class' => $attr['class'], 'required' => $attr['required']));
+   if ('' == $attr['edit']) {
+    echo $frm->addInput('text', "user-submitted-title", $attr['value'], array('placeholder' => $attr['placeholder'], 'class' => $attr['class'], 'required' => $attr['required']));
+   } else {
+    echo $frm->addInput('text', "user-submitted-title", get_detail($_GET['id'], 'post_title'), array('placeholder' => $attr['placeholder'], 'class' => $attr['class'], 'required' => $attr['required']));
+   }
 
   } else if ('video_url' == $attr['type']) {
    echo $frm->addLabelFor("user-submitted-url", $attr['title']);
@@ -251,12 +319,21 @@ action="' . admin_url("admin-ajax.php") . '"
 
   } else if ('category' == $attr['type']) {
    echo $frm->addLabelFor('cat', $attr['title']);
-   echo flexi_droplist_album();
+   if ('' == $attr['edit']) {
+    echo flexi_droplist_album();
+   } else {
+    $old_category_id = flexi_get_album($_GET['id'], 'term_id');
+    echo flexi_droplist_album('flexi_category', $old_category_id);
+   }
 
   } else if ('tag' == $attr['type']) {
    echo $frm->addLabelFor("tags", $attr['title']);
    // arguments: type, name, value
-   echo $frm->addInput('', "tags", $attr['value'], array('id' => 'tags', 'placeholder' => $attr['placeholder'], 'class' => $attr['class'], 'required' => $attr['required']));
+   if ('' == $attr['edit']) {
+    echo $frm->addInput('', "tags", $attr['value'], array('id' => 'tags', 'placeholder' => $attr['placeholder'], 'class' => $attr['class'], 'required' => $attr['required']));
+   } else {
+    echo $frm->addInput('', "tags", flexi_get_taxonomy_raw($_GET['id'], 'flexi_tag'), array('id' => 'tags', 'placeholder' => $attr['placeholder'], 'class' => $attr['class'], 'required' => $attr['required']));
+   }
    echo " <script>
           jQuery(document).ready(function ()
           {
@@ -302,36 +379,21 @@ action="' . admin_url("admin-ajax.php") . '"
   } else if ('article' == $attr['type']) {
    echo $frm->addLabelFor('user-submitted-content', $attr['title']);
 
-   //Toggle GUI editor
-   if ("true" == $attr['editor']) {
-
-    ?>
-          <div class="flexi_text-editor">
-              <?php $settings = array(
-     'wpautop'          => true, // enable rich text editor
-     'media_buttons'    => false, // enable add media button
-     'textarea_name'    => 'user-submitted-content', // name
-     'textarea_rows'    => '10', // number of textarea rows
-     'tabindex'         => '', // tabindex
-     'editor_css'       => '', // extra CSS
-     'editor_class'     => 'usp-rich-textarea', // class
-     'teeny'            => false, // output minimal editor config
-     'dfw'              => false, // replace fullscreen with DFW
-     'tinymce'          => true, // enable TinyMCE
-     'quicktags'        => true, // enable quicktags
-     'drag_drop_upload' => true, // enable drag-drop
-    );
-    wp_editor('', 'flexicontent', apply_filters('flexi_editor_settings', $settings));?>
-
-          </div>
-  <?php
-} else {
-    // arguments: name, rows, cols, value, optional assoc. array
+   // arguments: name, rows, cols, value, optional assoc. array
+   if ('' == $attr['edit']) {
     echo $frm->addTextArea(
      'user-submitted-content',
      $attr['rows'],
      $attr['cols'],
      '',
+     array('id' => $attr['id'], 'placeholder' => $attr['placeholder'], 'required' => $attr['required'])
+    );
+   } else {
+    echo $frm->addTextArea(
+     'user-submitted-content',
+     $attr['rows'],
+     $attr['cols'],
+     get_detail($_GET['id'], 'post_content'),
      array('id' => $attr['id'], 'placeholder' => $attr['placeholder'], 'required' => $attr['required'])
     );
    }

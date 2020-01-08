@@ -38,6 +38,8 @@ function flexi_ajax_post()
  $upload_type   = $attr['upload_type'];
  $post_taxonomy = $attr['taxonomy'];
  $tag_taxonomy  = $attr['tag_taxonomy'];
+ $edit          = $attr['edit'];
+ $flexi_id      = $attr['flexi_id'];
 
  if ('flexi' == $upload_type) {
 
@@ -46,53 +48,75 @@ function flexi_ajax_post()
    $files = $_FILES['user-submitted-image'];
   }
 
-  $result  = flexi_submit($title, $files, $content, $category, $preview, $tags);
-  $post_id = false;
-  if (isset($result['id'])) {
-   $post_id = $result['id'];
-  }
+  if ("false" == $edit) {
+   //Insert new post
+   $result  = flexi_submit($title, $files, $content, $category, $preview, $tags);
+   $post_id = false;
+   if (isset($result['id'])) {
+    $post_id = $result['id'];
+   }
 
-  $error = false;
-  if (isset($result['error'])) {
-   $error = array_filter(array_unique($result['error']));
-  }
+   $error = false;
+   if (isset($result['error'])) {
+    $error = array_filter(array_unique($result['error']));
+   }
 
-  if ($post_id) {
-   //Submit extra fields data
-   for ($x = 1; $x <= 10; $x++) {
-    if (isset($_POST['flexi_field_' . $x])) {
-     add_post_meta($post_id, 'flexi_field_' . $x, $_POST['flexi_field_' . $x]);
+   if ($post_id) {
+    //Submit extra fields data
+    for ($x = 1; $x <= 10; $x++) {
+     if (isset($_POST['flexi_field_' . $x])) {
+      add_post_meta($post_id, 'flexi_field_' . $x, $_POST['flexi_field_' . $x]);
+     }
+
+    }
+
+    do_action("flexi_submit_complete");
+    $response['type'] = "success";
+
+    if (flexi_get_option('publish', 'flexi_form_settings', 1) == 1) {
+
+     $response['msg'] = "<div class='flexi_success'>" . __('Successfully posted', 'flexi') . "</div>";
+    } else {
+
+     $response['msg'] = "<div class='flexi_warning'>" . __('Your submission is under review', 'flexi') . "</div>";
+    }
+
+   } else {
+    $err = '';
+    for ($x = 0; $x < count($result['error']); $x++) {
+     $err .= $result['error'][$x] . " | ";
+    }
+
+    if (in_array('file-type', $result['error'])) {
+     $response['msg'] = "<div class='flexi_error'>" . __('Check your file type', 'flexi') . " " . __('Submission failed', 'flexi') . "</div>";
+    } else if (in_array('required-category', $result['error'])) {
+     $response['msg'] = "<div class='flexi_error'>" . __('Category is not specified', 'flexi') . " " . __('Submission failed', 'flexi') . "</div>";
+    } else {
+     $response['msg'] = "<div class='flexi_error'>" . __('Submission failed', 'flexi') . "<br>" . __('Error message: ') . $err . "</div>";
     }
 
    }
-
-   do_action("flexi_submit_complete");
-   $response['type'] = "success";
-
-   if (flexi_get_option('publish', 'flexi_form_settings', 1) == 1) {
-
-    $response['msg'] = "<div class='flexi_success'>" . __('Successfully posted.', 'flexi') . "</div>";
-   } else {
-
-    $response['msg'] = "<div class='flexi_warning'>" . __('Your submission is under review.', 'flexi') . "</div>";
-   }
-
   } else {
-   $err = '';
-   for ($x = 0; $x < count($result['error']); $x++) {
-    $err .= $result['error'][$x] . " | ";
-   }
+   //Update old post
+   $result = flexi_update_post($flexi_id, $title, $files, $content, $category, $tags);
 
-   if (in_array('file-type', $result['error'])) {
-    $response['msg'] = "<div class='flexi_error'>" . __('Check your file type.', 'flexi') . " " . __('Submission failed', 'flexi') . "</div>";
-   } else if (in_array('required-category', $result['error'])) {
-    $response['msg'] = "<div class='flexi_error'>" . __('Category is not specified.', 'flexi') . " " . __('Submission failed', 'flexi') . "</div>";
+   if ($flexi_id) {
+    do_action("flexi_submit_complete");
+    $response['type'] = "success";
+
+    if (flexi_get_option('publish', 'flexi_form_settings', 1) == 1) {
+
+     $response['msg'] = "<div class='flexi_success'>" . __('Successfully updated', 'flexi') . "</div>";
+    } else {
+
+     $response['msg'] = "<div class='flexi_warning'>" . __('Your modification is under review.', 'flexi') . "</div>";
+    }
    } else {
-    $response['msg'] = "<div class='flexi_error'>" . __('Submission failed', 'flexi') . "<br>" . __('Error message: ') . $err . "</div>";
+
+    $response['msg'] = "<div class='flexi_error'>" . __('Submission failed', 'flexi') . "</div>";
+
    }
-
   }
-
  } else {
   $result['error'][] = "Upload Type Not Supported. Check your form parameters.";
  }

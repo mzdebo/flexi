@@ -72,7 +72,7 @@ jQuery(document).ready(function() {
         return jqXHR;
       },
       beforeSend: function() {
-        console.log("Send to UPG");
+        //console.log("Send to UPG");
         jQuery("#flexi_form").slideUp();
         jQuery("#flexi_loader").show();
         i = 0;
@@ -89,7 +89,7 @@ jQuery(document).ready(function() {
 
           console.log(response);
         } else {
-          console.log("Blank Response");
+          //console.log("Blank Response");
           jQuery(".flexi_response").append(response.msg);
         }
       },
