@@ -36,12 +36,31 @@ class Flexi_Shortcode_Form
    }
   } else {
    $enable_form_access = false;
-   echo __("Submission disabled", 'flexi');
+   echo "<div class='flexi_warning'>" . __('Submission disabled', 'flexi') . "</div>";
   }
 
-  if ($enable_form_access) {
-   if (isset($_POST['flexi-nonce']) && wp_verify_nonce($_POST['flexi-nonce'], 'flexi-nonce')) {
+  $edit_post = true;
+  if (isset($_REQUEST["id"])) {
+   $edit_post = flexi_check_rights($_REQUEST["id"]);
+  }
 
+  //Check if current page is EDIT page and not having post_id
+  $current_page_id = get_the_ID();
+  $edit_page_id    = flexi_get_option('edit_flexi_page', 'flexi_form_settings', 0);
+  if ($current_page_id == $edit_page_id) {
+   if (!isset($_REQUEST["id"])) {
+    $edit_post = false;
+   }
+  }
+
+  //Prevent from modification
+  if (false == $edit_post) {
+   echo "<div class='flexi_warning'>" . __('No permission to modify or update', 'flexi') . "</div>";
+  }
+
+  if ($enable_form_access && $edit_post) {
+   if (isset($_POST['flexi-nonce']) && wp_verify_nonce($_POST['flexi-nonce'], 'flexi-nonce')) {
+    //Check if edit form has parameter edit=true as input hidden field
     if ("false" == $_POST['edit']) {
      $this->process_new_forms($attr);
     } else {

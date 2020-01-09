@@ -1,4 +1,29 @@
 <?php
+//Check if user have editing rights
+function flexi_check_rights($post_id = 0)
+{
+ $edit_post = true;
+ if (is_user_logged_in()) {
+
+  $post_author_id = get_post_field('post_author', $post_id);
+  if (get_current_user_id() == $post_author_id) {
+   $edit_post = true;
+  } else {
+   $edit_post = false;
+  }
+ } else {
+  $edit_post = false;
+ }
+
+ $current_page_id = get_the_ID();
+ $edit_page_id    = flexi_get_option('edit_flexi_page', 'flexi_form_settings', 0);
+ //Check if page is edit page to prevent from spam
+ if ($current_page_id != $edit_page_id) {
+  $edit_post = false;
+ }
+
+ return $edit_post;
+}
 //Return album name with and without link
 function flexi_get_album($post_id, $type)
 {
