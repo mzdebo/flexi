@@ -123,6 +123,12 @@ class FLEXI_Admin_Settings
     'title' => __('General Settings', 'flexi'),
     'tab'   => 'general',
    ),
+   array(
+    'id'          => 'flexi_media_settings',
+    'title'       => __('Media Settings', 'flexi'),
+    'description' => __('The sizes listed below determine the maximum dimensions in pixels to use when adding an image to the Media Library.', 'flexi'),
+    'tab'         => 'general',
+   ),
 
    array(
     'id'    => 'flexi_image_layout_settings',
@@ -313,7 +319,56 @@ class FLEXI_Admin_Settings
     ),
    ),
 
-   'flexi_image_settings'        => array(
+   'flexi_media_settings'        => array(
+    array(
+     'name'              => 't_width',
+     'name2'             => 't_height',
+     'label'             => __('Thumbnail size', 'flexi'),
+     'label_1'           => __('Width', 'flexi'),
+     'label_2'           => __('Height', 'flexi'),
+     'description'       => __('flexi-thumb .px', 'flexi'),
+     'type'              => 'double_input',
+     'type_2'            => 'number',
+     'max'               => '300',
+     'min'               => '50',
+     'step'              => '5',
+     'sanitize_callback' => 'sanitize_text_field',
+    ),
+    array(
+     'name'              => 'crop_thumbnail',
+     'label'             => __('', 'flexi'),
+     'description'       => __('Crop thumbnail to exact dimensions (normally thumbnails are proportional)', 'flexi'),
+     'type'              => 'checkbox',
+     'sanitize_callback' => 'intval',
+    ),
+    array(
+     'name'              => 'm_width',
+     'name2'             => 'm_height',
+     'label'             => __('Medium size', 'flexi'),
+     'label_1'           => __('Width', 'flexi'),
+     'label_2'           => __('Height', 'flexi'),
+     'description'       => __('flexi-medium .px', 'flexi'),
+     'type'              => 'double_input',
+     'type_2'            => 'number',
+     'max'               => '1000',
+     'min'               => '100',
+     'step'              => '5',
+     'sanitize_callback' => 'sanitize_text_field',
+    ),
+    array(
+     'name'              => 'l_width',
+     'name2'             => 'l_height',
+     'label'             => __('Large size', 'flexi'),
+     'label_1'           => __('Width', 'flexi'),
+     'label_2'           => __('Height', 'flexi'),
+     'description'       => __('flexi-large .px', 'flexi'),
+     'type'              => 'double_input',
+     'type_2'            => 'number',
+     'max'               => '1500',
+     'min'               => '500',
+     'step'              => '5',
+     'sanitize_callback' => 'sanitize_text_field',
+    ),
 
    ),
    'flexi_page_settings'         => array(
@@ -383,6 +438,10 @@ class FLEXI_Admin_Settings
      'min'               => isset($option['min']) ? $option['min'] : '',
      'max'               => isset($option['max']) ? $option['max'] : '',
      'step'              => isset($option['step']) ? $option['step'] : '',
+     'name2'             => isset($option['name2']) ? $option['name2'] : '',
+     'label_1'           => isset($option['label_1']) ? $option['label_1'] : '',
+     'label_2'           => isset($option['label_2']) ? $option['label_2'] : '',
+     'type_2'            => isset($option['type_2']) ? $option['type_2'] : '',
     );
 
     add_settings_field("{$section['id']}[{$name}]", $label, $callback, $page_hook, $section['id'], $args);
@@ -456,6 +515,30 @@ class FLEXI_Admin_Settings
   $step        = empty($args['max']) ? '' : ' step="' . $args['step'] . '"';
 
   $html = sprintf('<input type="%1$s" class="%2$s-number" id="%3$s[%4$s]" name="%3$s[%4$s]" value="%5$s"%6$s%7$s%8$s%9$s/>', $type, $size, $args['section'], $args['id'], $value, $placeholder, $min, $max, $step);
+  $html .= $this->get_field_description($args);
+
+  echo $html;
+ }
+
+ public function callback_double_input($args)
+ {
+  $value       = esc_attr($this->get_option($args['id'], $args['section'], 0));
+  $size        = isset($args['size']) && !is_null($args['size']) ? $args['size'] : 'regular';
+  $type        = isset($args['type']) ? 'text' : 'number';
+  $placeholder = empty($args['placeholder']) ? '' : ' placeholder="' . $args['placeholder'] . '"';
+  $min         = empty($args['min']) ? '' : ' min="' . $args['min'] . '"';
+  $max         = empty($args['max']) ? '' : ' max="' . $args['max'] . '"';
+  $step        = empty($args['max']) ? '' : ' step="' . $args['step'] . '"';
+  $name2       = empty($args['name2']) ? '' : $args['name2'];
+  $label_1     = empty($args['label_1']) ? '' : $args['label_1'];
+  $label_2     = empty($args['label_2']) ? '' : $args['label_2'];
+  $type_2      = empty($args['type_2']) ? '' : $args['type_2'];
+
+  $t_width  = flexi_get_option($args['id'], $args['section'], 0);
+  $t_height = flexi_get_option($name2, $args['section'], 0);
+
+  $html = $label_1 . " " . sprintf('<input type="%1$s" class="%2$s-number" id="%3$s[%4$s]" name="%3$s[%4$s]" value="%5$s"%6$s%7$s%8$s%9$s/>', $type_2, $size, $args['section'], $args['id'], $t_width, $placeholder, $min, $max, $step);
+  $html .= $label_2 . " " . sprintf('<input type="%1$s" class="%2$s-number" id="%3$s[%4$s]" name="%3$s[%4$s]" value="%5$s"%6$s%7$s%8$s%9$s/>', $type_2, $size, $args['section'], $name2, $t_height, $placeholder, $min, $max, $step);
   $html .= $this->get_field_description($args);
 
   echo $html;

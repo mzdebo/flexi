@@ -105,6 +105,9 @@ class Flexi
   */
  private function load_dependencies()
  {
+  //Flexi own media settings
+  require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-flexi-media.php';
+
   //[flexi-form] & [flexi-form-tag] shortcode
   require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-flexi-form.php';
 
@@ -224,6 +227,9 @@ class Flexi
 
   //[flexi-form] & [flexi-form-tag]
   $form = new Flexi_Shortcode_Form();
+
+  //Media Settings
+  $media = new Flexi_Media_Settings();
 
  }
 
