@@ -212,7 +212,7 @@ class FLEXI_Admin_Settings
     array(
      'name'              => 'perrow',
      'label'             => __('Number of Columns', 'flexi'),
-     'description'       => __('Maximum number of post to be shown horizontally. May automatically change based on screen size.', 'flexi'),
+     'description'       => __('Maximum number of post to be shown horizontally & changes based on screen size. May not work for all layouts.', 'flexi'),
      'type'              => 'number',
      'min'               => '1',
      'sanitize_callback' => 'sanitize_key',
