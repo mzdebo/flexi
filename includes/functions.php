@@ -339,7 +339,7 @@ function flexi_submit($title, $files, $content, $category, $preview, $tags = '')
 
      $attach_ids[] = $attach_id;
      add_post_meta($post_id, 'flexi_image_id', $attach_id);
-     add_post_meta($post_id, 'flexi_image', flexi_image_src('large', get_post($post_id)));
+     add_post_meta($post_id, 'flexi_image', flexi_image_src('flexi-large', get_post($post_id)));
     } else {
      wp_delete_attachment($attach_id);
      wp_delete_post($post_id, true);
@@ -570,7 +570,7 @@ function flexi_log($message)
 // All commonly used function are listed
 //
 //Return image url
-function flexi_image_src($size = 'thumbnail', $post = '')
+function flexi_image_src($size = 'flexi-thumb', $post = '')
 {
  if ('' == $post) {
   global $post;
@@ -623,7 +623,7 @@ function flexi_image_data($size = 'full', $post = '')
  }
 
  if ($lightbox) {
-  $data['url']   = flexi_image_src('full', $post);
+  $data['url']   = flexi_image_src('flexi-large', $post);
   $data['extra'] = 'data-fancybox="image"';
  } else {
   $data['url']   = get_permalink();

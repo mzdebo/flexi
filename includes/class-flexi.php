@@ -105,6 +105,9 @@ class Flexi
   */
  private function load_dependencies()
  {
+  //Flexi Admin custom columns
+  require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-flexi-admin-column.php';
+
   //Flexi own media settings
   require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-flexi-media.php';
 
@@ -230,6 +233,9 @@ class Flexi
 
   //Media Settings
   $media = new Flexi_Media_Settings();
+
+  //Admin column
+  $column = new Flexi_Admin_Column();
 
  }
 

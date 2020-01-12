@@ -1,5 +1,5 @@
 <?php
-$data = flexi_image_data('medium', $post);
+$data = flexi_image_data('flexi-medium', $post);
 ?>
 
 <li class="flexi_list_cards__item flexi_gallery_child" id="flexi_<?php echo get_the_ID(); ?>" data-tags="<?php echo $tags; ?>">
