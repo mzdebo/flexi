@@ -182,3 +182,25 @@ div.tagsinput div {
   border-radius: 3px;
   transition: width 500ms ease-in-out;
 }
+
+/* Multi file drag drop */
+.flexi_drag_file {
+  background: #eaefee;
+  border: 4px dashed #fff;
+  width: 100%;
+  height: 150px;
+}
+
+.flexi_drag_file p {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  line-height: 170px;
+}
+.flexi_drag_file_hide {
+  position: absolute;
+  outline: none;
+  opacity: 0;
+  width: 90%;
+  height: 130px;
+}

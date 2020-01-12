@@ -102,39 +102,36 @@ class Flexi_Public
 
   wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/flexi-public.js', array('jquery'), $this->version, false);
   wp_enqueue_script($this->plugin_name . '_fancybox', plugin_dir_url(__FILE__) . 'js/jquery.fancybox.min.js', array('jquery'), $this->version, false);
-  wp_enqueue_script($this->plugin_name . '_tags', plugin_dir_url(__FILE__) . '/js/jquery.tagsinput.js', '', $this->version, false);
-  wp_enqueue_script($this->plugin_name . '_tags_filter', plugin_dir_url(__FILE__) . '/js/filter-tags.js', '', $this->version, false);
+  wp_enqueue_script($this->plugin_name . '_tags', plugin_dir_url(__FILE__) . 'js/jquery.tagsinput.js', '', $this->version, false);
+  wp_enqueue_script($this->plugin_name . '_tags_filter', plugin_dir_url(__FILE__) . 'js/filter-tags.js', '', $this->version, false);
 
   //If basic page navigation
   $navigation = flexi_get_option('navigation', 'flexi_image_layout_settings', 'scroll');
-  if ('pagenavi' == $navigation) {
-   //Not required for page navi
+
+  global $wp_query;
+  // Localize the script with new data
+  $translation_array = array(
+   'delete_string' => __('Are you sure you want to delete?', 'flexi'),
+   'ajaxurl'       => admin_url('admin-ajax.php'),
+  );
+
+  //If scroll ajax is enabled
+  if ('scroll' == $navigation) {
+   // register our main script but do not enqueue it yet
+   wp_register_script('flexi_load_more', plugin_dir_url(__FILE__) . 'js/flexi_load_more_scroll.js', array('jquery'), $this->version);
   } else {
-   global $wp_query;
-   // Localize the script with new data
-   $translation_array = array(
-    'delete_string' => __('Are you sure you want to delete?', 'flexi'),
-    'ajaxurl'       => admin_url('admin-ajax.php'),
-   );
-
-   //If scroll ajax is enabled
-   if ('scroll' == $navigation) {
-    // register our main script but do not enqueue it yet
-    wp_register_script('flexi_load_more', plugin_dir_url(__FILE__) . 'js/flexi_load_more_scroll.js', array('jquery'), $this->version);
-   } else {
-    // register our main script but do not enqueue it yet
-    wp_register_script('flexi_load_more', plugin_dir_url(__FILE__) . 'js/flexi_load_more_button.js', array('jquery'), $this->version);
-
-   }
-
-   wp_localize_script('flexi_load_more', 'myAjax', $translation_array);
-   wp_enqueue_script('flexi_load_more');
-
-   //Ajax form submission
-   wp_register_script('flexi_ajax_post', plugin_dir_url(__FILE__) . 'js/flexi_ajax_post.js', array('jquery'), $this->version);
-   //wp_localize_script('flexi_ajax_post', 'myAjax', $translation_array);
-   wp_enqueue_script('flexi_ajax_post');
+   // register our main script but do not enqueue it yet
+   wp_register_script('flexi_load_more', plugin_dir_url(__FILE__) . 'js/flexi_load_more_button.js', array('jquery'), $this->version);
 
   }
+
+  wp_localize_script('flexi_load_more', 'myAjax', $translation_array);
+  wp_enqueue_script('flexi_load_more');
+
+  //Ajax form submission
+  wp_register_script('flexi_ajax_post', plugin_dir_url(__FILE__) . 'js/flexi_ajax_post.js', array('jquery'), $this->version);
+  //wp_localize_script('flexi_ajax_post', 'myAjax', $translation_array);
+  wp_enqueue_script('flexi_ajax_post');
+
  }
 }
