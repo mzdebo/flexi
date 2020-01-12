@@ -77,8 +77,9 @@
   .flexi_list_card__title {
     color: #696969;
     font-weight: 300;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     text-transform: uppercase;
+    text-align:center;
   }
 
   .flexi_list_card__text {
