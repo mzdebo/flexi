@@ -1,7 +1,7 @@
 <style>
 .flexi_masonry {
     columns: <?php echo $perrow;
-    ?>;
+?>;
     column-gap: 10px;
 }
 
@@ -59,4 +59,4 @@ jQuery(document).ready(function() {
 </script>
 <div id="flexi_gallery">
     <flexi>
-        <div class="flexi_masonry">
+        <div class="flexi_masonry" id="flexi_main_loop">
