@@ -217,16 +217,28 @@ class Flexi_Shortcode_Gallery
 
   ?>
 <style>
-.flexi_grid {
+.grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(<?php echo $img_width; ?>px, 1fr));
-  grid-gap: 20px;
+  grid-gap: 1px;
   align-items: stretch;
   }
+.grid > article {
 
-.flexi_grid > flexi_article img {
-  max-height: <?php echo $img_height; ?>px;
-  max-width: 100%;
+  text-align:center;
+  display: flex;
+ justify-content: center;
+
+    overflow: hidden;
+
+
+}
+.grid > article img {
+  width: <?php echo $img_width; ?>px; height: <?php echo $img_height; ?>px;
+	object-fit: cover;
+	overflow: hidden;
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
 
 }
 
