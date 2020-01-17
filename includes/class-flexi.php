@@ -250,7 +250,6 @@ class Flexi
   //Gallery shortcode [flexi_gallery]
   $gallery = new Flexi_Shortcode_Gallery();
   $this->loader->add_action('wp_head', $gallery, 'enqueue_styles_head');
-  //$this->loader->add_action('wp_enqueue_scripts', $gallery, 'enqueue_styles');
 
   //Detail Page
   $detail = new Flexi_Public_Detail();

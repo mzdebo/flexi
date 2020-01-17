@@ -208,11 +208,7 @@ class Flexi_Shortcode_Gallery
    return $put;
   }
  }
- public function enqueue_styles()
- {
 
-  wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'public/partials/layout/gallery/regular/style.css', array(), $this->version, 'all');
- }
  public function enqueue_styles_head()
  {
 
@@ -223,27 +219,11 @@ class Flexi_Shortcode_Gallery
 
   ?>
 <style>
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(<?php echo $img_width; ?>px, 1fr));
-  grid-gap: 1px;
-  align-items: stretch;
-  }
-.grid > article
-{
-
-  text-align:center;
-  display: flex;
-  justify-content: center;
-  overflow: hidden;
+:root {
+  --flexi_t_width: <?php echo $img_width; ?>px;
+  --flexi_t_height: <?php echo $img_height; ?>px;
+  --flexi_color: blue;
 }
-.grid > article img {
-  width: <?php echo $img_width; ?>px; height: <?php echo $img_height; ?>px;
-	object-fit: cover;
-	overflow: hidden;
-
-}
-
 </style>
 
 <script>
