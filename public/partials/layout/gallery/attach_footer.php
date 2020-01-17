@@ -1,7 +1,6 @@
 <?php
-$gallery_layout = flexi_get_option('gallery_layout', 'flexi_image_layout_settings', 'masonry');
 //Attach footer of gallery based based on layout selection
-require FLEXI_PLUGIN_DIR . 'public/partials/layout/gallery/' . $gallery_layout . '/footer.php';
+require FLEXI_PLUGIN_DIR . 'public/partials/layout/gallery/' . $layout . '/footer.php';
 
 //If AJAX loading is enabled
 

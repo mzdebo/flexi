@@ -6,8 +6,7 @@ if ($show_tag) {
 
 $navigation = flexi_get_option('navigation', 'flexi_image_layout_settings', 'scroll');
 //Attach header gallery based based on layout selection
-$gallery_layout = flexi_get_option('gallery_layout', 'flexi_image_layout_settings', 'masonry');
-require FLEXI_PLUGIN_DIR . 'public/partials/layout/gallery/' . $gallery_layout . '/header.php';
+require FLEXI_PLUGIN_DIR . 'public/partials/layout/gallery/' . $layout . '/header.php';
 if ('scroll' == $navigation || 'button' == $navigation) {
  //<div id="flexi_main_loop" style="width:100%"></div>
  ?>

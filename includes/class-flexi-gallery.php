@@ -111,7 +111,7 @@ class Flexi_Shortcode_Gallery
   if (isset($params['layout'])) {
    $layout = trim($params['layout']);
   } else {
-   $layout = 'masonry';
+   $layout = flexi_get_option('gallery_layout', 'flexi_image_layout_settings', 'masonry');
   }
 
   if ("" != $album && "" != $keyword) {
@@ -194,6 +194,8 @@ class Flexi_Shortcode_Gallery
    $count = 0;
    $put   = "";
    ob_start();
+   wp_register_style('make-a-new-map-style', plugin_dir_url(__FILE__) . '../public/partials/layout/gallery/' . $layout . '/style.css');
+   wp_enqueue_style('make-a-new-map-style');
    require FLEXI_PLUGIN_DIR . 'public/partials/layout/gallery/attach_header.php';
    while ($query->have_posts()): $query->the_post();
     require FLEXI_PLUGIN_DIR . 'public/partials/layout/gallery/attach_loop.php';
@@ -206,8 +208,12 @@ class Flexi_Shortcode_Gallery
    return $put;
   }
  }
-
  public function enqueue_styles()
+ {
+
+  wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'public/partials/layout/gallery/regular/style.css', array(), $this->version, 'all');
+ }
+ public function enqueue_styles_head()
  {
 
   $img_width  = flexi_get_option('t_width', 'flexi_media_settings', 150);
@@ -223,22 +229,18 @@ class Flexi_Shortcode_Gallery
   grid-gap: 1px;
   align-items: stretch;
   }
-.grid > article {
+.grid > article
+{
 
   text-align:center;
   display: flex;
- justify-content: center;
-
-    overflow: hidden;
-
-
+  justify-content: center;
+  overflow: hidden;
 }
 .grid > article img {
   width: <?php echo $img_width; ?>px; height: <?php echo $img_height; ?>px;
 	object-fit: cover;
 	overflow: hidden;
-  border: 1px solid #ccc;
-  box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
 
 }
 

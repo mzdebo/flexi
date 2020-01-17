@@ -206,10 +206,6 @@ class Flexi
   $this->loader->add_filter('parent_file', $plugin_post_types, 'tag_parent_file');
   $this->loader->add_filter('parent_file', $plugin_post_types, 'taxonomy_parent_file');
 
-  //Gallery shortcode [flexi_gallery]
-  $gallery = new Flexi_Shortcode_Gallery();
-  $this->loader->add_action('wp_head', $gallery, 'enqueue_styles');
-
   $plugin_admin = new Flexi_Admin($this->get_plugin_name(), $this->get_version());
   $this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_styles');
   $this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts');
@@ -220,10 +216,6 @@ class Flexi
   $settings = new FLEXI_Admin_Settings();
   $this->loader->add_action('admin_menu', $settings, 'admin_menu');
   $this->loader->add_action('admin_init', $settings, 'admin_init');
-
-  //Detail Page
-  $detail = new Flexi_Public_Detail();
-  $this->loader->add_action('the_content', $detail, 'the_content', 20);
 
 //Generate Meta-box
   $meta = new Flexi_Meta_boxes();
@@ -254,6 +246,16 @@ class Flexi
 
   $this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_styles');
   $this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_scripts');
+
+  //Gallery shortcode [flexi_gallery]
+  $gallery = new Flexi_Shortcode_Gallery();
+  $this->loader->add_action('wp_head', $gallery, 'enqueue_styles_head');
+  //$this->loader->add_action('wp_enqueue_scripts', $gallery, 'enqueue_styles');
+
+  //Detail Page
+  $detail = new Flexi_Public_Detail();
+  $this->loader->add_action('the_content', $detail, 'the_content', 20);
+
  }
 
  /**
