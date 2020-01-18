@@ -1,3 +1,2 @@
 <div id="flexi_gallery">
-<div class="flexi_cards" >
-<main class="grid" id="flexi_main_loop">
+<div class="pure-g" id="flexi_main_loop">

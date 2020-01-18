@@ -194,8 +194,8 @@ class Flexi_Shortcode_Gallery
    $count = 0;
    $put   = "";
    ob_start();
-   wp_register_style('make-a-new-map-style', plugin_dir_url(__FILE__) . '../public/partials/layout/gallery/' . $layout . '/style.css');
-   wp_enqueue_style('make-a-new-map-style');
+   wp_register_style('flexi_' . $layout . '_layout', plugin_dir_url(__FILE__) . '../public/partials/layout/gallery/' . $layout . '/style.css', null, FLEXI_VERSION);
+   wp_enqueue_style('flexi_' . $layout . '_layout');
    require FLEXI_PLUGIN_DIR . 'public/partials/layout/gallery/attach_header.php';
    while ($query->have_posts()): $query->the_post();
     require FLEXI_PLUGIN_DIR . 'public/partials/layout/gallery/attach_loop.php';

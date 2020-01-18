@@ -77,7 +77,9 @@ class Flexi_Public
 
   wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/flexi-public.css', array(), $this->version, 'all');
   wp_enqueue_style($this->plugin_name . '_fancybox', plugin_dir_url(__FILE__) . 'css/jquery.fancybox.min.css', array(), $this->version, 'all');
-
+  wp_enqueue_style($this->plugin_name . '_purecss_base', plugin_dir_url(__FILE__) . 'css/purecss/base-min.css', array(), $this->version, 'all');
+  wp_enqueue_style($this->plugin_name . '_purecss_grids', plugin_dir_url(__FILE__) . 'css/purecss/grids-min.css', array(), $this->version, 'all');
+  wp_enqueue_style($this->plugin_name . '_purecss_responsive', plugin_dir_url(__FILE__) . 'css/purecss/grids-responsive-min.css', array(), $this->version, 'all');
  }
 
  /**

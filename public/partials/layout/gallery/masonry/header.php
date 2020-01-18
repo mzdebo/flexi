@@ -47,16 +47,7 @@ flexi_figcaption {
     display: none;
 }
 </style>
-<script>
-jQuery(document).ready(function() {
 
-    jQuery('[data-fancybox]').fancybox({
-        caption: function(instance, item) {
-            return jQuery(this).find('flexi_figcaption').html();
-        }
-    });
-});
-</script>
 <div id="flexi_gallery">
     <flexi>
         <div class="flexi_masonry" id="flexi_main_loop">
