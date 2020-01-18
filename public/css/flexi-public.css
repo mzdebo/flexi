@@ -204,3 +204,8 @@ div.tagsinput div {
   width: 90%;
   height: 130px;
 }
+
+/* Figure caption for lightbox  */
+flexi_figcaption {
+  display: none;
+}
