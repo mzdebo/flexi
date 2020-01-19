@@ -3,12 +3,12 @@
 if ($show_tag) {
  echo flexi_generate_tags($tags_array, 'flexi_tags', 'filter_tag') . "<br><div style='clear:both;'></div>";
 }
-
 $navigation = flexi_get_option('navigation', 'flexi_image_layout_settings', 'scroll');
 //Attach header gallery based based on layout selection
 require FLEXI_PLUGIN_DIR . 'public/partials/layout/gallery/' . $layout . '/header.php';
+
 if ('scroll' == $navigation || 'button' == $navigation) {
- //<div id="flexi_main_loop" style="width:100%"></div>
+
  ?>
 
  <div id='flexi_loader' style='display: none;text-align:center;'>

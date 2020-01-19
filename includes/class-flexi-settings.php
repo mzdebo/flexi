@@ -135,6 +135,11 @@ class FLEXI_Admin_Settings
     'title' => __('Gallery Settings', 'flexi'),
     'tab'   => 'gallery',
    ),
+   array(
+    'id'    => 'flexi_gallery_appearance_settings',
+    'title' => __('Gallery appearance', 'flexi'),
+    'tab'   => 'gallery',
+   ),
 
    array(
     'id'    => 'flexi_form_settings',
@@ -175,7 +180,7 @@ class FLEXI_Admin_Settings
  {
 
   $fields = array(
-   'flexi_general_settings'      => array(
+   'flexi_general_settings'            => array(
     array(
      'name'              => 'my_login',
      'label'             => __('Select Login Page', 'flexi'),
@@ -186,7 +191,22 @@ class FLEXI_Admin_Settings
 
    ),
 
-   'flexi_image_layout_settings' => array(
+   'flexi_gallery_appearance_settings' => array(
+    array(
+     'name'              => 'image_space',
+     'label'             => __('Space between images', 'flexi'),
+     'description'       => __('Set padding - 0px', 'flexi'),
+     'type'              => 'number',
+     'size'              => 'small',
+     'min'               => '1',
+     'max'               => '10',
+     'step'              => '1',
+     'sanitize_callback' => 'sanitize_key',
+    ),
+
+   ),
+
+   'flexi_image_layout_settings'       => array(
     array(
      'name'              => 'main_page',
      'label'             => __('Main Gallery Page', 'flexi'),
@@ -206,15 +226,18 @@ class FLEXI_Admin_Settings
      'label'             => __('Post per page', 'flexi'),
      'description'       => __('Number of images/post/videos to be shown at a time.', 'flexi'),
      'type'              => 'number',
+     'size'              => 'small',
      'min'               => '1',
      'sanitize_callback' => 'sanitize_key',
     ),
     array(
-     'name'              => 'perrow',
+     'name'              => 'column',
      'label'             => __('Number of Columns', 'flexi'),
      'description'       => __('Maximum number of post to be shown horizontally & changes based on screen size. May not work for all layouts.', 'flexi'),
      'type'              => 'number',
+     'size'              => 'small',
      'min'               => '1',
+     'max'               => '10',
      'sanitize_callback' => 'sanitize_key',
     ),
     array(
@@ -246,7 +269,7 @@ class FLEXI_Admin_Settings
     ),
 
    ),
-   'flexi_form_settings'         => array(
+   'flexi_form_settings'               => array(
     array(
      'name'              => 'enable_form',
      'label'             => __('Form submission access', 'flexi'),
@@ -291,7 +314,7 @@ class FLEXI_Admin_Settings
     ),
 
    ),
-   'flexi_detail_settings'       => array(
+   'flexi_detail_settings'             => array(
     array(
      'name'              => 'lightbox_switch',
      'label'             => __('Enable Lightbox or Popup', 'flexi'),
@@ -309,7 +332,7 @@ class FLEXI_Admin_Settings
     ),
 
    ),
-   'flexi_categories_settings'   => array(
+   'flexi_categories_settings'         => array(
     array(
      'name'              => 'global_album',
      'label'             => __('Default Post Category', 'flexi'),
@@ -319,7 +342,7 @@ class FLEXI_Admin_Settings
     ),
    ),
 
-   'flexi_media_settings'        => array(
+   'flexi_media_settings'              => array(
     array(
      'name'              => 't_width',
      'name2'             => 't_height',
@@ -371,10 +394,10 @@ class FLEXI_Admin_Settings
     ),
 
    ),
-   'flexi_page_settings'         => array(
+   'flexi_page_settings'               => array(
 
    ),
-   'flexi_permalink_settings'    => array(
+   'flexi_permalink_settings'          => array(
     array(
      'name'              => 'slug',
      'label'             => __('Image Detail Page', 'flexi'),
@@ -514,7 +537,7 @@ class FLEXI_Admin_Settings
   $max         = empty($args['max']) ? '' : ' max="' . $args['max'] . '"';
   $step        = empty($args['max']) ? '' : ' step="' . $args['step'] . '"';
 
-  $html = sprintf('<input type="%1$s" class="%2$s-number" id="%3$s[%4$s]" name="%3$s[%4$s]" value="%5$s"%6$s%7$s%8$s%9$s/>', $type, $size, $args['section'], $args['id'], $value, $placeholder, $min, $max, $step);
+  $html = sprintf('<input type="%1$s" class="%2$s-text" id="%3$s[%4$s]" name="%3$s[%4$s]" value="%5$s"%6$s%7$s%8$s%9$s/>', $type, $size, $args['section'], $args['id'], $value, $placeholder, $min, $max, $step);
   $html .= $this->get_field_description($args);
 
   echo $html;

@@ -8,6 +8,8 @@ jQuery(document).ready(function() {
     e.preventDefault();
     gallery_layout = jQuery("#gallery_layout").text();
     popup = jQuery("#popup").text();
+    padding = jQuery("#padding").text();
+    column = jQuery("#column").text();
     max_paged = jQuery("#max_paged").text();
     album = jQuery("#album").text();
     search = jQuery("#search").text();
@@ -34,6 +36,8 @@ jQuery(document).ready(function() {
           max_paged: paged,
           gallery_layout: gallery_layout,
           popup: popup,
+          padding: padding,
+          column: column,
           album: album,
           search: search,
           postsperpage: postsperpage,

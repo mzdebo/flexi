@@ -53,15 +53,18 @@ class Flexi_Shortcode_Gallery
   $keyword = '';
 
   //Page Navigation
-  $paged        = (get_query_var('paged')) ? get_query_var('paged') : 1;
-  $postsperpage = flexi_get_option('perpage', 'flexi_image_layout_settings', 10);
-  $perrow       = flexi_get_option('perrow', 'flexi_image_layout_settings', 3);
+  $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+
   if (isset($params['perpage']) && $params['perpage'] > 0) {
    $postsperpage = $params['perpage'];
+  } else {
+   $postsperpage = flexi_get_option('perpage', 'flexi_image_layout_settings', 10);
   }
 
-  if (isset($params['perrow']) && $params['perrow'] > 0) {
-   $perrow = $params['perrow'];
+  if (isset($params['column']) && $params['column'] > 0) {
+   $column = $params['column'];
+  } else {
+   $column = flexi_get_option('column', 'flexi_image_layout_settings', 3);
   }
 
   if (isset($params['page'])) {
@@ -105,6 +108,13 @@ class Flexi_Shortcode_Gallery
    $popup = $params['popup'];
   } else {
    $popup = flexi_get_option('lightbox_switch', 'flexi_detail_settings', 1);
+  }
+
+  //padding
+  if (isset($params['padding'])) {
+   $padding = $params['padding'];
+  } else {
+   $padding = flexi_get_option('image_space', 'flexi_gallery_appearance_settings', 0) . 'px';
   }
 
   //Layout
@@ -214,6 +224,7 @@ class Flexi_Shortcode_Gallery
 
   $img_width  = flexi_get_option('t_width', 'flexi_media_settings', 150);
   $img_height = flexi_get_option('t_height', 'flexi_media_settings', 150);
+  $padding    = '0px';
   $put        = "";
   ob_start();
 
@@ -222,13 +233,16 @@ class Flexi_Shortcode_Gallery
 :root {
   --flexi_t_width: <?php echo $img_width; ?>px;
   --flexi_t_height: <?php echo $img_height; ?>px;
-  --flexi_color: blue;
+  --flexi_padding: <?php echo $padding; ?>px;
 }
 </style>
 
 <script>
 jQuery(document).ready(function() {
 
+  //alert(jQuery("#padding").text());
+
+  document.documentElement.style.setProperty('--flexi_padding', jQuery("#padding").text());
     jQuery('[data-fancybox]').fancybox({
         caption: function(instance, item) {
             return jQuery(this).find('flexi_figcaption').html();

@@ -16,6 +16,8 @@ function flexi_load_more()
  $orderby      = $_REQUEST['orderby'];
  $user         = $_REQUEST['user'];
  $keyword      = $_REQUEST['keyword'];
+ $padding      = $_REQUEST['padding'];
+ $column       = $_REQUEST['column'];
  ob_start();
 
  // A default response holder, which will have data for sending back to our js file

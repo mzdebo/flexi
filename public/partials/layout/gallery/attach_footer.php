@@ -14,9 +14,11 @@ if ('scroll' == $navigation || 'button' == $navigation) {
  echo "<div id='max_paged' style='display:none'>" . $query->max_num_pages . "</div>";
  echo "<div id='search' style='display:none'>" . $search . "</div>";
  echo "<div id='postsperpage' style='display:none'>" . $postsperpage . "</div>";
+ echo "<div id='column' style='display:none'>" . $column . "</div>";
  echo "<div id='orderby' style='display:none'>" . $orderby . "</div>";
  echo "<div id='user' style='display:none'>" . $user . "</div>";
  echo "<div id='keyword' style='display:none'>" . $keyword . "</div>";
+ echo "<div id='padding' style='display:none'>" . $padding . "</div>";
  echo "<div id='reset' style='display:none'>false</div>";
  ?>
 
