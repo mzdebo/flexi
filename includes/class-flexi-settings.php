@@ -198,7 +198,7 @@ class FLEXI_Admin_Settings
      'description'       => __('Set padding 0px for none', 'flexi'),
      'type'              => 'number',
      'size'              => 'small',
-     'min'               => '1',
+     'min'               => '0',
      'max'               => '10',
      'step'              => '1',
      'sanitize_callback' => 'sanitize_key',
