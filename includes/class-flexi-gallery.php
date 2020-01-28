@@ -112,7 +112,7 @@ class Flexi_Shortcode_Gallery
 
   //padding
   if (isset($params['padding'])) {
-   $padding = $params['padding'];
+   $padding = $params['padding'] . 'px';
   } else {
    $padding = flexi_get_option('image_space', 'flexi_gallery_appearance_settings', 0) . 'px';
   }
@@ -224,7 +224,7 @@ class Flexi_Shortcode_Gallery
 
   $img_width  = flexi_get_option('t_width', 'flexi_media_settings', 150);
   $img_height = flexi_get_option('t_height', 'flexi_media_settings', 150);
-  $padding    = '0px';
+  $padding    = '0';
   $put        = "";
   ob_start();
 

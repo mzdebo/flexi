@@ -195,7 +195,7 @@ class FLEXI_Admin_Settings
     array(
      'name'              => 'image_space',
      'label'             => __('Space between images', 'flexi'),
-     'description'       => __('Set padding 0px for none', 'flexi'),
+     'description'       => __('Padding between images. Set shortcode [flexi-gallery padding="0"] for none', 'flexi'),
      'type'              => 'number',
      'size'              => 'small',
      'min'               => '0',

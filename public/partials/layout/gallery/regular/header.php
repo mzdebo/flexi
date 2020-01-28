@@ -1,54 +1,67 @@
 <style>
-    /* Image Frame */
-.flexi_image_frame {
-  border-radius: 0px;
-  border: 0px solid #ddd;
-  -moz-transition: all 0.5s;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
+
+/* Blur */
+#blur img {
+	-webkit-filter: blur(3px);
+	filter: blur(3px);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+.flexi_gallery_child:hover #blur img {
+	-webkit-filter: blur(0);
+	filter: blur(0);
 }
 
-.flexi_image_frame:hover {
-    -moz-transition: all 0.5s;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
-    /*Zoom on hover*/
-  -moz-transform: scale(0.9);
-  -webkit-transform: scale(0.9);
-  transform: scale(0.9);
-  /* Image border on hover */
-  border: 0px solid #ddd;
-  /* Image radius on hover */
-  border-radius: 0px;
+/* Gray Scale */
+#gray img {
+	-webkit-filter: grayscale(0);
+	filter: grayscale(0);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+.flexi_gallery_child:hover #gray img {
+	-webkit-filter: grayscale(100%);
+	filter: grayscale(100%);
+}
 
-  /* Opacity */
-  opacity: 0.5;
-
-  /* grayscale */
-  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
-  filter: grayscale(100%);
+/* Zoom In #1 */
+#zoom img {
+	-webkit-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
 
 }
-/* title over image text */
-.flexi_middle {
-  transition: .5s ease;
-  opacity: 0;
+.flexi_gallery_child:hover #zoom img {
+	-webkit-transform: scale(1.3);
+	transform: scale(1.3);
+}
+
+figure {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	background: #fff;
+	overflow: hidden;
+}
+
+
+.caption {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%)
-
-}
-.flexi_gallery_child:hover .flexi_middle {
-  opacity: 1;
-}
-
-.flexi_title {
-  background-color: #4CAF50;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* Black see-through */
+  width: 100%;
+  transition: .5s ease-out;
+  opacity:0;
   color: white;
-  font-size: 16px;
-  padding: 16px 32px;
+  font-size: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+.flexi_gallery_child:hover .caption {
+  opacity: 1;
 }
 
     </style>
