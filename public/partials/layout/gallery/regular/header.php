@@ -37,7 +37,8 @@
 	transform: scale(1.3);
 }
 
-figure {
+
+.flexi_effect {
 	width: 100%;
 	height: 100%;
 	margin: 0;
@@ -46,8 +47,9 @@ figure {
 	overflow: hidden;
 }
 
+/* Caption */
 
-.caption {
+.caption1 {
   position: absolute;
   bottom: 0;
   background: rgba(0, 0, 0, 0.5); /* Black see-through */
@@ -60,8 +62,60 @@ figure {
   text-align: center;
 }
 
-.flexi_gallery_child:hover .caption {
+.flexi_gallery_child:hover .caption1 {
   opacity: 1;
+}
+
+/* ... common font style ... */
+#flexi_title h3 {
+  padding: 20px 0 5px;
+  color: #fff;
+  font-size: 24px;
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+}
+#flexi_title p {
+  color: #fff;
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+}
+
+/* Simple caption */
+
+.flexi_caption_1{
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,.6);
+  -webkit-transition: .3s;
+  transition: .3s;
+  opacity: 0;
+}
+.flexi_gallery_child:hover .flexi_caption_1 {
+  opacity: 1;
+}
+
+/* Drop down */
+.flexi_caption_2 {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,.6);
+  -webkit-transition: .3s;
+  transition: .3s;
+  opacity: 1;
+}
+.flexi_gallery_child:hover .flexi_caption_2 {
+  top: 0;
+  left: 0;
 }
 
     </style>
