@@ -12,7 +12,7 @@ $data = flexi_image_data('flexi-thumb', $post);
       <?php echo ' <flexi_figcaption><b>' . $data['title'] . '</b><br>' . get_the_excerpt() . '</flexi_figcaption>'; ?>
       </a>
 
-      <div id="flexi_title" class="flexi_caption_1">
+      <div id="flexi_title" class="flexi_caption_3">
       <h3><?php echo $data['title']; ?></h3>
       <p>caption text here ...</p>
       </div>

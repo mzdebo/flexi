@@ -45,6 +45,7 @@
 	padding: 0;
 	background: #fff;
 	overflow: hidden;
+	position: relative;
 }
 
 /* Caption */
@@ -67,17 +68,21 @@
 }
 
 /* ... common font style ... */
+#flexi_title{
+	overflow: hidden;
+}
+
 #flexi_title h3 {
   padding: 20px 0 5px;
   color: #fff;
   font-size: 24px;
-  text-align: center;
+
   font-family: 'Open Sans', sans-serif;
   font-weight: 600;
 }
 #flexi_title p {
   color: #fff;
-  text-align: center;
+
   font-family: 'Open Sans', sans-serif;
   font-weight: 400;
 }
@@ -95,6 +100,7 @@
   -webkit-transition: .3s;
   transition: .3s;
   opacity: 0;
+  text-align: center;
 }
 .flexi_gallery_child:hover .flexi_caption_1 {
   opacity: 1;
@@ -112,11 +118,60 @@
   -webkit-transition: .3s;
   transition: .3s;
   opacity: 1;
+  text-align: center;
 }
 .flexi_gallery_child:hover .flexi_caption_2 {
   top: 0;
   left: 0;
 }
+
+/* Movie caption */
+.flexi_caption_3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,.6);
+  -webkit-transition: .3s;
+  transition: .3s;
+  opacity: 0;
+}
+.flexi_caption_3 h3,
+.flexi_caption_3 p {
+  position: absolute;
+  left: -100%;
+  width: 260px;
+  padding: 0;
+  text-align: left;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+.flexi_caption_3 h3 {
+  top: 30px;
+}
+.flexi_caption_3 p {
+  top: 75px;
+  font-size: 12px;
+}
+.flexi_gallery_child:hover .flexi_caption_3 {
+  opacity: 1;
+}
+.flexi_gallery_child:hover .flexi_caption_3 h3,
+.flexi_gallery_child:hover .flexi_caption_3 p {
+  left: 20px;
+}
+.flexi_gallery_child:hover .flexi_caption_3 h3 {
+  -webkit-transition-delay: .2s;
+  transition-delay: .2s;
+}
+.flexi_gallery_child:hover .flexi_caption_3 p {
+  -webkit-transition-delay: .5s;
+  transition-delay: .5s;
+}
+
+
 
     </style>
 <div id="flexi_gallery">
