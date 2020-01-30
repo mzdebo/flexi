@@ -17,6 +17,7 @@ jQuery(document).ready(function() {
     jQuery('#load_more_link').click();
 })
 </script>
+
 <?php
 } else {
  //Load basic page loading with other plugin support

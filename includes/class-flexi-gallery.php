@@ -245,7 +245,9 @@ jQuery(document).ready(function() {
   document.documentElement.style.setProperty('--flexi_padding', jQuery("#padding").text());
     jQuery('[data-fancybox]').fancybox({
         caption: function(instance, item) {
+          alert(jQuery(this).find('flexi_figcaption').html());
             return jQuery(this).find('flexi_figcaption').html();
+
         }
     });
 });

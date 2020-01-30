@@ -50,63 +50,43 @@
 
 /* Caption */
 
-.caption1 {
-  position: absolute;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5); /* Black see-through */
-  width: 100%;
-  transition: .5s ease-out;
-  opacity:0;
-  color: white;
-  font-size: 20px;
-  padding: 20px;
-  text-align: center;
-}
 
-.flexi_gallery_child:hover .caption1 {
-  opacity: 1;
-}
-
-/* ... common font style ... */
 #flexi_title{
 	overflow: hidden;
 }
 
-#flexi_title h3 {
-  padding: 20px 0 5px;
-  color: #fff;
-  font-size: 24px;
+/* Caption style */
 
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 600;
-}
-#flexi_title p {
-  color: #fff;
 
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 400;
-}
-
-/* Simple caption */
-
-.flexi_caption_1{
+/* Style 1 */
+.flexi_caption_1 {
   position: absolute;
-  top: 0;
-  left: 0;
+  bottom: 30px;
+  right: 50px;
   z-index: 2;
-  width: 100%;
-  height: 100%;
+  width: 90%;
+  height: 20px;
   background: rgba(0,0,0,.6);
   -webkit-transition: .3s;
-  transition: .3s;
-  opacity: 0;
+  transition: .5s;
+  color: #fff;
+  margin-right: -30px;
   text-align: center;
 }
+.flexi_caption_1 h3 {
+  font-size: 18px;
+
+}
+.flexi_caption_1 p {
+display:none;
+}
 .flexi_gallery_child:hover .flexi_caption_1 {
-  opacity: 1;
+  right: 150%;
 }
 
-/* Drop down */
+
+
+/* Style 2 */
 .flexi_caption_2 {
   position: absolute;
   top: -100%;
@@ -119,13 +99,26 @@
   transition: .3s;
   opacity: 1;
   text-align: center;
+
+}
+.flexi_caption_2 h3 {
+	padding: 2px 0 0;
+  color: #fff;
+  font-size: 24px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+}
+.flexi_caption_2 p {
+
+	color: #fff;
+	font-family: 'Open Sans', sans-serif;
 }
 .flexi_gallery_child:hover .flexi_caption_2 {
   top: 0;
   left: 0;
 }
 
-/* Movie caption */
+/* Style 3 */
 .flexi_caption_3 {
   position: absolute;
   top: 0;
@@ -147,6 +140,11 @@
   text-align: left;
   -webkit-transition: .3s;
   transition: .3s;
+  padding: 2px 0 0;
+  color: #fff;
+  font-size: 24px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
 }
 .flexi_caption_3 h3 {
   top: 30px;
@@ -171,7 +169,65 @@
   transition-delay: .5s;
 }
 
+/* Style 4 */
 
+.flexi_caption_4 {
+  position: absolute;
+  bottom: -60px;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  height: 40px;
+  background: rgba(0,0,0,.6);
+  -webkit-transition: .3s;
+  transition: .3s;
+  text-align: center;
+}
+.flexi_caption_4 h3 {
+  padding: 2px 0 0;
+  color: #fff;
+  font-size: 24px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+}
+
+.flexi_gallery_child:hover .flexi_caption_4 {
+  bottom: 0;
+}
+
+/* Style 5 */
+
+.flexi_caption_5 h3,
+.flexi_caption_5 p {
+  position: absolute;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  padding: 0;
+  background: rgba(0,0,0,.6);
+  color: #fff;
+  text-align: center;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+.flexi_caption_5 h3 {
+  top: -80px;
+  font-size: 18px;
+}
+.flexi_caption_5 p {
+  bottom: -80px;
+  font-size: 13px;
+}
+.flexi_gallery_child:hover .flexi_caption_5 h3 {
+  top: 0;
+  font-size: 18px;
+  padding: 0px 0 5px;
+}
+.flexi_gallery_child:hover .flexi_caption_5 p {
+  bottom: -30px;
+}
 
     </style>
 <div id="flexi_gallery">
