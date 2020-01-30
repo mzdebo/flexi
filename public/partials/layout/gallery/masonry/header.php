@@ -1,53 +1,36 @@
 <style>
-.flexi_masonry {
-    columns: <?php echo $column;
-?>;
-    column-gap: 10px;
+.masonry-wrapper {
+  padding: 1.5em;
+  max-width: 960px;
+  margin-right: auto;
+  margin-left: auto;
 }
-
-.flexi_masonry-item img {
-    max-width: 100%;
-    vertical-align: middle;
+.masonry {
+  columns: 1;
+  column-gap: 1px;
 }
-
-.flexi_masonry-item {
-    display: inline-block;
-    vertical-align: top;
-    margin-bottom: 10px;
+.masonry-item {
+  display: inline-block;
+  vertical-align: top;
+  margin-bottom: 1px;
 }
-
-@media only screen and (max-width: 1023px) and (min-width: 768px) {
-    .flexi_masonry {
-        columns: 2;
-    }
+@media only screen and (max-width: 1023px) and (min-width: 768px) {  .masonry {
+    columns: 2;
+  }
 }
-
 @media only screen and (min-width: 1024px) {
-    .flexi_masonry {
-        columns: 3;
-    }
+  .masonry {
+    columns: 5;
+  }
+}
+.masonry-item, .masonry-content {
+  border-radius: 4px;
+  overflow: hidden;
 }
 
-.flexi_masonry-item,
-.flexi_masonry-content {
-    border-radius: 4px;
-    overflow: hidden;
-}
-
-.flexi_masonry-item {
-    filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, .3));
-    transition: filter .25s ease-in-out;
-}
-
-.flexi_masonry-item:hover {
-    filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, .3));
-}
-
-flexi_figcaption {
-    display: none;
-}
 </style>
-
+<?php
+$i = 0;
+?>
 <div id="flexi_gallery">
-    <flexi>
-        <div class="flexi_masonry" id="flexi_main_loop">
+        <div class="masonry" id="flexi_main_loop">

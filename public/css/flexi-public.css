@@ -273,7 +273,7 @@ flexi_figcaption {
   right: 50px;
   z-index: 2;
   width: 90%;
-  height: 20px;
+  height: 30px;
   background: rgba(0, 0, 0, 0.6);
   -webkit-transition: 0.3s;
   transition: 0.5s;
@@ -294,7 +294,7 @@ flexi_figcaption {
 /* Style 2 */
 .flexi_caption_2 {
   position: absolute;
-  top: -100%;
+  top: 100%;
   left: 0;
   z-index: 2;
   width: 100%;
