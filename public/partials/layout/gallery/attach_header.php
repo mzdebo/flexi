@@ -11,9 +11,6 @@ if ('scroll' == $navigation || 'button' == $navigation) {
 
  ?>
 
- <div id='flexi_loader' style='display: none;text-align:center;'>
- <img src="<?php echo FLEXI_PLUGIN_URL . '/public/images/loading.gif'; ?>">
 
- </div>
  <?php
 }

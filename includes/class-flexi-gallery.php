@@ -243,10 +243,10 @@ jQuery(document).ready(function() {
   //alert(jQuery("#padding").text());
 
   document.documentElement.style.setProperty('--flexi_padding', jQuery("#padding").text());
-    jQuery('[data-fancybox]').fancybox({
+    jQuery('[data-fancybox="image"]').fancybox({
         caption: function(instance, item) {
-          alert(jQuery(this).find('flexi_figcaption').html());
-            return jQuery(this).find('flexi_figcaption').html();
+          //This is not working on ajax loading. only for for page navigation.
+          return jQuery(this).find('flexi_figcaption').html();
 
         }
     });

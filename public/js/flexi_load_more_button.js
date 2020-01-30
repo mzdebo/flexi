@@ -53,7 +53,9 @@ jQuery(document).ready(function() {
         jQuery("#flexi_loader").show();
       },
       success: function(response) {
-        jQuery("#flexi_main_loop").append(response.msg);
+        jQuery("#flexi_main_loop")
+          .append(response.msg)
+          .fadeIn("normal");
         paged++;
 
         //alert(max_paged + "--" + paged);
