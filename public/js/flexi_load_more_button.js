@@ -14,6 +14,8 @@ jQuery(document).ready(function() {
     gallery_layout = jQuery("#gallery_layout").text();
     popup = jQuery("#popup").text();
     padding = jQuery("#padding").text();
+    hover_effect = jQuery("#hover_effect").text();
+    hover_caption = jQuery("#hover_caption").text();
     column = jQuery("#column").text();
     max_paged = jQuery("#max_paged").text();
     album = jQuery("#album").text();
@@ -39,6 +41,8 @@ jQuery(document).ready(function() {
         gallery_layout: gallery_layout,
         popup: popup,
         padding: padding,
+        hover_effect: hover_effect,
+        hover_caption: hover_caption,
         column: column,
         album: album,
         search: search,

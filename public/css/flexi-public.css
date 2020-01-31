@@ -266,6 +266,10 @@ flexi_figcaption {
 
 /* Caption style */
 
+.flexi_caption_none {
+  display: none;
+}
+
 /* Style 1 */
 .flexi_caption_1 {
   position: absolute;

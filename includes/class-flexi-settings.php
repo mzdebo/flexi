@@ -203,7 +203,45 @@ class FLEXI_Admin_Settings
      'step'              => '1',
      'sanitize_callback' => 'sanitize_key',
     ),
-
+    array(
+     'name'              => 'excerpt_length',
+     'label'             => __('Excerpt Length', 'flexi'),
+     'description'       => __('Number of words of short description', 'flexi'),
+     'type'              => 'number',
+     'size'              => 'small',
+     'min'               => '5',
+     'max'               => '30',
+     'step'              => '1',
+     'sanitize_callback' => 'sanitize_key',
+    ),
+    array(
+     'name'              => 'hover_effect',
+     'label'             => __('Thumbnail hover effect', 'flexi'),
+     'description'       => __('Effect on mouse over image.', 'flexi'),
+     'type'              => 'select',
+     'options'           => array(
+      'flexi_effect_none' => __('None', 'flexi'),
+      'flexi_effect_1'    => __('Blur', 'flexi'),
+      'flexi_effect_2'    => __('Grayscale', 'flexi'),
+      'flexi_effect_3'    => __('Zoom In', 'flexi'),
+     ),
+     'sanitize_callback' => 'sanitize_key',
+    ),
+    array(
+     'name'              => 'hover_caption',
+     'label'             => __('Thumbnail hover style', 'flexi'),
+     'description'       => __('Display title or icon on mouse over image', 'flexi'),
+     'type'              => 'select',
+     'options'           => array(
+      'flexi_caption_none' => __('None', 'flexi'),
+      'flexi_caption_1'    => __('Slide title', 'flexi'),
+      'flexi_caption_2'    => __('Pull up card', 'flexi'),
+      'flexi_caption_3'    => __('Slide right', 'flexi'),
+      'flexi_caption_4'    => __('Pull up title', 'flexi'),
+      'flexi_caption_5'    => __('Top & Bottom', 'flexi'),
+     ),
+     'sanitize_callback' => 'sanitize_key',
+    ),
    ),
 
    'flexi_image_layout_settings'       => array(

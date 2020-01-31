@@ -7,17 +7,19 @@ function flexi_load_more()
 {
  global $wp_query;
  global $post;
- $paged        = $_REQUEST["max_paged"];
- $layout       = $_REQUEST['gallery_layout'];
- $popup        = $_REQUEST['popup'];
- $album        = $_REQUEST['album'];
- $search       = $_REQUEST['search'];
- $postsperpage = $_REQUEST['postsperpage'];
- $orderby      = $_REQUEST['orderby'];
- $user         = $_REQUEST['user'];
- $keyword      = $_REQUEST['keyword'];
- $padding      = $_REQUEST['padding'];
- $column       = $_REQUEST['column'];
+ $paged         = $_REQUEST["max_paged"];
+ $layout        = $_REQUEST['gallery_layout'];
+ $popup         = $_REQUEST['popup'];
+ $album         = $_REQUEST['album'];
+ $search        = $_REQUEST['search'];
+ $postsperpage  = $_REQUEST['postsperpage'];
+ $orderby       = $_REQUEST['orderby'];
+ $user          = $_REQUEST['user'];
+ $keyword       = $_REQUEST['keyword'];
+ $padding       = $_REQUEST['padding'];
+ $hover_effect  = $_REQUEST['hover_effect'];
+ $hover_caption = $_REQUEST['hover_caption'];
+ $column        = $_REQUEST['column'];
  ob_start();
 
  // A default response holder, which will have data for sending back to our js file

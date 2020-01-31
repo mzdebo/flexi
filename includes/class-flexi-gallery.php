@@ -117,6 +117,20 @@ class Flexi_Shortcode_Gallery
    $padding = flexi_get_option('image_space', 'flexi_gallery_appearance_settings', 0) . 'px';
   }
 
+  //hover_effect
+  if (isset($params['hover_effect'])) {
+   $hover_effect = $params['hover_effect'];
+  } else {
+   $hover_effect = flexi_get_option('hover_effect', 'flexi_gallery_appearance_settings', 'flexi_effect_2');
+  }
+
+  //hover_effect
+  if (isset($params['hover_caption'])) {
+   $hover_caption = $params['hover_caption'];
+  } else {
+   $hover_caption = flexi_get_option('hover_caption', 'flexi_gallery_appearance_settings', 'flexi_caption_4');
+  }
+
   //Layout
   if (isset($params['layout'])) {
    $layout = trim($params['layout']);
