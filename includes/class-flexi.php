@@ -105,6 +105,9 @@ class Flexi
   */
  private function load_dependencies()
  {
+  //Add Flexi_pro
+  require_once plugin_dir_path(dirname(__FILE__)) . 'includes//class-flexi-pro.php';
+
   //Flexi Admin custom columns
   require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-flexi-admin-column.php';
 
@@ -229,6 +232,9 @@ class Flexi
 
   //Admin column
   $column = new Flexi_Admin_Column();
+
+  //Add Flexi PRO support
+  $flexi_pro = new Flexi_pro();
 
  }
 
