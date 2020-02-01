@@ -100,7 +100,7 @@ class Flexi_Shortcode_Form
         <div class='flexi_response'></div>
         <div id="flexi_after_response" style='display: none;'>
 
-        <a href='<?php echo flexi_get_button_url(get_the_ID(), true); ?>' class='flexi_send_again'>
+        <a href='<?php echo flexi_get_button_url(get_the_ID(), true); ?>' class='flexi_send_again button'>
                 <?php echo __('Post again', 'flexi'); ?>
             </a> |
 
