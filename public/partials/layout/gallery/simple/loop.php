@@ -6,7 +6,7 @@ $data = flexi_image_data('flexi-thumb', $post);
 
       <div class='flexi_loop_content flexi_frame_2'>
 
-
+      <a id='<?php echo get_the_ID(); ?>' class="xyz" onclick="reply_click(this.id);"><?php echo get_the_ID(); ?></a>
             <div class="flexi_media">
                    <a <?php echo $data['extra'] . ' href="' . $data['url'] . '" data-caption="' . $data['title'] . '" border="0"'; ?>>
                   <img class="flexi-fit_cover flexi_image_frame" src="<?php echo esc_url(flexi_image_src('flexi-thumb', $post)); ?>">
@@ -18,9 +18,16 @@ $data = flexi_image_data('flexi-thumb', $post);
                   <div class="flexi_p"><?php echo flexi_excerpt(20); ?></div>
                   <div class="flexi_bar">
                   <span class="dashicons dashicons-admin-users"></span>
-                  <span class="dashicons dashicons-trash"></span>
+
+                <?php
+$nonce = wp_create_nonce("flexi_ajax_delete");
+$link  = 'admin-ajax.php?action=flexi_ajax_delete&post_id=' . get_the_ID() . '&nonce=' . $nonce;
+?>
+                 <a  data-post_id='<?php echo get_the_ID(); ?>' data-nonce='<?php echo $nonce; ?>' href='#'> 9999 </a><span class="dashicons dashicons-trash">
                   <a style="text-decoration:none" href='<?php echo flexi_get_button_url(get_the_ID(), false, 'edit_flexi_page', 'flexi_form_settings'); ?>'><span class="dashicons dashicons-edit"></span></a>
                   </div>
+
+
             </div>
       </div>
 

@@ -135,8 +135,10 @@ class Flexi_Public
 
   //Ajax form submission
   wp_register_script('flexi_ajax_post', plugin_dir_url(__FILE__) . 'js/flexi_ajax_post.js', array('jquery'), $this->version);
-  //wp_localize_script('flexi_ajax_post', 'myAjax', $translation_array);
   wp_enqueue_script('flexi_ajax_post');
 
+  //Ajax Delete
+  wp_register_script('flexi_ajax_delete', plugin_dir_url(__FILE__) . 'js/flexi_ajax_delete.js', array('jquery'), $this->version);
+  wp_enqueue_script('flexi_ajax_delete');
  }
 }

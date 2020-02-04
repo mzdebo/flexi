@@ -132,6 +132,9 @@ class Flexi
   //Load Ajax form submit
   require_once plugin_dir_path(dirname(__FILE__)) . 'includes/flexi_ajax_post.php';
 
+  //Load Ajax Delete
+  require_once plugin_dir_path(dirname(__FILE__)) . 'includes/flexi_ajax_delete.php';
+
   // [Flexi-gallery] shortcode
   require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-flexi-gallery.php';
 
