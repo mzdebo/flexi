@@ -107,6 +107,9 @@ class Flexi_Public
   wp_enqueue_script($this->plugin_name . '_tags', plugin_dir_url(__FILE__) . 'js/jquery.tagsinput.js', '', $this->version, false);
   wp_enqueue_script($this->plugin_name . '_tags_filter', plugin_dir_url(__FILE__) . 'js/filter-tags.js', '', $this->version, false);
 
+  //Add wordpress dashicons
+  wp_enqueue_style('dashicons');
+
   //If basic page navigation
   $navigation = flexi_get_option('navigation', 'flexi_image_layout_settings', 'scroll');
 

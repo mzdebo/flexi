@@ -16,7 +16,11 @@ $data = flexi_image_data('flexi-thumb', $post);
             <div class="flexi_group">
                   <div class="flexi_title"><?php echo $data['title']; ?></div>
                   <div class="flexi_p"><?php echo flexi_excerpt(20); ?></div>
-                  <div class="flexi_bar">I am a bar</div>
+                  <div class="flexi_bar">
+                  <span class="dashicons dashicons-admin-users"></span>
+                  <span class="dashicons dashicons-trash"></span>
+                  <a style="text-decoration:none" href='<?php echo flexi_get_button_url(get_the_ID(), false, 'edit_flexi_page', 'flexi_form_settings'); ?>'><span class="dashicons dashicons-edit"></span></a>
+                  </div>
             </div>
       </div>
 
