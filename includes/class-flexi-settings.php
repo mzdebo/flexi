@@ -346,7 +346,7 @@ class FLEXI_Admin_Settings
     array(
      'name'              => 'edit_flexi_page',
      'label'             => __('Edit Flexi Post Page', 'flexi'),
-     'description'       => __('Page with shortcode [flexi-edit]. Lets visitor to edit submitted post.', 'flexi'),
+     'description'       => __('Page with shortcode [flexi-form] with edit="true" as parameter. Lets visitor to edit submitted post.', 'flexi'),
      'type'              => 'pages',
      'sanitize_callback' => 'sanitize_key',
     ),

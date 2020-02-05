@@ -227,9 +227,6 @@ class Flexi
   $meta = new Flexi_Meta_boxes();
   $this->loader->add_action('cmb2_admin_init', $meta, 'register_meta_box');
 
-  //[flexi-form] & [flexi-form-tag]
-  $form = new Flexi_Shortcode_Form();
-
   //Media Settings
   $media = new Flexi_Media_Settings();
 
@@ -266,7 +263,11 @@ class Flexi
 
   //Ajax Delete
   $delete = new flexi_delete_post();
+  $this->loader->add_filter('flexi_add_icon_grid', $delete, 'flexi_add_icon_grid_delete');
 
+  //[flexi-form] & [flexi-form-tag]
+  $form = new Flexi_Shortcode_Form();
+  $this->loader->add_filter('flexi_add_icon_grid', $form, 'flexi_add_icon_grid_edit');
  }
 
  /**

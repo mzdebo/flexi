@@ -710,7 +710,17 @@ function flexi_create_pages()
   $did = wp_insert_post(array('post_title' => 'My Gallery', 'post_content' => '[flexi-gallery user="show_mine"]', 'post_type' => 'page', 'post_status' => 'publish'));
   flexi_set_option('my_gallery', 'flexi_image_layout_settings', $did);
 
-  $eid = wp_insert_post(array('post_title' => 'Edit Flexi Post', 'post_content' => '[flexi-edit]', 'post_type' => 'page', 'post_status' => 'publish'));
+  $str_edit_image = '
+  [flexi-form class="xxx_class" title="Update Flexi" name="my_form" ajax="true" edit="true"]
+  [flexi-form-tag type="post_title" title="Title" placeholder="main title" edit="true" ]
+  [flexi-form-tag type="category" title="Select category" edit="true"]
+  [flexi-form-tag type="tag" title="Insert tag" edit="true"]
+  [flexi-form-tag type="article" title="Description" placeholder="Content" edit="true"]
+  [flexi-form-tag type="submit" name="submit" value="Update Now"]
+  [/flexi-form]
+		';
+
+  $eid = wp_insert_post(array('post_title' => 'Edit Flexi Post', 'post_content' => $str_edit_image, 'post_type' => 'page', 'post_status' => 'publish'));
   flexi_set_option('edit_flexi_page', 'flexi_form_settings', $eid);
 
  }
@@ -758,7 +768,7 @@ function flexi_show_icon_grid()
  }
 
  if (count($icon) > 0) {
-  $list .= '<div class="flexi_button_contain" id="flexi_' . get_the_ID() . '">';
+  $list .= '<div id="flexi_' . get_the_ID() . '">';
  }
 
  for ($r = 0; $r < count($icon); $r++) {

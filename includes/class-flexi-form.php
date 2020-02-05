@@ -495,4 +495,34 @@ action="' . admin_url("admin-ajax.php") . '"
   $abc = ob_get_clean();
   return $abc;
  }
+
+ //Adds edit icon in flexi icon container.
+ public function flexi_add_icon_grid_edit($icon)
+ {
+  global $post;
+  //$options = get_option('upg_settings');
+  // $nonce = wp_create_nonce("flexi_ajax_edit");
+  $link = flexi_get_button_url($post->ID, false, 'edit_flexi_page', 'flexi_form_settings');
+
+  $extra_icon = array();
+
+  if (get_the_author_meta('ID') == get_current_user_id()) {
+   // if (isset($options['show_trash_icon'])) {
+   // if ("1" == $options['show_trash_icon']) {
+   $extra_icon = array(
+    array("dashicons-edit", 'Modify', $link, '', $post->ID),
+
+   );
+   //  }
+   // }
+  }
+
+  // combine the two arrays
+  if (is_array($extra_icon) && is_array($icon)) {
+   $icon = array_merge($extra_icon, $icon);
+  }
+
+  return $icon;
+ }
+
 }

@@ -6,6 +6,7 @@ class flexi_delete_post
  {
   add_action("wp_ajax_flexi_ajax_delete", array($this, "flexi_ajax_delete"));
   add_action("wp_ajax_nopriv_flexi_ajax_delete", array($this, "flexi_my_must_login"));
+
  }
  public function flexi_ajax_delete()
  {
@@ -79,5 +80,33 @@ class flexi_delete_post
     }
    }
   }
+ }
+ //Adds delete/trash icon in upg icon container.
+ public function flexi_add_icon_grid_delete($icon)
+ {
+  global $post;
+  //$options = get_option('upg_settings');
+  $nonce = wp_create_nonce("flexi_ajax_delete");
+  //$link  = admin_url('admin-ajax.php?action=flexi_ajax_delete&post_id=' . $post->ID . '&nonce=' . $nonce);
+
+  $extra_icon = array();
+
+  if (get_the_author_meta('ID') == get_current_user_id()) {
+   // if (isset($options['show_trash_icon'])) {
+   // if ("1" == $options['show_trash_icon']) {
+   $extra_icon = array(
+    array("dashicons-trash", 'Delete', '#', 'flexi_ajax_delete', $post->ID),
+
+   );
+   //  }
+   // }
+  }
+
+  // combine the two arrays
+  if (is_array($extra_icon) && is_array($icon)) {
+   $icon = array_merge($extra_icon, $icon);
+  }
+
+  return $icon;
  }
 }
