@@ -133,7 +133,7 @@ class Flexi
   require_once plugin_dir_path(dirname(__FILE__)) . 'includes/flexi_ajax_post.php';
 
   //Load Ajax Delete
-  require_once plugin_dir_path(dirname(__FILE__)) . 'includes/flexi_ajax_delete.php';
+  require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-flexi_ajax_delete.php';
 
   // [Flexi-gallery] shortcode
   require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-flexi-gallery.php';
@@ -263,6 +263,9 @@ class Flexi
   //Detail Page
   $detail = new Flexi_Public_Detail();
   $this->loader->add_action('the_content', $detail, 'the_content', 20);
+
+  //Ajax Delete
+  $delete = new flexi_delete_post();
 
  }
 
