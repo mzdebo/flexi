@@ -49,8 +49,8 @@ function flexi_get_category_page_link($term, $taxonomy)
 
  $link = '/';
 
- if (flexi_set_option('main_page', 'flexi_image_layout_settings', 0) > 0) {
-  $link = get_permalink(flexi_set_option('main_page', 'flexi_image_layout_settings', 0));
+ if (flexi_get_option('main_page', 'flexi_image_layout_settings', 0) > 0) {
+  $link = get_permalink(flexi_get_option('main_page', 'flexi_image_layout_settings', 0));
 
   if ('' != get_option('permalink_structure')) {
    $link = user_trailingslashit(trailingslashit($link) . $term->slug);
@@ -107,6 +107,31 @@ function flexi_generate_tags($tags_array, $upg_tag_class = 'upg_tags', $filter_c
  }
 
  return $taglink;
+}
+
+//Flexi List TAGs
+function flexi_list_tags($post, $class = "flexi_tags")
+{
+ //Returns All Term Items for "my_taxonomy"
+ $term_list = wp_get_post_terms($post->ID, 'flexi_tag', array("fields" => "all"));
+ //var_dump($term_list);
+
+ if (count($term_list) > 0) {
+  echo '<ul class="' . $class . '">';
+ }
+
+ for ($x = 0; $x < count($term_list); $x++) {
+
+  $link = get_permalink(flexi_get_option('main_page', 'flexi_image_layout_settings', 0));
+  $link = add_query_arg("flexi_tag", $term_list[$x]->slug, $link);
+
+  echo '<li><a href="' . $link . '" rel="tag">' . $term_list[$x]->name . '</a></li>';
+ }
+
+ if (count($term_list) > 0) {
+  echo '</ul>';
+ }
+
 }
 
 //Layout List select box

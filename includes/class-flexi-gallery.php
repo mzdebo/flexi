@@ -21,7 +21,9 @@ class Flexi_Shortcode_Gallery
   $term_slug  = get_query_var('flexi_category');
   $term       = get_term_by('slug', $term_slug, 'flexi_category');
   $album_name = "";
-  $album      = "";
+  if ("" != $term_slug && true == $term) {
+   $album_name = $term->name;
+  }
 
   if ("" != $term_slug) {
    //album mentioned in url
@@ -49,8 +51,25 @@ class Flexi_Shortcode_Gallery
 
   }
 
-  //Keyword
-  $keyword = '';
+  //TAGs Keyword
+  //Get tags
+  $tag_slug = get_query_var('flexi_tag', "");
+  $tag      = get_term_by('slug', $tag_slug, 'flexi_tag');
+  $tag_name = "";
+  if ("" != $tag_slug && true == $tag) {
+   $tag_name = $tag->name;
+  }
+
+  if ("" != $tag_slug) {
+   $keyword = $tag_slug;
+//Check if flexi_tag available in URL
+  } else if (isset($params['tag'])) {
+//Check if tag is mentioned in shortcode
+   $keyword = trim($params['tag']);
+  } else {
+   $keyword = '';
+   //Blank keyword if not available.
+  }
 
   //Page Navigation
   $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
@@ -151,6 +170,7 @@ class Flexi_Shortcode_Gallery
     's'              => $search,
     'posts_per_page' => $postsperpage,
     'orderby'        => $orderby,
+    'post_status'    => $post_status,
     'order'          => 'DESC',
     'author_name'    => $user,
     'tax_query'      => array(
@@ -186,7 +206,7 @@ class Flexi_Shortcode_Gallery
    );
   }
 
-  //var_dump($args);
+  var_dump($args);
 
   //Empty array if not logged in
   if (!is_user_logged_in() & isset($params['user']) && "show_mine" == $params['user']) {
