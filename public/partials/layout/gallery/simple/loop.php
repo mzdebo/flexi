@@ -20,7 +20,9 @@ $nonce = wp_create_nonce("flexi_ajax_delete");
                   <span class="dashicons dashicons-admin-users"></span>
                   <a style="text-decoration:none" class="flexi_ajax_delete" data-post_id='<?php echo get_the_ID(); ?>' data-nonce='<?php echo $nonce; ?>' href='#'> <span class="dashicons dashicons-trash"></span></a>
                   <a style="text-decoration:none" href='<?php echo flexi_get_button_url(get_the_ID(), false, 'edit_flexi_page', 'flexi_form_settings'); ?>'><span class="dashicons dashicons-edit"></span></a>
+                 --- <?php flexi_show_icon_grid();?>
                   </div>
+
 
 
             </div>

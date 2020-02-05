@@ -744,3 +744,32 @@ function flexi_excerpt($limit = null, $separator = null)
  $excerpt = preg_replace('`\[[^\]]*\]`', '', $excerpt);
  return $excerpt;
 }
+
+//Icon container. Eg. Author icon, Delete icon, Edit icon
+function flexi_show_icon_grid()
+{
+ global $post;
+ $icon = array();
+
+ $list = '';
+
+ if (has_filter('flexi_add_icon_grid')) {
+  $icon = apply_filters('flexi_add_icon_grid', $icon);
+ }
+
+ if (count($icon) > 0) {
+  $list .= '<div class="flexi_button_contain" id="flexi_' . get_the_ID() . '">';
+ }
+
+ for ($r = 0; $r < count($icon); $r++) {
+  $nonce = wp_create_nonce($icon[$r][3]);
+
+  if ("" != $icon[$r][0]) {
+   $list .= '<a class="' . $icon[$r][3] . '" href="' . $icon[$r][2] . '" title="' . $icon[$r][1] . '" data-nonce="' . $nonce . '" data-post_id="' . $icon[$r][4] . '"><small><span class="dashicons ' . $icon[$r][0] . '"></span></small></a>';
+  }
+
+ }
+ $list .= '</div>';
+
+ return $list;
+}
