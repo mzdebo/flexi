@@ -13,8 +13,8 @@ function flexi_ajax_delete()
  $post_author_id = get_post_field('post_author', $post_id);
 
  if (get_current_user_id() == $post_author_id) {
-  //flexi_delete_post_media($post_id);
-  // $data = wp_delete_post($post_id, true);
+  flexi_delete_post_media($post_id);
+  $data = wp_delete_post($post_id, true);
  } else {
   $data = false;
  }
