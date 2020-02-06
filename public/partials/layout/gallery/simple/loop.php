@@ -14,7 +14,9 @@ $data = flexi_image_data('flexi-thumb', $post);
             </div>
             <div class="flexi_group">
                   <div class="flexi_title"><?php echo $data['title']; ?></div>
-                  <div class="flexi_p"><?php echo flexi_excerpt(20); ?></div>
+                  <div class="flexi_p"><?php echo flexi_excerpt(20); ?>
+<?php if (get_post_status() == 'draft') {?><div class="flexi_badge"><?php echo __(get_post_status()); ?></div><?php }?>
+                  </div>
                   <div class="flexi_list_tags"><?php flexi_list_tags($post);?></div>
                   <div class="flexi_bar"><?php echo flexi_show_icon_grid(); ?></div>
             </div>

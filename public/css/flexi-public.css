@@ -3,6 +3,24 @@
   padding: 0.1em;
 }
 
+/* badge */
+.flexi_badge {
+  box-sizing: border-box;
+  margin: 1px 1px;
+  padding-top: 0.3em;
+  padding-right: 0.4em;
+  padding-left: 0.4em;
+  padding-bottom: 0.2em;
+  min-width: 1.5em; /* 1em + padding-top + padding-bottom */
+  min-height: 1em;
+  line-height: 1em;
+  display: inline-block;
+  color: black;
+  text-align: center;
+  background-image: linear-gradient(rgb(247, 236, 19), rgb(184, 137, 45));
+  border-radius: 1em;
+}
+
 /**
  * All of the CSS for your public-facing functionality should be
  * included in this file.

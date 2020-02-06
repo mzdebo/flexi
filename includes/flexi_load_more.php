@@ -33,6 +33,16 @@ function flexi_load_more()
  //Publish Status
  $post_status = array('publish');
 
+ if (is_user_logged_in()) {
+
+  $current_user = wp_get_current_user();
+  $cur_user     = $current_user->user_login;
+  if ($cur_user == $user) {
+   $post_status = array('draft', 'publish');
+  }
+
+ }
+
  if ("" != $album && "" != $keyword) {
   $relation = "AND";
  } else {
