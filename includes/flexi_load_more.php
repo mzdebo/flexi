@@ -46,6 +46,7 @@ function flexi_load_more()
    's'              => $search,
    'posts_per_page' => $postsperpage,
    'orderby'        => $orderby,
+   'post_status'    => $post_status,
    'order'          => 'DESC',
    'author_name'    => $user,
    'tax_query'      => array(

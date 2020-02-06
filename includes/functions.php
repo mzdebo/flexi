@@ -804,7 +804,8 @@ function flexi_show_icon_grid()
   }
 
  }
- $list .= '</div>';
-
+ if (count($icon) > 0) {
+  $list .= '</div>';
+ }
  return $list;
 }

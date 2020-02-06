@@ -166,13 +166,13 @@ class Flexi_Shortcode_Gallery
   if ("" != $album || "" != $keyword) {
    $args = array(
     'post_type'      => 'flexi',
-    'paged'          => $paged,
     's'              => $search,
+    'paged'          => $paged,
     'posts_per_page' => $postsperpage,
-    'orderby'        => $orderby,
-    'post_status'    => $post_status,
-    'order'          => 'DESC',
     'author_name'    => $user,
+    'post_status'    => $post_status,
+    'orderby'        => $orderby,
+    'order'          => 'DESC',
     'tax_query'      => array(
      'relation' => $relation,
      array(
@@ -206,7 +206,7 @@ class Flexi_Shortcode_Gallery
    );
   }
 
-  var_dump($args);
+  //var_dump($args);
 
   //Empty array if not logged in
   if (!is_user_logged_in() & isset($params['user']) && "show_mine" == $params['user']) {
