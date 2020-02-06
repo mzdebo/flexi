@@ -83,88 +83,186 @@ div.tagsinput div {
   color: #90111a !important;
 }
 
-/* TAGS links */
-
-.flexi_tags {
-  margin-top: 5px;
-  margin-bottom: 30px;
-  padding-bottom: 0px;
-  list-style: none;
-}
-
-.flexi_tags ul {
-  list-style: none;
-}
-
-.flexi_tags li,
-.flexi_tags a {
-  float: left;
-  height: 24px;
-  line-height: 24px;
+/* TAGS */
+.flexi_tag {
+  display: inline-block;
+  border: 1px solid;
+  border-radius: 3px;
+  height: 22px;
+  max-width: 100%;
+  padding: 0.1em 0.5em 0.2em 12.24264px;
+  margin-bottom: 0.25em;
+  margin-left: 11px;
+  box-sizing: border-box;
   position: relative;
-  font-size: 11px;
-}
-
-.flexi_tags a {
-  font-family: "Open Sans", sans-serif;
-  margin-left: 20px;
-  padding: 0 10px 0 12px;
-  background: #0089e0;
-  color: #fff;
+  font-size: 12px;
+  white-space: nowrap;
   text-decoration: none;
-  -moz-border-radius-bottomright: 4px;
-  -webkit-border-bottom-right-radius: 4px;
-  border-bottom-right-radius: 4px;
-  -moz-border-radius-topright: 4px;
-  -webkit-border-top-right-radius: 4px;
-  border-top-right-radius: 4px;
+  vertical-align: baseline;
 }
-
-.flexi_tags a:before {
-  content: "";
-  float: left;
-  position: absolute;
-  top: 0;
-  left: -12px;
-  width: 0;
-  height: 0;
-  border-color: transparent #0089e0 transparent transparent;
-  border-style: solid;
-  border-width: 12px 12px 12px 0;
+.flexi_tag span {
+  display: inline-block;
+  overflow: hidden;
+  max-width: 100%;
+  text-overflow: ellipsis;
 }
-
-.flexi_tags a:after {
+.flexi_tag:before {
   content: "";
+  display: inline-block;
+  border-radius: 3px;
+  border-bottom-left-radius: 4px;
+  border-color: inherit;
+  border-left: 1.25px solid;
+  border-bottom: 1.2px solid;
+  background-color: inherit;
+  height: 17.21371px;
+  width: 17.21371px;
+  box-sizing: border-box;
   position: absolute;
-  top: 10px;
-  left: 0;
-  float: left;
-  width: 4px;
+  top: -2.24264px;
+  left: 1px;
+  z-index: 2;
+  -moz-transform-origin: left top;
+  -ms-transform-origin: left top;
+  -webkit-transform-origin: left top;
+  transform-origin: left top;
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.flexi_tag:after {
+  content: "";
+  display: block;
+  background-color: mediumspringgreen;
+  border-radius: 100%;
+  border: 1px solid;
   height: 4px;
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
-  border-radius: 2px;
-  background: #fff;
-  -moz-box-shadow: -1px -1px 2px #004977;
-  -webkit-box-shadow: -1px -1px 2px #004977;
-  box-shadow: -1px -1px 2px #004977;
+  width: 4px;
+  position: absolute;
+  left: 1px;
+  top: 8px;
+  z-index: 3;
 }
 
-.flexi_tags a:hover {
-  background: #555;
-  color: #fff;
+.flexi_tag-default {
+  background-color: #eee;
+  color: #666;
+}
+.flexi_tag-default,
+.flexi_tag-default:before,
+.flexi_tag-default:after {
+  border-color: #c8c8c8;
+}
+.flexi_tag-default[href]:hover,
+.flexi_tag-default[href]:focus,
+.flexi_tag-default .hover:hover,
+.flexi_tag-default .hover:focus {
+  background-color: #d5d5d5;
+}
+.flexi_tag-default[href]:hover,
+.flexi_tag-default[href]:hover:before,
+.flexi_tag-default[href]:hover:after,
+.flexi_tag-default[href]:focus,
+.flexi_tag-default[href]:focus:before,
+.flexi_tag-default[href]:focus:after,
+.flexi_tag-default .hover:hover,
+.flexi_tag-default .hover:hover:before,
+.flexi_tag-default .hover:hover:after,
+.flexi_tag-default .hover:focus,
+.flexi_tag-default .hover:focus:before,
+.flexi_tag-default .hover:focus:after {
+  border-color: #aeaeae;
 }
 
-.flexi_tags a:hover:before {
-  border-color: transparent #555 transparent transparent;
+.flexi_tag-blue {
+  background-color: #acf;
+  color: #118;
+}
+.flexi_tag-blue,
+.flexi_tag-blue:before,
+.flexi_tag-blue:after {
+  border-color: #5e9eff;
+}
+.flexi_tag-blue[href]:hover,
+.flexi_tag-blue[href]:focus,
+.flexi_tag-blue .hover:hover,
+.flexi_tag-blue .hover:focus {
+  background-color: #77adff;
+}
+.flexi_tag-blue[href]:hover,
+.flexi_tag-blue[href]:hover:before,
+.flexi_tag-blue[href]:hover:after,
+.flexi_tag-blue[href]:focus,
+.flexi_tag-blue[href]:focus:before,
+.flexi_tag-blue[href]:focus:after,
+.flexi_tag-blue .hover:hover,
+.flexi_tag-blue .hover:hover:before,
+.flexi_tag-blue .hover:hover:after,
+.flexi_tag-blue .hover:focus,
+.flexi_tag-blue .hover:focus:before,
+.flexi_tag-blue .hover:focus:after {
+  border-color: #2b80ff;
 }
 
-.flexi_tags a.active {
-  background: #555;
-  color: #fff;
+.flexi_tag-green {
+  background-color: #beb;
+  color: #161;
 }
-.flexi_tags a.active:before {
-  border-color: transparent #555 transparent transparent;
+.flexi_tag-green,
+.flexi_tag-green:before,
+.flexi_tag-green:after {
+  border-color: #4b4;
+}
+.flexi_tag-green[href]:hover,
+.flexi_tag-green[href]:focus,
+.flexi_tag-green .hover:hover,
+.flexi_tag-green .hover:focus {
+  background-color: #92e492;
+}
+.flexi_tag-green[href]:hover,
+.flexi_tag-green[href]:hover:before,
+.flexi_tag-green[href]:hover:after,
+.flexi_tag-green[href]:focus,
+.flexi_tag-green[href]:focus:before,
+.flexi_tag-green[href]:focus:after,
+.flexi_tag-green .hover:hover,
+.flexi_tag-green .hover:hover:before,
+.flexi_tag-green .hover:hover:after,
+.flexi_tag-green .hover:focus,
+.flexi_tag-green .hover:focus:before,
+.flexi_tag-green .hover:focus:after {
+  border-color: #369636;
+}
+
+.flexi_tag-red {
+  background-color: #ebb;
+  color: #611;
+}
+.flexi_tag-red,
+.flexi_tag-red:before,
+.flexi_tag-red:after {
+  border-color: #df7e7e;
+}
+.flexi_tag-red[href]:hover,
+.flexi_tag-red[href]:focus,
+.flexi_tag-red .hover:hover,
+.flexi_tag-red .hover:focus {
+  background-color: #e49292;
+}
+.flexi_tag-red[href]:hover,
+.flexi_tag-red[href]:hover:before,
+.flexi_tag-red[href]:hover:after,
+.flexi_tag-red[href]:focus,
+.flexi_tag-red[href]:focus:before,
+.flexi_tag-red[href]:focus:after,
+.flexi_tag-red .hover:hover,
+.flexi_tag-red .hover:hover:before,
+.flexi_tag-red .hover:hover:after,
+.flexi_tag-red .hover:focus,
+.flexi_tag-red .hover:focus:before,
+.flexi_tag-red .hover:focus:after {
+  border-color: #d55555;
 }
 
 /* Text over image*/

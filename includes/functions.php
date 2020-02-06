@@ -90,34 +90,34 @@ function flexi_get_taxonomy_raw($post_id, $taxonomy_name)
 }
 
 //Generate gallery_tags link
-function flexi_generate_tags($tags_array, $upg_tag_class = 'upg_tags', $filter_class = 'filter_tag')
+function flexi_generate_tags($tags_array, $upg_tag_class = 'flexi_tag-default', $filter_class = 'filter_tag')
 {
  $taglink = '';
  if (count($tags_array) > 1) {
-  $taglink .= '<ul class="' . $upg_tag_class . '">';
+  $taglink .= '<div class="flexi_list_tags">';
 
-  $taglink .= '<li><a href="javascript:void(0)" id="show_all" class="' . $filter_class . ' active">' . __('Show All', 'wp-upg') . '</a></li>';
+  $taglink .= '<a href="javascript:void(0)" id="show_all" class="flexi_tag ' . $filter_class . ' ' . $upg_tag_class . ' active">' . __('Show All', 'wp-upg') . '</a>';
   if (count($tags_array) > 1) {
    foreach ($tags_array as $tags => $value) {
-    $taglink .= '<li><a href="javascript:void(0)" id="' . $tags . '" class="' . $filter_class . '">' . $value . '</a></li>';
+    $taglink .= '<a href="javascript:void(0)" id="' . $tags . '" class="flexi_tag ' . $filter_class . ' ' . $upg_tag_class . ' ">' . $value . '</a>';
    }
   }
 
-  $taglink .= '</ul>';
+  $taglink .= '</div>';
  }
 
  return $taglink;
 }
 
 //Flexi List TAGs
-function flexi_list_tags($post, $class = "flexi_tags")
+function flexi_list_tags($post, $class = "flexi_tag-default")
 {
  //Returns All Term Items for "my_taxonomy"
  $term_list = wp_get_post_terms($post->ID, 'flexi_tag', array("fields" => "all"));
  //var_dump($term_list);
 
  if (count($term_list) > 0) {
-  echo '<ul class="' . $class . '">';
+  echo '<div class="flexi_list_tags">';
  }
 
  for ($x = 0; $x < count($term_list); $x++) {
@@ -125,11 +125,11 @@ function flexi_list_tags($post, $class = "flexi_tags")
   $link = get_permalink(flexi_get_option('main_page', 'flexi_image_layout_settings', 0));
   $link = add_query_arg("flexi_tag", $term_list[$x]->slug, $link);
 
-  echo '<li><a href="' . $link . '" rel="tag">' . $term_list[$x]->name . '</a></li>';
+  echo '<a href="' . $link . '" class="flexi_tag ' . $class . '">' . $term_list[$x]->name . '</a>';
  }
 
  if (count($term_list) > 0) {
-  echo '</ul>';
+  echo '</div>';
  }
 
 }
