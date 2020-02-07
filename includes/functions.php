@@ -554,7 +554,7 @@ function flexi_include_deps()
 //Check If Flexi-PRO
 function is_flexi_pro()
 {
- return true;
+ return false;
 }
 
 //Required Flexi-PRO

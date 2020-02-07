@@ -1,15 +1,15 @@
 === Plugin Name ===
 Contributors: odude
 Donate link: https://odude.com/
-Tags: comments, spam
+Tags: gallery, user post, images
 Requires at least: 4.0.0
 Requires PHP: 5.5
 Tested up to: 5.3
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Flexi is flexible post gallery
+Flexi is replacement of UPG which is only for images. 
 
 == Description ==
 
@@ -24,24 +24,24 @@ Search for 'flexi' and install it as other regular plugins.
 
 = Is it only for images ? =
 
-No, it can be used to submit youtube urls, images and only text too.
+Yes,  currently it only supports images. 
 
-= Can I create my own layouts ? =
+= Which one to use UPG or Flexi ? =
 
-Yes you can by uploading your own php files under theme folder.
+UPG is very advance and people feel it complicated. Flexi is only for images with basic important features similar to UPG.
 
 == Screenshots ==
 
 1. Simple Gallery Demo
-
+2. Multi file upload
 
 == Changelog ==
 
-= 1.0.0 =
-* Initial
+= 1.0.1 =
+* Added multiple complex features.
 
 
 == Upgrade Notice ==
 
-= 1.0 =
+= 1.1 =
 It will not loose any data after update but recommended to take backup
