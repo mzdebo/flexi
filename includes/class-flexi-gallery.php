@@ -104,7 +104,10 @@ class Flexi_Shortcode_Gallery
   }
 
   //Author
-  if (isset($params['user'])) {
+  $username = get_query_var('flexi_user', "");
+  if ("" != $username) {
+   $user = $username;
+  } else if (isset($params['user'])) {
    $user = $params['user'];
   } else {
    $user = "";

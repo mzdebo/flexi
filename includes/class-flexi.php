@@ -105,6 +105,9 @@ class Flexi
   */
  private function load_dependencies()
  {
+  //Add Flexi_User
+  require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-flexi-user.php';
+
   //Add Flexi_pro
   require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-flexi-pro.php';
 
@@ -268,6 +271,10 @@ class Flexi
   //[flexi-form] & [flexi-form-tag]
   $form = new Flexi_Shortcode_Form();
   $this->loader->add_filter('flexi_add_icon_grid', $form, 'flexi_add_icon_grid_edit');
+
+  //Flexi User
+  $user = new Flexi_User();
+  $this->loader->add_filter('flexi_add_icon_grid', $user, 'flexi_add_user_profile_icon');
  }
 
  /**

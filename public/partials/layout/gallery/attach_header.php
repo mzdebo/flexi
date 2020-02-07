@@ -1,7 +1,7 @@
 <?php
 //Display tags
 if ($show_tag) {
- echo flexi_generate_tags($tags_array, 'flexi_tag-blue', 'filter_tag') . "<br><div style='clear:both;'></div>";
+ echo flexi_generate_tags($tags_array, 'flexi_tag-blue', 'filter_tag') . "<div style='clear:both;'></div>";
 }
 $navigation = flexi_get_option('navigation', 'flexi_image_layout_settings', 'scroll');
 //Attach header gallery based based on layout selection
