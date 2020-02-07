@@ -52,10 +52,16 @@ class Flexi_Shortcode_Form
     $edit_post = false;
    }
   }
+  if (!is_flexi_pro()) {
+   $edit_post = false;
+  }
 
   //Prevent from modification
   if (false == $edit_post) {
    echo "<div class='flexi_warning'>" . __('No permission to modify or update', 'flexi') . "</div>";
+   if (!is_flexi_pro()) {
+    echo flexi_pro_required();
+   }
   }
 
   if ($enable_form_access && $edit_post) {

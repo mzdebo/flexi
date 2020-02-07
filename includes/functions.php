@@ -393,8 +393,10 @@ function flexi_submit($title, $files, $content, $category, $preview, $tags = '')
 //Update/edit the post with reference of post ID
 function flexi_update_post($post_id, $title, $files, $content, $category, $tags = '')
 {
+
  $updatePost['error'][] = array('id' => false, 'error' => false);
  $updatePost['error'][] = "";
+
  if (empty($title)) {
   $updatePost['error'][] = 'required-title';
  }
@@ -553,6 +555,12 @@ function flexi_include_deps()
 function is_flexi_pro()
 {
  return false;
+}
+
+//Required Flexi-PRO
+function flexi_pro_required()
+{
+ return "<div class='flexi_warning'>" . __('Required Flexi-PRO', 'flexi') . "</div>";
 }
 
 //Drop down list of albums
