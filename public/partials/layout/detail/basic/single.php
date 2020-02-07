@@ -8,10 +8,11 @@
 <div class="pure-g">
 	<div class="pure-u-1-1">
 
-		<div class="flexi_margin-box">
+		<div class="flexi_margin-box" style='text-align: right;'>
 		<?php
 echo "<div class='flexi_frame_1' style='text-align: center;'><img src='" . flexi_image_src('flexi-large') . "' ></div>";
 ?>
+<?php echo flexi_show_icon_grid(); ?>
 		</div>
 		<div class="pure-u-1">
 				<div class="flexi_margin-box">
@@ -26,4 +27,5 @@ echo "<div class='flexi_frame_1' style='text-align: center;'><img src='" . flexi
 		<?php flexi_list_tags($post);?>
 
 	</div>
+
 </div>
