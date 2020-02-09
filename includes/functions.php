@@ -645,16 +645,19 @@ function flexi_get_author()
 }
 
 //Get link and added attributes of the image based on lightbox
-function flexi_image_data($size = 'full', $post = '')
+function flexi_image_data($size = 'full', $post = '', $popup = "on")
 {
- $data              = array();
- $data['title']     = get_the_title();
- $lightbox_settings = get_option('flexi_detail_settings');
- if (empty($lightbox_settings['lightbox_switch'])) {
-  $lightbox = false;
- } else {
+ //flexi_log($popup);
+ if ("on" == $popup || '1' == $popup) {
+  $popup    = 1;
   $lightbox = true;
+ } else {
+  $popup    = 0;
+  $lightbox = false;
  }
+
+ $data          = array();
+ $data['title'] = get_the_title();
 
  if ('' == $post) {
   global $post;
@@ -745,7 +748,7 @@ function flexi_create_pages()
   $bid = wp_insert_post(array('post_title' => 'Post Image', 'post_content' => $str_post_image, 'post_type' => 'page', 'post_status' => 'publish'));
   flexi_set_option('submission_form', 'flexi_form_settings', $bid);
 
-  $did = wp_insert_post(array('post_title' => 'My Gallery', 'post_content' => '[flexi-gallery user="show_mine"]', 'post_type' => 'page', 'post_status' => 'publish'));
+  $did = wp_insert_post(array('post_title' => 'My Gallery', 'post_content' => '[flexi-gallery user="show_mine" column="1" navigation="page" layout="simple"]', 'post_type' => 'page', 'post_status' => 'publish'));
   flexi_set_option('my_gallery', 'flexi_image_layout_settings', $did);
 
   $str_edit_image = '

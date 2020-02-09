@@ -148,7 +148,7 @@ class FLEXI_Admin_Settings
    ),
    array(
     'id'    => 'flexi_categories_settings',
-    'title' => __('Category Settings', 'flexi'),
+    'title' => __('Category & Tags Settings', 'flexi'),
     'tab'   => 'form',
    ),
 
@@ -284,19 +284,13 @@ class FLEXI_Admin_Settings
      'description'       => '',
      'type'              => 'radio',
      'options'           => array(
-      'pagenavi' => __('Page Number', 'flexi'),
-      'button'   => __('Load More Button', 'flexi'),
-      'scroll'   => __(' Mouse Scroll', 'flexi'),
+      'page'   => __('Page Number', 'flexi'),
+      'button' => __('Load More Button', 'flexi'),
+      'scroll' => __(' Mouse Scroll', 'flexi'),
      ),
      'sanitize_callback' => 'sanitize_key',
     ),
-    array(
-     'name'              => 'gallery_tags',
-     'label'             => __('Gallery sorting tags', 'flexi'),
-     'description'       => __('Shows tags above gallery, only if few tags available.', 'flexi'),
-     'type'              => 'checkbox',
-     'sanitize_callback' => 'intval',
-    ),
+
     array(
      'name'              => 'gallery_layout',
      'label'             => __('Select gallery layout', 'flexi'),
@@ -377,6 +371,13 @@ class FLEXI_Admin_Settings
      'description'       => __('This category will be selected if no category is assigned by visitor.', 'flexi'),
      'type'              => 'category',
      'sanitize_callback' => 'sanitize_key',
+    ),
+    array(
+     'name'              => 'gallery_tags',
+     'label'             => __('Gallery sorting tags', 'flexi'),
+     'description'       => __('Shows tags above gallery, only if few tags available.', 'flexi'),
+     'type'              => 'checkbox',
+     'sanitize_callback' => 'intval',
     ),
    ),
 

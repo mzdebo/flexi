@@ -16,6 +16,8 @@ Flexi is replacement of UPG which is only for images.
 User can submit images/content and display it as gallery.
 Similar to UPG plugin but only limited to images. 
 
+<a href="https://odude.com/demo/flexi/">Flexi Gallery Demo</a>
+
 = In comparison with UPG =
 1 - Admin have option to select effect & caption style
 2 - Forms are easy to understand and editable. 

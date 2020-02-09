@@ -39,7 +39,7 @@ class Flexi_Shortcode_Gallery
 
   //Tags
   $show_tag = false;
-  if (flexi_get_option('gallery_tags', 'flexi_image_layout_settings', 1) == 1) {
+  if (flexi_get_option('gallery_tags', 'flexi_categories_settings', 1) == 1) {
    $show_tag = true;
   }
   if (isset($params['tag_show'])) {
@@ -158,6 +158,13 @@ class Flexi_Shortcode_Gallery
    $layout = trim($params['layout']);
   } else {
    $layout = flexi_get_option('gallery_layout', 'flexi_image_layout_settings', 'masonry');
+  }
+
+  //Navigation
+  if (isset($params['navigation'])) {
+   $navigation = trim($params['navigation']);
+  } else {
+   $navigation = flexi_get_option('navigation', 'flexi_image_layout_settings', 'button');
   }
 
   if ("" != $album && "" != $keyword) {

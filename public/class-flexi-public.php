@@ -110,7 +110,7 @@ class Flexi_Public
   //Add wordpress dashicons
   wp_enqueue_style('dashicons');
 
-  //If basic page navigation
+  //Default page navigation
   $navigation = flexi_get_option('navigation', 'flexi_image_layout_settings', 'scroll');
 
   global $wp_query;
