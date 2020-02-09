@@ -554,13 +554,18 @@ function flexi_include_deps()
 //Check If Flexi-PRO
 function is_flexi_pro()
 {
- return false;
+ include_once ABSPATH . 'wp-admin/includes/plugin.php';
+ if (is_plugin_active('wp-upg-pro/wp-upg-pro.php')) {
+  return true;
+ } else {
+  return false;
+ }
 }
 
 //Required Flexi-PRO
 function flexi_pro_required()
 {
- return "<div class='flexi_warning'>" . __('Required Flexi-PRO', 'flexi') . "</div>";
+ return "<div class='flexi_warning'>" . __('Required Flexi-PRO or UPG-PRO', 'flexi') . "</div>";
 }
 
 //Drop down list of albums

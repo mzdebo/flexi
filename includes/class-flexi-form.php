@@ -52,16 +52,19 @@ class Flexi_Shortcode_Form
     $edit_post = false;
    }
   }
-  if (!is_flexi_pro()) {
-   $edit_post = false;
-  }
 
-  //Prevent from modification
-  if (false == $edit_post) {
-   echo "<div class='flexi_warning'>" . __('No permission to modify or update', 'flexi') . "</div>";
+  //Prevent form update if not UPG pro
+  if ($current_page_id == $edit_page_id) {
    if (!is_flexi_pro()) {
+    $edit_post = false;
     echo flexi_pro_required();
    }
+  }
+
+  //Prevent from modification if wrong wrong edit page & unauthorized access
+  if (false == $edit_post) {
+   echo "<div class='flexi_warning'>" . __('No permission to modify or update', 'flexi') . "</div>";
+
   }
 
   if ($enable_form_access && $edit_post) {

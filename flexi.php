@@ -9,14 +9,14 @@
  * that starts the plugin.
  *
  * @link              https://odude.com/
- * @since             1.0.0
+ * @since             1.0.2
  * @package           Flexi
  *
  * @wordpress-plugin
- * Plugin Name:       Flexi
+ * Plugin Name:       Flexi Gallery
  * Plugin URI:        https://odude.com/
- * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
- * Version:           1.0.0
+ * Description:       User submitted images into gallery
+ * Version:           1.0.2
  * Author:            ODude
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
@@ -31,13 +31,13 @@ if (!defined('WPINC')) {
 
 /**
  * Currently plugin version.
- * Start at version 1.0.0 and use SemVer - https://semver.org
+ * Start at version 1.0.1 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
 
 // The current version of the plugin
 if (!defined('FLEXI_VERSION')) {
- define('FLEXI_VERSION', '1.0.0');
+ define('FLEXI_VERSION', '1.0.2');
 }
 define('FLEXI_FOLDER', dirname(plugin_basename(__FILE__)));
 define('FLEXI_PLUGIN_URL', content_url('/plugins/' . FLEXI_FOLDER));

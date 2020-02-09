@@ -8,6 +8,6 @@
 <b>Flexi Version: </b> <?php echo FLEXI_VERSION; ?> (Beta Version)<br>
 <b>Flexi PRO:</b> <?php if (is_flexi_pro()) {echo "Enabled";} else {echo "Disabled";}?>
 
-<h3>Flexi-PRO is disabled & not available for purchase for few weeks.</h3>
+<h4>Flexi-PRO is not available. Till June 2020, you can use UPG-PRO</h4>
 For any suggestion and issues mail at navneet@odude.com
 </div>

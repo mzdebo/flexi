@@ -65,14 +65,14 @@ class Flexi
   * Load the dependencies, define the locale, and set the hooks for the admin area and
   * the public-facing side of the site.
   *
-  * @since    1.0.1
+  *
   */
  public function __construct()
  {
   if (defined('FLEXI_VERSION')) {
    $this->version = FLEXI_VERSION;
   } else {
-   $this->version = '1.0.1';
+   $this->version = '1.0.2';
   }
   $this->plugin_name = 'flexi';
 
