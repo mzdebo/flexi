@@ -6,7 +6,7 @@ $data = flexi_image_data('flexi-thumb', $post);
 
       <div class='flexi_loop_content flexi_frame_2'>
 
-            <div class="flexi_media">
+            <div class="flexi_media flexi_media_holder">
                    <a <?php echo $data['extra'] . ' href="' . $data['url'] . '" data-caption="' . $data['title'] . '" border="0"'; ?>>
                         <img class="flexi-fit_cover flexi_image_frame" src="<?php echo esc_url(flexi_image_src('flexi-thumb', $post)); ?>">
                         <?php echo ' <flexi_figcaption><b>' . $data['title'] . '</b><br>' . flexi_excerpt() . '</flexi_figcaption>'; ?>

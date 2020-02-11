@@ -665,7 +665,7 @@ function flexi_image_data($size = 'full', $post = '', $popup = "on")
 
  if ($lightbox) {
   $data['url']   = flexi_image_src('flexi-large', $post);
-  $data['extra'] = 'data-fancybox="image"';
+  $data['extra'] = 'data-fancybox-trigger';
  } else {
   $data['url']   = get_permalink();
   $data['extra'] = '';

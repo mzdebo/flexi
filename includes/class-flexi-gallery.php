@@ -283,17 +283,25 @@ class Flexi_Shortcode_Gallery
 
 <script>
 jQuery(document).ready(function() {
-
-  //alert(jQuery("#padding").text());
-
+ // console.log("start");
   document.documentElement.style.setProperty('--flexi_padding', jQuery("#padding").text());
-    jQuery('[data-fancybox="image"]').fancybox({
+
+
+  jQuery('[data-fancybox-trigger]').fancybox({
+        selector : '.flexi_media_holder a:visible',
+        thumbs   : {
+    autoStart : true
+  },
+  protect: true,
         caption: function(instance, item) {
           //This is not working on ajax loading. only for for page navigation.
+         // return jQuery(this).closest('flexi_media_holder').find('flexi_figcaption').html();
           return jQuery(this).find('flexi_figcaption').html();
+         // return jQuery(this).children('flexi_figcaption').html();
 
         }
     });
+
 });
 </script>
 
