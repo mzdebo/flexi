@@ -666,9 +666,11 @@ function flexi_image_data($size = 'full', $post = '', $popup = "on")
  if ($lightbox) {
   $data['url']   = flexi_image_src('flexi-large', $post);
   $data['extra'] = 'data-fancybox-trigger';
+  $data['popup'] = 'flexi_show_popup';
  } else {
   $data['url']   = get_permalink();
   $data['extra'] = '';
+  $data['popup'] = 'flexi_media_holder';
  }
  return $data;
 }
@@ -682,7 +684,7 @@ function flexi_get_default_settings()
 {
 
  //Lightbox Enabled
- flexi_set_option('lightbox_switch', 'flexi_detail_settings', 1);
+ //flexi_set_option('lightbox_switch', 'flexi_detail_settings', 1);
  return;
 }
 

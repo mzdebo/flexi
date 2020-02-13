@@ -1,10 +1,10 @@
 <?php
-$data = flexi_image_data('flexi-thumb', $post);
+$data = flexi_image_data('flexi-thumb', $post, $popup);
 ?>
 
 <div class="pure-u-1 pure-u-md-1-<?php echo $column; ?> flexi_gallery_child flexi_padding" id="flexi_<?php echo get_the_ID(); ?>" style="position: relative;" data-tags="<?php echo $tags; ?>">
 
-      <div class="flexi_effect flexi_media_holder" id="<?php echo $hover_effect; ?>">
+      <div class="flexi_effect <?php echo $data['popup']; ?>" id="<?php echo $hover_effect; ?>">
 
 
             <a <?php echo $data['extra'] . ' href="' . $data['url'] . '" data-caption="' . $data['title'] . '" border="0"'; ?>>

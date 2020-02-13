@@ -287,8 +287,8 @@ jQuery(document).ready(function() {
   document.documentElement.style.setProperty('--flexi_padding', jQuery("#padding").text());
 
 
-  jQuery('[data-fancybox-trigger]').fancybox({
-        selector : '.flexi_media_holder a:visible',
+  jQuery('[data-fancybox-trigger').fancybox({
+        selector : '.flexi_show_popup a:visible',
         thumbs   : {
     autoStart : true
   },
