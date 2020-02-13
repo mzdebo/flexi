@@ -105,6 +105,9 @@ class Flexi
   */
  private function load_dependencies()
  {
+  //Toolbar for Main Gallery Page
+  require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-flexi-toolbar.php';
+
   //Add Flexi_User
   require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-flexi-user.php';
 
@@ -128,6 +131,7 @@ class Flexi
 
   //Include common functions
   require_once plugin_dir_path(dirname(__FILE__)) . 'includes/functions.php';
+  require_once plugin_dir_path(dirname(__FILE__)) . 'includes/is_functions.php';
 
   //Load More on gallery scroll
   require_once plugin_dir_path(dirname(__FILE__)) . 'includes/flexi_load_more.php';

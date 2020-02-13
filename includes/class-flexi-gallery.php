@@ -245,6 +245,8 @@ class Flexi_Shortcode_Gallery
     //print_r($tags_array);
    }
 
+   $toolbar = new Flexi_Toolbar($args);
+
    $count = 0;
    $put   = "";
    ob_start();
@@ -258,7 +260,7 @@ class Flexi_Shortcode_Gallery
    require FLEXI_PLUGIN_DIR . 'public/partials/layout/gallery/attach_footer.php';
    $put = ob_get_clean();
    wp_reset_query();
-
+   wp_reset_postdata();
    return $put;
   }
  }

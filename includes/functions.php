@@ -15,10 +15,8 @@ function flexi_check_rights($post_id = 0)
   $edit_post = false;
  }
 
- $current_page_id = get_the_ID();
- $edit_page_id    = flexi_get_option('edit_flexi_page', 'flexi_form_settings', 0);
  //Check if page is edit page to prevent from spam
- if ($current_page_id != $edit_page_id) {
+ if (!is_flexi_page('edit_flexi_page', 'flexi_form_settings')) {
   $edit_post = false;
  }
 
@@ -548,17 +546,6 @@ function flexi_include_deps()
   require_once ABSPATH . '/wp-admin/includes/media.php';
   require_once ABSPATH . '/wp-admin/includes/file.php';
   require_once ABSPATH . '/wp-admin/includes/image.php';
- }
-}
-
-//Check If Flexi-PRO
-function is_flexi_pro()
-{
- include_once ABSPATH . 'wp-admin/includes/plugin.php';
- if (is_plugin_active('wp-upg-pro/wp-upg-pro.php')) {
-  return true;
- } else {
-  return false;
  }
 }
 
