@@ -509,7 +509,7 @@ action="' . admin_url("admin-ajax.php") . '"
  public function flexi_add_icon_grid_edit($icon)
  {
   global $post;
-  //$options = get_option('upg_settings');
+  $edit_flexi_icon = flexi_get_option('edit_flexi_icon', 'flexi_icon_settings', 1);
   // $nonce = wp_create_nonce("flexi_ajax_edit");
   $link = flexi_get_button_url($post->ID, false, 'edit_flexi_page', 'flexi_form_settings');
 
@@ -517,12 +517,12 @@ action="' . admin_url("admin-ajax.php") . '"
 
   if (get_the_author_meta('ID') == get_current_user_id()) {
    // if (isset($options['show_trash_icon'])) {
-   // if ("1" == $options['show_trash_icon']) {
-   $extra_icon = array(
-    array("dashicons-edit", 'Modify', $link, '', $post->ID),
+   if ("1" == $edit_flexi_icon) {
+    $extra_icon = array(
+     array("dashicons-edit", 'Modify', $link, '', $post->ID),
 
-   );
-   //  }
+    );
+   }
    // }
   }
 

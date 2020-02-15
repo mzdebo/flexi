@@ -21,16 +21,16 @@ class Flexi_User
   $author = get_user_by('id', get_the_author_meta('ID'));
   $link   = add_query_arg("flexi_user", $author->user_nicename, $link);
 
-  $extra_icon = array();
-
+  $extra_icon      = array();
+  $user_flexi_icon = flexi_get_option('user_flexi_icon', 'flexi_icon_settings', 1);
   //if (get_the_author_meta('ID') == get_current_user_id()) {
   // if (isset($options['show_trash_icon'])) {
-  // if ("1" == $options['show_trash_icon']) {
-  $extra_icon = array(
-   array("dashicons-admin-users", 'Profile', $link, 'flexi_user', $post->ID),
+  if ("1" == $user_flexi_icon) {
+   $extra_icon = array(
+    array("dashicons-admin-users", 'Profile', $link, 'flexi_user', $post->ID),
 
-  );
-  //  }
+   );
+  }
   // }
   //}
   // combine the two arrays

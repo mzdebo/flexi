@@ -120,13 +120,19 @@ class FLEXI_Admin_Settings
   $sections = array(
    array(
     'id'    => 'flexi_general_settings',
-    'title' => __('General Settings', 'flexi'),
+    'title' => __('General settings', 'flexi'),
     'tab'   => 'general',
    ),
    array(
     'id'          => 'flexi_media_settings',
-    'title'       => __('Media Settings', 'flexi'),
+    'title'       => __('Media settings', 'flexi'),
     'description' => __('The sizes listed below determine the maximum dimensions in pixels to use when adding an image to the Media Library.', 'flexi'),
+    'tab'         => 'general',
+   ),
+   array(
+    'id'          => 'flexi_icon_settings',
+    'title'       => __('Icons & user access settings', 'flexi'),
+    'description' => __('Show/Hide Icons at gallery & detail page.', 'flexi'),
     'tab'         => 'general',
    ),
 
@@ -345,6 +351,29 @@ class FLEXI_Admin_Settings
      'sanitize_callback' => 'sanitize_key',
     ),
 
+   ),
+   'flexi_icon_settings'               => array(
+    array(
+     'name'              => 'edit_flexi_icon',
+     'label'             => __('Edit icon', 'flexi') . '<span class="dashicons dashicons-edit"></span>',
+     'description'       => __('Hide/Show edit icon at gallery & detail page.', 'flexi'),
+     'type'              => 'checkbox',
+     'sanitize_callback' => 'intval',
+    ),
+    array(
+     'name'              => 'delete_flexi_icon',
+     'label'             => __('Delete icon', 'flexi') . '<span class="dashicons dashicons-trash"></span>',
+     'description'       => __('Hide/Show trash icon at gallery & detail page.', 'flexi'),
+     'type'              => 'checkbox',
+     'sanitize_callback' => 'intval',
+    ),
+    array(
+     'name'              => 'user_flexi_icon',
+     'label'             => __('User icon', 'flexi') . '<span class="dashicons dashicons-admin-users"></span>',
+     'description'       => __('Hide/Show user icon at gallery & detail page.', 'flexi'),
+     'type'              => 'checkbox',
+     'sanitize_callback' => 'intval',
+    ),
    ),
    'flexi_detail_settings'             => array(
     array(

@@ -85,20 +85,20 @@ class flexi_delete_post
  public function flexi_add_icon_grid_delete($icon)
  {
   global $post;
-  //$options = get_option('upg_settings');
-  $nonce = wp_create_nonce("flexi_ajax_delete");
+  $delete_flexi_icon = flexi_get_option('delete_flexi_icon', 'flexi_icon_settings', 1);
+  $nonce             = wp_create_nonce("flexi_ajax_delete");
   //$link  = admin_url('admin-ajax.php?action=flexi_ajax_delete&post_id=' . $post->ID . '&nonce=' . $nonce);
 
   $extra_icon = array();
 
   if (get_the_author_meta('ID') == get_current_user_id()) {
    // if (isset($options['show_trash_icon'])) {
-   // if ("1" == $options['show_trash_icon']) {
-   $extra_icon = array(
-    array("dashicons-trash", 'Delete', '#', 'flexi_ajax_delete', $post->ID),
+   if ("1" == $delete_flexi_icon) {
+    $extra_icon = array(
+     array("dashicons-trash", 'Delete', '#', 'flexi_ajax_delete', $post->ID),
 
-   );
-   //  }
+    );
+   }
    // }
   }
 
