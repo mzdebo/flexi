@@ -105,7 +105,10 @@ class Flexi
   */
  private function load_dependencies()
  {
-//Addon Ultimate Member Plugin
+  //Addon Captcha
+  require_once plugin_dir_path(dirname(__FILE__)) . 'includes/addon/class-flexi-captcha.php';
+
+  //Addon Ultimate Member Plugin
   require_once plugin_dir_path(dirname(__FILE__)) . 'includes/addon/class-flexi-ultimate-member.php';
 
   //Addon BuddyPress Plugin
