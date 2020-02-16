@@ -100,10 +100,11 @@ class FLEXI_Admin_Settings
  public function get_tabs()
  {
   $tabs = array(
-   'general' => __('General', 'flexi'),
-   'gallery' => __('Gallery', 'flexi'),
-   'form'    => __('Form', 'flexi'),
-   'detail'  => __('Detail', 'flexi'),
+   'general'   => __('General', 'flexi'),
+   'gallery'   => __('Gallery', 'flexi'),
+   'form'      => __('Form', 'flexi'),
+   'detail'    => __('Detail', 'flexi'),
+   'extension' => __('Extension', 'flexi'),
   );
 
   return apply_filters('flexi_settings_tabs', $tabs);
@@ -170,7 +171,11 @@ class FLEXI_Admin_Settings
     'description' => __('NOTE: Just make sure that, after updating the fields in this section, you flush the rewrite rules by visiting "Settings > Permalinks". Otherwise you\'ll still see the old links.', 'flexi'),
     'tab'         => 'detail',
    ),
-
+   array(
+    'id'    => 'flexi_extension',
+    'title' => __('Extension Management', 'flexi'),
+    'tab'   => 'extension',
+   ),
   );
 
   return apply_filters('flexi_settings_sections', $sections);
@@ -462,9 +467,7 @@ class FLEXI_Admin_Settings
     ),
 
    ),
-   'flexi_page_settings'               => array(
 
-   ),
    'flexi_permalink_settings'          => array(
     array(
      'name'              => 'slug',
@@ -474,7 +477,9 @@ class FLEXI_Admin_Settings
      'sanitize_callback' => 'sanitize_text_field',
     ),
    ),
+   'flexi_extension'                   => array(
 
+   ),
   );
 
   return apply_filters('flexi_settings_fields', $fields);
