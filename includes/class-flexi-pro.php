@@ -66,3 +66,5 @@ class Flexi_pro
   return $new;
  }
 }
+//Add Flexi PRO support
+// $flexi_pro = new Flexi_pro();

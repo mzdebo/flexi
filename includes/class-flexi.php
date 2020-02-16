@@ -105,6 +105,12 @@ class Flexi
   */
  private function load_dependencies()
  {
+//Addon Ultimate Member Plugin
+  require_once plugin_dir_path(dirname(__FILE__)) . 'includes/addon/class-flexi-ultimate-member.php';
+
+  //Addon BuddyPress Plugin
+  require_once plugin_dir_path(dirname(__FILE__)) . 'includes/addon/class-flexi-buddypress.php';
+
   //Toolbar for Main Gallery Page
   require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-flexi-toolbar.php';
 
@@ -240,9 +246,6 @@ class Flexi
   //Admin column
   $column = new Flexi_Admin_Column();
 
-  //Add Flexi PRO support
-  // $flexi_pro = new Flexi_pro();
-
  }
 
  /**
@@ -279,6 +282,11 @@ class Flexi
   //Flexi User
   $user = new Flexi_User();
   $this->loader->add_filter('flexi_add_icon_grid', $user, 'flexi_add_user_profile_icon');
+
+//Ultimate Member: Setting at Flexi & Tab at profile page
+  // $ultimate_member = new Flexi_Addon_Ultimate_Member();
+  //$this->loader->add_filter('um_profile_tabs', $ultimate_member, 'add_profile_tab');
+
  }
 
  /**
