@@ -117,14 +117,14 @@ $captcha = '<div class="g-recaptcha" data-sitekey="' . $site_key . '"></div>';
 
  public function flexi_verify_captcha()
  {
-  
+
   $enable_addon = flexi_get_option('enable_captcha', 'flexi_extension', 0);
   if ("0" == $enable_addon) {
    return "OK";
   }
 
   if (isset($_POST['g-recaptcha-response'])) {
-   
+
    $recaptcha_secret = flexi_get_option('captcha_secret', 'flexi_captcha_settings', '');
    $response         = wp_remote_get("https://www.google.com/recaptcha/api/siteverify?secret=" . $recaptcha_secret . "&response=" . $_POST['g-recaptcha-response']);
 
@@ -142,9 +142,9 @@ $captcha = '<div class="g-recaptcha" data-sitekey="' . $site_key . '"></div>';
     return __("Google Server Error", "flexi");
    }
   } else {
-   //return false;
-   return __("Bots are not allowed. If you are not a bot then please enable JavaScript in browser.", "flexi");
-   //return "8888";
+   return "OK";
+   // return __("Bots are not allowed. If you are not a bot then please enable JavaScript in browser.", "flexi");
+
   }
  }
 
