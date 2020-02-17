@@ -7,7 +7,9 @@ class Flexi_Addon_Captcha
   add_filter('flexi_settings_sections', array($this, 'add_section'));
   add_filter('flexi_settings_fields', array($this, 'add_extension'));
   add_filter('flexi_settings_fields', array($this, 'add_fields'));
-
+  add_action('flexi_captcha', array($this, 'flexi_display_captcha_code'), 10, 0);
+  add_action('wp_head', array($this, 'enqueue_styles_head'));
+  add_filter('flexi_verify_submit', array($this, 'verify_submit_action'));
  }
 
  //add_filter flexi_settings_tabs
@@ -26,7 +28,7 @@ class Flexi_Addon_Captcha
    $sections = array(
     array(
      'id'          => 'flexi_captcha_settings',
-     'title'       => __('Google reCaptcha Settings', 'flexi'),
+     'title'       => __('Google reCaptcha v2', 'flexi'),
      'description' => __('Get API information from https://www.google.com/recaptcha. It will ask for security code during form submission if captcha field is added.', 'flexi'),
      'tab'         => 'form',
     ),
@@ -68,7 +70,7 @@ class Flexi_Addon_Captcha
      'description'       => __('Google Captcha Site Key.', 'flexi'),
      'type'              => 'text',
      'size'              => 'large',
-     'sanitize_callback' => 'sanitize_key',
+     'sanitize_callback' => 'sanitize_text_field',
     ),
     array(
      'name'              => 'captcha_secret',
@@ -76,13 +78,84 @@ class Flexi_Addon_Captcha
      'description'       => __('Google Captcha secret Key', 'flexi'),
      'type'              => 'text',
      'size'              => 'large',
-     'sanitize_callback' => 'sanitize_key',
+     'sanitize_callback' => 'sanitize_text_field',
     ),
    ),
    );
    $new = array_merge($new, $fields);
   }
   return $new;
+ }
+
+ public function flexi_display_captcha_code()
+ {
+  $title    = "Security Check";
+  $site_key = flexi_get_option('captcha_key', 'flexi_captcha_settings', '');
+  //$secret_key=flexi_get_option('captcha_secret', 'flexi_captcha_settings', '');
+  $captcha      = "";
+  $enable_addon = flexi_get_option('enable_captcha', 'flexi_extension', 0);
+  if ("1" == $enable_addon) {
+   ?>
+		<label for="captcha"><?php echo $title; ?></label>
+<?php
+$captcha = '<div class="g-recaptcha" data-sitekey="' . $site_key . '"></div>';
+  }
+
+  echo $captcha;
+ }
+
+ public function enqueue_styles_head()
+ {
+
+  $enable_addon = flexi_get_option('enable_captcha', 'flexi_extension', 0);
+  if ("1" == $enable_addon) {
+   ?>
+ <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <?php
+}
+ }
+
+ public function flexi_verify_captcha()
+ {
+  
+  $enable_addon = flexi_get_option('enable_captcha', 'flexi_extension', 0);
+  if ("0" == $enable_addon) {
+   return "OK";
+  }
+
+  if (isset($_POST['g-recaptcha-response'])) {
+   
+   $recaptcha_secret = flexi_get_option('captcha_secret', 'flexi_captcha_settings', '');
+   $response         = wp_remote_get("https://www.google.com/recaptcha/api/siteverify?secret=" . $recaptcha_secret . "&response=" . $_POST['g-recaptcha-response']);
+
+   if (is_array($response) && array_key_exists('body', $response)) {
+    $response = json_decode($response["body"], true);
+    if (true == $response["success"]) {
+     //return true;
+     return "OK";
+    } else {
+     //return false;
+     //return "oooo";
+     return __("Please complete the security spam check.", "flexi");
+    }
+   } else {
+    return __("Google Server Error", "flexi");
+   }
+  } else {
+   //return false;
+   return __("Bots are not allowed. If you are not a bot then please enable JavaScript in browser.", "flexi");
+   //return "8888";
+  }
+ }
+
+ public function verify_submit_action($newPost)
+ {
+
+  if ($this->flexi_verify_captcha() == "OK") {
+   return "";
+  } else {
+   return 'invalid-captcha';
+  }
  }
 
 }

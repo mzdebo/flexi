@@ -84,7 +84,7 @@ function flexi_ajax_post()
    } else {
     $err = '';
     for ($x = 0; $x < count($result['error']); $x++) {
-     $err .= $result['error'][$x] . " | ";
+     $err .= $result['error'][$x] . "  ";
     }
 
     if (in_array('file-type', $result['error'])) {

@@ -120,9 +120,6 @@ class Flexi
   //Add Flexi_User
   require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-flexi-user.php';
 
-  //Add Flexi_pro
-  //require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-flexi-pro.php';
-
   //Flexi Admin custom columns
   require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-flexi-admin-column.php';
 

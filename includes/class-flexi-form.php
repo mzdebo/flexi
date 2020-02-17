@@ -137,6 +137,7 @@ action="' . admin_url("admin-ajax.php") . '"
     echo do_shortcode($content);
 
     wp_nonce_field('flexi-nonce', 'flexi-nonce', false);
+
     echo '<input type="hidden" name="action" value="flexi_ajax_post">';
     echo '<input type="hidden" name="preview" value="' . $attr['preview'] . '">';
     echo '<input type="hidden" name="form_name" value="' . $attr['name'] . '">';
@@ -372,7 +373,7 @@ action="' . admin_url("admin-ajax.php") . '"
 
   } else if ('captcha' == $attr['type']) {
 
-   echo "<br>reCaptcha spam block is UNDER DEVELOPMENT<br>";
+   do_action("flexi_captcha");
 
   } else if ('file' == $attr['type']) {
    echo $frm->addLabelFor('user-submitted-image[]', $attr['title']);
@@ -442,6 +443,7 @@ action="' . admin_url("admin-ajax.php") . '"
 
   } else if ('submit' == $attr['type']) {
    //submit
+
    echo $frm->addInput('submit', $attr['name'], $attr['value'], array('class' => $attr['class']));
 
   } else if ('radio' == $attr['type'] || 'checkbox' == $attr['type']) {
