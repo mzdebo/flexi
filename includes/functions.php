@@ -814,3 +814,26 @@ function flexi_show_icon_grid()
  }
  return $list;
 }
+
+//Error Code
+function flexi_error_code($err)
+{
+ $msg = "<div class='flexi_error_code'>";
+ if ('required-title' == $err) {
+  $msg .= __("Title cannot be blank", "flexi");
+
+ } else if ('file-type' == $err) {
+  $msg .= __("This file is not supported or file too big.", "flexi");
+
+ } else if ('exif_imagetype' == $err) {
+  $msg .= __("This file type is not supported. Only image files are allowed.", "flexi");
+
+ } else if ('invalid-captcha' == $err) {
+  $msg .= __("Captcha security code is invalid.", "flexi");
+
+ } else {
+  $msg .= $err;
+ }
+ $msg .= "</a>";
+ return $msg;
+}

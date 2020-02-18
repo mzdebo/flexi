@@ -165,7 +165,6 @@ action="' . admin_url("admin-ajax.php") . '"
   $url      = '';
   $email    = '';
   $tags     = '';
-  $captcha  = '';
   $verify   = '';
   $content  = '';
   $category = '';
@@ -219,32 +218,30 @@ action="' . admin_url("admin-ajax.php") . '"
    } else {
     echo "<div class='flexi_warning'>" . __('Your submission is under review.', 'flexi') . "</div>";
    }
-   ?>
-   <a href='<?php echo flexi_get_button_url('', false); ?>' class='button'>
-                <?php echo __('Post again', 'flexi'); ?>
-            </a>
- |
-            <a href='<?php echo flexi_get_button_url('', false, 'my_gallery', 'flexi_image_layout_settings'); ?>' class='button'>
-                <?php echo __('My Gallery', 'flexi'); ?>
-            </a>
-<?php
 
   } else {
 
-   if ($error) {
-    $e = implode(',', $error);
-    $e = trim($e, ',');
-   } else {
-    $e = 'error';
+   $reindex_array = array_values(array_filter($error));
+   //var_dump($reindex_array);
+
+   for ($x = 0; $x < count($reindex_array); $x++) {
+    //echo $reindex_array[$x] . "-";
+    echo "<div class='flexi_error'>" . flexi_error_code($reindex_array[$x]) . "</div>";
    }
 
-   if ('file-type' == $e) {
-    echo "<div class='flexi_error'>" . __('Invalid File', 'flexi') . " " . $e . "</div>";
-   } else {
-    echo "<div class='flexi_error'>" . __('Submission failed', 'flexi') . " " . $e . "</div>";
-   }
   }
- }
+  ?>
+   <div id="flexi_form">
+  <a href='<?php echo flexi_get_button_url('', false); ?>' class='button'>
+               <?php echo __('Post again', 'flexi'); ?>
+           </a>
+|
+           <a href='<?php echo flexi_get_button_url('', false, 'my_gallery', 'flexi_image_layout_settings'); ?>' class='button'>
+               <?php echo __('My Gallery', 'flexi'); ?>
+           </a>
+           </div>
+<?php
+}
 
  //Examine & update the old form submitted
  public function process_update_forms($attr)
@@ -254,7 +251,6 @@ action="' . admin_url("admin-ajax.php") . '"
   $url      = '';
   $email    = '';
   $tags     = '';
-  $captcha  = '';
   $verify   = '';
   $content  = '';
   $category = '';

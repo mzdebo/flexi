@@ -83,17 +83,24 @@ function flexi_ajax_post()
 
    } else {
     $err = '';
-    for ($x = 0; $x < count($result['error']); $x++) {
-     $err .= $result['error'][$x] . "  ";
-    }
 
-    if (in_array('file-type', $result['error'])) {
-     $response['msg'] = "<div class='flexi_error'>" . __('Check your file type', 'flexi') . " " . __('Submission failed', 'flexi') . "</div>";
-    } else if (in_array('required-category', $result['error'])) {
-     $response['msg'] = "<div class='flexi_error'>" . __('Category is not specified', 'flexi') . " " . __('Submission failed', 'flexi') . "</div>";
-    } else {
-     $response['msg'] = "<div class='flexi_error'>" . __('Submission failed', 'flexi') . "<br>" . __('Error message: ') . $err . "</div>";
+    $reindex_array = array_values(array_filter($result['error']));
+    $msg           = "";
+    for ($x = 0; $x < count($reindex_array); $x++) {
+     // $err .= $reindex_array[$x] . "  ";
+     $msg .= "<div class='flexi_error'>" . flexi_error_code($reindex_array[$x]) . "</div>";
     }
+    $response['msg'] = $msg;
+    //flexi_log($reindex_array);
+    /*
+   if (in_array('file-type', $result['error'])) {
+   $response['msg'] = "<div class='flexi_error'>" . __('Check your file type', 'flexi') . " " . __('Submission failed', 'flexi') . "</div>";
+   } else if (in_array('required-category', $result['error'])) {
+   $response['msg'] = "<div class='flexi_error'>" . __('Category is not specified', 'flexi') . " " . __('Submission failed', 'flexi') . "</div>";
+   } else {
+   $response['msg'] = "<div class='flexi_error'>" . __('Submission failed', 'flexi') . "<br>" . __('Error message: ') . $err . "</div>";
+   }
+    */
 
    }
   } else {
