@@ -327,7 +327,7 @@ div.tagsinput div {
 }
 
 /* Figure caption for lightbox  */
-flexi_figcaption {
+.flexi_figcaption {
   display: none;
 }
 

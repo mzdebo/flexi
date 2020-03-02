@@ -46,7 +46,7 @@ class Flexi_Addon_BuddyPress
    array(
     'name'              => 'enable_buddypress',
     'label'             => __('Enable BuddyPress', 'flexi'),
-    'description'       => __('Displays tab on user profile page of BuddyPress members page.', 'flexi') . ' <a style="text-decoration: none;" href="' . admin_url('admin.php?page=flexi_settings&tab=gallery&section=flexi_buddypress_settings') . '"><span class="dashicons dashicons-admin-tools"></span></a>',
+    'description'       => __('Displays tab on user profile page of BuddyPress members page.', 'flexi') . ' https://wordpress.org/plugins/buddypress/ <a style="text-decoration: none;" href="' . admin_url('admin.php?page=flexi_settings&tab=gallery&section=flexi_buddypress_settings') . '"><span class="dashicons dashicons-admin-tools"></span></a>',
     'type'              => 'checkbox',
     'sanitize_callback' => 'intval',
 

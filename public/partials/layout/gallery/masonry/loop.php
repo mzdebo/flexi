@@ -9,15 +9,22 @@ $data = flexi_image_data('flexi-thumb', $post, $popup);
 
                   <a <?php echo $data['extra'] . ' href="' . $data['url'] . '" data-caption="' . $data['title'] . '" border="0"'; ?>>
                         <img  class="flexi-fit_cover flexi_image_frame" src="<?php echo esc_url(flexi_image_src('flexi-medium', $post)); ?>">
-                        <?php echo ' <flexi_figcaption><b>' . $data['title'] . '</b><br>' . flexi_excerpt() . '</flexi_figcaption>'; ?>
+                        <?php echo ' <div class="flexi_figcaption" id="flexi_cap_' . get_the_ID() . '"></div>'; ?>
 
                         <div id="flexi_info" class="<?php echo $hover_caption; ?>">
                               <div class="flexi_title"><?php echo $data['title']; ?></div>
                               <div class="flexi_p"><?php echo flexi_excerpt(); ?></div>
                         </div>
                   </a>
+
             </div>
       </div>
 </div>
+<script>
+jQuery(document).ready(function() {
+      jQuery('#flexi_cap_<?php echo get_the_ID(); ?>').append('<b><?php echo $data['title']; ?></b>');
+      jQuery('#flexi_cap_<?php echo get_the_ID(); ?>').append('<br><?php echo flexi_excerpt(); ?>');
+      jQuery('#flexi_cap_<?php echo get_the_ID(); ?>').append('<br><?php echo flexi_show_icon_grid(); ?>');
+});
 
-
+</script>

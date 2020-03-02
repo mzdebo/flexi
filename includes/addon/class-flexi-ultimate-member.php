@@ -44,7 +44,7 @@ class Flexi_Addon_Ultimate_Member
    array(
     'name'              => 'enable_ultimate_member',
     'label'             => __('Enable Ultimate Member', 'flexi'),
-    'description'       => __('Displays tab on user profile page of Ultimate Member plugin.', 'flexi') . ' <a style="text-decoration: none;" href="' . admin_url('admin.php?page=flexi_settings&tab=gallery&section=flexi_ultimate_member_settings') . '"><span class="dashicons dashicons-admin-tools"></span></a>',
+    'description'       => __('Displays tab on user profile page of Ultimate Member plugin.', 'flexi') . ' https://wordpress.org/plugins/ultimate-member/ <a style="text-decoration: none;" href="' . admin_url('admin.php?page=flexi_settings&tab=gallery&section=flexi_ultimate_member_settings') . '"><span class="dashicons dashicons-admin-tools"></span></a>',
     'type'              => 'checkbox',
     'sanitize_callback' => 'intval',
 
