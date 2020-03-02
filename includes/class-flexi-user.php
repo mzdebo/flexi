@@ -27,7 +27,7 @@ class Flexi_User
   // if (isset($options['show_trash_icon'])) {
   if ("1" == $user_flexi_icon) {
    $extra_icon = array(
-    array("dashicons-admin-users", 'Profile', $link, 'flexi_user', $post->ID),
+    array("dashicons-admin-users", __('Profile', 'flexi'), $link, 'flexi_user', $post->ID),
 
    );
   }

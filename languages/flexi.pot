@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Flexi\n"
-"POT-Creation-Date: 2020-02-09 12:51+0545\n"
+"POT-Creation-Date: 2020-03-02 16:56+0545\n"
 "PO-Revision-Date: 2020-02-09 12:49+0545\n"
 "Last-Translator: \n"
 "Language-Team: navneet@odude.com\n"
@@ -60,6 +60,98 @@ msgstr ""
 msgid "Plugin Settings"
 msgstr ""
 
+#: includes/addon/class-flexi-buddypress.php:30
+msgid "BuddyPress"
+msgstr ""
+
+#: includes/addon/class-flexi-buddypress.php:31
+msgid "If you have installed BuddyPress plugin, user can see own submitted images at their profile page. https://wordpress.org/plugins/buddypress/"
+msgstr ""
+
+#: includes/addon/class-flexi-buddypress.php:48
+msgid "Enable BuddyPress"
+msgstr ""
+
+#: includes/addon/class-flexi-buddypress.php:49
+msgid "Displays tab on user profile page of BuddyPress members page."
+msgstr ""
+
+#: includes/addon/class-flexi-buddypress.php:70
+#: includes/addon/class-flexi-ultimate-member.php:68
+msgid "Tab name"
+msgstr ""
+
+#: includes/addon/class-flexi-buddypress.php:71
+#: includes/addon/class-flexi-ultimate-member.php:69
+msgid "Name of the tab displays on profile page"
+msgstr ""
+
+#: includes/addon/class-flexi-buddypress.php:78
+#: includes/addon/class-flexi-ultimate-member.php:76
+msgid "Tab icon"
+msgstr ""
+
+#: includes/addon/class-flexi-buddypress.php:79
+#: includes/addon/class-flexi-ultimate-member.php:77
+msgid "Ultimate Member's icons to be used at profile page. Eg. um-faicon-picture-o"
+msgstr ""
+
+#: includes/addon/class-flexi-captcha.php:31
+msgid "Google reCaptcha v2"
+msgstr ""
+
+#: includes/addon/class-flexi-captcha.php:32
+msgid "Get API information from https://www.google.com/recaptcha. It will ask for security code during form submission if captcha field is added."
+msgstr ""
+
+#: includes/addon/class-flexi-captcha.php:47
+msgid "Enable Captcha"
+msgstr ""
+
+#: includes/addon/class-flexi-captcha.php:48
+msgid "Security code during form submission. https://www.google.com/recaptcha"
+msgstr ""
+
+#: includes/addon/class-flexi-captcha.php:69
+msgid "Site key"
+msgstr ""
+
+#: includes/addon/class-flexi-captcha.php:70
+msgid "Google Captcha Site Key."
+msgstr ""
+
+#: includes/addon/class-flexi-captcha.php:77
+msgid "Secret Key"
+msgstr ""
+
+#: includes/addon/class-flexi-captcha.php:78
+msgid "Google Captcha secret Key"
+msgstr ""
+
+#: includes/addon/class-flexi-captcha.php:139
+msgid "Please complete the security spam check."
+msgstr ""
+
+#: includes/addon/class-flexi-captcha.php:142
+msgid "Google Server Error"
+msgstr ""
+
+#: includes/addon/class-flexi-ultimate-member.php:30
+msgid "Ultimate-Member"
+msgstr ""
+
+#: includes/addon/class-flexi-ultimate-member.php:31
+msgid "If you have installed Ultimate-Member plugin, user can see own submitted images at their profile page. https://wordpress.org/plugins/ultimate-member/"
+msgstr ""
+
+#: includes/addon/class-flexi-ultimate-member.php:46
+msgid "Enable Ultimate Member"
+msgstr ""
+
+#: includes/addon/class-flexi-ultimate-member.php:47
+msgid "Displays tab on user profile page of Ultimate Member plugin."
+msgstr ""
+
 #: includes/class-flexi-admin-column.php:18
 msgid "Image"
 msgstr ""
@@ -80,6 +172,18 @@ msgstr ""
 msgid "Date"
 msgstr ""
 
+#: includes/class-flexi-detail.php:45
+msgid "Detail icon"
+msgstr ""
+
+#: includes/class-flexi-detail.php:46
+msgid "Hide/Show detail icon at gallery lightbox"
+msgstr ""
+
+#: includes/class-flexi-detail.php:67 includes/class-flexi-settings.php:106
+msgid "Detail"
+msgstr ""
+
 #: includes/class-flexi-form.php:39
 msgid "Submission disabled"
 msgstr ""
@@ -96,36 +200,30 @@ msgstr ""
 msgid "Processing"
 msgstr ""
 
-#: includes/class-flexi-form.php:113 includes/class-flexi-form.php:223
+#: includes/class-flexi-form.php:113 includes/class-flexi-form.php:236
 msgid "Post again"
 msgstr ""
 
-#: includes/class-flexi-form.php:118 includes/class-flexi-form.php:227
-#: includes/class-flexi-form.php:297
+#: includes/class-flexi-form.php:118 includes/class-flexi-form.php:240
+#: includes/class-flexi-form.php:294
 msgid "My Gallery"
 msgstr ""
 
-#: includes/class-flexi-form.php:216 includes/class-flexi-form.php:284
+#: includes/class-flexi-form.php:216 includes/class-flexi-form.php:281
 #: includes/flexi_ajax_post.php:78
 msgid "Successfully posted"
 msgstr ""
 
-#: includes/class-flexi-form.php:219 includes/class-flexi-form.php:287
+#: includes/class-flexi-form.php:219 includes/class-flexi-form.php:284
 msgid "Your submission is under review."
 msgstr ""
 
-#: includes/class-flexi-form.php:241
-msgid "Invalid File"
-msgstr ""
-
-#: includes/class-flexi-form.php:243 includes/flexi_ajax_post.php:91
-#: includes/flexi_ajax_post.php:93 includes/flexi_ajax_post.php:95
-#: includes/flexi_ajax_post.php:116
-msgid "Submission failed"
-msgstr ""
-
-#: includes/class-flexi-form.php:294
+#: includes/class-flexi-form.php:291
 msgid "Edit again"
+msgstr ""
+
+#: includes/class-flexi-form.php:520
+msgid "Modify"
 msgstr ""
 
 #: includes/class-flexi-metabox.php:21
@@ -249,34 +347,6 @@ msgstr ""
 msgid "Choose from the most used %s"
 msgstr ""
 
-#: includes/class-flexi-pro.php:26
-msgid "Google reCaptcha Settings"
-msgstr ""
-
-#: includes/class-flexi-pro.php:41
-msgid "Enable Captcha"
-msgstr ""
-
-#: includes/class-flexi-pro.php:42
-msgid "Security code during form submission. https://www.google.com/recaptcha"
-msgstr ""
-
-#: includes/class-flexi-pro.php:49
-msgid "Site key"
-msgstr ""
-
-#: includes/class-flexi-pro.php:50
-msgid "Google Captcha Site Key."
-msgstr ""
-
-#: includes/class-flexi-pro.php:57
-msgid "Secret Key"
-msgstr ""
-
-#: includes/class-flexi-pro.php:58
-msgid "Google Captcha secret Key"
-msgstr ""
-
 #: includes/class-flexi-settings.php:61
 msgid "Flexi - Settings"
 msgstr ""
@@ -297,333 +367,377 @@ msgstr ""
 msgid "Form"
 msgstr ""
 
-#: includes/class-flexi-settings.php:106
-msgid "Detail"
+#: includes/class-flexi-settings.php:107
+msgid "Extension"
 msgstr ""
 
-#: includes/class-flexi-settings.php:123
-msgid "General Settings"
-msgstr ""
-
-#: includes/class-flexi-settings.php:128
-msgid "Media Settings"
+#: includes/class-flexi-settings.php:124
+msgid "General settings"
 msgstr ""
 
 #: includes/class-flexi-settings.php:129
+msgid "Media settings"
+msgstr ""
+
+#: includes/class-flexi-settings.php:130
 msgid "The sizes listed below determine the maximum dimensions in pixels to use when adding an image to the Media Library."
 msgstr ""
 
 #: includes/class-flexi-settings.php:135
+msgid "Icons & user access settings"
+msgstr ""
+
+#: includes/class-flexi-settings.php:136
+msgid "Show/Hide Icons at gallery & detail page."
+msgstr ""
+
+#: includes/class-flexi-settings.php:142
 msgid "Gallery Settings"
 msgstr ""
 
-#: includes/class-flexi-settings.php:140
+#: includes/class-flexi-settings.php:147
 msgid "Gallery appearance"
 msgstr ""
 
-#: includes/class-flexi-settings.php:146
+#: includes/class-flexi-settings.php:153
 msgid "Submission Form Settings"
 msgstr ""
 
-#: includes/class-flexi-settings.php:151
-msgid "Category Settings"
-msgstr ""
-
-#: includes/class-flexi-settings.php:157
-msgid "Detail Page Settings"
-msgstr ""
-
 #: includes/class-flexi-settings.php:158
-msgid "Detail & Popup page displays full content."
-msgstr ""
-
-#: includes/class-flexi-settings.php:163
-msgid "Permalink URL Slugs"
+msgid "Category & Tags Settings"
 msgstr ""
 
 #: includes/class-flexi-settings.php:164
+msgid "Detail Page Settings"
+msgstr ""
+
+#: includes/class-flexi-settings.php:165
+msgid "Detail & Popup page displays full content."
+msgstr ""
+
+#: includes/class-flexi-settings.php:170
+msgid "Permalink URL Slugs"
+msgstr ""
+
+#: includes/class-flexi-settings.php:171
 msgid "NOTE: Just make sure that, after updating the fields in this section, you flush the rewrite rules by visiting \"Settings > Permalinks\". Otherwise you'll still see the old links."
 msgstr ""
 
-#: includes/class-flexi-settings.php:186
-msgid "Select Login Page"
-msgstr ""
-
-#: includes/class-flexi-settings.php:187
-msgid "Login page where user enters username & passwords. Install 3rd party plugins eg. BuddyPress, Ultimate-Member"
+#: includes/class-flexi-settings.php:176
+msgid "Extension Management"
 msgstr ""
 
 #: includes/class-flexi-settings.php:197
-msgid "Space between images"
+msgid "Select Login Page"
 msgstr ""
 
 #: includes/class-flexi-settings.php:198
-msgid "Padding between images. Set shortcode [flexi-gallery padding=\"0\"] for none"
+msgid "Login page where user enters username & passwords. Install 3rd party plugins eg. Login Page, Ultimate-Member, Social Login"
 msgstr ""
 
 #: includes/class-flexi-settings.php:208
-msgid "Excerpt Length"
+msgid "Space between images"
 msgstr ""
 
 #: includes/class-flexi-settings.php:209
-msgid "Number of words of short description"
+msgid "Padding between images. Set shortcode [flexi-gallery padding=\"0\"] for none"
 msgstr ""
 
 #: includes/class-flexi-settings.php:219
-msgid "Thumbnail hover effect"
+msgid "Excerpt Length"
 msgstr ""
 
 #: includes/class-flexi-settings.php:220
+msgid "Number of words of short description"
+msgstr ""
+
+#: includes/class-flexi-settings.php:230
+msgid "Thumbnail hover effect"
+msgstr ""
+
+#: includes/class-flexi-settings.php:231
 msgid "Effect on mouse over image."
 msgstr ""
 
-#: includes/class-flexi-settings.php:223 includes/class-flexi-settings.php:236
+#: includes/class-flexi-settings.php:234 includes/class-flexi-settings.php:247
 #: includes/cmb2/includes/CMB2_Field.php:1448
 #: includes/cmb2/includes/CMB2_Field.php:1452
 msgid "None"
 msgstr ""
 
-#: includes/class-flexi-settings.php:224
+#: includes/class-flexi-settings.php:235
 msgid "Blur"
 msgstr ""
 
-#: includes/class-flexi-settings.php:225
+#: includes/class-flexi-settings.php:236
 msgid "Grayscale"
 msgstr ""
 
-#: includes/class-flexi-settings.php:226
+#: includes/class-flexi-settings.php:237
 msgid "Zoom In"
 msgstr ""
 
-#: includes/class-flexi-settings.php:232
+#: includes/class-flexi-settings.php:243
 msgid "Thumbnail hover style"
 msgstr ""
 
-#: includes/class-flexi-settings.php:233
+#: includes/class-flexi-settings.php:244
 msgid "Display title or icon on mouse over image"
 msgstr ""
 
-#: includes/class-flexi-settings.php:237
+#: includes/class-flexi-settings.php:248
 msgid "Slide title"
 msgstr ""
 
-#: includes/class-flexi-settings.php:238
+#: includes/class-flexi-settings.php:249
 msgid "Pull up card"
 msgstr ""
 
-#: includes/class-flexi-settings.php:239
+#: includes/class-flexi-settings.php:250
 msgid "Slide right"
 msgstr ""
 
-#: includes/class-flexi-settings.php:240
+#: includes/class-flexi-settings.php:251
 msgid "Pull up title"
 msgstr ""
 
-#: includes/class-flexi-settings.php:241
+#: includes/class-flexi-settings.php:252
 msgid "Top & Bottom"
 msgstr ""
 
-#: includes/class-flexi-settings.php:250
+#: includes/class-flexi-settings.php:261
 msgid "Main Gallery Page"
 msgstr ""
 
-#: includes/class-flexi-settings.php:251
+#: includes/class-flexi-settings.php:262
 msgid "Page with shortcode [flexi-gallery]"
 msgstr ""
 
-#: includes/class-flexi-settings.php:257
+#: includes/class-flexi-settings.php:268
 msgid "Member \"My Gallery\" Page"
 msgstr ""
 
-#: includes/class-flexi-settings.php:258
+#: includes/class-flexi-settings.php:269
 msgid "Page with shortcode [flexi-gallery user=\"show_mine\"]. Display gallery of own posts."
 msgstr ""
 
-#: includes/class-flexi-settings.php:264
+#: includes/class-flexi-settings.php:275
 msgid "Post per page"
 msgstr ""
 
-#: includes/class-flexi-settings.php:265
+#: includes/class-flexi-settings.php:276
 msgid "Number of images/post/videos to be shown at a time."
 msgstr ""
 
-#: includes/class-flexi-settings.php:273
+#: includes/class-flexi-settings.php:284
 msgid "Number of Columns"
 msgstr ""
 
-#: includes/class-flexi-settings.php:274
+#: includes/class-flexi-settings.php:285
 msgid "Maximum number of post to be shown horizontally & changes based on screen size. May not work for all layouts."
 msgstr ""
 
-#: includes/class-flexi-settings.php:283
+#: includes/class-flexi-settings.php:294
 msgid "Navigation Style"
 msgstr ""
 
-#: includes/class-flexi-settings.php:287
+#: includes/class-flexi-settings.php:298
 msgid "Page Number"
 msgstr ""
 
-#: includes/class-flexi-settings.php:288
+#: includes/class-flexi-settings.php:299
 msgid "Load More Button"
 msgstr ""
 
-#: includes/class-flexi-settings.php:289
+#: includes/class-flexi-settings.php:300
 msgid " Mouse Scroll"
 msgstr ""
 
-#: includes/class-flexi-settings.php:295
-msgid "Gallery sorting tags"
-msgstr ""
-
-#: includes/class-flexi-settings.php:296
-msgid "Shows tags above gallery, only if few tags available."
-msgstr ""
-
-#: includes/class-flexi-settings.php:302
+#: includes/class-flexi-settings.php:307
 msgid "Select gallery layout"
 msgstr ""
 
-#: includes/class-flexi-settings.php:303 includes/class-flexi-settings.php:366
+#: includes/class-flexi-settings.php:308 includes/class-flexi-settings.php:394
 msgid "Selected layout will be used as default layout, if not specified in shortcode parameter."
 msgstr ""
 
-#: includes/class-flexi-settings.php:313
+#: includes/class-flexi-settings.php:318
 msgid "Form submission access"
 msgstr ""
 
-#: includes/class-flexi-settings.php:314
+#: includes/class-flexi-settings.php:319
 msgid "It will enable/disable frontend form as specified."
 msgstr ""
 
-#: includes/class-flexi-settings.php:317
+#: includes/class-flexi-settings.php:322
 msgid "Everyone"
 msgstr ""
 
-#: includes/class-flexi-settings.php:318
+#: includes/class-flexi-settings.php:323
 msgid "Only members"
 msgstr ""
 
-#: includes/class-flexi-settings.php:319
+#: includes/class-flexi-settings.php:324
 msgid "Disable submission"
 msgstr ""
 
-#: includes/class-flexi-settings.php:325
+#: includes/class-flexi-settings.php:330
 msgid "Auto approve post"
 msgstr ""
 
-#: includes/class-flexi-settings.php:326
+#: includes/class-flexi-settings.php:331
 msgid "Automatically publish Post as soon as user submit."
 msgstr ""
 
-#: includes/class-flexi-settings.php:332
+#: includes/class-flexi-settings.php:337
 msgid "Assign default user"
 msgstr ""
 
-#: includes/class-flexi-settings.php:333
+#: includes/class-flexi-settings.php:338
 msgid "Type the username to assign for guest submit else no author is assigned."
 msgstr ""
 
-#: includes/class-flexi-settings.php:340
+#: includes/class-flexi-settings.php:345
 msgid "Submission form"
 msgstr ""
 
-#: includes/class-flexi-settings.php:341
+#: includes/class-flexi-settings.php:346
 msgid "Page which will be used at frontend to let users to submit flexi post."
 msgstr ""
 
-#: includes/class-flexi-settings.php:348
+#: includes/class-flexi-settings.php:353
 msgid "Edit Flexi Post Page"
 msgstr ""
 
-#: includes/class-flexi-settings.php:349
+#: includes/class-flexi-settings.php:354
 msgid "Page with shortcode [flexi-form] with edit=\"true\" as parameter. Lets visitor to edit submitted post."
 msgstr ""
 
-#: includes/class-flexi-settings.php:358
-msgid "Enable Lightbox or Popup"
+#: includes/class-flexi-settings.php:363
+msgid "Edit icon"
 msgstr ""
 
-#: includes/class-flexi-settings.php:359
-msgid "If popup is unchecked, It will open content in single dedicated page."
+#: includes/class-flexi-settings.php:364
+msgid "Hide/Show edit icon at gallery & detail page."
 msgstr ""
 
-#: includes/class-flexi-settings.php:365
-msgid "Select Detail layout"
+#: includes/class-flexi-settings.php:370
+msgid "Delete icon"
 msgstr ""
 
-#: includes/class-flexi-settings.php:376
-msgid "Default Post Category"
+#: includes/class-flexi-settings.php:371
+msgid "Hide/Show trash icon at gallery & detail page."
 msgstr ""
 
 #: includes/class-flexi-settings.php:377
-msgid "This category will be selected if no category is assigned by visitor."
+msgid "User icon"
+msgstr ""
+
+#: includes/class-flexi-settings.php:378
+msgid "Hide/Show user icon at gallery & detail page."
+msgstr ""
+
+#: includes/class-flexi-settings.php:386
+msgid "Enable Lightbox or Popup"
 msgstr ""
 
 #: includes/class-flexi-settings.php:387
-msgid "Thumbnail size"
+msgid "If popup is unchecked, It will open content in single dedicated page."
 msgstr ""
 
-#: includes/class-flexi-settings.php:388 includes/class-flexi-settings.php:409
-#: includes/class-flexi-settings.php:423
-msgid "Width"
+#: includes/class-flexi-settings.php:393
+msgid "Select Detail layout"
 msgstr ""
 
-#: includes/class-flexi-settings.php:389 includes/class-flexi-settings.php:410
-#: includes/class-flexi-settings.php:424
-msgid "Height"
+#: includes/class-flexi-settings.php:404
+msgid "Default Post Category"
 msgstr ""
 
-#: includes/class-flexi-settings.php:390
-msgid "flexi-thumb .px"
-msgstr ""
-
-#: includes/class-flexi-settings.php:401
-msgid "Crop thumbnail to exact dimensions (normally thumbnails are proportional)"
-msgstr ""
-
-#: includes/class-flexi-settings.php:408
-msgid "Medium size"
+#: includes/class-flexi-settings.php:405
+msgid "This category will be selected if no category is assigned by visitor."
 msgstr ""
 
 #: includes/class-flexi-settings.php:411
-msgid "flexi-medium .px"
+msgid "Gallery sorting tags"
+msgstr ""
+
+#: includes/class-flexi-settings.php:412
+msgid "Shows tags above gallery, only if few tags available."
 msgstr ""
 
 #: includes/class-flexi-settings.php:422
-msgid "Large size"
+msgid "Thumbnail size"
+msgstr ""
+
+#: includes/class-flexi-settings.php:423 includes/class-flexi-settings.php:444
+#: includes/class-flexi-settings.php:458
+msgid "Width"
+msgstr ""
+
+#: includes/class-flexi-settings.php:424 includes/class-flexi-settings.php:445
+#: includes/class-flexi-settings.php:459
+msgid "Height"
 msgstr ""
 
 #: includes/class-flexi-settings.php:425
+msgid "flexi-thumb .px"
+msgstr ""
+
+#: includes/class-flexi-settings.php:436
+msgid "Crop thumbnail to exact dimensions (normally thumbnails are proportional)"
+msgstr ""
+
+#: includes/class-flexi-settings.php:443
+msgid "Medium size"
+msgstr ""
+
+#: includes/class-flexi-settings.php:446
+msgid "flexi-medium .px"
+msgstr ""
+
+#: includes/class-flexi-settings.php:457
+msgid "Large size"
+msgstr ""
+
+#: includes/class-flexi-settings.php:460
 msgid "flexi-large .px"
 msgstr ""
 
-#: includes/class-flexi-settings.php:441
+#: includes/class-flexi-settings.php:474
 msgid "Image Detail Page"
 msgstr ""
 
-#: includes/class-flexi-settings.php:442
+#: includes/class-flexi-settings.php:475
 msgid "Replaces the SLUG value used by custom post type \"flexi\"."
 msgstr ""
 
-#: includes/class-flexi-settings.php:704
+#: includes/class-flexi-settings.php:739
 msgid "Select layout"
 msgstr ""
 
-#: includes/class-flexi-settings.php:786
+#: includes/class-flexi-settings.php:821
 msgid "Choose File"
 msgstr ""
 
-#: includes/class-flexi-settings.php:838
+#: includes/class-flexi-settings.php:873
 msgid "Select a page"
 msgstr ""
 
-#: includes/class-flexi-settings.php:861
+#: includes/class-flexi-settings.php:896
 msgid "Select category"
 msgstr ""
 
-#: includes/class-flexi_ajax_delete.php:48 includes/functions.php:181
-#: includes/functions.php:183
+#: includes/class-flexi-user.php:30
+msgid "Profile"
+msgstr ""
+
+#: includes/class-flexi_ajax_delete.php:48 includes/functions.php:179
+#: includes/functions.php:181
 msgid "Login Please !"
+msgstr ""
+
+#: includes/class-flexi_ajax_delete.php:98
+msgid "Delete"
 msgstr ""
 
 #: includes/cmb2/example-functions.php:117
@@ -1300,44 +1414,53 @@ msgstr ""
 msgid "Your submission is under review"
 msgstr ""
 
-#: includes/flexi_ajax_post.php:91
-msgid "Check your file type"
-msgstr ""
-
-#: includes/flexi_ajax_post.php:93
-msgid "Category is not specified"
-msgstr ""
-
-#: includes/flexi_ajax_post.php:95
-msgid "Error message: "
-msgstr ""
-
-#: includes/flexi_ajax_post.php:109
+#: includes/flexi_ajax_post.php:116
 msgid "Successfully updated"
 msgstr ""
 
-#: includes/flexi_ajax_post.php:112
+#: includes/flexi_ajax_post.php:119
 msgid "Your modification is under review."
 msgstr ""
 
-#: includes/functions.php:99
+#: includes/flexi_ajax_post.php:123
+msgid "Submission failed"
+msgstr ""
+
+#: includes/functions.php:97
 msgid "Show All"
 msgstr ""
 
-#: includes/functions.php:568
+#: includes/functions.php:555
 msgid "Required Flexi-PRO or UPG-PRO"
+msgstr ""
+
+#: includes/functions.php:823
+msgid "Title cannot be blank"
+msgstr ""
+
+#: includes/functions.php:826
+msgid "This file is not supported or file too big."
+msgstr ""
+
+#: includes/functions.php:829
+msgid "This file type is not supported. Only image files are allowed."
+msgstr ""
+
+#: includes/functions.php:832
+msgid "Captcha security code is invalid."
 msgstr ""
 
 #: public/class-flexi-public.php:119
 msgid "Are you sure you want to delete?"
 msgstr ""
 
+#: public/partials/layout/detail/basic/single.php:11
+#: public/partials/layout/gallery/simple/loop.php:18
+msgid "Under Review"
+msgstr ""
+
 #: public/partials/layout/gallery/masonry/footer.php:5
 #: public/partials/layout/gallery/regular/footer.php:5
 #: public/partials/layout/gallery/simple/footer.php:5
 msgid "No records"
-msgstr ""
-
-#: public/partials/layout/gallery/simple/loop.php:18
-msgid "Under Review"
 msgstr ""

@@ -95,7 +95,7 @@ class flexi_delete_post
    // if (isset($options['show_trash_icon'])) {
    if ("1" == $delete_flexi_icon) {
     $extra_icon = array(
-     array("dashicons-trash", 'Delete', '#', 'flexi_ajax_delete', $post->ID),
+     array("dashicons-trash", __('Delete', 'flexi'), '#', 'flexi_ajax_delete', $post->ID),
 
     );
    }

@@ -517,7 +517,7 @@ action="' . admin_url("admin-ajax.php") . '"
    // if (isset($options['show_trash_icon'])) {
    if ("1" == $edit_flexi_icon) {
     $extra_icon = array(
-     array("dashicons-edit", 'Modify', $link, '', $post->ID),
+     array("dashicons-edit", __('Modify', 'flexi'), $link, '', $post->ID),
 
     );
    }
