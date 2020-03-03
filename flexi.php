@@ -37,7 +37,7 @@ if (!defined('WPINC')) {
 
 // The current version of the plugin
 if (!defined('FLEXI_VERSION')) {
- define('FLEXI_VERSION', '1.0.2');
+ define('FLEXI_VERSION', '1.0.3');
 }
 define('FLEXI_FOLDER', dirname(plugin_basename(__FILE__)));
 define('FLEXI_PLUGIN_URL', content_url('/plugins/' . FLEXI_FOLDER));
