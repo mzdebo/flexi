@@ -9,14 +9,14 @@
  * that starts the plugin.
  *
  * @link              https://odude.com/
- * @since             1.0.2
+ * @since             1.0.3
  * @package           Flexi
  *
  * @wordpress-plugin
  * Plugin Name:       Flexi Gallery
  * Plugin URI:        https://odude.com/
  * Description:       User submitted images into gallery
- * Version:           1.0.2
+ * Version:           1.0.3
  * Author:            ODude
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt

@@ -1,7 +1,7 @@
 === Flexi UPG Gallery ===
 Contributors: odude
 Donate link: https://odude.com/
-Tags: gallery, user post, images
+Tags: gallery, image gallery, images, photo gallery
 Requires at least: 4.0.0
 Requires PHP: 5.5
 Tested up to: 5.3
@@ -9,13 +9,14 @@ Stable tag: 1.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Flexi is replacement of UPG which is only for images. 
+User can submit images/content and display it as gallery.
 
 == Description ==
 
-User can submit images/content and display it as gallery.
-
 <a href="https://odude.com/demo/flexi/">Flexi Gallery Demo</a>
+
+Flexi is replacement of UPG which is only for images. 
+> Simplified version of UPG plugin
 
 
 = Gallery =

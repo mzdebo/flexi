@@ -111,7 +111,7 @@ class Flexi_Public
   wp_enqueue_style('dashicons');
 
   //Default page navigation
-  $navigation = flexi_get_option('navigation', 'flexi_image_layout_settings', 'scroll');
+  $navigation = flexi_get_option('navigation', 'flexi_image_layout_settings', 'button');
 
   global $wp_query;
   // Localize the script with new data
@@ -120,6 +120,7 @@ class Flexi_Public
    'ajaxurl'       => admin_url('admin-ajax.php'),
   );
 
+  //flexi_log($navigation);
   //If scroll ajax is enabled
   if ('scroll' == $navigation) {
    // register our main script but do not enqueue it yet

@@ -299,7 +299,7 @@ jQuery(document).ready(function() {
           //This is not working on ajax loading. only for for page navigation.
          // return jQuery(this).closest('flexi_media_holder').find('flexi_figcaption').html();
           return jQuery(this).find('.flexi_figcaption').html();
-         // return jQuery(this).children('flexi_figcaption').html();
+
 
         }
     });
