@@ -1,9 +1,48 @@
 <div class="wrap about-wrap">
 <h1><?php _e('Welcome to Flexi');?></h1>
 <div class="about-text">
- <?php _e('Let visitors to post images from frontend with full controls.');?>
+ <?php echo __('Let visitors to post images from frontend with full controls. Below is the flow chart as Flexi works.', 'flexi'); ?>
  </div>
+ <div class="flexi_tree" style='clear:both;'>
+	<ul>
+		<li>
+          <a href='<?php echo flexi_get_button_url('', false, 'submission_form', 'flexi_form_settings'); ?>' target='_blank'>Submission Form</a>
+			<ul>
+				<li>
+                    <a href='<?php echo flexi_get_button_url('', false, 'my_gallery', 'flexi_image_layout_settings'); ?>' target='_blank'>My Gallery Page</a>
+					<ul>
+						<li>
+                              <a href='<?php echo flexi_get_button_url('', false, 'edit_flexi_page', 'flexi_form_settings'); ?>' target='_blank'>Edit or Modify Page</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+                    <a href='<?php echo flexi_get_button_url('', false, 'main_page', 'flexi_image_layout_settings'); ?>' target='_blank'>Main Gallery Page</a>
+					<ul>
+						<li><a href="#">Gallery by User</a></li>
+						<li>
+							<a href="#">Detail Page</a>
+							<ul>
+								<li>
+									<a href="#">Full Single Page</a>
+								</li>
+								<li>
+									<a href="#">Lightbox Popup</a>
+								</li>
+
+							</ul>
+						</li>
+						<li><a href="#">Gallery By Album/Tags/Search</a></li>
+					</ul>
+				</li>
+				<li><a href="#">Standalone Gallery</a></li>
+			</ul>
+		</li>
+
+	</ul>
+</div>
 <hr>
+<div style='clear:both;'></div>
 <h3>Configuration based on settings</h3>
 
 
