@@ -36,7 +36,7 @@ class Flexi_Shortcode_Form
    }
   } else {
    $enable_form_access = false;
-   echo "<div class='flexi_warning'>" . __('Submission disabled', 'flexi') . "</div>";
+   echo "<div class='flexi_alert-box flexi_notice'>" . __('Submission disabled', 'flexi') . "</div>";
   }
 
   $edit_post = true;
@@ -213,10 +213,10 @@ action="' . admin_url("admin-ajax.php") . '"
 
    if (flexi_get_option('publish', 'flexi_form_settings', 1) == 1) {
 
-    echo "<div class='flexi_success'>" . __('Successfully posted', 'flexi') . "</div>";
+    echo "<div class='flexi_alert-box flexi_success'>" . __('Successfully posted', 'flexi') . "</div>";
 
    } else {
-    echo "<div class='flexi_warning'>" . __('Your submission is under review.', 'flexi') . "</div>";
+    echo "<div class='flexi_alert-box flexi_warning'>" . __('Your submission is under review.', 'flexi') . "</div>";
    }
 
   } else {
@@ -226,7 +226,7 @@ action="' . admin_url("admin-ajax.php") . '"
 
    for ($x = 0; $x < count($reindex_array); $x++) {
     //echo $reindex_array[$x] . "-";
-    echo "<div class='flexi_error'>" . flexi_error_code($reindex_array[$x]) . "</div>";
+    echo flexi_error_code($reindex_array[$x]);
    }
 
   }

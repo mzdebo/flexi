@@ -13,6 +13,5 @@ if ('scroll' == $navigation || 'button' == $navigation) {
 
  ?>
 
-
  <?php
 }

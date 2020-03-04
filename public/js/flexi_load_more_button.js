@@ -8,6 +8,7 @@ jQuery(document).ready(function() {
 //Load more button
 jQuery(document).ready(function() {
   var paged = 1;
+  var count = 0;
 
   jQuery(".flexi_load_more").click(function(e) {
     e.preventDefault();
@@ -28,6 +29,7 @@ jQuery(document).ready(function() {
 
     if (reset == "true") {
       paged = 1;
+      count = 0;
       jQuery("#flexi_main_loop").empty();
     }
 
@@ -61,6 +63,7 @@ jQuery(document).ready(function() {
           .append(response.msg)
           .fadeIn("normal");
         paged++;
+        count = response.count;
 
         //alert(max_paged + "--" + paged);
       },
@@ -68,8 +71,10 @@ jQuery(document).ready(function() {
         // Hide image container
         jQuery("#flexi_loader").hide();
         jQuery("#flexi_load_more").slideDown();
-        jQuery("#flexi_no_record").hide();
+
         // alert("response complete");
+        // alert(count);
+        if (count > 0) jQuery("#flexi_no_record").hide();
         if (paged > max_paged) jQuery("#flexi_load_more").slideUp();
       }
     });

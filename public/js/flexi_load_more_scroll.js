@@ -1,6 +1,7 @@
 //Load more button
 jQuery(document).ready(function() {
   var paged = 1;
+  var count = 0;
   var canBeLoaded = true, // this param allows to initiate the AJAX call only if necessary
     bottomOffset = 2000; // the distance (in px) from the page bottom when you want to load more posts
 
@@ -23,6 +24,7 @@ jQuery(document).ready(function() {
 
     if (reset == "true") {
       paged = 1;
+      count = 0;
       jQuery("#flexi_main_loop").empty();
     }
     if (
@@ -61,6 +63,7 @@ jQuery(document).ready(function() {
           jQuery("#flexi_main_loop").append(response.msg);
           canBeLoaded = true; // the ajax is completed, now we can run it again
           paged++;
+          count = response.count;
 
           //alert(max_paged + "--" + paged);
         },
@@ -68,7 +71,11 @@ jQuery(document).ready(function() {
           // Hide image container
           jQuery("#flexi_loader").hide();
 
-          jQuery("#flexi_no_record").hide();
+          if (count > 0) {
+            jQuery("#flexi_no_record").hide();
+            jQuery("#flexi_load_more").hide();
+          }
+
           // alert("response complete");
           if (paged > max_paged) {
             //Stop scrolling. No more post left.

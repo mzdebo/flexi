@@ -1,3 +1,29 @@
+/* Notification */
+.flexi_alert-box {
+  color: #555;
+  border-radius: 10px;
+  font-size: 12px;
+  padding: 10px 36px;
+  margin: 10px;
+}
+
+.flexi_error {
+  background: #ffecec url("../images/error.png") no-repeat 10px 50%;
+  border: 1px solid #f5aca6;
+}
+.flexi_success {
+  background: #e9ffd9 url("../images/success.png") no-repeat 10px 50%;
+  border: 1px solid #a6ca8a;
+}
+.flexi_warning {
+  background: #fff8c4 url("../images/warning.png") no-repeat 10px 50%;
+  border: 1px solid #f2c779;
+}
+.flexi_notice {
+  background: #e3f7fc url("../images/notice.png") no-repeat 10px 50%;
+  border: 1px solid #8ed9f6;
+}
+
 /* Common */
 .fleixi_margin-box {
   padding: 0.1em;

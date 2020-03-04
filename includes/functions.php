@@ -741,7 +741,7 @@ function flexi_create_pages()
   flexi_set_option('my_gallery', 'flexi_image_layout_settings', $did);
 
   $str_edit_image = '
-  [flexi-form class="xxx_class" title="Update Flexi" name="my_form" ajax="true" edit="true"]
+  [flexi-form class="pure-form pure-form-stacked" title="Update Flexi" name="my_form" ajax="true" edit="true"]
   [flexi-form-tag type="post_title" title="Title" placeholder="main title" edit="true" ]
   [flexi-form-tag type="category" title="Select category" edit="true"]
   [flexi-form-tag type="tag" title="Insert tag" edit="true"]
@@ -818,9 +818,9 @@ function flexi_show_icon_grid()
 //Error Code
 function flexi_error_code($err)
 {
- $msg = "<div class='flexi_error_code'>";
+ $msg = "<div class='flexi_alert-box flexi_error'>";
  if ('required-title' == $err) {
-  $msg .= __("Title cannot be blank", "flexi");
+  $msg .= __("Title cannot be blank.", "flexi");
 
  } else if ('file-type' == $err) {
   $msg .= __("This file is not supported or file too big.", "flexi");
@@ -834,6 +834,6 @@ function flexi_error_code($err)
  } else {
   $msg .= $err;
  }
- $msg .= "</a>";
+ $msg .= "</div>";
  return $msg;
 }

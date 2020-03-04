@@ -100,7 +100,7 @@ class Flexi_Admin
    * between the defined hooks and the functions defined in this
    * class.
    */
-
+  add_thickbox();
   wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/flexi-admin.js', array('jquery'), $this->version, false);
  }
 

@@ -26,6 +26,7 @@ function flexi_load_more()
  $response = array(
   'error' => false,
   'msg'   => 'No Message',
+  'count' => '0',
  );
 
  //var_dump($response);
@@ -108,7 +109,8 @@ function flexi_load_more()
 
  $put = ob_get_clean();
  //$response['msg'] = "hii";
- $response['msg'] = $put;
+ $response['msg']   = $put;
+ $response['count'] = $count;
 
  $result = json_encode($response);
  echo $result;
