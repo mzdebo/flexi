@@ -3,39 +3,43 @@
 <div class="about-text">
  <?php echo __('Let visitors to post images from frontend with full controls. Below is the flow chart as Flexi works.', 'flexi'); ?>
  </div>
- <div class="flexi_tree" style='clear:both;'>
+ <div class="flexi_tree" style="text-align: right;">
 	<ul>
 		<li>
-          <a href='<?php echo flexi_get_button_url('', false, 'submission_form', 'flexi_form_settings'); ?>' target='_blank'>Submission Form</a>
+          <a href='<?php echo flexi_get_button_url('', false, 'submission_form', 'flexi_form_settings'); ?>' target='_blank'><div class="tooltip-container">Submission Form<span class="tooltip"><b>Let's user to submit</b><br>[flexi-form]<br> Add it into menu bar</span></div></a>
 			<ul>
 				<li>
-                    <a href='<?php echo flexi_get_button_url('', false, 'my_gallery', 'flexi_image_layout_settings'); ?>' target='_blank'>My Gallery Page</a>
+                    <a href='<?php echo flexi_get_button_url('', false, 'my_gallery', 'flexi_image_layout_settings'); ?>' target='_blank'><div class="tooltip-container">My Gallery<span class="tooltip"><b>Gallery submitted by current user</b><br>[flexi-gallery user="show_mine"]<br> Add it into menu bar.</span></div></a>
 					<ul>
 						<li>
-                              <a href='<?php echo flexi_get_button_url('', false, 'edit_flexi_page', 'flexi_form_settings'); ?>' target='_blank'>Edit or Modify Page</a>
+                              <a href='<?php echo flexi_get_button_url('', false, 'edit_flexi_page', 'flexi_form_settings'); ?>' target='_blank'><div class="tooltip-container">Edit Page<span class="tooltip"><b>Edit/Modify Page</b><br>Submission form page with edit option which let's user to modify own submitted post.</span></div></a>
 						</li>
 					</ul>
 				</li>
 				<li>
-                    <a href='<?php echo flexi_get_button_url('', false, 'main_page', 'flexi_image_layout_settings'); ?>' target='_blank'>Main Gallery Page</a>
+                    <a href='<?php echo flexi_get_button_url('', false, 'main_page', 'flexi_image_layout_settings'); ?>' target='_blank'><div class="tooltip-container">Main Gallery Page<span class="tooltip"><b>Base of Flexi Gallery</b><br>[flexi-gallery]<br>Do not add additional filter parameters.<br>Permalinks refers to this page.</span></div></a>
 					<ul>
-						<li><a href="#">Gallery by User</a></li>
-						<li>
-							<a href="#">Detail Page</a>
+						<li><a href="#"><div class="tooltip-container">Filters by URL<span class="tooltip"><b>Filters by URL Parameter</b><br>Search Keyword, Album, Username, Tags</span></div></a>
 							<ul>
-								<li>
-									<a href="#">Full Single Page</a>
-								</li>
-								<li>
-									<a href="#">Lightbox Popup</a>
-								</li>
+							<li>
+							<a href="#"><div class="tooltip-container">Detail page<span class="tooltip"><b>Auto generated page</b><br>No shortcode required<br>2 types of detail page as below</span></div></a>
+										<ul>
+										<li><div class="tooltip-container"><a href="#">Single Page</a><span class="tooltip"><b>Full Detail Page</b><br>Visible directly when lightbox is turned off or view icon is clicked.  </span></div></li>
+										<li><div class="tooltip-container"><a href="#">Lightbox Popup</a><span class="tooltip"><b>Popup Modal Preview</b><br>Popup quick visible without any page redirection.</span></div></li>
 
+										</ul>
+							</li>
 							</ul>
 						</li>
-						<li><a href="#">Gallery By Album/Tags/Search</a></li>
 					</ul>
 				</li>
-				<li><a href="#">Standalone Gallery</a></li>
+				<li><a href="#"><div class="tooltip-container">Standalone Gallery<span class="tooltip">[flexi-gallery]<br> Not linked as 'Main Gallery Page'</span></div></a>
+					<ul>
+						<li><div class="tooltip-container"><a href="#">Gallery By User</a><span class="tooltip"><b>Gallery by User</b><br>[flexi-gallery user="user_name"]</span></div></li>
+						<li><div class="tooltip-container"><a href="#">Gallery By Album</a><span class="tooltip"><b>Gallery by Category</b><br>[flexi-gallery album="category_slug"]</span></div></li>
+						<li><div class="tooltip-container"><a href="#">Gallery By Tag</a><span class="tooltip"><b>Gallery by Tags</b><br>[flexi-gallery tag="tag_slug"]</span></div></li>
+					</ul>
+				</li>
 			</ul>
 		</li>
 
@@ -43,20 +47,21 @@
 </div>
 <hr>
 <div style='clear:both;'></div>
-<h3>Configuration based on settings</h3>
 
 
-<b>Flexi Main Page</b>:
+<h3>Primary shortcode reference</h3>
+<b><i>Below pages are automatically generated. No need to create again if already exists.</i></b><br><br>
+
 <?php
-echo "<code><a href='" . flexi_get_button_url('', false, 'main_page', 'flexi_image_layout_settings') . "' target='_blank'>View Page</a></code><br>"
+echo "<a href='" . flexi_get_button_url('', false, 'main_page', 'flexi_image_layout_settings') . "' target='_blank'>Main Gallery Page:</a><br>"
 ?>
 Page should contain <code>[flexi-gallery]</code> shortcode. Main page cannot be WordPress's front or homepage.<br><br>
 
 
 
-<b>Submission form Page:</b>
+
 <?php
-echo "<code><a href='" . flexi_get_button_url('', false, 'submission_form', 'flexi_form_settings') . "' target='_blank'>View Page</a></code><br>"
+echo "<a href='" . flexi_get_button_url('', false, 'submission_form', 'flexi_form_settings') . "' target='_blank'>Submission form Page:</a><br>"
 ?>
 Page should contain <code>[flexi-form]</code> shortcode enclosed with <code>[flexi-form-tag]</code>. Add into your menu.
 <div id="sample_post_form" style="display:none;">
@@ -76,18 +81,13 @@ Page should contain <code>[flexi-form]</code> shortcode enclosed with <code>[fle
 <br><br>
 
 
-
-<b>My Gallery Page:</b>
 <?php
-echo "<code><a href='" . flexi_get_button_url('', false, 'my_gallery', 'flexi_image_layout_settings') . "' target='_blank'>View Page</a></code><br>"
+echo "<a href='" . flexi_get_button_url('', false, 'my_gallery', 'flexi_image_layout_settings') . "' target='_blank'>My Gallery Page:</a><br>"
 ?>
 Page should contain <code>[flexi-gallery user="show_mine"]</code> shortcode. Add into your menu. <br><br>
 
-
-
-<b>Edit Page:</b>
 <?php
-echo "<code><a href='" . flexi_get_button_url('', false, 'edit_flexi_page', 'flexi_form_settings') . "' target='_blank'>View Page</a></code><br>"
+echo "<a href='" . flexi_get_button_url('', false, 'edit_flexi_page', 'flexi_form_settings') . "' target='_blank'>Edit Page:</a><br>"
 ?>
 Page should contain <code>[flexi-form edit="true"]</code> shortcode enclosed with <code>[flexi-form-tag edit="true"]</code>
 <div id="sample_edit_form" style="display:none;">
