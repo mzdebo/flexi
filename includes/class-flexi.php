@@ -105,6 +105,9 @@ class Flexi
   */
  private function load_dependencies()
  {
+  //Widgets
+  require_once plugin_dir_path(dirname(__FILE__)) . 'includes/widgets/categories.php';
+
   //Dashboard classes
   require_once plugin_dir_path(dirname(__FILE__)) . 'includes/dashboard/class-flexi-dashboard-intro.php';
   require_once plugin_dir_path(dirname(__FILE__)) . 'includes/dashboard/class-flexi-dashboard-shortcode.php';

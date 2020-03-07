@@ -49,14 +49,8 @@ function flexi_get_category_page_link($term, $taxonomy)
 
  if (flexi_get_option('main_page', 'flexi_image_layout_settings', 0) > 0) {
   $link = get_permalink(flexi_get_option('main_page', 'flexi_image_layout_settings', 0));
+  $link = add_query_arg($taxonomy, $term->slug, $link);
 
-  if ('' != get_option('permalink_structure')) {
-   $link = user_trailingslashit(trailingslashit($link) . $term->slug);
-   //$link = add_query_arg( $taxonomy, $term->slug, $link );
-  } else {
-   //echo "----------------";
-   $link = add_query_arg($taxonomy, $term->slug, $link);
-  }
  }
 
  return $link;
