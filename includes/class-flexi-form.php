@@ -63,7 +63,7 @@ class Flexi_Shortcode_Form
 
   //Prevent from modification if wrong wrong edit page & unauthorized access
   if (false == $edit_post) {
-   echo "<div class='flexi_warning'>" . __('No permission to modify or update', 'flexi') . "</div>";
+   echo "<div class='flexi_alert-box flexi_warning'>" . __('No permission to modify or update', 'flexi') . "</div>";
 
   }
 
@@ -278,10 +278,10 @@ action="' . admin_url("admin-ajax.php") . '"
 
    if (flexi_get_option('publish', 'flexi_form_settings', 1) == 1) {
 
-    echo "<div class='flexi_success'>" . __('Successfully posted', 'flexi') . "</div>";
+    echo "<div class='flexi_alert-box flexi_success'>" . __('Successfully posted', 'flexi') . "</div>";
 
    } else {
-    echo "<div class='flexi_warning'>" . __('Your submission is under review.', 'flexi') . "</div>";
+    echo "<div class='flexi_alert-box flexi_warning'>" . __('Your submission is under review.', 'flexi') . "</div>";
    }
   } else {
    echo "FAIL";

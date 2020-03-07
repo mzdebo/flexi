@@ -72,7 +72,7 @@ class Flexi
   if (defined('FLEXI_VERSION')) {
    $this->version = FLEXI_VERSION;
   } else {
-   $this->version = '1.0.3';
+   $this->version = '1.0.4';
   }
   $this->plugin_name = 'flexi';
 
@@ -105,6 +105,11 @@ class Flexi
   */
  private function load_dependencies()
  {
+  //Dashboard classes
+  require_once plugin_dir_path(dirname(__FILE__)) . 'includes/dashboard/class-flexi-dashboard-intro.php';
+  require_once plugin_dir_path(dirname(__FILE__)) . 'includes/dashboard/class-flexi-dashboard-shortcode.php';
+  require_once plugin_dir_path(dirname(__FILE__)) . 'includes/dashboard/class-flexi-dashboard-pro.php';
+
   //Addon Captcha
   require_once plugin_dir_path(dirname(__FILE__)) . 'includes/addon/class-flexi-captcha.php';
 

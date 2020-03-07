@@ -5,7 +5,7 @@ Tags: gallery, image gallery, images, photo gallery
 Requires at least: 4.0.0
 Requires PHP: 5.5
 Tested up to: 5.3
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -77,6 +77,8 @@ Unless we release FLEXI-PRO version, you can use UPG-PRO which will enabled all 
 2. Multi file upload
 
 == Changelog ==
+= 1.0.4 =
+* Added Flexi Dashboard Flow chart
 
 = 1.0.3 =
 * Stable TAG

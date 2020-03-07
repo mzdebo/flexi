@@ -552,7 +552,7 @@ function flexi_include_deps()
 //Required Flexi-PRO
 function flexi_pro_required()
 {
- return "<div class='flexi_warning'>" . __('Required Flexi-PRO or UPG-PRO', 'flexi') . "</div>";
+ return "<div class='flexi_alert-box flexi_warning'>" . __('Required Flexi-PRO or UPG-PRO', 'flexi') . "</div>";
 }
 
 //Drop down list of albums
