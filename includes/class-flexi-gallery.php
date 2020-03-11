@@ -4,8 +4,9 @@ class Flexi_Shortcode_Gallery
 {
  public function __construct()
  {
-
+//For easy understanding two shortcode is created with different name.
   add_shortcode('flexi-gallery', array($this, 'flexi_gallery'));
+  add_shortcode('flexi-primary', array($this, 'flexi_gallery'));
 
   $query_arg = array();
   $aa        = "..";

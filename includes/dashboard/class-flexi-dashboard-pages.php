@@ -1,5 +1,5 @@
 <?php
-class Flexi_Admin_Dashboard_Shortcode
+class Flexi_Admin_Dashboard_Pages
 {
  public function __construct()
  {
@@ -10,7 +10,7 @@ class Flexi_Admin_Dashboard_Shortcode
  public function add_tabs($tabs)
  {
 
-  $extra_tabs = array("shortcode" => 'Shortcode Guide');
+  $extra_tabs = array("pages" => 'Flexi Pages');
 
   // combine the two arrays
   $new = array_merge($tabs, $extra_tabs);
@@ -21,7 +21,7 @@ class Flexi_Admin_Dashboard_Shortcode
  public function add_content()
  {
 
-  if (isset($_GET['tab']) && 'shortcode' == $_GET['tab']) {
+  if (isset($_GET['tab']) && 'pages' == $_GET['tab']) {
    echo $this->flexi_dashboard_content();
   }
  }
@@ -31,13 +31,13 @@ class Flexi_Admin_Dashboard_Shortcode
   ob_start();
   ?>
 
-<h3>Primary shortcode reference</h3>
-<b><i>Below pages are automatically generated. No need to create again if already exists.</i></b><br><br>
+<h3>Generate Pages</h3>
+<b><i>Below pages are automatically generated and it must be available. Create it again if not exist or deleted. </i></b><br><br>
 
 <?php
-echo "<a href='" . flexi_get_button_url('', false, 'main_page', 'flexi_image_layout_settings') . "' target='_blank'>Main Gallery Page:</a><br>"
+echo "<a href='" . flexi_get_button_url('', false, 'primary_page', 'flexi_image_layout_settings') . "' target='_blank'>Primary Gallery Page:</a><br>"
   ?>
-Page should contain <code>[flexi-gallery]</code> shortcode. Main page cannot be WordPress's front or homepage.<br><br>
+Page should contain <code>[flexi-primary]</code> shortcode. Primary gallery page cannot be WordPress's front or homepage.<br><br>
 
 
 
@@ -45,7 +45,7 @@ Page should contain <code>[flexi-gallery]</code> shortcode. Main page cannot be 
 <?php
 echo "<a href='" . flexi_get_button_url('', false, 'submission_form', 'flexi_form_settings') . "' target='_blank'>Submission form Page:</a><br>"
   ?>
-Page should contain <code>[flexi-form]</code> shortcode enclosed with <code>[flexi-form-tag]</code>. Add this page into menu.
+Page should contain <code>[flexi-form]</code> shortcode enclosed with <code>[flexi-form-tag]</code>. Link this page at <a href="<?php echo admin_url('nav-menus.php'); ?>">frontend menu</a>.
 <div id="sample_post_form" style="display:none;">
      <p>
      [flexi-form class="pure-form pure-form-stacked" title="Submit to Flexi" name="my_form" ajax="true"]<br>
@@ -59,14 +59,14 @@ Page should contain <code>[flexi-form]</code> shortcode enclosed with <code>[fle
      </p>
 </div>
 
-<a href="#TB_inline?width=600&height=200&inlineId=sample_post_form" title="Sample Code for Post Form" class="thickbox">View dummy content!</a>
+<a href="#TB_inline?width=600&height=200&inlineId=sample_post_form" title="Sample Code for Post Form" class="thickbox">[View dummy content!]</a>
 <br><br>
 
 
 <?php
 echo "<a href='" . flexi_get_button_url('', false, 'my_gallery', 'flexi_image_layout_settings') . "' target='_blank'>My Gallery Page:</a><br>"
   ?>
-Page should contain <code>[flexi-gallery user="show_mine"]</code> shortcode. Add this page into menu. <br><br>
+Page should contain <code>[flexi-gallery user="show_mine"]</code> shortcode. Add this page into <a href="<?php echo admin_url('nav-menus.php'); ?>">member menu</a>. <br><br>
 
 <?php
 echo "<a href='" . flexi_get_button_url('', false, 'edit_flexi_page', 'flexi_form_settings') . "' target='_blank'>Edit Page:</a><br>"
@@ -84,7 +84,7 @@ Page should contain <code>[flexi-form edit="true"]</code> shortcode enclosed wit
      </p>
 </div>
 
-<a href="#TB_inline?width=600&height=200&inlineId=sample_edit_form" title="Sample Code for Edit Form" class="thickbox">View dummy content!</a>
+<a href="#TB_inline?width=600&height=200&inlineId=sample_edit_form" title="Sample Code for Edit Form" class="thickbox">[View dummy content!]</a>
 
 <h3>Documentation under development</h3>
 <?php
@@ -93,4 +93,4 @@ $content = ob_get_clean();
  }
 
 }
-$add_tabs = new Flexi_Admin_Dashboard_Shortcode();
+$add_tabs = new Flexi_Admin_Dashboard_Pages();

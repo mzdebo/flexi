@@ -17,7 +17,7 @@ class Flexi_User
  public function flexi_add_user_profile_icon($icon)
  {
   global $post;
-  $link   = get_permalink(flexi_get_option('main_page', 'flexi_image_layout_settings', 0));
+  $link   = get_permalink(flexi_get_option('primary_page', 'flexi_image_layout_settings', 0));
   $author = get_user_by('id', get_the_author_meta('ID'));
   $link   = add_query_arg("flexi_user", $author->user_nicename, $link);
 

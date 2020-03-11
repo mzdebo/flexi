@@ -110,7 +110,7 @@ class Flexi
 
   //Dashboard classes
   require_once plugin_dir_path(dirname(__FILE__)) . 'includes/dashboard/class-flexi-dashboard-intro.php';
-  require_once plugin_dir_path(dirname(__FILE__)) . 'includes/dashboard/class-flexi-dashboard-shortcode.php';
+  require_once plugin_dir_path(dirname(__FILE__)) . 'includes/dashboard/class-flexi-dashboard-pages.php';
   require_once plugin_dir_path(dirname(__FILE__)) . 'includes/dashboard/class-flexi-dashboard-pro.php';
 
   //Addon Captcha
@@ -122,7 +122,7 @@ class Flexi
   //Addon BuddyPress Plugin
   require_once plugin_dir_path(dirname(__FILE__)) . 'includes/addon/class-flexi-buddypress.php';
 
-  //Toolbar for Main Gallery Page
+  //Toolbar for Primary Gallery Page
   require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-flexi-toolbar.php';
 
   //Add Flexi_User

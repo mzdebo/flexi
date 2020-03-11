@@ -8,7 +8,7 @@ class Flexi_Toolbar
  public function label()
  {
   //Display label at Main gallery page
-  if (is_flexi_page('main_page', 'flexi_image_layout_settings')) {
+  if (is_flexi_page('primary_page', 'flexi_image_layout_settings')) {
 
    //Show TAG Label
    $tag_slug = get_query_var('flexi_tag', "");

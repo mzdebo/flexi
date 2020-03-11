@@ -257,9 +257,9 @@ class FLEXI_Admin_Settings
 
    'flexi_image_layout_settings'       => array(
     array(
-     'name'              => 'main_page',
-     'label'             => __('Main Gallery Page', 'flexi'),
-     'description'       => __('Page with shortcode [flexi-gallery]', 'flexi'),
+     'name'              => 'primary_page',
+     'label'             => __('Primary Gallery Page', 'flexi'),
+     'description'       => __('Page with shortcode [flexi-primary]', 'flexi'),
      'type'              => 'pages',
      'sanitize_callback' => 'sanitize_key',
     ),

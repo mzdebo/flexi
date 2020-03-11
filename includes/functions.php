@@ -47,8 +47,8 @@ function flexi_get_category_page_link($term, $taxonomy)
 
  $link = '/';
 
- if (flexi_get_option('main_page', 'flexi_image_layout_settings', 0) > 0) {
-  $link = get_permalink(flexi_get_option('main_page', 'flexi_image_layout_settings', 0));
+ if (flexi_get_option('primary_page', 'flexi_image_layout_settings', 0) > 0) {
+  $link = get_permalink(flexi_get_option('primary_page', 'flexi_image_layout_settings', 0));
   $link = add_query_arg($taxonomy, $term->slug, $link);
 
  }
@@ -114,7 +114,7 @@ function flexi_list_tags($post, $class = "flexi_tag-default")
 
  for ($x = 0; $x < count($term_list); $x++) {
 
-  $link = get_permalink(flexi_get_option('main_page', 'flexi_image_layout_settings', 0));
+  $link = get_permalink(flexi_get_option('primary_page', 'flexi_image_layout_settings', 0));
   $link = add_query_arg("flexi_tag", $term_list[$x]->slug, $link);
 
   echo '<a href="' . $link . '" class="flexi_tag ' . $class . '">' . $term_list[$x]->name . '</a>';
@@ -714,8 +714,8 @@ function flexi_create_pages()
  global $wpdb;
  if (!$wpdb->get_var("select id from {$wpdb->prefix}posts where post_content like '%[flexi-gallery]%'")) {
 
-  $aid = wp_insert_post(array('post_title' => 'Flexi Gallery', 'post_content' => '[flexi-gallery]', 'post_type' => 'page', 'post_status' => 'publish'));
-  flexi_set_option('main_page', 'flexi_image_layout_settings', $aid);
+  $aid = wp_insert_post(array('post_title' => 'Primary Gallery', 'post_content' => '[flexi-primary]', 'post_type' => 'page', 'post_status' => 'publish'));
+  flexi_set_option('primary_page', 'flexi_image_layout_settings', $aid);
 
   $str_post_image = '
 		[flexi-form class="pure-form pure-form-stacked" title="Submit to Flexi" name="my_form" ajax="true"]
