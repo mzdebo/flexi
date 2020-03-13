@@ -26,10 +26,8 @@ jQuery(document).ready(function() {
 <?php
 } else {
  //Load basic page loading with other plugin support
- if (function_exists('wp_pagenavi')) {
-  echo "" . wp_pagenavi(array('query' => $query));
- }
 
+ echo flexi_page_navi($query);
 }
 echo "<div id='gallery_layout' style='display:none'>" . $layout . "</div>";
 echo "<div id='popup' style='display:none'>" . $popup . "</div>";

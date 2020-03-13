@@ -42,7 +42,7 @@ class Flexi_Public_Detail
 
    array(
     'name'              => 'detail_flexi_icon',
-    'label'             => __('Detail icon', 'flexi') . ' <span class="dashicons dashicons-visibility"></span>',
+    'label'             => __('Detail icon', 'flexi') . ' <span class="dashicons dashicons-external"></span>',
     'description'       => __('Hide/Show detail icon at gallery lightbox', 'flexi'),
     'type'              => 'checkbox',
     'sanitize_callback' => 'intval',
@@ -64,7 +64,7 @@ class Flexi_Public_Detail
 
   if ("1" == $detail_flexi_icon && !is_singular('flexi')) {
    $extra_icon = array(
-    array("dashicons-visibility", __('Detail', 'flexi'), $link, 'flexi_detail', $post->ID),
+    array("dashicons-external", __('Detail', 'flexi'), $link, 'flexi_detail', $post->ID),
 
    );
   }

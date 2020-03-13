@@ -1,4 +1,28 @@
 <?php
+//Page Number
+//flexi-pagination is same as woocommerce-pagination css
+function flexi_page_navi($query, $class = "flexi-pagination")
+{
+ $big   = 999999999; // need an unlikely integer
+ $pages = paginate_links(array(
+  'base'    => str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
+  'format'  => '?paged=%#%',
+  'current' => max(1, get_query_var('paged')),
+  'total'   => $query->max_num_pages,
+  'type'    => 'array', //default it will return anchor
+ ));
+
+ $pager = '';
+ if ($pages) {
+  $pager .= '<nav class="' . $class . '"><ul class="page-numbers">';
+  foreach ($pages as $page) {
+   $pager .= "<li>$page</li>";
+  }
+  $pager .= '</ul></nav>';
+ }
+ return $pager;
+}
+
 //Check if user have editing rights
 function flexi_check_rights($post_id = 0)
 {
