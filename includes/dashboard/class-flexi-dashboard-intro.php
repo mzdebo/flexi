@@ -33,7 +33,7 @@ class Flexi_Admin_Dashboard_Intro
  {
   ob_start();
   ?>
-   <h3>Below is the flow chart as Flexi works</h3>
+     <h3>Below is the flow chart as Flexi works</h3>
 
  <div class="flexi_tree" style="text-align: right;">
 	<ul>

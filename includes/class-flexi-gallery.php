@@ -246,6 +246,7 @@ class Flexi_Shortcode_Gallery
     //print_r($tags_array);
    }
 
+   //Displays label
    $toolbar = new Flexi_Toolbar($args);
 
    $count = 0;

@@ -86,7 +86,6 @@ Page should contain <code>[flexi-form edit="true"]</code> shortcode enclosed wit
 
 <a href="#TB_inline?width=600&height=200&inlineId=sample_edit_form" title="Sample Code for Edit Form" class="thickbox">[View dummy content!]</a>
 
-<h3>Documentation under development</h3>
 <?php
 $content = ob_get_clean();
   return $content;

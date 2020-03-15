@@ -2,6 +2,7 @@
 	<h1><?php echo __('Welcome to Flexi', 'flexi'); ?></h1>
 		<div class="about-text">
 		<?php echo __('Let visitors to post images from frontend with full controls.', 'flexi'); ?>
+		<br><a href="https://odude.com/docs/flexi-gallery/" target="_blank">Online Documentation</a>
 		</div>
 <nav class="nav-tab-wrapper">
 <?php

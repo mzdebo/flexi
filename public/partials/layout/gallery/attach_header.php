@@ -1,7 +1,7 @@
 <?php
 //Display tags
 if ($show_tag) {
- echo flexi_generate_tags($tags_array, 'flexi_tag-blue', 'filter_tag') . "<div style='clear:both;'></div>";
+ echo flexi_generate_tags($tags_array, 'flexi_tag-default', 'filter_tag') . "<div style='clear:both;'></div>";
 }
 ?>
 <div class="flexi_label"><?php echo $toolbar->label(); ?></div>
