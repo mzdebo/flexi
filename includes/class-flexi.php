@@ -116,6 +116,9 @@ class Flexi
   //Addon Captcha
   require_once plugin_dir_path(dirname(__FILE__)) . 'includes/addon/class-flexi-captcha.php';
 
+  //Addon Custom Fields
+  require_once plugin_dir_path(dirname(__FILE__)) . 'includes/addon/class-flexi-custom-field.php';
+
   //Addon Ultimate Member Plugin
   require_once plugin_dir_path(dirname(__FILE__)) . 'includes/addon/class-flexi-ultimate-member.php';
 

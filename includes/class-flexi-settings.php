@@ -633,8 +633,8 @@ class FLEXI_Admin_Settings
   $t_width  = flexi_get_option($args['id'], $args['section'], 0);
   $t_height = flexi_get_option($name2, $args['section'], 0);
 
-  $html = $label_1 . " " . sprintf('<input type="%1$s" class="%2$s-number" id="%3$s[%4$s]" name="%3$s[%4$s]" value="%5$s"%6$s%7$s%8$s%9$s/>', $type_2, $size, $args['section'], $args['id'], $t_width, $placeholder, $min, $max, $step);
-  $html .= $label_2 . " " . sprintf('<input type="%1$s" class="%2$s-number" id="%3$s[%4$s]" name="%3$s[%4$s]" value="%5$s"%6$s%7$s%8$s%9$s/>', $type_2, $size, $args['section'], $name2, $t_height, $placeholder, $min, $max, $step);
+  $html = $label_1 . " " . sprintf('<input type="%1$s" class="%2$s-number" id="%3$s[%4$s]" name="%3$s[%4$s]" value="%5$s"%6$s%7$s%8$s%9$s/> ', $type_2, $size, $args['section'], $args['id'], $t_width, $placeholder, $min, $max, $step);
+  $html .= $label_2 . " " . sprintf('<input type="%1$s" class="%2$s-number" id="%3$s[%4$s]" name="%3$s[%4$s]" value="%5$s"%6$s%7$s%8$s%9$s/> ', $type_2, $size, $args['section'], $name2, $t_height, $placeholder, $min, $max, $step);
   $html .= $this->get_field_description($args);
 
   echo $html;

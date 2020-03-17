@@ -73,14 +73,7 @@ class Flexi_Addon_BuddyPress
      'size'              => 'medium',
      'sanitize_callback' => 'sanitize_text_field',
     ),
-    array(
-     'name'              => 'buddypress_tab_icon',
-     'label'             => __('Tab icon', 'flexi'),
-     'description'       => __('Ultimate Member\'s icons to be used at profile page. Eg. um-faicon-picture-o', 'flexi'),
-     'type'              => 'text',
-     'size'              => 'medium',
-     'sanitize_callback' => 'sanitize_key',
-    ),
+
    ),
    );
    $new = array_merge($new, $fields);
