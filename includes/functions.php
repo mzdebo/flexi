@@ -1,4 +1,32 @@
 <?php
+//Custom Fields
+function flexi_custom_field_loop($post, $page = 'detail')
+{
+ $group = '<div class="flexi-meta"><ul>';
+ for ($x = 1; $x <= 10; $x++) {
+  $label   = flexi_get_option('flexi_field_' . $x . '_label', 'flexi_custom_fields', '');
+  $display = flexi_get_option('flexi_field_' . $x . '_display', 'flexi_custom_fields', '');
+  $value   = get_post_meta($post->ID, 'flexi_field_' . $x, '');
+
+  if (!$value) {
+   $value[0] = '';
+  }
+  if (is_array($display)) {
+   if (in_array($page, $display)) {
+    if ('' != $value[0]) {
+
+     $group .= '<li>' . $label . '<strong>' . $value[0] . '</strong></li>';
+
+    }
+
+   }
+  }
+ }
+ $group .= "</ul></div>";
+
+ return $group;
+}
+
 //Page Number
 //flexi-pagination is same as woocommerce-pagination css
 function flexi_page_navi($query, $class = "flexi-pagination")

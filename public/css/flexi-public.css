@@ -1,3 +1,23 @@
+/* Custom Fields Meta key */
+.flexi-meta ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.flexi-meta li:first-child {
+  border-top: 0;
+}
+.flexi-meta li {
+  border-top: 1px solid #dedfdf;
+  display: inline-block;
+  padding: 8px 0;
+  padding: 0.5rem 0;
+  width: 100%;
+  position: relative;
+}
+.flexi-meta li strong {
+  float: right;
+}
 /* Pagination */
 .flexi-pagination {
   margin-top: 1em;
@@ -64,7 +84,7 @@
 }
 
 /* Common */
-.fleixi_margin-box {
+.flexi_margin-box {
   padding: 0.1em;
 }
 
