@@ -334,7 +334,7 @@ action="' . admin_url("admin-ajax.php") . '"
    if ('' == $attr['edit']) {
     echo $frm->addInput('text', "user-submitted-title", $attr['value'], array('placeholder' => $attr['placeholder'], 'class' => $attr['class'], 'required' => $attr['required']));
    } else {
-    echo $frm->addInput('text', "user-submitted-title", get_detail($_GET['id'], 'post_title'), array('placeholder' => $attr['placeholder'], 'class' => $attr['class'], 'required' => $attr['required']));
+    echo $frm->addInput('text', "user-submitted-title", flexi_get_detail($_GET['id'], 'post_title'), array('placeholder' => $attr['placeholder'], 'class' => $attr['class'], 'required' => $attr['required']));
    }
 
   } else if ('video_url' == $attr['type']) {
@@ -418,25 +418,37 @@ action="' . admin_url("admin-ajax.php") . '"
      'user-submitted-content',
      $attr['rows'],
      $attr['cols'],
-     get_detail($_GET['id'], 'post_content'),
+     flexi_get_detail($_GET['id'], 'post_content'),
      array('id' => $attr['id'], 'placeholder' => $attr['placeholder'], 'required' => $attr['required'])
     );
    }
 
   } else if ('text' == $attr['type']) {
-   //if($attr['placeholder']=='')
-   // arguments: for (id of associated form element), text
-   echo $frm->addLabelFor($attr['name'], $attr['title']);
-   // arguments: type, name, value
-   echo $frm->addInput('text', $attr['name'], $attr['value'], array('placeholder' => $attr['placeholder'], 'class' => $attr['class'], 'required' => $attr['required']));
+   if ('' == $attr['edit']) {
+    // arguments: for (id of associated form element), text
+    echo $frm->addLabelFor($attr['name'], $attr['title']);
+    // arguments: type, name, value
+    echo $frm->addInput('text', $attr['name'], $attr['value'], array('placeholder' => $attr['placeholder'], 'class' => $attr['class'], 'required' => $attr['required']));
+   } else {
+    // arguments: for (id of associated form element), text
+    echo $frm->addLabelFor($attr['name'], $attr['title']);
+    // arguments: type, name, value
+    echo $frm->addInput('text', $attr['name'], get_post_meta($_GET['id'], $attr['name'], '')[0], array('placeholder' => $attr['placeholder'], 'class' => $attr['class'], 'required' => $attr['required']));
 
+   }
   } else if ('other' == $attr['type']) {
-   //if($attr['placeholder']=='')
-   // arguments: for (id of associated form element), text
-   echo $frm->addLabelFor($attr['name'], $attr['title']);
-   // arguments: type, name, value
-   echo $frm->addInput($attr['new_type'], $attr['name'], $attr['value'], array('placeholder' => $attr['placeholder'], 'class' => $attr['class'], 'required' => $attr['required']));
+   if ('' == $attr['edit']) {
+    // arguments: for (id of associated form element), text
+    echo $frm->addLabelFor($attr['name'], $attr['title']);
+    // arguments: type, name, value
+    echo $frm->addInput($attr['new_type'], $attr['name'], $attr['value'], array('placeholder' => $attr['placeholder'], 'class' => $attr['class'], 'required' => $attr['required']));
+   } else {
+    // arguments: for (id of associated form element), text
+    echo $frm->addLabelFor($attr['name'], $attr['title']);
+    // arguments: type, name, value
+    echo $frm->addInput($attr['new_type'], $attr['name'], get_post_meta($_GET['id'], $attr['name'], '')[0], array('placeholder' => $attr['placeholder'], 'class' => $attr['class'], 'required' => $attr['required']));
 
+   }
   } else if ('submit' == $attr['type']) {
    //submit
 

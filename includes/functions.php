@@ -81,7 +81,7 @@ function flexi_get_category_page_link($term, $taxonomy)
 }
 
 //Get details of post based on post_id
-function get_detail($post_id, $field)
+function flexi_get_detail($post_id, $field)
 {
  $post = get_post($post_id);
  if ($post) {
