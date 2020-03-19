@@ -27,7 +27,7 @@ class Flexi_Addon_Custom_Fields
     array(
      'id'          => 'flexi_custom_fields',
      'title'       => __('Flexi Custom Fields', 'flexi'),
-     'description' => __('These are the reserved input field name assigned at submission form with [flexi-form-tag name="....."] shortcode.', 'flexi'),
+     'description' => __('These are the reserved input field name assigned at submission form with [flexi-form-tag name="....."] shortcode. Custom fields display is based on layouts used. It will not work for all layouts.', 'flexi'),
      'tab'         => 'form',
     ),
    );

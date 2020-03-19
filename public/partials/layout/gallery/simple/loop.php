@@ -16,9 +16,16 @@ $data = flexi_image_data('flexi-thumb', $post, $popup);
                   <div class="flexi_title"><?php echo $data['title']; ?></div>
                   <div class="flexi_p"><?php echo flexi_excerpt(20); ?>
 <?php if (get_post_status() == 'draft' || get_post_status() == "pending") {?><div class="flexi_badge"> <?php echo __("Under Review", "flexi"); ?></div><?php }?></div>
-                  <div class="flexi_list_tags"><?php flexi_list_tags($post);?></div>
-                  <div class="flexi_bar"><?php echo flexi_show_icon_grid(); ?></div>
+                  <div class="flexi_meta_container">
+
+                  <?php
+echo flexi_custom_field_loop($post, 'detail', 2);
+?>                                    </div>
+
+
             </div>
+                  <div class="flexi_bar"><?php echo flexi_show_icon_grid(); ?></div>
+
       </div>
 
 </div>

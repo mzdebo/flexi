@@ -34,6 +34,8 @@ echo "<div class='flexi_frame_1' ><img src='" . flexi_image_src('flexi-large') .
     <?php
 echo flexi_custom_field_loop($post, 'detail');
 ?>
+
+
 </div>
 
 </div>

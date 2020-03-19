@@ -1,8 +1,9 @@
 <?php
 //Custom Fields
-function flexi_custom_field_loop($post, $page = 'detail')
+function flexi_custom_field_loop($post, $page = 'detail', $count = 10)
 {
- $group = '<div class="flexi-meta"><ul>';
+ $group = '<ul class="flexi_custom_field">';
+ $c     = 1;
  for ($x = 1; $x <= 10; $x++) {
   $label   = flexi_get_option('flexi_field_' . $x . '_label', 'flexi_custom_fields', '');
   $display = flexi_get_option('flexi_field_' . $x . '_display', 'flexi_custom_fields', '');
@@ -15,14 +16,18 @@ function flexi_custom_field_loop($post, $page = 'detail')
    if (in_array($page, $display)) {
     if ('' != $value[0]) {
 
-     $group .= '<li>' . $label . '<strong>' . $value[0] . '</strong></li>';
+     $group .= '<li><label>' . $label . '</label><div>' . $value[0] . '</div></li>';
 
+     if ($count == $c) {
+      break;
+     }
+     $c++;
     }
 
    }
   }
  }
- $group .= "</ul></div>";
+ $group .= "</ul>";
 
  return $group;
 }

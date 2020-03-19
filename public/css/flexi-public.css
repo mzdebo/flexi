@@ -1,22 +1,31 @@
 /* Custom Fields Meta key */
-.flexi-meta ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+.flexi_custom_field {
+  display: table;
+  list-style: none;
+  padding-left: 0;
 }
-.flexi-meta li:first-child {
-  border-top: 0;
+
+.flexi_custom_field > li {
+  display: table-row;
+  background-color: #eee;
 }
-.flexi-meta li {
-  border-top: 1px solid #dedfdf;
-  display: inline-block;
-  padding: 8px 0;
-  padding: 0.5rem 0;
-  width: 100%;
-  position: relative;
+
+.flexi_custom_field > li:nth-child(even):not(.alert) {
+  background-color: #ddd;
 }
-.flexi-meta li strong {
-  float: right;
+
+.flexi_custom_field > li > * {
+  display: table-cell;
+  padding: 5px;
+}
+
+.flexi_custom_field label {
+  font-weight: bold;
+  text-align: left;
+}
+
+.flexi_custom_field label:after {
+  content: ":";
 }
 /* Pagination */
 .flexi-pagination {
