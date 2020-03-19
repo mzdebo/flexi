@@ -85,7 +85,12 @@ class Flexi_Addon_Custom_Fields
    ),
    );
 
-   for ($x = 1; $x <= 10; $x++) {
+   $count = 3;
+   if (is_flexi_pro()) {
+    $count = 10;
+   }
+
+   for ($x = 1; $x <= $count; $x++) {
     $fields_add = array('flexi_custom_fields' => array(
 
      array(

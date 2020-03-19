@@ -16,7 +16,7 @@
 
 .flexi_custom_field > li > * {
   display: table-cell;
-  padding: 5px;
+  padding: 2px;
 }
 
 .flexi_custom_field label {
@@ -25,7 +25,7 @@
 }
 
 .flexi_custom_field label:after {
-  content: ":";
+  content: ": ";
 }
 /* Pagination */
 .flexi-pagination {

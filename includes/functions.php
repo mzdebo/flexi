@@ -1,9 +1,14 @@
 <?php
 //Custom Fields
-function flexi_custom_field_loop($post, $page = 'detail', $count = 10)
+function flexi_custom_field_loop($post, $page = 'detail', $count = 10, $css = true)
 {
- $group = '<ul class="flexi_custom_field">';
- $c     = 1;
+ $group = '';
+
+ if ($css) {
+  $group .= '<ul class="flexi_custom_field">';
+ }
+
+ $c = 1;
  for ($x = 1; $x <= 10; $x++) {
   $label   = flexi_get_option('flexi_field_' . $x . '_label', 'flexi_custom_fields', '');
   $display = flexi_get_option('flexi_field_' . $x . '_display', 'flexi_custom_fields', '');
@@ -15,8 +20,11 @@ function flexi_custom_field_loop($post, $page = 'detail', $count = 10)
   if (is_array($display)) {
    if (in_array($page, $display)) {
     if ('' != $value[0]) {
-
-     $group .= '<li><label>' . $label . '</label><div>' . $value[0] . '</div></li>';
+     if ($css) {
+      $group .= '<li><label>' . $label . '</label><div>' . $value[0] . '</div></li>';
+     } else {
+      $group .= $label . ': ' . $value[0];
+     }
 
      if ($count == $c) {
       break;
@@ -27,7 +35,9 @@ function flexi_custom_field_loop($post, $page = 'detail', $count = 10)
    }
   }
  }
- $group .= "</ul>";
+ if ($css) {
+  $group .= "</ul>";
+ }
 
  return $group;
 }
