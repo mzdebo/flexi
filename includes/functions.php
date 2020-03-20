@@ -250,7 +250,8 @@ function flexi_get_button_url($param = '', $ajax = true, $type = 'submission_for
   $url = 'admin-ajax.php?action=flexi_send_again&post_id=' . $param;
  } else {
   $default_post = flexi_get_option($type, $setting_tab, '0');
-  if ('0' != $default_post) {
+
+  if ('0' != $default_post && '-1' != $default_post) {
    if ('' == $param) {
     $url = esc_url(get_page_link($default_post));
    } else {

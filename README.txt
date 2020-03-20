@@ -79,6 +79,9 @@ Unless we release FLEXI-PRO version, you can use UPG-PRO which will enabled all 
 2. Multi file upload
 
 == Changelog ==
+= 1.0.6 =
+* Added custom field supports
+
 = 1.0.5 =
 * Updated Flexi Dashboard
 

@@ -111,13 +111,16 @@ class Flexi_Shortcode_Form
 
         <a href='<?php echo flexi_get_button_url(get_the_ID(), true); ?>' class='flexi_send_again button'>
                 <?php echo __('Post again', 'flexi'); ?>
-            </a> |
-
-
-            <a href='<?php echo flexi_get_button_url('', false, 'my_gallery', 'flexi_image_layout_settings'); ?>' class='button'>
-                <?php echo __('My Gallery', 'flexi'); ?>
             </a>
 
+<?php
+$link = flexi_get_button_url('', false, 'my_gallery', 'flexi_image_layout_settings');
+     if ("#" != $link) {
+      echo " | <a href='" . $link . "' class='button'>";
+      echo __('My Gallery', 'flexi');
+      echo "</a>";
+     }
+     ?>
 
         </div>
 
