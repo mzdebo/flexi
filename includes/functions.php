@@ -899,3 +899,45 @@ function flexi_error_code($err)
  $msg .= "</div>";
  return $msg;
 }
+/**
+ * Adding your own post state (label)
+ * Example: Checking if this is a Product and if it's on Sale
+ *          Show the users all WC products on sale
+ *
+ * @param array   $states Array of all registered states.
+ * @param WP_Post $post   Post object that we can use.
+ */
+function flexi_page_post_state_label($states, $post)
+{
+
+ $primary_page = flexi_get_option('primary_page', 'flexi_image_layout_settings', 0);
+ if (0 != $primary_page) {
+  if ($primary_page == $post->ID) {
+   $states['flexi-primary'] = __('Flexi Primary Gallery', 'flexi');
+  }
+ }
+
+ $my_gallery = flexi_get_option('my_gallery', 'flexi_image_layout_settings', 0);
+ if (0 != $my_gallery) {
+  if ($my_gallery == $post->ID) {
+   $states['flexi-my-gallery'] = __('Flexi My Gallery', 'flexi');
+  }
+ }
+
+ $submission_form = flexi_get_option('submission_form', 'flexi_form_settings', 0);
+ if (0 != $submission_form) {
+  if ($submission_form == $post->ID) {
+   $states['flexi-submission-form'] = __('Flexi Submission Form', 'flexi');
+  }
+ }
+
+ $edit_flexi_page = flexi_get_option('edit_flexi_page', 'flexi_form_settings', 0);
+ if (0 != $edit_flexi_page) {
+  if ($edit_flexi_page == $post->ID) {
+   $states['flexi-edit'] = __('Flexi Edit/Modify', 'flexi');
+  }
+ }
+
+ return $states;
+}
+add_filter('display_post_states', 'flexi_page_post_state_label', 20, 2);

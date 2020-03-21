@@ -134,6 +134,9 @@ class Flexi
   //Flexi Admin custom columns
   require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-flexi-admin-column.php';
 
+  //Flexi flexi_category columns
+  require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-flexi-category.php';
+
   //Flexi own media settings
   require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-flexi-media.php';
 
