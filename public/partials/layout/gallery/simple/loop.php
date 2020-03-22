@@ -22,8 +22,7 @@ $data = flexi_image_data('flexi-thumb', $post, $popup);
                 </div>
                 <div class="pure-u-1 pure-u-md-1-2">
                     <div class="flexi_p"><?php echo flexi_excerpt(20); ?>
-                        <?php if (get_post_status() == 'draft' || get_post_status() == "pending") {?><div
-                            class="flexi_badge"> <?php echo __("Under Review", "flexi"); ?></div><?php }?></div>
+                        </div>
 
                 </div>
                 <div class="pure-u-1 pure-u-md-1-2">

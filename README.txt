@@ -25,7 +25,7 @@ Flexi is replacement of UPG which is only for images.
 * 3 layout options (Masonry, Regular, Simple)
 * Options to specify number of columns and records per page.
 * 3 Navigation system (Page Number, Load More Button, Load on Mouse scroll)
-* User 'My Gallery' page to modify, delete own submitted records.
+* User 'My Dashboard' page to modify, delete own submitted records.
 * Various thumbnail animation effect on mouse hover records.
 * Options to display records in lightbox or in full detail page.
 

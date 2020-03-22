@@ -117,7 +117,7 @@ class Flexi_Shortcode_Form
 $link = flexi_get_button_url('', false, 'my_gallery', 'flexi_image_layout_settings');
      if ("#" != $link) {
       echo " | <a href='" . $link . "' class='button'>";
-      echo __('My Gallery', 'flexi');
+      echo __('My Dashboard', 'flexi');
       echo "</a>";
      }
      ?>
@@ -157,7 +157,11 @@ action="' . admin_url("admin-ajax.php") . '"
    }
   }
   $abc = ob_get_clean();
-  return $abc;
+  if (is_singular()) {
+   return $abc;
+  } else {
+   return '';
+  }
  }
 
  //Examine & save the form submitted
@@ -240,7 +244,7 @@ action="' . admin_url("admin-ajax.php") . '"
            </a>
 |
            <a href='<?php echo flexi_get_button_url('', false, 'my_gallery', 'flexi_image_layout_settings'); ?>' class='button'>
-               <?php echo __('My Gallery', 'flexi'); ?>
+               <?php echo __('My Dashboard', 'flexi'); ?>
            </a>
            </div>
 <?php
@@ -294,7 +298,7 @@ action="' . admin_url("admin-ajax.php") . '"
                 <?php echo __('Edit again', 'flexi'); ?>
             </a> |
  <a href='<?php echo flexi_get_button_url('', false, 'my_gallery', 'flexi_image_layout_settings'); ?>' class='button'>
-                <?php echo __('My Gallery', 'flexi'); ?>
+                <?php echo __('My Dashboard', 'flexi'); ?>
             </a>
   <?php
 
@@ -515,7 +519,11 @@ action="' . admin_url("admin-ajax.php") . '"
   }
 
   $abc = ob_get_clean();
-  return $abc;
+  if (is_singular()) {
+   return $abc;
+  } else {
+   return '';
+  }
  }
 
  //Adds edit icon in flexi icon container.

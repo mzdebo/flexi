@@ -121,7 +121,7 @@ class Flexi_Shortcode_Gallery
    if (is_user_logged_in()) {
     $current_user = wp_get_current_user();
     $user         = $current_user->user_login;
-    $post_status  = array('draft', 'publish', 'pending');
+    //$post_status  = array('draft', 'publish', 'pending');
    }
 
   }
@@ -263,7 +263,11 @@ class Flexi_Shortcode_Gallery
    $put = ob_get_clean();
    wp_reset_query();
    wp_reset_postdata();
-   return $put;
+   if (is_singular()) {
+    return $put;
+   } else {
+    return '';
+   }
   }
  }
 

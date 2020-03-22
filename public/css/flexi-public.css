@@ -1,3 +1,79 @@
+/* Responsive table */
+.flexi_wrapper {
+  margin: 0 auto;
+  padding: 1px;
+  max-width: 800px;
+}
+
+.flexi_table {
+  margin: 0 0 40px 0;
+  width: 100%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  display: table;
+}
+@media screen and (max-width: 580px) {
+  .flexi_table {
+    display: block;
+  }
+}
+
+.flexi_row {
+  display: table-row;
+  background: #f6f6f6;
+}
+.flexi_row:nth-of-type(odd) {
+  background: #e9e9e9;
+}
+.flexi_row.flexi_header {
+  font-weight: 900;
+  color: #ffffff;
+  background: #ea6153;
+}
+.flexi_row.flexi_green {
+  background: #27ae60;
+}
+.flexi_row.flexi_blue {
+  background: #2980b9;
+}
+@media screen and (max-width: 580px) {
+  .flexi_row {
+    padding: 14px 0 7px;
+    display: block;
+  }
+  .flexi_row.flexi_header {
+    padding: 0;
+    height: 6px;
+  }
+  .flexi_row.flexi_header .flexi_cell {
+    display: none;
+  }
+  .flexi_row .flexi_cell {
+    margin-bottom: 10px;
+  }
+  .flexi_row .flexi_cell:before {
+    margin-bottom: 3px;
+    content: attr(data-title);
+    min-width: 98px;
+    font-size: 10px;
+    line-height: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #969696;
+    display: block;
+  }
+}
+
+.flexi_cell {
+  padding: 6px 12px;
+  display: table-cell;
+}
+@media screen and (max-width: 580px) {
+  .flexi_cell {
+    padding: 2px 16px;
+    display: block;
+  }
+}
+
 /* Custom Fields Meta key */
 .flexi_custom_field {
   display: table;
@@ -100,6 +176,7 @@
 /* badge */
 .flexi_badge {
   box-sizing: border-box;
+  font-size: 11px;
   margin: 1px 1px;
   padding-top: 0.3em;
   padding-right: 0.4em;
@@ -112,6 +189,23 @@
   color: black;
   text-align: center;
   background-image: linear-gradient(rgb(247, 236, 19), rgb(184, 137, 45));
+  border-radius: 1em;
+}
+.flexi_badge_green {
+  box-sizing: border-box;
+  font-size: 11px;
+  margin: 1px 1px;
+  padding-top: 0.3em;
+  padding-right: 0.4em;
+  padding-left: 0.4em;
+  padding-bottom: 0.2em;
+  min-width: 1.5em; /* 1em + padding-top + padding-bottom */
+  min-height: 1em;
+  line-height: 1em;
+  display: inline-block;
+  color: black;
+  text-align: center;
+  background-image: linear-gradient(rgb(102, 250, 122), rgb(19, 184, 60));
   border-radius: 1em;
 }
 

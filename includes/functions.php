@@ -799,7 +799,7 @@ function flexi_create_pages()
   $bid = wp_insert_post(array('post_title' => 'Post Image', 'post_content' => $str_post_image, 'post_type' => 'page', 'post_status' => 'publish'));
   flexi_set_option('submission_form', 'flexi_form_settings', $bid);
 
-  $did = wp_insert_post(array('post_title' => 'My Gallery', 'post_content' => '[flexi-gallery user="show_mine" column="1" navigation="button" layout="simple"]', 'post_type' => 'page', 'post_status' => 'publish'));
+  $did = wp_insert_post(array('post_title' => 'User Dashboard', 'post_content' => '[flexi-user-dashboard]', 'post_type' => 'page', 'post_status' => 'publish'));
   flexi_set_option('my_gallery', 'flexi_image_layout_settings', $did);
 
   $str_edit_image = '
@@ -920,7 +920,7 @@ function flexi_page_post_state_label($states, $post)
  $my_gallery = flexi_get_option('my_gallery', 'flexi_image_layout_settings', 0);
  if (0 != $my_gallery) {
   if ($my_gallery == $post->ID) {
-   $states['flexi-my-gallery'] = __('Flexi My Gallery', 'flexi');
+   $states['flexi-user-dashboard'] = __('Flexi User Dashboard', 'flexi');
   }
  }
 

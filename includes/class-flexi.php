@@ -108,10 +108,14 @@ class Flexi
   //Widgets
   require_once plugin_dir_path(dirname(__FILE__)) . 'includes/widgets/categories.php';
 
-  //Dashboard classes
+  //Admin Dashboard classes
   require_once plugin_dir_path(dirname(__FILE__)) . 'includes/dashboard/class-flexi-dashboard-intro.php';
   require_once plugin_dir_path(dirname(__FILE__)) . 'includes/dashboard/class-flexi-dashboard-pages.php';
   require_once plugin_dir_path(dirname(__FILE__)) . 'includes/dashboard/class-flexi-dashboard-pro.php';
+
+  //User Dashboard
+  require_once plugin_dir_path(dirname(__FILE__)) . 'includes/user_dashboard/class-flexi-user-dashboard.php';
+  require_once plugin_dir_path(dirname(__FILE__)) . 'includes/user_dashboard/class-flexi-user-gallery.php';
 
   //Addon Captcha
   require_once plugin_dir_path(dirname(__FILE__)) . 'includes/addon/class-flexi-captcha.php';
