@@ -15,6 +15,8 @@ class Flexi_Shortcode_Form
   add_shortcode('flexi-form', array($this, 'render_form'));
   //Shortcode [flexi-tag] to render to tags
   add_shortcode('flexi-form-tag', array($this, 'render_tags'));
+//Add icon after form submitted
+  add_filter("flexi_submit_toolbar", array($this, 'flexi_add_icon_submit_toolbar'), 10, 3);
  }
 
  public function render_form($params, $content = null)
@@ -99,28 +101,16 @@ class Flexi_Shortcode_Form
             <br>
             <?php echo __("Processing", "flexi"); ?>
             <div class="flexi_progress-bar">
-                <span id="flexi_progress_process" class="flexi_progress-bar-process" style="width: 0%;text-align: center;"></span>
+                <span id="flexi_progress_process" class="flexi_progress-bar-process"
+                    style="width: 0%;text-align: center;"></span>
             </div>
 
-
         </div>
-
 
         <div class='flexi_response'></div>
         <div id="flexi_after_response" style='display: none;'>
 
-        <a href='<?php echo flexi_get_button_url(get_the_ID(), true); ?>' class='flexi_send_again button'>
-                <?php echo __('Post again', 'flexi'); ?>
-            </a>
-
-<?php
-$link = flexi_get_button_url('', false, 'my_gallery', 'flexi_image_layout_settings');
-     if ("#" != $link) {
-      echo " | <a href='" . $link . "' class='button'>";
-      echo __('My Dashboard', 'flexi');
-      echo "</a>";
-     }
-     ?>
+            <?php echo flexi_post_toolbar_grid(get_the_ID(), true); ?>
 
         </div>
 
@@ -239,21 +229,10 @@ action="' . admin_url("admin-ajax.php") . '"
   }
   ?>
    <div id="flexi_form">
-  <a href='<?php echo flexi_get_button_url('', false); ?>' class='button'>
-               <?php echo __('Post again', 'flexi'); ?>
-           </a>
 
-<?php
-$link = flexi_get_button_url('', false, 'my_gallery', 'flexi_image_layout_settings');
-  if ("#" != $link) {
-   echo " | <a href='" . $link . "' class='button'>";
-   echo __('My Dashboard', 'flexi');
-   echo "</a>";
-  }
-  ?>
+       <?php echo flexi_post_toolbar_grid(get_the_ID(), false); ?>
 
-
-           </div>
+   </div>
 <?php
 }
 
@@ -552,6 +531,34 @@ $link = flexi_get_button_url('', false, 'my_gallery', 'flexi_image_layout_settin
     );
    }
    // }
+  }
+
+  // combine the two arrays
+  if (is_array($extra_icon) && is_array($icon)) {
+   $icon = array_merge($extra_icon, $icon);
+  }
+
+  return $icon;
+ }
+
+ //Add post again button after form submit
+ public function flexi_add_icon_submit_toolbar($icon, $id = '', $bool)
+ {
+
+  $extra_icon = array();
+  if ($bool) {
+   $link  = flexi_get_button_url($id, true);
+   $class = 'flexi_send_again';
+  } else {
+   $link  = flexi_get_button_url('', false);
+   $class = '';
+  }
+
+  if ("#" != $link) {
+   $extra_icon = array(
+    array("save", __('Post again', 'flexi'), $link, $id, $class),
+
+   );
   }
 
   // combine the two arrays

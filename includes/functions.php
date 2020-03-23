@@ -894,6 +894,35 @@ function flexi_show_icon_grid()
  return $list;
 }
 
+//Icon container. Eg. Author icon, Delete icon, Edit icon
+function flexi_post_toolbar_grid($id, $bool)
+{
+ global $post;
+ $icon = array();
+
+ $list = '';
+
+ if (has_filter('flexi_submit_toolbar')) {
+  $icon = apply_filters('flexi_submit_toolbar', $icon, $id, $bool);
+ }
+
+ if (count($icon) > 0) {
+  $list .= '<div class="ui compact menu" id="flexi_toolbar_' . get_the_ID() . '">';
+ }
+
+ for ($r = 0; $r < count($icon); $r++) {
+
+  if ("" != $icon[$r][0]) {
+   $list .= '<a href="' . $icon[$r][2] . '" class="' . $icon[$r][4] . ' item"><i class="' . $icon[$r][0] . ' icon"></i>' . $icon[$r][1] . '</a>';
+  }
+
+ }
+ if (count($icon) > 0) {
+  $list .= '</div>';
+ }
+ return $list;
+}
+
 //Error Code
 function flexi_error_code($err)
 {

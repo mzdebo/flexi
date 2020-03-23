@@ -1,5 +1,5 @@
 <?php
-class Flexi_Toolbar
+class Flexi_Gallery_Toolbar
 {
  public function __construct($args)
  {

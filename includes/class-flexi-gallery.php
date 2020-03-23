@@ -247,7 +247,7 @@ class Flexi_Shortcode_Gallery
    }
 
    //Displays label
-   $toolbar = new Flexi_Toolbar($args);
+   $toolbar = new Flexi_Gallery_Toolbar($args);
 
    $count = 0;
    $put   = "";

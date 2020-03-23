@@ -129,8 +129,9 @@ class Flexi
   //Addon BuddyPress Plugin
   require_once plugin_dir_path(dirname(__FILE__)) . 'includes/addon/class-flexi-buddypress.php';
 
-  //Toolbar for Primary Gallery Page
-  require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-flexi-toolbar.php';
+  //Toolbar
+  require_once plugin_dir_path(dirname(__FILE__)) . 'includes/toolbar/class-flexi-gallery-toolbar.php';
+  require_once plugin_dir_path(dirname(__FILE__)) . 'includes/toolbar/class-flexi-submit-toolbar.php';
 
   //Add Flexi_User
   require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-flexi-user.php';

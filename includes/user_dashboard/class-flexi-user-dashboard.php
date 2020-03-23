@@ -6,6 +6,7 @@ class Flexi_User_Dashboard
  public function __construct()
  {
   add_shortcode('flexi-user-dashboard', array($this, 'flexi_user_dashboard'));
+  add_filter("flexi_submit_toolbar", array($this, 'flexi_add_icon_submit_toolbar'), 10, 2);
  }
 
  public function flexi_user_dashboard()
@@ -42,6 +43,29 @@ class Flexi_User_Dashboard
    }
   }
   return ob_get_clean();
+ }
+
+ //Add My-Dashboard button after form submit
+ public function flexi_add_icon_submit_toolbar($icon, $id = '')
+ {
+
+  $extra_icon = array();
+
+  $link = flexi_get_button_url('', false, 'my_gallery', 'flexi_image_layout_settings');
+
+  if ("#" != $link) {
+   $extra_icon = array(
+    array("bars", __('My Dashboard', 'flexi'), $link, $id, ''),
+
+   );
+  }
+
+  // combine the two arrays
+  if (is_array($extra_icon) && is_array($icon)) {
+   $icon = array_merge($extra_icon, $icon);
+  }
+
+  return $icon;
  }
 
 }
