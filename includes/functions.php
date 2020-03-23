@@ -1,4 +1,17 @@
 <?php
+//Custom field get id
+function flexi_custom_field_value($post_id, $field_name)
+{
+ $value = get_post_meta($post_id, $field_name, '');
+ if (is_array($value)) {
+  if (isset($value[0]) && '' != $value[0]) {
+   return $value[0];
+  }
+ } else {
+  return '';
+ }
+}
+
 //Custom Fields
 function flexi_custom_field_loop($post, $page = 'detail', $count = 10, $css = true)
 {
@@ -155,10 +168,10 @@ function flexi_generate_tags($tags_array, $upg_tag_class = 'flexi_tag-default', 
  if (count($tags_array) > 1) {
   $taglink .= '<div class="flexi_list_tags">';
 
-  $taglink .= '<a href="javascript:void(0)" id="show_all" class="flexi_tag ' . $filter_class . ' ' . $upg_tag_class . ' active">' . __('Show All', 'wp-upg') . '</a>';
+  $taglink .= '<a href="javascript:void(0)" id="show_all" class="' . $filter_class . ' ' . $upg_tag_class . ' active">' . __('Show All', 'wp-upg') . '</a> ';
   if (count($tags_array) > 1) {
    foreach ($tags_array as $tags => $value) {
-    $taglink .= '<a href="javascript:void(0)" id="' . $tags . '" class="flexi_tag ' . $filter_class . ' ' . $upg_tag_class . ' ">' . $value . '</a>';
+    $taglink .= '<a href="javascript:void(0)" id="' . $tags . '" class="' . $filter_class . ' ' . $upg_tag_class . ' ">' . $value . '</a> ';
    }
   }
 
@@ -184,7 +197,7 @@ function flexi_list_tags($post, $class = "flexi_tag-default")
   $link = get_permalink(flexi_get_option('primary_page', 'flexi_image_layout_settings', 0));
   $link = add_query_arg("flexi_tag", $term_list[$x]->slug, $link);
 
-  echo '<a href="' . $link . '" class="flexi_tag ' . $class . '">' . $term_list[$x]->name . '</a>';
+  echo '<a href="' . $link . '" class="' . $class . '">' . $term_list[$x]->name . '</a>';
  }
 
  if (count($term_list) > 0) {
@@ -782,34 +795,38 @@ function flexi_create_pages()
  global $wpdb;
  if (!$wpdb->get_var("select id from {$wpdb->prefix}posts where post_content like '%[flexi-gallery]%'")) {
 
-  $aid = wp_insert_post(array('post_title' => 'Primary Gallery', 'post_content' => '[flexi-primary]', 'post_type' => 'page', 'post_status' => 'publish'));
+  $aid = wp_insert_post(array('post_title' => 'Primary Gallery', 'post_content' => '<!-- wp:shortcode -->[flexi-primary]<!-- /wp:shortcode -->', 'post_type' => 'page', 'post_status' => 'publish'));
   flexi_set_option('primary_page', 'flexi_image_layout_settings', $aid);
 
   $str_post_image = '
-		[flexi-form class="pure-form pure-form-stacked" title="Submit to Flexi" name="my_form" ajax="true"]
+        <!-- wp:shortcode -->
+		[flexi-form class="ui form" title="Submit to Flexi" name="my_form" ajax="true"]
 		[flexi-form-tag type="post_title" title="Title" value="" placeholder="main title"]
 		[flexi-form-tag type="category" title="Select category" taxonomy="flexi_cate" filter="image"]
 		[flexi-form-tag type="tag" title="Insert tag"]
 		[flexi-form-tag type="article" title="Description"  placeholder="Content"]
 		[flexi-form-tag type="file" title="Select file"]
 		[flexi-form-tag type="submit" name="submit" value="Submit Now"]
-		[/flexi-form]
+        [/flexi-form]
+        <!-- /wp:shortcode -->
 		';
 
   $bid = wp_insert_post(array('post_title' => 'Post Image', 'post_content' => $str_post_image, 'post_type' => 'page', 'post_status' => 'publish'));
   flexi_set_option('submission_form', 'flexi_form_settings', $bid);
 
-  $did = wp_insert_post(array('post_title' => 'User Dashboard', 'post_content' => '[flexi-user-dashboard]', 'post_type' => 'page', 'post_status' => 'publish'));
+  $did = wp_insert_post(array('post_title' => 'User Dashboard', 'post_content' => '   <!-- wp:shortcode -->[flexi-user-dashboard]<!-- /wp:shortcode -->', 'post_type' => 'page', 'post_status' => 'publish'));
   flexi_set_option('my_gallery', 'flexi_image_layout_settings', $did);
 
   $str_edit_image = '
-  [flexi-form class="pure-form pure-form-stacked" title="Update Flexi" name="my_form" ajax="true" edit="true"]
+  <!-- wp:shortcode -->
+  [flexi-form class="ui form" title="Update Flexi" name="my_form" ajax="true" edit="true"]
   [flexi-form-tag type="post_title" title="Title" placeholder="main title" edit="true" ]
   [flexi-form-tag type="category" title="Select category" edit="true"]
   [flexi-form-tag type="tag" title="Insert tag" edit="true"]
   [flexi-form-tag type="article" title="Description" placeholder="Content" edit="true"]
   [flexi-form-tag type="submit" name="submit" value="Update Now"]
   [/flexi-form]
+  <!-- /wp:shortcode -->
 		';
 
   $eid = wp_insert_post(array('post_title' => 'Edit Flexi Post', 'post_content' => $str_edit_image, 'post_type' => 'page', 'post_status' => 'publish'));

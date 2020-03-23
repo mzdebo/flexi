@@ -440,7 +440,7 @@ action="' . admin_url("admin-ajax.php") . '"
     // arguments: for (id of associated form element), text
     echo $frm->addLabelFor($attr['name'], $attr['title']);
     // arguments: type, name, value
-    echo $frm->addInput('text', $attr['name'], get_post_meta($_GET['id'], $attr['name'], '')[0], array('placeholder' => $attr['placeholder'], 'class' => $attr['class'], 'required' => $attr['required']));
+    echo $frm->addInput('text', $attr['name'], flexi_custom_field_value($_GET['id'], $attr['name']), array('placeholder' => $attr['placeholder'], 'class' => $attr['class'], 'required' => $attr['required']));
 
    }
   } else if ('other' == $attr['type']) {
@@ -453,7 +453,7 @@ action="' . admin_url("admin-ajax.php") . '"
     // arguments: for (id of associated form element), text
     echo $frm->addLabelFor($attr['name'], $attr['title']);
     // arguments: type, name, value
-    echo $frm->addInput($attr['new_type'], $attr['name'], get_post_meta($_GET['id'], $attr['name'], '')[0], array('placeholder' => $attr['placeholder'], 'class' => $attr['class'], 'required' => $attr['required']));
+    echo $frm->addInput($attr['new_type'], $attr['name'], flexi_custom_field_value($_GET['id'], $attr['name']), array('placeholder' => $attr['placeholder'], 'class' => $attr['class'], 'required' => $attr['required']));
 
    }
   } else if ('submit' == $attr['type']) {

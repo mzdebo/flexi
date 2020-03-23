@@ -27,7 +27,7 @@ echo "<div class='flexi_frame_1' ><img src='" . flexi_image_src('flexi-large') .
     <div class="pure-g">
 	<div class="pure-u-1 pure-u-md-1-2">
 	<div class="flexi_margin-box">
-        <?php flexi_list_tags($post);?>
+        <?php flexi_list_tags($post, 'mini ui tag label');?>
 </div>
 	    </div>
     <div class="pure-u-1 pure-u-md-1-2">
