@@ -242,10 +242,17 @@ action="' . admin_url("admin-ajax.php") . '"
   <a href='<?php echo flexi_get_button_url('', false); ?>' class='button'>
                <?php echo __('Post again', 'flexi'); ?>
            </a>
-|
-           <a href='<?php echo flexi_get_button_url('', false, 'my_gallery', 'flexi_image_layout_settings'); ?>' class='button'>
-               <?php echo __('My Dashboard', 'flexi'); ?>
-           </a>
+
+<?php
+$link = flexi_get_button_url('', false, 'my_gallery', 'flexi_image_layout_settings');
+  if ("#" != $link) {
+   echo " | <a href='" . $link . "' class='button'>";
+   echo __('My Dashboard', 'flexi');
+   echo "</a>";
+  }
+  ?>
+
+
            </div>
 <?php
 }
