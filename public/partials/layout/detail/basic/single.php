@@ -5,6 +5,7 @@
 </a>
  */
 ?>
+ <div id="flexi_content_<?php echo get_the_ID(); ?>">
 <div class="pure-g">
 	<div class="pure-u-1-1">
 		<div class="flexi_margin-box" style='text-align: center;'>
@@ -38,4 +39,5 @@ echo flexi_custom_field_loop($post, 'detail');
 
 </div>
 
+</div>
 </div>

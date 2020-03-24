@@ -1,4 +1,31 @@
 <?php
+//Gets link of post author with it's avatar icon.
+function flexi_author($author = '', $redirect = true)
+{
+ if ('' == $author) {
+  $author = get_user_by('id', get_the_author_meta('ID'));
+ } else {
+  $author = get_user_by('slug', $author);
+ }
+
+ if (flexi_get_option('primary_page', 'flexi_image_layout_settings', 0) != '0') {
+  if (flexi_get_option('enable_ultimate_member', 'flexi_extension', 0) == '1' && function_exists('um_user_profile_url') && $redirect) {
+   $linku = um_user_profile_url($author->ID);
+   $linku = esc_url(add_query_arg('profiletab', 'flexi', $linku));
+  } else if (flexi_get_option('enable_buddypress', 'flexi_extension', 0) == '1' && function_exists('bp_core_get_user_domain') && $redirect) {
+   $linku = bp_core_get_user_domain($author->ID) . "flexi";
+  } else {
+   $linku = esc_url(get_permalink(flexi_get_option('primary_page', 'flexi_image_layout_settings', 0)) . "&user=" . $author->user_nicename);
+  }
+ } else {
+  $linku = "";
+ }
+
+ return ' <a href="' . $linku . '" title=' . $author->display_name . '><h2 class="ui header">
+<img src="' . get_avatar_url($author->user_email, $size = '50') . '" class="ui circular image">
+' . $author->first_name . ' ' . $author->last_name . '</h2></a>';
+}
+
 //Custom field get id
 function flexi_custom_field_value($post_id, $field_name)
 {

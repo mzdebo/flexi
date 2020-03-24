@@ -16,6 +16,7 @@ jQuery(document).ready(function() {
         data: { action: "flexi_ajax_delete", post_id: post_id, nonce: nonce },
         success: function(response) {
           if (response.type == "success") {
+            jQuery("#flexi_content_" + post_id).slideUp("slow");
             jQuery("#flexi_" + post_id).slideUp();
           } else {
             alert("Deleted: " + post_id);

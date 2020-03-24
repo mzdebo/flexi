@@ -17,7 +17,7 @@ class Flexi_User_Dashboard
 
     $current_user = wp_get_current_user();
     ?>
-   <?php echo __('Welcome') . ' ' . $current_user->display_name . ' !'; ?>
+    <div style="text-align:center;"><?php echo flexi_author(); ?></div>
 
    <form method="get">
 <div class="ui fluid action input">

@@ -24,7 +24,7 @@ class Flexi_User_Dashboard_Gallery
    $popup        = flexi_get_option('lightbox_switch', 'flexi_detail_settings', 1);
    $paged        = (get_query_var('paged')) ? get_query_var('paged') : 1;
    $search       = (get_query_var('search')) ? get_query_var('search') : '';
-   $postsperpage = 2;
+   $postsperpage = 20;
    ?>
 
 
@@ -65,38 +65,39 @@ class Flexi_User_Dashboard_Gallery
    while ($query->have_posts()): $query->the_post();
 
     $data = flexi_image_data('flexi-thumb', $post, $popup);
+
     ?>
-																				        <div class="flexi_row" id="flexi_<?php echo get_the_ID(); ?>">
+				    <div class="flexi_row" id="flexi_content_<?php echo get_the_ID(); ?>">
 
-																				            <div class="flexi_cell" data-title="Image">
-																				                <a data-fancybox="gallery"
-																				                    <?php echo ' href="' . $data['url'] . '" data-caption="' . $data['title'] . '" border="0"'; ?>>
-																				                    <img src="<?php echo esc_url(flexi_image_src('flexi-thumb', $post)); ?>">
+			        <div class="flexi_cell" data-title="Image">
+			            <a data-fancybox="gallery"
+			                <?php echo ' href="' . $data['url'] . '" data-caption="' . $data['title'] . '" border="0"'; ?>>
+			                <img src="<?php echo esc_url(flexi_image_src('flexi-thumb', $post)); ?>">
 
-																				                </a>
-																				            </div>
-																				            <div class="flexi_cell" data-title="Title">
-																				                <?php echo $data['title']; ?>
-																				            </div>
-																			<div class="flexi_cell" data-title="Status">
-																			                    <?php
+			            </a>
+			        </div>
+			        <div class="flexi_cell" data-title="Title">
+			            <?php echo $data['title']; ?>
+			        </div>
+			        <div class="flexi_cell" data-title="Status">
+			            <?php
  if (get_post_status() == 'draft' || get_post_status() == "pending") {
      ?>
-																		 <div class="flexi_badge"><?php echo __("Under Review", "flexi"); ?></div>
-																			                    <?php
+			            <div class="flexi_badge"><?php echo __("Under Review", "flexi"); ?></div>
+			            <?php
  } else {
      ?>
-																		<div class="flexi_badge_green"><?php echo __("Live", "flexi"); ?></div>
-																			                        <?php
+			            <div class="flexi_badge_green"><?php echo __("Live", "flexi"); ?></div>
+			            <?php
  }
     ?>
-																				            </div>
-																				            <div class="flexi_cell" data-title="Action">
-																				                <?php echo flexi_show_icon_grid(); ?>
-																				            </div>
-																				        </div>
+			        </div>
+			        <div class="flexi_cell" data-title="Action">
+			            <?php echo flexi_show_icon_grid(); ?>
+			        </div>
+			    </div>
 
-																				        <?php
+			    <?php
  $count++;
    endwhile;
 

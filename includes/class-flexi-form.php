@@ -142,7 +142,7 @@ action="' . admin_url("admin-ajax.php") . '"
 
     echo '<input type="hidden" name="upload_type" value="flexi">';
 
-    echo '</form></div>';
+    echo '</form>';
 
    }
   }
@@ -231,8 +231,8 @@ action="' . admin_url("admin-ajax.php") . '"
    <div id="flexi_form">
 
        <?php echo flexi_post_toolbar_grid(get_the_ID(), false); ?>
+</div>
 
-   </div>
 <?php
 }
 

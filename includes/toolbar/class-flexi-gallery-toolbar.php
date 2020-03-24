@@ -1,7 +1,7 @@
 <?php
 class Flexi_Gallery_Toolbar
 {
- public function __construct($args)
+ public function __construct()
  {
 
  }
@@ -33,7 +33,8 @@ class Flexi_Gallery_Toolbar
    $user     = get_user_by('login', $username);
    if ("" != $username && $user) {
 
-    return $user->first_name . ' ' . $user->last_name;
+    //return $user->first_name . ' ' . $user->last_name;
+    return flexi_author($username);
    }
 
   }
