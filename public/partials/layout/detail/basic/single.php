@@ -32,10 +32,11 @@ echo "<div class='flexi_frame_1' ><img src='" . flexi_image_src('flexi-large') .
 </div>
 	    </div>
     <div class="pure-u-1 pure-u-md-1-2">
+	<div class="flexi_margin-box">
     <?php
 echo flexi_custom_field_loop($post, 'detail');
 ?>
-
+</div>
 
 </div>
 
