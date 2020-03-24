@@ -287,7 +287,7 @@ function flexi_login_link()
 function flexi_get_button_url($param = '', $ajax = true, $type = 'submission_form', $setting_tab = 'flexi_form_settings')
 {
  if ($ajax) {
-  $url = 'admin-ajax.php?action=flexi_send_again&post_id=' . $param;
+  $url = '#admin-ajax.php?action=flexi_send_again&post_id=' . $param;
  } else {
   $default_post = flexi_get_option($type, $setting_tab, '0');
 
@@ -969,7 +969,7 @@ function flexi_error_code($err)
  } else {
   $msg .= $err;
  }
- $msg .= "</div>";
+ $msg .= "</div>" . flexi_post_toolbar_grid('', true);
  return $msg;
 }
 /**

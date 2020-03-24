@@ -112,7 +112,7 @@ jQuery(document).ready(function() {
     });
   });
 
-  jQuery(".flexi_send_again").click(function(e) {
+  jQuery(document).on("click", ".flexi_send_again", function(e) {
     e.preventDefault();
     //alert("hello");
     jQuery("#flexi_after_response").hide();
@@ -125,4 +125,6 @@ jQuery(document).ready(function() {
     document.getElementById("flexi_progress").innerHTML = "0%";
     document.getElementById("flexi_progress_process").innerHTML = "0%";
   });
+
+  jQuery(".flexi_send_again").click(function(e) {});
 });

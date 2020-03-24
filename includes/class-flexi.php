@@ -131,7 +131,6 @@ class Flexi
 
   //Toolbar
   require_once plugin_dir_path(dirname(__FILE__)) . 'includes/toolbar/class-flexi-gallery-toolbar.php';
-  require_once plugin_dir_path(dirname(__FILE__)) . 'includes/toolbar/class-flexi-submit-toolbar.php';
 
   //Add Flexi_User
   require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-flexi-user.php';

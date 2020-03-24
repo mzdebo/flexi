@@ -75,10 +75,10 @@ function flexi_ajax_post()
 
     if (flexi_get_option('publish', 'flexi_form_settings', 1) == 1) {
 
-     $response['msg'] = "<div class='flexi_alert-box flexi_success'>" . __('Successfully posted', 'flexi') . "</div>";
+     $response['msg'] = "<div class='flexi_alert-box flexi_success'>" . __('Successfully posted', 'flexi') . "</div> " . flexi_post_toolbar_grid($post_id, true);
     } else {
 
-     $response['msg'] = "<div class='flexi_alert-box flexi_warning'>" . __('Your submission is under review', 'flexi') . "</div>";
+     $response['msg'] = "<div class='flexi_alert-box flexi_warning'>" . __('Your submission is under review', 'flexi') . "</div>" . flexi_post_toolbar_grid($post_id, true);
     }
 
    } else {
@@ -113,14 +113,14 @@ function flexi_ajax_post()
 
     if (flexi_get_option('publish', 'flexi_form_settings', 1) == 1) {
 
-     $response['msg'] = "<div class='flexi_alert-box flexi_success'>" . __('Successfully updated', 'flexi') . "</div>";
+     $response['msg'] = "<div class='flexi_alert-box flexi_success'>" . __('Successfully updated', 'flexi') . "</div>" . flexi_post_toolbar_grid($flexi_id, true);
     } else {
 
-     $response['msg'] = "<div class='flexi_alert-box flexi_warning'>" . __('Your modification is under review.', 'flexi') . "</div>";
+     $response['msg'] = "<div class='flexi_alert-box flexi_warning'>" . __('Your modification is under review.', 'flexi') . "</div>" . flexi_post_toolbar_grid($flexi_id, true);
     }
    } else {
 
-    $response['msg'] = "<div class='flexi_alert-box flexi_error'>" . __('Submission failed', 'flexi') . "</div>";
+    $response['msg'] = "<div class='flexi_alert-box flexi_error'>" . __('Submission failed', 'flexi') . "</div>" . flexi_post_toolbar_grid('', false);
 
    }
   }

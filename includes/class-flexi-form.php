@@ -15,8 +15,10 @@ class Flexi_Shortcode_Form
   add_shortcode('flexi-form', array($this, 'render_form'));
   //Shortcode [flexi-tag] to render to tags
   add_shortcode('flexi-form-tag', array($this, 'render_tags'));
-//Add icon after form submitted
+//Add icon after form submitted to post new
   add_filter("flexi_submit_toolbar", array($this, 'flexi_add_icon_submit_toolbar'), 10, 3);
+  //Add icon after form submitted to view post
+  add_filter("flexi_submit_toolbar", array($this, 'flexi_add_icon_view_post_toolbar'), 10, 3);
  }
 
  public function render_form($params, $content = null)
@@ -107,12 +109,12 @@ class Flexi_Shortcode_Form
 
         </div>
 
-        <div class='flexi_response'></div>
-        <div id="flexi_after_response" style='display: none;'>
-
-            <?php echo flexi_post_toolbar_grid(get_the_ID(), true); ?>
+        <div class='flexi_response'>
 
         </div>
+        <div id="flexi_after_response" style='display: none;'>
+
+           </div>
 
     </div>
 
@@ -230,7 +232,7 @@ action="' . admin_url("admin-ajax.php") . '"
   ?>
    <div id="flexi_form">
 
-       <?php echo flexi_post_toolbar_grid(get_the_ID(), false); ?>
+       <?php echo flexi_post_toolbar_grid($post_id, false); ?>
 </div>
 
 <?php
@@ -271,7 +273,7 @@ action="' . admin_url("admin-ajax.php") . '"
 
    if (flexi_get_option('publish', 'flexi_form_settings', 1) == 1) {
 
-    echo "<div class='flexi_alert-box flexi_success'>" . __('Successfully posted', 'flexi') . "</div>";
+    echo "<div class='flexi_alert-box flexi_success'>" . __('Successfully updated', 'flexi') . "</div>";
 
    } else {
     echo "<div class='flexi_alert-box flexi_warning'>" . __('Your submission is under review.', 'flexi') . "</div>";
@@ -279,15 +281,8 @@ action="' . admin_url("admin-ajax.php") . '"
   } else {
    echo "FAIL";
   }
-  ?>
-   <a href='<?php echo flexi_get_button_url($post_id, false, 'edit_flexi_page', 'flexi_form_settings'); ?>' class='button'>
-                <?php echo __('Edit again', 'flexi'); ?>
-            </a> |
- <a href='<?php echo flexi_get_button_url('', false, 'my_gallery', 'flexi_image_layout_settings'); ?>' class='button'>
-                <?php echo __('My Dashboard', 'flexi'); ?>
-            </a>
-  <?php
 
+  echo flexi_post_toolbar_grid($post_id, false);
  }
 
  public function render_tags($params)
@@ -556,7 +551,7 @@ action="' . admin_url("admin-ajax.php") . '"
 
   if ("#" != $link) {
    $extra_icon = array(
-    array("save", __('Post again', 'flexi'), $link, $id, $class),
+    array("save", __('New Post', 'flexi'), $link, $id, $class),
 
    );
   }
@@ -566,6 +561,28 @@ action="' . admin_url("admin-ajax.php") . '"
    $icon = array_merge($extra_icon, $icon);
   }
 
+  return $icon;
+ }
+
+ //Add post again button after form submit
+ public function flexi_add_icon_view_post_toolbar($icon, $id = '', $bool)
+ {
+  if ('' != $id) {
+   $extra_icon = array();
+   $link       = get_permalink($id);
+
+   if ("#" != $link) {
+    $extra_icon = array(
+     array("eye", __('View Post', 'flexi'), $link, $id, ''),
+
+    );
+   }
+
+   // combine the two arrays
+   if (is_array($extra_icon) && is_array($icon)) {
+    $icon = array_merge($extra_icon, $icon);
+   }
+  }
   return $icon;
  }
 
