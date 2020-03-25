@@ -15,7 +15,7 @@ class Flexi_Gallery_Toolbar
    $tag      = get_term_by('slug', $tag_slug, 'flexi_tag');
 
    if ("" != $tag_slug && true == $tag) {
-    return $tag->name;
+    return '<div class="ui tag labels"><a class="ui label">' . $tag->name . '</a>';
    }
 
    //Show Album Label

@@ -45,7 +45,7 @@ function flexi_custom_field_loop($post, $page = 'detail', $count = 10, $css = tr
  $group = '';
 
  if ($css) {
-  $group .= '<div class="ui celled list">';
+  $group .= '<div class="ui mini celled list">';
  }
 
  $c = 1;
@@ -712,7 +712,11 @@ function flexi_image_src($size = 'flexi-thumb', $post = '')
  if ($image_attributes) {
   return $image_attributes[0];
  } else {
-  return plugins_url('../public/images/noimg.png', __FILE__);
+  if ('flexi-thumb' == $size) {
+   return plugins_url('../public/images/noimg_thumb.jpg', __FILE__);
+  } else {
+   return plugins_url('../public/images/noimg.png', __FILE__);
+  }
  }
 }
 
@@ -731,6 +735,30 @@ function flexi_get_author()
  }
 
  return $author_id;
+}
+
+//Check if current page equals to selected page
+function is_flexi_page($field_name, $section_name)
+{
+ //$current_page_id = get_the_ID();
+ $current_page_id = get_queried_object_id();
+ $test_page_id    = flexi_get_option($field_name, $section_name, 0);
+
+ if ($current_page_id == $test_page_id) {
+  return true;
+ }
+ return false;
+}
+
+//Check If Flexi-PRO
+function flexi_load_setting()
+{
+ include_once ABSPATH . 'wp-admin/includes/plugin.php';
+ if (is_plugin_active('wp-upg-pro/wp-upg-pro.php')) {
+  return true;
+ } else {
+  return false;
+ }
 }
 
 //Get link and added attributes of the image based on lightbox

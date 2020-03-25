@@ -33,7 +33,7 @@ class Flexi_Admin_Dashboard_Pro
 
 <h3>Flexi Pro</h3>
 <b>Flexi Version: </b> <?php echo FLEXI_VERSION; ?> (Beta Version)<br>
-<b>Flexi PRO status:</b> <?php if (is_flexi_pro()) {echo "Enabled";} else {echo "Disabled";}?>
+<b>Flexi PRO status:</b> <?php if (flexi_load_setting()) {echo "Enabled";} else {echo "Disabled";}?>
 
 <h3>Features of Flexi PRO</h3>
 <ul>
