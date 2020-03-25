@@ -1,4 +1,4 @@
-=== Flexi UPG Gallery ===
+=== Flexi Gallery ===
 Contributors: odude
 Donate link: https://odude.com/
 Tags: gallery, image gallery, images, photo gallery
@@ -79,6 +79,11 @@ Unless we release FLEXI-PRO version, you can use UPG-PRO which will enabled all 
 2. Multi file upload
 
 == Changelog ==
+= 1.0.7 =
+* User avatar 
+* Implemented Semantic UI CSS
+* User Dashboard page with menu toolbar
+
 = 1.0.6 =
 * Added custom field supports
 

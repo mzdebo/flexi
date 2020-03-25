@@ -15,7 +15,8 @@ function flexi_author($author = '', $redirect = true)
   } else if (flexi_get_option('enable_buddypress', 'flexi_extension', 0) == '1' && function_exists('bp_core_get_user_domain') && $redirect) {
    $linku = bp_core_get_user_domain($author->ID) . "flexi";
   } else {
-   $linku = esc_url(get_permalink(flexi_get_option('primary_page', 'flexi_image_layout_settings', 0)) . "&user=" . $author->user_nicename);
+   $linku = get_permalink(flexi_get_option('primary_page', 'flexi_image_layout_settings', 0));
+   $linku = add_query_arg("flexi_user", $author->user_nicename, $linku);
   }
  } else {
   $linku = "";
