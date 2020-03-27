@@ -24,7 +24,8 @@ class Flexi_Gallery_Toolbar
    $term      = get_term_by('slug', $term_slug, 'flexi_category');
 
    if ("" != $term_slug && true == $term) {
-    return $term->name;
+    //return $term->name;
+    return flexi_album_single($term_slug, 'ui large image label');
    }
 
    //Show User Name

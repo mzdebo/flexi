@@ -468,18 +468,26 @@ class Flexi_Post_Types
    $this->register_single_post_type($fields);
   }
 
-  $parent_term    = term_exists('', 'flexi_category'); // array is returned if taxonomy is given
-  $parent_term_id = $parent_term['term_id']; // get numeric term id
-  wp_insert_term(
-   'Uncategorized', // the term
-   'flexi_category', // the taxonomy
-   array(
-    'description' => 'Uncategorized images',
-    'slug'        => 'uncategorized',
-    'parent'      => $parent_term_id,
-   )
-  );
+  $parent_term = term_exists('', 'flexi_category'); // array is returned if taxonomy is given
 
+  $numTerms = wp_count_terms('flexi_category', array(
+   'hide_empty' => false,
+   'parent'     => 0,
+  ));
+
+  if (0 == $numTerms) {
+
+   $parent_term_id = $parent_term['term_id']; // get numeric term id
+   wp_insert_term(
+    'Uncategorized', // the term
+    'flexi_category', // the taxonomy
+    array(
+     'description' => 'Uncategorized images',
+     'slug'        => 'uncategorized',
+     'parent'      => $parent_term_id,
+    )
+   );
+  }
  }
 
 }

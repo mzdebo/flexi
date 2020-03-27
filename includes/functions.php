@@ -40,13 +40,52 @@ function flexi_custom_field_value($post_id, $field_name)
  }
 }
 
+//Get attachment detail
+function flexi_get_attachment($attachment_id)
+{
+ $attachment = get_post($attachment_id);
+ return array(
+  'alt'         => get_post_meta($attachment->ID, '_wp_attachment_image_alt', true),
+  'caption'     => $attachment->post_excerpt,
+  'description' => $attachment->post_content,
+  'href'        => get_permalink($attachment->ID),
+  'src'         => $attachment->guid,
+  'title'       => $attachment->post_title,
+ );
+}
+
+/**
+ * Sample template tag function for outputting a cmb2 file_list
+ *
+ * @param  string  $post_id
+ * @param  string  $img_size           Size of image to show
+ */
+function flexi_standalone_gallery($post_id, $img_size = 'flexi-thumb')
+{
+
+ // Get the list of files
+ $files = get_post_meta($post_id, 'flexi_standalone_gallery', 1);
+ echo '<div class="ui small images">';
+ // Loop through them and output an image
+ foreach ((array) $files as $attachment_id => $attachment_url) {
+
+  $image_alt = flexi_get_attachment($attachment_id);
+
+  echo '<a data-fancybox="flexi_standalone_gallery" class="ui medium image" href="' . wp_get_attachment_image_src($attachment_id, 'flexi_large')[0] . '" data-caption="' . $image_alt['title'] . '" border="0">';
+  echo '<img src="' . wp_get_attachment_image_src($attachment_id, $img_size)[0] . '">';
+  echo '</a>';
+
+ }
+ echo '</div>';
+}
+
 //Custom Fields
 function flexi_custom_field_loop($post, $page = 'detail', $count = 10, $css = true)
 {
  $group = '';
 
  if ($css) {
-  $group .= '<div class="ui mini celled list">';
+  $group .= '<div class="ui tiny celled list">';
  }
 
  $c = 1;
@@ -234,6 +273,71 @@ function flexi_list_tags($post, $class = "flexi_tag-default")
 
 }
 
+//Flexi List TAGs
+function flexi_list_album($post, $class = "ui avatar image")
+{
+ //Returns All Term Items for "my_taxonomy"
+ $term_list = wp_get_post_terms($post->ID, 'flexi_category', array("fields" => "all"));
+ //var_dump($term_list);
+
+ if (count($term_list) > 0) {
+  echo '<div class="ui horizontal list">';
+ }
+
+ for ($x = 0; $x < count($term_list); $x++) {
+
+  $link = get_permalink(flexi_get_option('primary_page', 'flexi_image_layout_settings', 0));
+  $link = add_query_arg("flexi_category", $term_list[$x]->slug, $link);
+
+  //echo '<a href="' . $link . '" class="' . $class . '">' . $term_list[$x]->name . '</a>';
+
+  echo ' <div class="item">
+<img class="' . $class . '" src="' . flexi_album_image($term_list[$x]->slug) . '">
+  <div class="content">
+ <a href="' . $link . '" class="header"> ' . $term_list[$x]->name . '</a>
+    ' . $term_list[$x]->description . '
+  </div>
+</div>';
+ }
+
+ if (count($term_list) > 0) {
+  echo '</div>';
+ }
+
+}
+
+//Get single album with title
+function flexi_album_single($term_slug, $class = 'ui image label')
+{
+ $term = get_term_by('slug', $term_slug, 'flexi_category');
+ if ($term) {
+  $link = get_permalink(flexi_get_option('primary_page', 'flexi_image_layout_settings', 0));
+  $link = add_query_arg("flexi_category", $term->slug, $link);
+  return '<a href="' . $link . '" class="' . $class . '">
+        <img src="' . flexi_album_image($term_slug) . '">
+        ' . $term->name . '<div class="detail">' . __('Album', 'flexi') . '</div>
+      </a>';
+ } else {
+  return "";
+ }
+}
+
+//Get album image
+function flexi_album_image($term_slug)
+{
+ $cate_thumb_pic = plugins_url('../public/images/noimg_thumb.jpg', __FILE__);
+
+ $term = get_term_by('slug', $term_slug, 'flexi_category');
+ if ("" != $term_slug && true == $term) {
+
+  $cate_thumb_pic = get_term_meta($term->term_id, 'flexi_image_category', true);
+  if (!$cate_thumb_pic) {
+   $cate_thumb_pic = plugins_url('../public/images/noimg_thumb.jpg', __FILE__);
+  }
+
+ }
+ return $cate_thumb_pic;
+}
 //Layout List select box
 //parameters 'selected layout',"input field name","form | media | grid",'show eye icon true | false'
 function flexi_layout_list($args = '')

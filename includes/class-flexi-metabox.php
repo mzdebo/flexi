@@ -53,6 +53,24 @@ class Flexi_Meta_boxes
    'preview_size' => 'medium', // Image size to use when previewing in the admin.
   ));
 
+//Add Image gallery
+  $cmb->add_field(array(
+   'name'       => 'Standalone Image Gallery',
+   'desc'       => '',
+   'id'         => 'flexi_standalone_gallery',
+   'type'       => 'file_list',
+   // 'preview_size' => array( 100, 100 ), // Default: array( 50, 50 )
+   'query_args' => array('type' => 'image'), // Only images attachment
+   // Optional, override default text strings
+   'text'       => array(
+    'add_upload_files_text' => 'Upload Multiple Image Files', // default: "Add or Upload Files"
+    //'remove_image_text'     => 'Replacement', // default: "Remove Image"
+    //'file_text'             => 'Replacement', // default: "File:"
+    //'file_download_text'    => 'Replacement', // default: "Download"
+    //'remove_text'           => 'Replacement', // default: "Remove"
+   ),
+  ));
+
   // Add meta box to flexi_category
   /**
    * Initiate the metabox
