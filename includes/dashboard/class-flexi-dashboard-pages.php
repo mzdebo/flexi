@@ -48,7 +48,7 @@ echo "<a href='" . flexi_get_button_url('', false, 'submission_form', 'flexi_for
 Page should contain <code>[flexi-form]</code> shortcode enclosed with <code>[flexi-form-tag]</code>. Link this page at <a href="<?php echo admin_url('nav-menus.php'); ?>">frontend menu</a>.
 <div id="sample_post_form" style="display:none;">
      <p>
-     [flexi-form class="pure-form pure-form-stacked" title="Submit to Flexi" name="my_form" ajax="true"]<br>
+     [flexi-form class="ui form" title="Submit to Flexi" name="my_form" ajax="true"]<br>
 		[flexi-form-tag type="post_title" title="Title" value="" placeholder="main title"]<br>
 		[flexi-form-tag type="category" title="Select category" taxonomy="flexi_cate" filter="image"]<br>
 		[flexi-form-tag type="tag" title="Insert tag"]<br>
@@ -74,7 +74,7 @@ echo "<a href='" . flexi_get_button_url('', false, 'edit_flexi_page', 'flexi_for
 Page should contain <code>[flexi-form edit="true"]</code> shortcode enclosed with <code>[flexi-form-tag edit="true"]</code>
 <div id="sample_edit_form" style="display:none;">
      <p>
-    [flexi-form class="pure-form pure-form-stacked" title="Update Flexi" name="my_form" ajax="true" edit="true"]<br>
+    [flexi-form class="ui form" title="Update Flexi" name="my_form" ajax="true" edit="true"]<br>
     [flexi-form-tag type="post_title" title="Title" placeholder="main title" edit="true" ]<br>
     [flexi-form-tag type="category" title="Select category" edit="true"]<br>
     [flexi-form-tag type="tag" title="Insert tag" edit="true"]<br>

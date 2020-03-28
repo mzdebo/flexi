@@ -1,10 +1,4 @@
-/* Fix purecss on passing class directly */
-
-.pure-g > div {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
+/* Fix css on passing class directly */
 
 /* Fit image into div */
 .flexi-fit_cover {

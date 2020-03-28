@@ -1,7 +1,7 @@
 <?php
 $data = flexi_image_data('flexi-thumb', $post, $popup);
 ?>
- <div class="column" flexi_gallery_child flexi_padding" id="flexi_<?php echo get_the_ID(); ?>"
+ <div class="column flexi_gallery_child flexi_padding" id="flexi_<?php echo get_the_ID(); ?>"
     data-tags="<?php echo $tags; ?>">
     <div class='flexi_loop_content flexi_frame_2'>
 

@@ -416,7 +416,7 @@ function flexi_get_button_url($param = '', $ajax = true, $type = 'submission_for
 function flexi_default_args($params)
 {
  $value = array(
-  'class'         => 'pure-form pure-form-stacked',
+  'class'         => 'ui form',
   'title'         => 'Submit',
   'preview'       => 'default',
   'name'          => '',
