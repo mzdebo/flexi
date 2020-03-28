@@ -1,3 +1,10 @@
+.flexi_content > .ui.grid > .row {
+  padding: 0rem;
+}
+
+.flexi_content > .ui.grid > .row > .column {
+  padding: 0rem;
+}
 /* Responsive table */
 .flexi_wrapper {
   margin: 0 auto;

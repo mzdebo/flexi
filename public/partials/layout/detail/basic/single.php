@@ -5,55 +5,45 @@
 </a>
  */
 ?>
- <div id="flexi_content_<?php echo get_the_ID(); ?>">
-<div class="pure-g">
-	<div class="pure-u-1-1">
-		<div class="flexi_margin-box" style='text-align: center;'>
-		<?php if (get_post_status() == 'draft' || get_post_status() == "pending") {?><Small><div class="flexi_badge"> <?php echo __("Under Review", "flexi"); ?></div></small><?php }?>
-                    <?php
+ <div class= "flexi_content" id="flexi_content_<?php echo get_the_ID(); ?>">
+
+
+ <div class="ui padded grid">
+  <div class="row">
+    <div class="column">
+
+	<?php if (get_post_status() == 'draft' || get_post_status() == "pending") {?><Small>
+					<div class="flexi_badge"> <?php echo __("Under Review", "flexi"); ?></div>
+				</small><?php }?>
+				<?php
 echo "<div class='flexi_frame_1' ><img src='" . flexi_image_src('flexi-large') . "' ></div>";
 ?>
-<?php echo flexi_show_icon_grid(); ?>
 
-        </div>
-    </div>
-	<div class="pure-u-1" style="text-align:center;">
-		<?php flexi_standalone_gallery(get_the_ID(), 'flexi-thumb');?>
-		</div>
-		<div class="pure-u-1">
-				<div class="flexi_margin-box">
-
-					<div class="flex-desp"> <?php echo wpautop(stripslashes($post->post_content)); ?></div>
-
-				</div>
-		</div>
-
-    </div>
-    <div class="pure-g">
-	<div class="pure-u-1 pure-u-md-1-2">
-	<div class="flexi_margin-box">
-        <?php flexi_list_tags($post, 'ui tag label');?>
+	</div>
+  </div>
+  <div class="row">
+    <div class="column" style="text-align:center;"><?php echo flexi_show_icon_grid(); ?></div>
+  </div>
+  <div class="row">
+    <div class="column" style="text-align:center;"><?php flexi_standalone_gallery(get_the_ID(), 'flexi-thumb');?></div>
+  </div>
 </div>
-	    </div>
-    <div class="pure-u-1 pure-u-md-1-2">
-	<div class="flexi_margin-box">
-    <?php
-echo flexi_custom_field_loop($post, 'detail');
-?>
 
 
-          </div>
-        </div>
-      </div>
 
-	  <?php flexi_list_album($post, 'ui avatar image');?>
+<div class="ui basic segment"> <?php echo wpautop(stripslashes($post->post_content)); ?></div>
+
+
+
 	  <hr>
 
-
+	  <div class="ui stackable equal width grid">
+  <div class="column"><?php echo flexi_custom_field_loop($post, 'detail'); ?></div>
+  <div class="column">
+	  <?php flexi_list_album($post, 'ui avatar image');?>
+<hr>
+<?php flexi_list_tags($post, 'ui tag label');?></div>
 
 </div>
 
-</div>
-
-</div>
 </div>
