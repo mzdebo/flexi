@@ -7,7 +7,7 @@ $toolbar = new Flexi_Gallery_Toolbar();
 <?php
 //Display tags
 if ($show_tag) {
- echo flexi_generate_tags($tags_array, 'tiny ui tag label', 'filter_tag') . "<div style='clear:both;'></div>";
+ echo flexi_generate_tags($tags_array, 'mini ui tag label', 'filter_tag') . "<div style='clear:both;'></div>";
 }
 ?>
 

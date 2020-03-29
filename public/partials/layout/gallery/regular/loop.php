@@ -2,7 +2,7 @@
 $data = flexi_image_data('flexi-thumb', $post, $popup);
 ?>
 
-<div class="col-sm-<?php echo $column; ?> flexi_gallery_child flexi_padding" id="flexi_<?php echo get_the_ID(); ?>" data-tags="<?php echo $tags; ?>">
+<div class="pure-u-1 pure-u-md-1-<?php echo $column; ?> flexi_gallery_child flexi_padding" id="flexi_<?php echo get_the_ID(); ?>" style="position: relative;" data-tags="<?php echo $tags; ?>">
 
       <div class="flexi_effect <?php echo $data['popup']; ?>" id="<?php echo $hover_effect; ?>">
 

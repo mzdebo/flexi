@@ -79,9 +79,6 @@ Unless we release FLEXI-PRO version, you can use UPG-PRO which will enabled all 
 2. Multi file upload
 
 == Changelog ==
-* 1.0.8 =
-* Fixed recreation of deleted category
-
 = 1.0.7 =
 * User avatar 
 * Implemented Semantic UI CSS

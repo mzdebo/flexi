@@ -87,8 +87,6 @@ class Flexi_Shortcode_Gallery
    $column = flexi_get_option('column', 'flexi_image_layout_settings', 3);
   }
 
-  $column = ceil(12 / $column);
-
   if (isset($params['page'])) {
    $page = $params['page'];
   }
