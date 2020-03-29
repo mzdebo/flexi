@@ -18,7 +18,7 @@ class Flexi_Meta_boxes
    */
   $cmb = new_cmb2_box(array(
    'id'           => 'flexi_metabox',
-   'title'        => __('Flexi Meta Controls', 'cmb2'),
+   'title'        => __('Flexi Meta Controls', 'flexi'),
    'object_types' => array('flexi'), // Post type
    'context'      => 'normal',
    'priority'     => 'high',
@@ -77,7 +77,7 @@ class Flexi_Meta_boxes
    */
   $cmb_category = new_cmb2_box(array(
    'id'           => 'flexi_metabox_category',
-   'title'        => __('Category Thumbnail', 'cmb2'),
+   'title'        => __('Category Thumbnail', 'flexi'),
    'object_types' => array('term'), // Tells CMB2 to use term_meta vs post_meta
    'taxonomies'   => array('flexi_category'), // Tells CMB2 which taxonomies should have these fields
    'context'      => 'normal',
@@ -111,6 +111,31 @@ class Flexi_Meta_boxes
     ),
    ),
    'preview_size' => 'medium', // Image size to use when previewing in the admin.
+  ));
+
+  $cmb_side = new_cmb2_box(array(
+   'id'           => 'flexi_metabox_side',
+   'title'        => __('Flexi Shortcode', 'cmb2'),
+   'object_types' => array('flexi'), // Post type
+   'context'      => 'side', //  'normal', 'advanced', or 'side'
+   'priority'     => 'high',
+   'show_names'   => true, // Show field names on the left
+   // 'cmb_styles' => false, // false to disable the CMB stylesheet
+   // 'closed'     => true, // Keep the metabox closed by default
+  ));
+
+  // Regular text field
+  $cmb_side->add_field(array(
+   'name'        => 'Shortcode for standalone gallery',
+   'description' => 'Display gallery of images available only of this post.',
+   'id'          => 'flexi_standalone_shortcode',
+   'type'        => 'text',
+   'default'     => esc_attr__(isset($_GET['post']) ? '[flexi-standalone id="' . $_GET['post'] . '"]' : __('Waiting for update', 'flexi'), 'flexi'),
+   'save_field'  => false, // Otherwise CMB2 will end up removing the value.
+   'attributes'  => array(
+    'readonly' => 'readonly',
+    //'disabled' => 'disabled',
+   ),
   ));
 
  }

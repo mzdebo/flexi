@@ -77,7 +77,7 @@ class Flexi_Public
 
   wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/flexi-public.css', array(), $this->version, 'all');
   wp_enqueue_style($this->plugin_name . '_fancybox', plugin_dir_url(__FILE__) . 'css/jquery.fancybox.min.css', array(), $this->version, 'all');
-  wp_enqueue_style($this->plugin_name . '_semantic', plugin_dir_url(__FILE__) . 'css/semantic.min.css', array(), $this->version, 'all');
+  wp_enqueue_style($this->plugin_name . '_bootstrap', plugin_dir_url(__FILE__) . 'css/bootstrap.min.css', array(), $this->version, 'all');
  }
 
  /**
@@ -104,7 +104,7 @@ class Flexi_Public
   wp_enqueue_script($this->plugin_name . '_fancybox', plugin_dir_url(__FILE__) . 'js/jquery.fancybox.min.js', array('jquery'), $this->version, false);
   wp_enqueue_script($this->plugin_name . '_tags', plugin_dir_url(__FILE__) . 'js/jquery.tagsinput.js', '', $this->version, false);
   wp_enqueue_script($this->plugin_name . '_tags_filter', plugin_dir_url(__FILE__) . 'js/filter-tags.js', '', $this->version, false);
-  wp_enqueue_script($this->plugin_name . '_semantic', plugin_dir_url(__FILE__) . 'js/semantic.min.js', array('jquery'), $this->version, false);
+  wp_enqueue_script($this->plugin_name . '_bootstrap', plugin_dir_url(__FILE__) . 'js/bootstrap.min.js', array('jquery'), $this->version, false);
   //Add wordpress dashicons
   wp_enqueue_style('dashicons');
 

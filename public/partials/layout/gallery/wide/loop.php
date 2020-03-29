@@ -1,14 +1,13 @@
 <?php
 $data = flexi_image_data('flexi-thumb', $post, $popup);
 ?>
- <div class="column flexi_gallery_child flexi_padding" id="flexi_<?php echo get_the_ID(); ?>"
+ <div class="col-sm-<?php echo $column; ?> py-3 px-lg-5 flexi_gallery_child flexi_padding" id="flexi_<?php echo get_the_ID(); ?>"
     data-tags="<?php echo $tags; ?>">
     <div class='flexi_loop_content flexi_frame_2'>
 
-        <div class="ui internally celled grid">
-            <div class="row">
-                <div class="four wide column">
-                <div class="flexi_media <?php echo $data['popup']; ?>">
+    <div class="row">
+    <div class="col-3">
+    <div class="flexi_media <?php echo $data['popup']; ?>">
                     <a
                         <?php echo $data['extra'] . ' href="' . $data['url'] . '" data-caption="' . $data['title'] . '" border="0"'; ?>>
                         <img class="flexi_image_frame"
@@ -16,35 +15,19 @@ $data = flexi_image_data('flexi-thumb', $post, $popup);
                         <?php echo ' <div class="flexi_figcaption" id="flexi_cap_' . get_the_ID() . '"></div>'; ?>
                     </a>
                     </div>
-                </div>
-                <div class="twelve wide column">
+    </div>
+    <div class="col-9">
+    <div class="row">
+    <div class="col">
+    <p class="h5"><?php echo $data['title']; ?> </p>
+    <p>
+    <?php echo flexi_excerpt(20); ?>
+</p>
 
-                    <div class="ui stackable equal width grid">
-                        <div class="column">
+    </div>
 
-                            <div class="ui basic segment">
-                                <h4 class="ui header">A header</h4>
-                                <?php echo flexi_excerpt(20); ?>
-                                <div class="ui fitted divider"></div>
-                                <?php echo flexi_show_icon_grid(); ?>
-                            </div>
-
-                        </div>
-
-                        <?php
-
-$c = flexi_custom_field_loop($post, 'gallery', 2);
-if ('<div class="ui tiny celled list"></div>' != $c) {
- echo '<div class="column">' . $c . '</div>';
-}
-
-?>
-
-                    </div>
-
-                </div>
-            </div>
-        </div>
+    </div></div>
+  </div>
     </div>
 </div>
 <script>

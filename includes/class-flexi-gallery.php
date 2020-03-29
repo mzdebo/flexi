@@ -87,24 +87,7 @@ class Flexi_Shortcode_Gallery
    $column = flexi_get_option('column', 'flexi_image_layout_settings', 3);
   }
 
-  //For semantic grid rules
-  if (2 == $column) {
-   $column = 'two';
-  } else if (3 == $column) {
-   $column = 'three';
-  } else if (4 == $column) {
-   $column = 'four';
-  } else if (5 == $column) {
-   $column = 'five';
-  } else if (6 == $column) {
-   $column = 'six';
-  } else if (7 == $column) {
-   $column = 'seven';
-  } else if (8 == $column) {
-   $column = 'eight';
-  } else {
-   $column = 'one';
-  }
+  $column = ceil(12 / $column);
 
   if (isset($params['page'])) {
    $page = $params['page'];
