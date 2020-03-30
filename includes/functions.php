@@ -959,7 +959,7 @@ function flexi_create_pages()
 
   $str_post_image = '
         <!-- wp:shortcode -->
-		[flexi-form class="ui form" title="Submit to Flexi" name="my_form" ajax="true"]
+		[flexi-form class="pure-form pure-form-stacked" title="Submit to Flexi" name="my_form" ajax="true"]
 		[flexi-form-tag type="post_title" title="Title" value="" placeholder="main title"]
 		[flexi-form-tag type="category" title="Select category" taxonomy="flexi_cate" filter="image"]
 		[flexi-form-tag type="tag" title="Insert tag"]
@@ -978,7 +978,7 @@ function flexi_create_pages()
 
   $str_edit_image = '
   <!-- wp:shortcode -->
-  [flexi-form class="ui form" title="Update Flexi" name="my_form" ajax="true" edit="true"]
+  [flexi-form class="pure-form pure-form-stacked" title="Update Flexi" name="my_form" ajax="true" edit="true"]
   [flexi-form-tag type="post_title" title="Title" placeholder="main title" edit="true" ]
   [flexi-form-tag type="category" title="Select category" edit="true"]
   [flexi-form-tag type="tag" title="Insert tag" edit="true"]
