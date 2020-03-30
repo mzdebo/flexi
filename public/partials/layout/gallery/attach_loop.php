@@ -4,7 +4,11 @@ $tags = flexi_get_taxonomy_raw($post->ID, 'flexi_tag');
 //If classic page navigation selected
 if ('page' == $navigation) {
  //Attach loop gallery based based on layout selection
- require FLEXI_PLUGIN_DIR . 'public/partials/layout/gallery/' . $layout . '/loop.php';
+ $loop_file = FLEXI_PLUGIN_DIR . 'public/partials/layout/gallery/' . $layout . '/loop.php';
+ if (file_exists($loop_file)) {
+  require $loop_file;
+ }
+
 } else {
  //Above specified variable will not be passed to ajax loading
  //Specify at

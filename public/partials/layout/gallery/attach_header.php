@@ -13,7 +13,10 @@ if ($show_tag) {
 
 <?php
 //Attach header gallery based based on layout selection
-require FLEXI_PLUGIN_DIR . 'public/partials/layout/gallery/' . $layout . '/header.php';
+$header_file = FLEXI_PLUGIN_DIR . 'public/partials/layout/gallery/' . $layout . '/header.php';
+if (file_exists($header_file)) {
+ require $header_file;
+}
 
 if ('scroll' == $navigation || 'button' == $navigation) {
 

@@ -41,4 +41,15 @@ echo flexi_custom_field_loop($post, 'detail');
 </div>
 
 </div>
+<?php flexi_standalone_gallery(get_the_ID(), 'flexi-thumb');?>
+<hr>
+<?php echo wpautop(stripslashes($post->post_content)); ?>
+  <hr>
+  <?php echo flexi_custom_field_loop($post, 'detail'); ?>
+  <hr>
+  <?php flexi_list_album($post, 'ui avatar image');?>
+  <hr>
+  <?php flexi_list_tags($post, 'ui tag label');?>
+
+
 </div>

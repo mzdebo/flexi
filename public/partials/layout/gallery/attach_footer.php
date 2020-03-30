@@ -1,6 +1,10 @@
 <?php
 //Attach footer of gallery based based on layout selection
-require FLEXI_PLUGIN_DIR . 'public/partials/layout/gallery/' . $layout . '/footer.php';
+
+$footer_file = FLEXI_PLUGIN_DIR . 'public/partials/layout/gallery/' . $layout . '/footer.php';
+if (file_exists($footer_file)) {
+ require $footer_file;
+}
 
 //If AJAX loading is enabled
 
