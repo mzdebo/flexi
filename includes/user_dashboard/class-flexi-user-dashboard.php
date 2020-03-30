@@ -55,7 +55,7 @@ class Flexi_User_Dashboard
 
   if ("#" != $link) {
    $extra_icon = array(
-    array("bars", __('My Dashboard', 'flexi'), $link, $id, ''),
+    array("dashicons-phone", __('My Dashboard', 'flexi'), $link, $id, 'pure-button'),
 
    );
   }

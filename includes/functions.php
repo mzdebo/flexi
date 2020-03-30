@@ -1072,7 +1072,7 @@ function flexi_post_toolbar_grid($id, $bool)
  for ($r = 0; $r < count($icon); $r++) {
 
   if ("" != $icon[$r][0]) {
-   $list .= '<a href="' . $icon[$r][2] . '" class="' . $icon[$r][4] . ' item"><i class="' . $icon[$r][0] . ' icon"></i>' . $icon[$r][1] . '</a>';
+   $list .= '<a href="' . $icon[$r][2] . '" class="' . $icon[$r][4] . '"><span class="dashicons ' . $icon[$r][0] . '"></span> ' . $icon[$r][1] . '</a>';
   }
 
  }
