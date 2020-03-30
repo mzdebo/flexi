@@ -1066,7 +1066,7 @@ function flexi_post_toolbar_grid($id, $bool)
  }
 
  if (count($icon) > 0) {
-  $list .= '<div class="ui compact menu" id="flexi_toolbar_' . get_the_ID() . '">';
+  $list .= '<div class="pure-button-group" role="toolbar" id="flexi_toolbar_' . get_the_ID() . '">';
  }
 
  for ($r = 0; $r < count($icon); $r++) {

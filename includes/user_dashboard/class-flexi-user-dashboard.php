@@ -17,18 +17,13 @@ class Flexi_User_Dashboard
 
     $current_user = wp_get_current_user();
     ?>
-    <div style="text-align:center;"><?php echo flexi_author(); ?></div>
+    <div style="text-align:center;"><?php echo flexi_author(); ?>
 
-   <form method="get">
-<div class="ui fluid action input">
-
-<input type="text" name="search" placeholder="<?php echo __('Search post', 'flexi'); ?>">
-
-  <div class="ui button">Search</div>
-
-</div>
-</form>
-
+   <form method="get" class="pure-form">
+      <input type="text" name="search" placeholder="<?php echo __('Search post', 'flexi'); ?>" class="pure-input-rounded">
+      <button type="submit" class="pure-button">Search</button>
+    </form>
+    </div>
    <div class="ui top attached tabular menu">
   <div class="active item"> <?php echo __('My Posts', 'flexi'); ?></div>
 </div>
@@ -55,7 +50,7 @@ class Flexi_User_Dashboard
 
   if ("#" != $link) {
    $extra_icon = array(
-    array("dashicons-phone", __('My Dashboard', 'flexi'), $link, $id, 'pure-button'),
+    array("dashicons-menu", __('My Dashboard', 'flexi'), $link, $id, 'pure-button'),
 
    );
   }
