@@ -7,6 +7,7 @@ class Flexi_User_Dashboard
  {
   add_shortcode('flexi-user-dashboard', array($this, 'flexi_user_dashboard'));
   add_filter("flexi_submit_toolbar", array($this, 'flexi_add_icon_submit_toolbar'), 10, 2);
+  add_action('wp', array($this, 'enqueue_styles'));
  }
 
  public function flexi_user_dashboard()
@@ -17,19 +18,27 @@ class Flexi_User_Dashboard
 
     $current_user = wp_get_current_user();
     ?>
-    <div style="text-align:center;"><?php echo flexi_author(); ?>
 
-   <form method="get" class="pure-form">
-      <input type="text" name="search" placeholder="<?php echo __('Search post', 'flexi'); ?>" class="pure-input-rounded">
-      <button type="submit" class="pure-button">Search</button>
-    </form>
-    </div>
-   <div class="ui top attached tabular menu">
-  <div class="active item"> <?php echo __('My Posts', 'flexi'); ?></div>
-</div>
-<div class="ui bottom attached active tab segment">
-<?php do_action('flexi_user_dashboard');?>
-</div>
+<div style="text-align:center;"><?php echo flexi_author(); ?>
+
+<form method="get" class="pure-form">
+   <input type="text" name="search" placeholder="<?php echo __('Search post', 'flexi'); ?>" class="pure-input-rounded">
+   <button type="submit" class="pure-button">Search</button>
+ </form>
+ </div>
+
+<ul data-tabs>
+		<li><a data-tabby-default href="#my_post"><?php echo __('My Posts', 'flexi'); ?></a></li>
+</ul>
+
+	<div id="my_post">
+	<?php do_action('flexi_user_dashboard');?>
+  </div>
+
+
+  <script>
+		var tabs = new Tabby('[data-tabs]');
+	</script>
 
 <?php
 
@@ -61,6 +70,21 @@ class Flexi_User_Dashboard
   }
 
   return $icon;
+ }
+
+ public function enqueue_styles()
+ {
+  global $post;
+
+  $my_gallery_id   = flexi_get_option('my_gallery', 'flexi_image_layout_settings', 0);
+  $current_page_id = get_queried_object_id();
+
+  if ($current_page_id == $my_gallery_id) {
+   wp_register_style('flexi_tab_css', FLEXI_PLUGIN_URL . '/public/css/tabby-ui.css', null, FLEXI_VERSION);
+   wp_enqueue_style('flexi_tab_css');
+   wp_enqueue_script('flexi_tab_script', FLEXI_PLUGIN_URL . '/public/js/tabby.js', '', FLEXI_VERSION, false);
+   wp_enqueue_script('flexi_tab_script');
+  }
  }
 
 }

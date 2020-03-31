@@ -228,7 +228,7 @@ function flexi_get_taxonomy_raw($post_id, $taxonomy_name)
 }
 
 //Generate gallery_tags link
-function flexi_generate_tags($tags_array, $upg_tag_class = 'flexi_tag-default', $filter_class = 'filter_tag')
+function flexi_generate_tags($tags_array, $upg_tag_class = 'flexi_tag flexi_tag-default', $filter_class = 'filter_tag')
 {
  $taglink = '';
  if (count($tags_array) > 1) {
@@ -248,7 +248,7 @@ function flexi_generate_tags($tags_array, $upg_tag_class = 'flexi_tag-default', 
 }
 
 //Flexi List TAGs
-function flexi_list_tags($post, $class = "flexi_tag-default")
+function flexi_list_tags($post, $class = "flexi_tag flexi_tag-default")
 {
  //Returns All Term Items for "my_taxonomy"
  $term_list = wp_get_post_terms($post->ID, 'flexi_tag', array("fields" => "all"));

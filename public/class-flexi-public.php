@@ -82,6 +82,7 @@ class Flexi_Public
   wp_enqueue_style($this->plugin_name . '_purecss_responsive', plugin_dir_url(__FILE__) . 'css/purecss/grids-responsive-min.css', array(), $this->version, 'all');
   wp_enqueue_style($this->plugin_name . '_purecss_buttons', plugin_dir_url(__FILE__) . 'css/purecss/buttons-min.css', array(), $this->version, 'all');
   wp_enqueue_style($this->plugin_name . '_purecss_forms', plugin_dir_url(__FILE__) . 'css/purecss/forms-min.css', array(), $this->version, 'all');
+
  }
 
  /**
@@ -108,6 +109,7 @@ class Flexi_Public
   wp_enqueue_script($this->plugin_name . '_fancybox', plugin_dir_url(__FILE__) . 'js/jquery.fancybox.min.js', array('jquery'), $this->version, false);
   wp_enqueue_script($this->plugin_name . '_tags', plugin_dir_url(__FILE__) . 'js/jquery.tagsinput.js', '', $this->version, false);
   wp_enqueue_script($this->plugin_name . '_tags_filter', plugin_dir_url(__FILE__) . 'js/filter-tags.js', '', $this->version, false);
+
   //Add wordpress dashicons
   wp_enqueue_style('dashicons');
 
