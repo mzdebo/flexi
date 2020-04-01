@@ -90,7 +90,7 @@ function flexi_custom_field_loop($post, $page = 'detail', $count = 10, $css = tr
  $group = '';
 
  if ($css) {
-  $group .= '<div class="ui mini celled list">';
+  $group .= '<ul class="flexi_list">';
  }
 
  $c = 1;
@@ -106,7 +106,7 @@ function flexi_custom_field_loop($post, $page = 'detail', $count = 10, $css = tr
    if (in_array($page, $display)) {
     if ('' != $value[0]) {
      if ($css) {
-      $group .= '<div class="item"><div class="content"> <div class="header">' . $label . '</div>' . $value[0] . '</div> </div>';
+      $group .= '<li><label>' . $label . '<span class="dashicons dashicons-arrow-right"></span></label><div>' . $value[0] . '</div></li>';
      } else {
       $group .= $label . ': ' . $value[0];
      }
@@ -121,7 +121,7 @@ function flexi_custom_field_loop($post, $page = 'detail', $count = 10, $css = tr
   }
  }
  if ($css) {
-  $group .= "</div>";
+  $group .= "</ul>";
  }
 
  return $group;
