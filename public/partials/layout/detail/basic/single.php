@@ -51,7 +51,7 @@ echo flexi_custom_field_loop($post, 'detail');
 
 
   <hr>
-  <?php flexi_list_album($post, 'ui avatar image');?>
+  <?php flexi_list_album($post, 'flexi-icon-list-frame');?>
 
 
 

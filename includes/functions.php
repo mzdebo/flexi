@@ -21,10 +21,16 @@ function flexi_author($author = '', $redirect = true)
  } else {
   $linku = "";
  }
-
- return ' <a href="' . $linku . '" title=' . $author->display_name . '><h2 class="ui header">
+ return '<ul class="flexi_user-list"><li>
+ <div class="user-avatar">
+ <a href="' . $linku . '"><img src="' . get_avatar_url($author->user_email, $size = '50') . '" width="50" alt="' . $author->display_name . '" /></a>
+ </div>
+ <p class="user-name"><a href="' . $linku . '">' . $author->first_name . ' ' . $author->last_name . '</a><span>@' . $author->user_login . '</span></p>
+ </div></li></ul>';
+/*
+return ' <a href="' . $linku . '" title=' . $author->display_name . '><h2 class="ui header">
 <img src="' . get_avatar_url($author->user_email, $size = '50') . '" class="ui circular image">
-' . $author->first_name . ' ' . $author->last_name . '</h2></a>';
+' . $author->first_name . ' ' . $author->last_name . '</h2></a>';*/
 }
 
 //Custom field get id
@@ -272,14 +278,14 @@ function flexi_list_tags($post, $class = "flexi_tag flexi_tag-default")
 
 }
 //Flexi List TAGs
-function flexi_list_album($post, $class = "ui avatar image")
+function flexi_list_album($post, $class = "flexi-icon-list-frame")
 {
  //Returns All Term Items for "my_taxonomy"
  $term_list = wp_get_post_terms($post->ID, 'flexi_category', array("fields" => "all"));
  //var_dump($term_list);
 
  if (count($term_list) > 0) {
-  echo '<div class="ui horizontal list">';
+  echo '<ul class="' . $class . '">';
  }
 
  for ($x = 0; $x < count($term_list); $x++) {
@@ -287,19 +293,37 @@ function flexi_list_album($post, $class = "ui avatar image")
   $link = get_permalink(flexi_get_option('primary_page', 'flexi_image_layout_settings', 0));
   $link = add_query_arg("flexi_category", $term_list[$x]->slug, $link);
 
-  //echo '<a href="' . $link . '" class="' . $class . '">' . $term_list[$x]->name . '</a>';
+  echo '
 
-  echo ' <div class="item">
-<img class="' . $class . '" src="' . flexi_album_image($term_list[$x]->slug) . '">
-  <div class="content">
+<li>
+
+    <div class="user-avatar">
+        <a href="' . $link . '">
+            <img src="' . flexi_album_image($term_list[$x]->slug) . '" width="75" alt="' . $term_list[$x]->name . '" />
+        </a>
+    </div>
+
+    <p class="user-name">
+        <a href="' . $link . '">' . $term_list[$x]->name . '</a>
+        <span>' . $term_list[$x]->description . '</span>
+    </p>
+    </li>
+';
+
+  //echo '<a href="' . $link . '" class="' . $class . '">' . $term_list[$x]->name . '</a>';
+  /*
+ echo ' <div class="item">
+ <img class="' . $class . '" src="' . flexi_album_image($term_list[$x]->slug) . '">
+ <div class="content">
  <a href="' . $link . '" class="header"> ' . $term_list[$x]->name . '</a>
-    ' . $term_list[$x]->description . '
-  </div>
-</div>';
+ ' . $term_list[$x]->description . '
+ </div>
+ </div>';
+  */
  }
 
  if (count($term_list) > 0) {
-  echo '</div>';
+  echo '</ul>';
  }
 
 }
