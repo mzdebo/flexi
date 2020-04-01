@@ -82,7 +82,6 @@ class Flexi_Public
   wp_enqueue_style($this->plugin_name . '_purecss_responsive', plugin_dir_url(__FILE__) . 'css/purecss/grids-responsive-min.css', array(), $this->version, 'all');
   wp_enqueue_style($this->plugin_name . '_purecss_buttons', plugin_dir_url(__FILE__) . 'css/purecss/buttons-min.css', array(), $this->version, 'all');
   wp_enqueue_style($this->plugin_name . '_purecss_forms', plugin_dir_url(__FILE__) . 'css/purecss/forms-min.css', array(), $this->version, 'all');
-
  }
 
  /**

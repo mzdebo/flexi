@@ -197,14 +197,6 @@ action="' . admin_url("admin-ajax.php") . '"
   }
 
   if ($post_id) {
-   //Submit extra fields data
-   for ($x = 1; $x <= 10; $x++) {
-    if (isset($_POST['flexi_field_' . $x])) {
-     add_post_meta($post_id, 'flexi_field_' . $x, $_POST['flexi_field_' . $x]);
-    }
-
-   }
-   //Ended to submit extra fields
 
    $post = get_post($post_id);
 

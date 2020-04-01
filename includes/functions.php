@@ -64,18 +64,18 @@ function flexi_standalone_gallery($post_id, $img_size = 'flexi-thumb')
 
  // Get the list of files
  $files = get_post_meta($post_id, 'flexi_standalone_gallery', 1);
- echo '<div class="ui small images">';
+ echo '';
  // Loop through them and output an image
  foreach ((array) $files as $attachment_id => $attachment_url) {
 
   $image_alt = flexi_get_attachment($attachment_id);
 
-  echo '<a data-fancybox="flexi_standalone_gallery" class="ui medium image" href="' . wp_get_attachment_image_src($attachment_id, 'flexi_large')[0] . '" data-caption="' . $image_alt['title'] . '" border="0">';
+  echo '<div class="flexi_responsive"><div class="flexi_gallery_grid"><a data-fancybox="flexi_standalone_gallery" class="ui medium image" href="' . wp_get_attachment_image_src($attachment_id, 'flexi_large')[0] . '" data-caption="' . $image_alt['title'] . '" border="0">';
   echo '<img src="' . wp_get_attachment_image_src($attachment_id, $img_size)[0] . '">';
-  echo '</a>';
+  echo '</a></div></div>';
 
  }
- echo '</div>';
+ echo '';
 }
 
 //Custom Fields
@@ -531,6 +531,15 @@ function flexi_submit($title, $files, $content, $category, $preview, $tags = '')
   if ($newPost['id']) {
    //echo "Successfully added $x <hr>";
    $post_id = $newPost['id'];
+
+   //Submit extra fields data
+   for ($z = 1; $z <= 10; $z++) {
+    if (isset($_POST['flexi_field_' . $z])) {
+     add_post_meta($post_id, 'flexi_field_' . $z, $_POST['flexi_field_' . $z]);
+    }
+
+   }
+   //Ended to submit extra fields
 
    if ('' != $category) {
     wp_set_object_terms($post_id, array($category), $taxonomy);

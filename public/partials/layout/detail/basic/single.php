@@ -6,6 +6,7 @@
  */
 ?>
  <div id="flexi_content_<?php echo get_the_ID(); ?>">
+
 <div class="pure-g">
 	<div class="pure-u-1-1">
 		<div class="flexi_margin-box" style='text-align: center;'>
@@ -16,6 +17,11 @@ echo "<div class='flexi_frame_1' ><img src='" . flexi_image_src('flexi-large') .
 <?php echo flexi_show_icon_grid(); ?>
 
         </div>
+    </div>
+    <div class="pure-u-1">
+    <div class="flexi_margin-box" style='display: flex;justify-content: center;'>
+    <?php flexi_standalone_gallery(get_the_ID(), 'flexi-thumb');?>
+</div>
     </div>
 		<div class="pure-u-1">
 				<div class="flexi_margin-box">
@@ -41,15 +47,12 @@ echo flexi_custom_field_loop($post, 'detail');
 </div>
 
 </div>
-<?php flexi_standalone_gallery(get_the_ID(), 'flexi-thumb');?>
-<hr>
-<?php echo wpautop(stripslashes($post->post_content)); ?>
-  <hr>
-  <?php echo flexi_custom_field_loop($post, 'detail'); ?>
+
+
+
   <hr>
   <?php flexi_list_album($post, 'ui avatar image');?>
-  <hr>
-  <?php flexi_list_tags($post, 'ui tag label');?>
+
 
 
 </div>

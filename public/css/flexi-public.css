@@ -1,3 +1,44 @@
+/* Flexi responsive gallery */
+/* Responsive image gallery */
+
+div.flexi_gallery_grid {
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+div.flexi_gallery_grid:hover {
+  border: 1px solid #777;
+  box-sizing: border-box;
+}
+
+div.flexi_gallery_grid img {
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+}
+
+.flexi_responsive {
+  padding: 0 6px;
+  float: left;
+  width: var(--flexi_t_width);
+  box-sizing: border-box;
+}
+
+@media only screen and (max-width: 700px) {
+  .flexi_responsive {
+    width: 49.99999%;
+    margin: 6px 0;
+    box-sizing: border-box;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .flexi_responsive {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
 /* Responsive table */
 .flexi_wrapper {
   margin: 0 auto;
