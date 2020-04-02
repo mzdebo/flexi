@@ -130,7 +130,7 @@ class Flexi_Meta_boxes
    'description' => 'Display gallery of images available only of this post.',
    'id'          => 'flexi_standalone_shortcode',
    'type'        => 'text',
-   'default'     => esc_attr__(isset($_GET['post']) ? '[flexi-standalone id="' . $_GET['post'] . '"]' : __('Waiting for update', 'flexi'), 'flexi'),
+   'default'     => esc_attr__(isset($_GET['post']) ? '[flexi-standalone id="' . $_GET['post'] . '"]' : __('Save & reopen to get shortcode', 'flexi'), 'flexi'),
    'save_field'  => false, // Otherwise CMB2 will end up removing the value.
    'attributes'  => array(
     'readonly' => 'readonly',

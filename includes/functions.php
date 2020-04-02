@@ -331,16 +331,26 @@ function flexi_list_album($post, $class = "flexi-icon-list-frame")
 }
 
 //Get single album with title
-function flexi_album_single($term_slug, $class = 'ui image label')
+function flexi_album_single($term_slug, $class = 'flexi_user-list')
 {
  $term = get_term_by('slug', $term_slug, 'flexi_category');
  if ($term) {
   $link = get_permalink(flexi_get_option('primary_page', 'flexi_image_layout_settings', 0));
   $link = add_query_arg("flexi_category", $term->slug, $link);
+
+  /*
   return '<a href="' . $link . '" class="' . $class . '">
-        <img src="' . flexi_album_image($term_slug) . '">
-        ' . $term->name . '<div class="detail">' . __('Album', 'flexi') . '</div>
-      </a>';
+  <img src="' . flexi_album_image($term_slug) . '">
+  ' . $term->name . '<div class="detail">' . __('Album', 'flexi') . '</div>
+  </a>';
+   */
+  return '<ul class="' . $class . '"><li>
+      <div class="user-avatar">
+      <a href="' . $link . '"><img src="' . flexi_album_image($term_slug) . '" width="50" alt="' . $term->name . '" /></a>
+      </div>
+      <p class="user-name"><a href="' . $link . '">' . $term->name . '</a><span>' . __('Album', 'flexi') . '</span></p>
+      </div></li></ul>';
+
  } else {
   return "";
  }
