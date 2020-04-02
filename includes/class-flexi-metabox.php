@@ -115,7 +115,7 @@ class Flexi_Meta_boxes
 
   $cmb_side = new_cmb2_box(array(
    'id'           => 'flexi_metabox_side',
-   'title'        => __('Flexi Shortcode', 'cmb2'),
+   'title'        => __('Flexi Shortcode', 'flexi'),
    'object_types' => array('flexi'), // Post type
    'context'      => 'side', //  'normal', 'advanced', or 'side'
    'priority'     => 'high',
@@ -127,7 +127,7 @@ class Flexi_Meta_boxes
   // Regular text field
   $cmb_side->add_field(array(
    'name'        => 'Shortcode for standalone gallery',
-   'description' => 'Display gallery of images available only of this post.',
+   'description' => 'Display gallery of images available only on this post.',
    'id'          => 'flexi_standalone_shortcode',
    'type'        => 'text',
    'default'     => esc_attr__(isset($_GET['post']) ? '[flexi-standalone id="' . $_GET['post'] . '"]' : __('Save & reopen to get shortcode', 'flexi'), 'flexi'),

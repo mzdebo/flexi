@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Flexi\n"
-"POT-Creation-Date: 2020-03-30 21:54+0545\n"
+"POT-Creation-Date: 2020-04-02 14:30+0545\n"
 "PO-Revision-Date: 2020-02-09 12:49+0545\n"
 "Last-Translator: \n"
 "Language-Team: navneet@odude.com\n"
@@ -258,27 +258,27 @@ msgstr ""
 msgid "Processing"
 msgstr ""
 
-#: includes/class-flexi-form.php:215 includes/flexi_ajax_post.php:78
+#: includes/class-flexi-form.php:207 includes/flexi_ajax_post.php:78
 msgid "Successfully posted"
 msgstr ""
 
-#: includes/class-flexi-form.php:218 includes/class-flexi-form.php:279
+#: includes/class-flexi-form.php:210 includes/class-flexi-form.php:271
 msgid "Your submission is under review."
 msgstr ""
 
-#: includes/class-flexi-form.php:276 includes/flexi_ajax_post.php:116
+#: includes/class-flexi-form.php:268 includes/flexi_ajax_post.php:116
 msgid "Successfully updated"
 msgstr ""
 
-#: includes/class-flexi-form.php:524
+#: includes/class-flexi-form.php:516
 msgid "Modify"
 msgstr ""
 
-#: includes/class-flexi-form.php:554
+#: includes/class-flexi-form.php:546
 msgid "New Post"
 msgstr ""
 
-#: includes/class-flexi-form.php:576
+#: includes/class-flexi-form.php:568
 msgid "View Post"
 msgstr ""
 
@@ -299,7 +299,7 @@ msgid "Flexi Shortcode"
 msgstr ""
 
 #: includes/class-flexi-metabox.php:133
-msgid "Waiting for update"
+msgid "Save & reopen to get shortcode"
 msgstr ""
 
 #: includes/class-flexi-post_types.php:26
@@ -795,12 +795,23 @@ msgstr ""
 msgid "Select category"
 msgstr ""
 
+#: includes/class-flexi-standalone-gallery.php:31
+#: public/partials/layout/gallery/masonry/footer.php:5
+#: public/partials/layout/gallery/regular/footer.php:5
+#: public/partials/layout/gallery/wide/footer.php:5
+msgid "No records"
+msgstr ""
+
+#: includes/class-flexi-standalone-gallery.php:35
+msgid "Wrong ID"
+msgstr ""
+
 #: includes/class-flexi-user.php:30
 msgid "Profile"
 msgstr ""
 
-#: includes/class-flexi_ajax_delete.php:48 includes/functions.php:384
-#: includes/functions.php:386
+#: includes/class-flexi_ajax_delete.php:48 includes/functions.php:420
+#: includes/functions.php:422
 msgid "Login Please !"
 msgstr ""
 
@@ -1490,47 +1501,47 @@ msgstr ""
 msgid "Submission failed"
 msgstr ""
 
-#: includes/functions.php:237
+#: includes/functions.php:245
 msgid "Show All"
 msgstr ""
 
-#: includes/functions.php:316
+#: includes/functions.php:351
 msgid "Album"
 msgstr ""
 
-#: includes/functions.php:761
+#: includes/functions.php:806
 msgid "Required Flexi-PRO or UPG-PRO"
 msgstr ""
 
-#: includes/functions.php:1090
+#: includes/functions.php:1135
 msgid "Title cannot be blank."
 msgstr ""
 
-#: includes/functions.php:1093
+#: includes/functions.php:1138
 msgid "This file is not supported or file too big."
 msgstr ""
 
-#: includes/functions.php:1096
+#: includes/functions.php:1141
 msgid "This file type is not supported. Only image files are allowed."
 msgstr ""
 
-#: includes/functions.php:1099
+#: includes/functions.php:1144
 msgid "Captcha security code is invalid."
 msgstr ""
 
-#: includes/functions.php:1121
+#: includes/functions.php:1166
 msgid "Flexi Primary Gallery"
 msgstr ""
 
-#: includes/functions.php:1128
+#: includes/functions.php:1173
 msgid "Flexi User Dashboard"
 msgstr ""
 
-#: includes/functions.php:1135
+#: includes/functions.php:1180
 msgid "Flexi Submission Form"
 msgstr ""
 
-#: includes/functions.php:1142
+#: includes/functions.php:1187
 msgid "Flexi Edit/Modify"
 msgstr ""
 
@@ -1538,16 +1549,16 @@ msgstr ""
 msgid "Search post"
 msgstr ""
 
-#: includes/user_dashboard/class-flexi-user-dashboard.php:33
+#: includes/user_dashboard/class-flexi-user-dashboard.php:31
 msgid "My Posts"
 msgstr ""
 
-#: includes/user_dashboard/class-flexi-user-dashboard.php:58
+#: includes/user_dashboard/class-flexi-user-dashboard.php:62
 msgid "My Dashboard"
 msgstr ""
 
 #: includes/user_dashboard/class-flexi-user-gallery.php:86
-#: public/partials/layout/detail/basic/single.php:12
+#: public/partials/layout/detail/basic/single.php:13
 msgid "Under Review"
 msgstr ""
 
@@ -1583,12 +1594,6 @@ msgstr ""
 msgid "Show Listing Counts"
 msgstr ""
 
-#: public/class-flexi-public.php:120
+#: public/class-flexi-public.php:121
 msgid "Are you sure you want to delete?"
-msgstr ""
-
-#: public/partials/layout/gallery/masonry/footer.php:5
-#: public/partials/layout/gallery/regular/footer.php:5
-#: public/partials/layout/gallery/wide/footer.php:5
-msgid "No records"
 msgstr ""

@@ -11,7 +11,7 @@ if (file_exists($footer_file)) {
 if ('scroll' == $navigation || 'button' == $navigation) {
 // AJAX lazy loading
  echo "<div style='clear:both;'></div>";
- echo "<div id='flexi_load_more' style='text-align:center'><a id='load_more_link' class='flexi_load_more button button-primary' style='margin:5px; font-size: 80%;' href='#'>Load More</a></div>";
+ echo "<div id='flexi_load_more' style='text-align:center'><a id='load_more_link' class='flexi_load_more pure-button' style='margin:5px; font-size: 80%;' href='#'>Load More</a></div>";
  echo "<div id='reset' style='display:none'>false</div>";
  ?>
 <div id='flexi_loader' style='display: none;text-align:center;'>
