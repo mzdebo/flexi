@@ -15,7 +15,7 @@ class Flexi_Gallery_Toolbar
    $tag      = get_term_by('slug', $tag_slug, 'flexi_tag');
 
    if ("" != $tag_slug && true == $tag) {
-    return '<div class="ui tag labels"><a class="ui label">' . $tag->name . '</a>';
+    return '<div class="flexi_list_tags"><a class="flexi_tag flexi_tag-default">' . $tag->name . '</a></div>';
    }
 
    //Show Album Label
@@ -24,7 +24,8 @@ class Flexi_Gallery_Toolbar
    $term      = get_term_by('slug', $term_slug, 'flexi_category');
 
    if ("" != $term_slug && true == $term) {
-    return $term->name;
+    //return $term->name;
+    return flexi_album_single($term_slug, 'ui large image label');
    }
 
    //Show User Name

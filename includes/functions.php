@@ -72,14 +72,16 @@ function flexi_standalone_gallery($post_id, $img_size = 'flexi-thumb')
  $files = get_post_meta($post_id, 'flexi_standalone_gallery', 1);
  echo '';
  // Loop through them and output an image
- foreach ((array) $files as $attachment_id => $attachment_url) {
+ if (!empty($files)) {
+  foreach ((array) $files as $attachment_id => $attachment_url) {
 
-  $image_alt = flexi_get_attachment($attachment_id);
+   $image_alt = flexi_get_attachment($attachment_id);
 
-  echo '<div class="flexi_responsive"><div class="flexi_gallery_grid"><a data-fancybox="flexi_standalone_gallery" class="ui medium image" href="' . wp_get_attachment_image_src($attachment_id, 'flexi_large')[0] . '" data-caption="' . $image_alt['title'] . '" border="0">';
-  echo '<img src="' . wp_get_attachment_image_src($attachment_id, $img_size)[0] . '">';
-  echo '</a></div></div>';
+   echo '<div class="flexi_responsive"><div class="flexi_gallery_grid"><a data-fancybox="flexi_standalone_gallery" class="ui medium image" href="' . wp_get_attachment_image_src($attachment_id, 'flexi_large')[0] . '" data-caption="' . $image_alt['title'] . '" border="0">';
+   echo '<img src="' . wp_get_attachment_image_src($attachment_id, $img_size)[0] . '">';
+   echo '</a></div></div>';
 
+  }
  }
  echo '';
 }
