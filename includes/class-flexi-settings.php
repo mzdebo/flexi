@@ -127,7 +127,7 @@ class FLEXI_Admin_Settings
    array(
     'id'          => 'flexi_media_settings',
     'title'       => __('Media settings', 'flexi'),
-    'description' => __('The sizes listed below determine the maximum dimensions in pixels to use when adding an image to the Media Library.', 'flexi'),
+    'description' => __('The sizes listed below determine the maximum dimensions in pixels. It will be applied only to new images.', 'flexi'),
     'tab'         => 'general',
    ),
    array(
