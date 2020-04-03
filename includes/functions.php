@@ -93,8 +93,8 @@ function flexi_standalone_gallery($post_id, $img_size = 'flexi-thumb', $width = 
 
    $image_alt = flexi_get_attachment($attachment_id);
 
-   echo '<div class="flexi_responsive"><div class="flexi_gallery_grid"><div class="flexi-image-wrapper-icon"><a data-fancybox="flexi_standalone_gallery" class="ui medium image" href="' . wp_get_attachment_image_src($attachment_id, 'flexi_large')[0] . '" data-caption="' . $image_alt['title'] . '" border="0">';
-   echo '<img src="' . wp_get_attachment_image_src($attachment_id, $img_size)[0] . '">';
+   echo '<div class="flexi_responsive"><div class="flexi_gallery_grid"><div class="flexi-image-wrapper-icon"><a data-fancybox="flexi_standalone_gallery" href="' . wp_get_attachment_image_src($attachment_id, 'flexi_large')[0] . '" data-caption="' . $image_alt['title'] . '" border="0">';
+   echo '<img src="' . wp_get_attachment_image_src($attachment_id, $img_size)[0] . '" large-src="' . wp_get_attachment_image_src($attachment_id, 'flexi_large')[0] . '">';
    echo '</a></div></div></div>';
 
   }

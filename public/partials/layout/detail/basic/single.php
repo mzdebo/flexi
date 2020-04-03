@@ -5,54 +5,80 @@
 </a>
  */
 ?>
- <div id="flexi_content_<?php echo get_the_ID(); ?>">
+<style>
+.flexi-image-wrapper_auto {
+  width: 99%;
+  height: calc(var(--flexi_t_height)*3);
+  border: 1px solid #eee;
+}
+.flexi-image-wrapper_auto img {
+  object-fit: contain;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+}
+  </style>
+<div id="flexi_content_<?php echo get_the_ID(); ?>">
 
-<div class="pure-g">
-	<div class="pure-u-1-1">
-		<div class="flexi_margin-box" style='text-align: center;'>
-		<?php if (get_post_status() == 'draft' || get_post_status() == "pending") {?><small><div class="flexi_badge"> <?php echo __("Under Review", "flexi"); ?></div></small><?php }?>
-                    <?php
-echo "<div class='flexi_frame_1' ><img src='" . flexi_image_src('flexi-large') . "' ></div>";
+  <div class="pure-g">
+    <div class="pure-u-1-1">
+      <div class="flexi_margin-box" style='text-align: center;'>
+        <?php if (get_post_status() == 'draft' || get_post_status() == "pending") {?><small>
+          <div class="flexi_badge"> <?php echo __("Under Review", "flexi"); ?></div>
+        </small><?php }?>
+        <?php
+echo "<div class='flexi_frame_1 flexi-image-wrapper_auto' ><img id='flexi_large_image' src='" . flexi_image_src('flexi-large') . "' ></div>";
 ?>
-<?php echo flexi_show_icon_grid(); ?>
+        <?php echo flexi_show_icon_grid(); ?>
 
-        </div>
+      </div>
     </div>
     <div class="pure-u-1">
-    <div class="flexi_margin-box">
-    <?php flexi_standalone_gallery(get_the_ID(), 'flexi-thumb', 75, 75);?>
-</div>
+      <div class="flexi_margin-box">
+       <div id="flexi_thumb_image"> <?php flexi_standalone_gallery(get_the_ID(), 'flexi-thumb', 75, 75);?></div>
+      </div>
     </div>
-		<div class="pure-u-1">
-				<div class="flexi_margin-box">
+    <div class="pure-u-1">
+      <div class="flexi_margin-box">
 
-					<div class="flex-desp"> <?php echo wpautop(stripslashes($post->post_content)); ?></div>
+        <div class="flex-desp"> <?php echo wpautop(stripslashes($post->post_content)); ?></div>
 
-				</div>
-		</div>
+      </div>
     </div>
-    <div class="pure-g">
-	<div class="pure-u-1 pure-u-md-1-2">
-	<div class="flexi_margin-box">
-        <?php flexi_list_tags($post, 'flexi_tag flexi_tag-default');?>
-</div>
-	    </div>
+  </div>
+  <div class="pure-g">
     <div class="pure-u-1 pure-u-md-1-2">
-	<div class="flexi_margin-box">
-    <?php
+      <div class="flexi_margin-box">
+        <?php flexi_list_tags($post, 'flexi_tag flexi_tag-default');?>
+      </div>
+    </div>
+    <div class="pure-u-1 pure-u-md-1-2">
+      <div class="flexi_margin-box">
+        <?php
 echo flexi_custom_field_loop($post, 'detail');
 ?>
-</div>
+      </div>
 
-</div>
+    </div>
 
-</div>
-
-
+  </div>
 
   <hr>
   <?php flexi_list_album($post, 'flexi-icon-list-frame');?>
 
-
-
 </div>
+<script>
+jQuery(document).ready(function() {
+
+  jQuery("#flexi_thumb_image .flexi-image-wrapper-icon").hover(function(){
+
+    var photo_fullsize =  jQuery(this).find('img').attr('large-src');
+    jQuery('#flexi_large_image').attr('src',photo_fullsize);
+});
+
+
+});
+</script>
