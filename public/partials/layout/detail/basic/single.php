@@ -20,7 +20,7 @@ echo "<div class='flexi_frame_1' ><img src='" . flexi_image_src('flexi-large') .
     </div>
     <div class="pure-u-1">
     <div class="flexi_margin-box">
-    <?php flexi_standalone_gallery(get_the_ID(), 'flexi-thumb');?>
+    <?php flexi_standalone_gallery(get_the_ID(), 'flexi-thumb', 75, 75);?>
 </div>
     </div>
 		<div class="pure-u-1">

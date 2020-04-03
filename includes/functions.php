@@ -65,9 +65,25 @@ function flexi_get_attachment($attachment_id)
  * @param  string  $post_id
  * @param  string  $img_size           Size of image to show
  */
-function flexi_standalone_gallery($post_id, $img_size = 'flexi-thumb')
+function flexi_standalone_gallery($post_id, $img_size = 'flexi-thumb', $width = 150, $height = 150)
 {
-
+ echo '<style>
+.flexi-image-wrapper-icon {
+    width: ' . $width . 'px;
+    height: ' . $height . 'px;
+    border: 1px solid #eee;
+  }
+  .flexi-image-wrapper-icon img {
+    object-fit: cover;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+  }
+  </style>
+';
  // Get the list of files
  $files = get_post_meta($post_id, 'flexi_standalone_gallery', 1);
  echo '';
@@ -77,7 +93,7 @@ function flexi_standalone_gallery($post_id, $img_size = 'flexi-thumb')
 
    $image_alt = flexi_get_attachment($attachment_id);
 
-   echo '<div class="flexi_responsive"><div class="flexi_gallery_grid"><div class="flexi-image-wrapper"><a data-fancybox="flexi_standalone_gallery" class="ui medium image" href="' . wp_get_attachment_image_src($attachment_id, 'flexi_large')[0] . '" data-caption="' . $image_alt['title'] . '" border="0">';
+   echo '<div class="flexi_responsive"><div class="flexi_gallery_grid"><div class="flexi-image-wrapper-icon"><a data-fancybox="flexi_standalone_gallery" class="ui medium image" href="' . wp_get_attachment_image_src($attachment_id, 'flexi_large')[0] . '" data-caption="' . $image_alt['title'] . '" border="0">';
    echo '<img src="' . wp_get_attachment_image_src($attachment_id, $img_size)[0] . '">';
    echo '</a></div></div></div>';
 
