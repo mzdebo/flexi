@@ -81,7 +81,7 @@ class flexi_delete_post
    }
   }
  }
- //Adds delete/trash icon in upg icon container.
+ //Adds delete/trash icon in flexi icon container.
  public function flexi_add_icon_grid_delete($icon)
  {
   global $post;
