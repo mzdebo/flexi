@@ -1,24 +1,24 @@
 <?php
 $data = flexi_image_data('flexi-thumb', $post, $popup);
+
+echo '<div class="flexi_responsive flexi_gallery_child" id="flexi_' . get_the_ID() . '"  data-tags="' . $tags . '">';
+echo '<div class="flexi_gallery_grid flexi_padding flexi_effect ' . $data['popup'] . '" id="' . $hover_effect . '">';
+echo '<div class="flexi-image-wrapper">';
+echo '<a data-fancybox="flexi_standalone_gallery" class="" href="' . $data['url'] . '" data-caption="' . $data['title'] . '" border="0">';
+echo '<img src="' . esc_url(flexi_image_src('flexi-medium', $post)) . '">';
 ?>
-
-<div class="pure-u-1 pure-u-md-1-<?php echo $column; ?> flexi_gallery_child flexi_padding" id="flexi_<?php echo get_the_ID(); ?>" style="position: relative;" data-tags="<?php echo $tags; ?>">
-
-      <div class="flexi_effect <?php echo $data['popup']; ?>" id="<?php echo $hover_effect; ?>">
-
-
-            <a <?php echo $data['extra'] . ' href="' . $data['url'] . '" data-caption="' . $data['title'] . '" border="0"'; ?>>
-                  <img class="flexi-fit_cover flexi_image_frame"  src="<?php echo esc_url(flexi_image_src('flexi-medium', $post)); ?>">
-                  <?php echo ' <div class="flexi_figcaption" id="flexi_cap_' . get_the_ID() . '"></div>'; ?>
+<?php echo ' <div class="flexi_figcaption" id="flexi_cap_' . get_the_ID() . '"></div>'; ?>
 
                   <div id="flexi_info" class="<?php echo $hover_caption; ?>">
                         <div class="flexi_title"><?php echo $data['title']; ?></div>
                         <div class="flexi_p"><?php echo flexi_excerpt(); ?></div>
                   </div>
-            </a>
-      </div>
-
-</div>
+<?php
+echo '</a>';
+echo '</div>';
+echo "</div>";
+echo "</div>";
+?>
 <script>
 jQuery(document).ready(function() {
       jQuery('#flexi_cap_<?php echo get_the_ID(); ?>').append('<b><?php echo $data['title']; ?></b>');

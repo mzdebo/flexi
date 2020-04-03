@@ -10,7 +10,7 @@
 <div class="pure-g">
 	<div class="pure-u-1-1">
 		<div class="flexi_margin-box" style='text-align: center;'>
-		<?php if (get_post_status() == 'draft' || get_post_status() == "pending") {?><Small><div class="flexi_badge"> <?php echo __("Under Review", "flexi"); ?></div></small><?php }?>
+		<?php if (get_post_status() == 'draft' || get_post_status() == "pending") {?><small><div class="flexi_badge"> <?php echo __("Under Review", "flexi"); ?></div></small><?php }?>
                     <?php
 echo "<div class='flexi_frame_1' ><img src='" . flexi_image_src('flexi-large') . "' ></div>";
 ?>
@@ -19,7 +19,7 @@ echo "<div class='flexi_frame_1' ><img src='" . flexi_image_src('flexi-large') .
         </div>
     </div>
     <div class="pure-u-1">
-    <div class="flexi_margin-box" style='display: flex;justify-content: center;'>
+    <div class="flexi_margin-box">
     <?php flexi_standalone_gallery(get_the_ID(), 'flexi-thumb');?>
 </div>
     </div>

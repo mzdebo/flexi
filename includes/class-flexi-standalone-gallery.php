@@ -31,9 +31,9 @@ class Flexi_Standalone_Gallery
 
       $image_alt = flexi_get_attachment($attachment_id);
 
-      echo '<div class="flexi_responsive flexi_gallery_child" ><div class="flexi_gallery_grid flexi_effect image-wrapper" id="' . $hover_effect . '"><div class="flexi-image-wrapper"><a data-fancybox="flexi_standalone_gallery" class="" href="' . wp_get_attachment_image_src($attachment_id, 'flexi_large')[0] . '" data-caption="' . $image_alt['title'] . '" border="0">';
+      echo '<div class="flexi_responsive flexi_gallery_child" ><div class="flexi_gallery_grid flexi_effect image-wrapper" id="' . $hover_effect . '"><div class="flexi-image-wrapper"><div class="flexi-image-wrapper"><a data-fancybox="flexi_standalone_gallery" class="" href="' . wp_get_attachment_image_src($attachment_id, 'flexi_large')[0] . '" data-caption="' . $image_alt['title'] . '" border="0">';
       echo '<img src="' . wp_get_attachment_image_src($attachment_id, 'flexi-medium')[0] . '">';
-      echo '</a></div></div></div>';
+      echo '</a></div></div></div></div>';
 
      }
     } else {
