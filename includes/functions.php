@@ -26,7 +26,7 @@ function flexi_author($author = '', $redirect = true)
  <a href="' . $linku . '"><img src="' . get_avatar_url($author->user_email, $size = '50') . '" width="50" alt="' . $author->display_name . '" /></a>
  </div>
  <p class="user-name"><a href="' . $linku . '">' . $author->first_name . ' ' . $author->last_name . '</a><span>@' . $author->user_login . '</span></p>
- </div></li></ul>';
+ </li></ul>';
 /*
 return ' <a href="' . $linku . '" title=' . $author->display_name . '><h2 class="ui header">
 <img src="' . get_avatar_url($author->user_email, $size = '50') . '" class="ui circular image">
@@ -65,7 +65,7 @@ function flexi_get_attachment($attachment_id)
  * @param  string  $post_id
  * @param  string  $img_size           Size of image to show
  */
-function flexi_standalone_gallery($post_id, $img_size = 'thumb', $width = 150, $height = 150)
+function flexi_standalone_gallery($post_id, $img_size = 'thumbnail', $width = 150, $height = 150)
 {
  echo '<style>
 .flexi-image-wrapper-icon {
@@ -862,7 +862,7 @@ function flexi_log($message)
 // All commonly used function are listed
 //
 //Return image url
-function flexi_image_src($size = 'thumb', $post = '')
+function flexi_image_src($size = 'thumbnail', $post = '')
 {
  if ('' == $post) {
   global $post;
@@ -877,7 +877,7 @@ function flexi_image_src($size = 'thumb', $post = '')
  if ($image_attributes) {
   return $image_attributes[0];
  } else {
-  if ('thumb' == $size) {
+  if ('thumbnail' == $size) {
    return plugins_url('../public/images/noimg_thumb.jpg', __FILE__);
   } else {
    return plugins_url('../public/images/noimg.png', __FILE__);

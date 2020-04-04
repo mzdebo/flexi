@@ -23,7 +23,7 @@ echo "<div class='flexi-image-wrapper_large flexi_frame_1'><img id='flexi_large_
     </div>
     <div class="pure-u-1">
       <div class="flexi_margin-box">
-       <div id="flexi_thumb_image" style='text-align: center;'> <?php flexi_standalone_gallery(get_the_ID(), 'thumb', 75, 75);?></div>
+       <div id="flexi_thumb_image" style='text-align: center;'> <?php flexi_standalone_gallery(get_the_ID(), 'thumbnail', 75, 75);?></div>
       </div>
     </div>
     <div class="pure-u-1">

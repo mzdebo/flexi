@@ -76,7 +76,7 @@ class flexi_delete_post
 
    foreach ($attachments as $attachment) {
     if (false === wp_delete_attachment($attachment->ID)) {
-     flexi_log('Unable to delete image-' . $post_id);
+     //flexi_log('Unable to delete image-' . $post_id);
     }
    }
   }

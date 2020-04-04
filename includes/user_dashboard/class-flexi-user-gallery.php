@@ -32,7 +32,7 @@ class Flexi_User_Dashboard_Gallery
 <div class="flexi_wrapper">
     <div class="flexi_table">
 
-        <div class="flexi_row flexi_header flexi_blue">
+        <div class="flexi_row flexi_header flexi_gray">
             <div class="flexi_cell">
 
             </div>
@@ -64,40 +64,40 @@ class Flexi_User_Dashboard_Gallery
    $query = new WP_Query($args);
    while ($query->have_posts()): $query->the_post();
 
-    $data = flexi_image_data('thumb', $post, $popup);
+    $data = flexi_image_data('thumbnail', $post, $popup);
 
     ?>
-						    <div class="flexi_row" id="flexi_content_<?php echo get_the_ID(); ?>">
+		    <div class="flexi_row" id="flexi_content_<?php echo get_the_ID(); ?>">
 
-					        <div class="flexi_cell" data-title="Image">
-					            <a data-fancybox="gallery"
-					                <?php echo ' href="' . $data['url'] . '" data-caption="' . $data['title'] . '" border="0"'; ?>>
-					                <img src="<?php echo esc_url(flexi_image_src('thumb', $post)); ?>">
+		    <div class="flexi_cell flexi-image-wrapper-icon">
+		        <a data-fancybox="gallery"
+		            <?php echo ' href="' . $data['url'] . '" data-caption="' . $data['title'] . '" border="0"'; ?>>
+		            <img src="<?php echo esc_url(flexi_image_src('thumbnail', $post)); ?>">
 
-					            </a>
-					        </div>
-					        <div class="flexi_cell" data-title="Title">
-					            <?php echo $data['title']; ?>
-					        </div>
-					        <div class="flexi_cell" data-title="Status">
-					            <?php
+		        </a>
+		    </div>
+		    <div class="flexi_cell" data-title="Title">
+		        <?php echo $data['title']; ?>
+		    </div>
+		    <div class="flexi_cell" data-title="Status">
+		        <?php
  if (get_post_status() == 'draft' || get_post_status() == "pending") {
      ?>
-					            <div class="flexi_badge"><?php echo __("Under Review", "flexi"); ?></div>
-					            <?php
+		        <div class="flexi_badge"><?php echo __("Under Review", "flexi"); ?></div>
+		        <?php
  } else {
      ?>
-					            <div class="flexi_badge_green"><?php echo __("Live", "flexi"); ?></div>
-					            <?php
+		        <div class="flexi_badge_green"><?php echo __("Live", "flexi"); ?></div>
+		        <?php
  }
     ?>
-					        </div>
-					        <div class="flexi_cell" data-title="Action">
-					            <?php echo flexi_show_icon_grid(); ?>
-					        </div>
-					    </div>
+		    </div>
+		    <div class="flexi_cell" data-title="Action">
+		        <?php echo flexi_show_icon_grid(); ?>
+		    </div>
+		</div>
 
-					    <?php
+														    <?php
  $count++;
    endwhile;
 

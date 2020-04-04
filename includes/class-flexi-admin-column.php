@@ -45,7 +45,7 @@ class Flexi_Admin_Column
     break;
 
    case 'image':
-    echo '<img src="' . esc_url(flexi_image_src('thumb', get_post($post_id))) . '" width="75px">';
+    echo '<img src="' . esc_url(flexi_image_src('thumbnail', get_post($post_id))) . '" width="75px">';
     break;
 
    default:

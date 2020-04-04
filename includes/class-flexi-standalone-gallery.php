@@ -30,7 +30,7 @@ class Flexi_Standalone_Gallery
          </div>
          <div class="pure-u-1">
              <div class="flexi_margin-box">
-                 <div id="flexi_thumb_image"> <?php flexi_standalone_gallery($id, 'thumb', 75, 75);?></div>
+                 <div id="flexi_thumb_image"> <?php flexi_standalone_gallery($id, 'thumbnail', 75, 75);?></div>
              </div>
          </div>
      </div>
