@@ -8,7 +8,7 @@ $data = flexi_image_data('thumb', $post, $popup);
 
 
                   <a <?php echo $data['extra'] . ' href="' . $data['url'] . '" data-caption="' . $data['title'] . '" border="0"'; ?>>
-                        <img  class="flexi-fit_cover flexi_image_frame" src="<?php echo esc_url(flexi_image_src('medium', $post)); ?>">
+                        <img  class="flexi-fit_cover" src="<?php echo esc_url(flexi_image_src('medium', $post)); ?>">
                         <?php echo ' <div class="flexi_figcaption" id="flexi_cap_' . get_the_ID() . '"></div>'; ?>
 
                         <div id="flexi_info" class="<?php echo $hover_caption; ?>">

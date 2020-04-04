@@ -7,11 +7,10 @@ $data = flexi_image_data('thumb', $post, $popup);
 
     <div class='flexi_loop_content flexi_frame_2'>
 
-        <div class="flexi_media <?php echo $data['popup']; ?>">
+        <div class="flexi_media flexi-image-wrapper <?php echo $data['popup']; ?>">
             <a
                 <?php echo $data['extra'] . ' href="' . $data['url'] . '" data-caption="' . $data['title'] . '" border="0"'; ?>>
-                <img class="flexi-fit_cover flexi_image_frame"
-                    src="<?php echo esc_url(flexi_image_src('thumb', $post)); ?>">
+                <img src="<?php echo esc_url(flexi_image_src('thumb', $post)); ?>">
                 <?php echo ' <div class="flexi_figcaption" id="flexi_cap_' . get_the_ID() . '"></div>'; ?>
             </a>
         </div>

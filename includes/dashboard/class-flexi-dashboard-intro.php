@@ -33,7 +33,7 @@ class Flexi_Admin_Dashboard_Intro
  {
   ob_start();
   ?>
-     <h3>Below is the flow chart as Flexi works</h3>
+     <h3>Flow chart of Flexi plugin</h3>
 
  <div class="flexi_tree" style="text-align: right;">
 	<ul>
@@ -68,7 +68,7 @@ class Flexi_Admin_Dashboard_Intro
 						</li>
 					</ul>
 				</li>
-				<li><a href="#"><div class="tooltip-container">Standalone Gallery<span class="tooltip">[flexi-gallery]<br>Should not be linked as 'Primary Gallery Page'</span></div></a>
+				<li><a href="#"><div class="tooltip-container">Individual Gallery<span class="tooltip">[flexi-gallery]<br>Should not be linked as 'Primary Gallery Page'</span></div></a>
 					<ul>
 						<li><div class="tooltip-container"><a href="#">Gallery By User</a><span class="tooltip"><b>Gallery by User</b><br>[flexi-gallery user="user_name"]</span></div></li>
 						<li><div class="tooltip-container"><a href="#">Gallery By Album</a><span class="tooltip"><b>Gallery by Category</b><br>[flexi-gallery album="category_slug"]</span></div></li>

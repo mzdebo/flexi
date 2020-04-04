@@ -1013,6 +1013,15 @@ function flexi_set_option($field_name, $section = 'flexi_general_settings', $def
 function flexi_create_pages()
 {
  global $wpdb;
+
+ //Set defualt image sizes
+ flexi_set_option('t_width', 'flexi_media_settings', 150);
+ flexi_set_option('t_height', 'flexi_media_settings', 150);
+ flexi_set_option('m_width', 'flexi_media_settings', 300);
+ flexi_set_option('m_height', 'flexi_media_settings', 300);
+ flexi_set_option('l_width', 'flexi_media_settings', 600);
+ flexi_set_option('l_height', 'flexi_media_settings', 400);
+
  if (!$wpdb->get_var("select id from {$wpdb->prefix}posts where post_content like '%[flexi-gallery]%'")) {
 
   $aid = wp_insert_post(array('post_title' => 'Primary Gallery', 'post_content' => '<!-- wp:shortcode -->[flexi-primary]<!-- /wp:shortcode -->', 'post_type' => 'page', 'post_status' => 'publish'));
