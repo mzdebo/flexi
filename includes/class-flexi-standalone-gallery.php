@@ -23,14 +23,14 @@ class Flexi_Standalone_Gallery
 
 
          <div class="flexi_margin-box" style="text-align: center;">
-                <div class="flexi_frame_1 flexi-image-wrapper_auto"><img id="flexi_large_image" src="<?php echo flexi_image_src('flexi-lerge', $post); ?>"></div>
+                <div class="flexi_frame_1 flexi-image-wrapper_large"><img id="flexi_large_image" src="<?php echo flexi_image_src('flexi-large', $post); ?>"></div>
       </div>
 
 
          </div>
          <div class="pure-u-1">
              <div class="flexi_margin-box">
-                 <div id="flexi_thumb_image"> <?php flexi_standalone_gallery($id, 'flexi-thumb', 75, 75);?></div>
+                 <div id="flexi_thumb_image"> <?php flexi_standalone_gallery($id, 'thumb', 75, 75);?></div>
              </div>
          </div>
      </div>

@@ -65,7 +65,7 @@ function flexi_get_attachment($attachment_id)
  * @param  string  $post_id
  * @param  string  $img_size           Size of image to show
  */
-function flexi_standalone_gallery($post_id, $img_size = 'flexi-thumb', $width = 150, $height = 150)
+function flexi_standalone_gallery($post_id, $img_size = 'thumb', $width = 150, $height = 150)
 {
  echo '<style>
 .flexi-image-wrapper-icon {
@@ -629,7 +629,7 @@ function flexi_submit($title, $files, $content, $category, $preview, $tags = '')
 
      $attach_ids[] = $attach_id;
      add_post_meta($post_id, 'flexi_image_id', $attach_id);
-     add_post_meta($post_id, 'flexi_image', flexi_image_src('flexi-large', get_post($post_id)));
+     add_post_meta($post_id, 'flexi_image', flexi_image_src('large', get_post($post_id)));
     } else {
      wp_delete_attachment($attach_id);
      wp_delete_post($post_id, true);
@@ -862,7 +862,7 @@ function flexi_log($message)
 // All commonly used function are listed
 //
 //Return image url
-function flexi_image_src($size = 'flexi-thumb', $post = '')
+function flexi_image_src($size = 'thumb', $post = '')
 {
  if ('' == $post) {
   global $post;
@@ -877,7 +877,7 @@ function flexi_image_src($size = 'flexi-thumb', $post = '')
  if ($image_attributes) {
   return $image_attributes[0];
  } else {
-  if ('flexi-thumb' == $size) {
+  if ('thumb' == $size) {
    return plugins_url('../public/images/noimg_thumb.jpg', __FILE__);
   } else {
    return plugins_url('../public/images/noimg.png', __FILE__);
@@ -946,7 +946,7 @@ function flexi_image_data($size = 'full', $post = '', $popup = "on")
  }
 
  if ($lightbox) {
-  $data['url']   = flexi_image_src('flexi-large', $post);
+  $data['url']   = flexi_image_src('large', $post);
   $data['extra'] = 'data-fancybox-trigger';
   $data['popup'] = 'flexi_show_popup';
  } else {

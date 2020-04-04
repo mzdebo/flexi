@@ -15,7 +15,7 @@
           <div class="flexi_badge"> <?php echo __("Under Review", "flexi"); ?></div>
         </small><?php }?>
         <?php
-echo "<div class='flexi_frame_1 flexi-image-wrapper_auto' ><img id='flexi_large_image' src='" . flexi_image_src('flexi-large') . "' ></div>";
+echo "<div class='flexi-image-wrapper_large flexi_frame_1'><img id='flexi_large_image' src='" . flexi_image_src('large') . "' ></div>";
 ?>
         <?php echo flexi_show_icon_grid(); ?>
 
@@ -23,7 +23,7 @@ echo "<div class='flexi_frame_1 flexi-image-wrapper_auto' ><img id='flexi_large_
     </div>
     <div class="pure-u-1">
       <div class="flexi_margin-box">
-       <div id="flexi_thumb_image"> <?php flexi_standalone_gallery(get_the_ID(), 'flexi-thumb', 75, 75);?></div>
+       <div id="flexi_thumb_image" style='text-align: center;'> <?php flexi_standalone_gallery(get_the_ID(), 'thumb', 75, 75);?></div>
       </div>
     </div>
     <div class="pure-u-1">

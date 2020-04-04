@@ -72,7 +72,7 @@ class Flexi
   if (defined('FLEXI_VERSION')) {
    $this->version = FLEXI_VERSION;
   } else {
-   $this->version = '1.0.8';
+   $this->version = '1.0.9';
   }
   $this->plugin_name = 'flexi';
 
@@ -142,7 +142,7 @@ class Flexi
   require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-flexi-category.php';
 
   //Flexi own media settings
-  require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-flexi-media.php';
+  //require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-flexi-media.php';
 
   //[flexi-form] & [flexi-form-tag] shortcode
   require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-flexi-form.php';
@@ -261,7 +261,7 @@ class Flexi
   $this->loader->add_action('cmb2_admin_init', $meta, 'register_meta_box');
 
   //Media Settings
-  $media = new Flexi_Media_Settings();
+  //$media = new Flexi_Media_Settings();
 
   //Admin column
   $column = new Flexi_Admin_Column();

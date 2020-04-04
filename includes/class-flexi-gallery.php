@@ -277,17 +277,25 @@ class Flexi_Shortcode_Gallery
  public function enqueue_styles_head()
  {
 
-  $img_width  = flexi_get_option('t_width', 'flexi_media_settings', 150);
-  $img_height = flexi_get_option('t_height', 'flexi_media_settings', 150);
-  $padding    = '0';
-  $put        = "";
+  $t_width  = flexi_get_option('t_width', 'flexi_media_settings', 150);
+  $t_height = flexi_get_option('t_height', 'flexi_media_settings', 150);
+  $m_width  = flexi_get_option('m_width', 'flexi_media_settings', 300);
+  $m_height = flexi_get_option('m_height', 'flexi_media_settings', 300);
+  $l_width  = flexi_get_option('l_width', 'flexi_media_settings', 600);
+  $l_height = flexi_get_option('l_height', 'flexi_media_settings', 400);
+  $padding  = '0';
+  $put      = "";
   ob_start();
 
   ?>
 <style>
 :root {
-  --flexi_t_width: <?php echo $img_width; ?>px;
-  --flexi_t_height: <?php echo $img_height; ?>px;
+  --flexi_t_width: <?php echo $t_width; ?>px;
+  --flexi_t_height: <?php echo $t_height; ?>px;
+  --flexi_m_width: <?php echo $m_width; ?>px;
+  --flexi_m_height: <?php echo $m_height; ?>px;
+  --flexi_l_width: <?php echo $l_width; ?>px;
+  --flexi_l_height: <?php echo $l_height; ?>px;
   --flexi_padding: <?php echo $padding; ?>px;
 }
 </style>

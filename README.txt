@@ -79,6 +79,10 @@ Unless we release FLEXI-PRO version, you can use UPG-PRO which will enabled all 
 2. Multi file upload
 
 == Changelog ==
+= 1.0.9 =
+* Standalone gallery layout Updated
+* Media settings applied only to image container. No more own media sizes.
+
 = 1.0.8 =
 * Rolled back to old cms framework
 * Standalone gallery introduced. 

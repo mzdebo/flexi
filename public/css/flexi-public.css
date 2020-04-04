@@ -1,12 +1,12 @@
 /* Flexi Image */
 /* Fit image into div */
 
-.flexi-image-wrapper_auto {
-  width: 99%;
-  height: calc(var(--flexi_t_height) * 3);
+.flexi-image-wrapper_large {
+  width: var(--flexi_l_width);
+  height: var(--flexi_l_height);
   border: 1px solid #eee;
 }
-.flexi-image-wrapper_auto img {
+.flexi-image-wrapper_large img {
   object-fit: contain;
   min-width: 100%;
   min-height: 100%;

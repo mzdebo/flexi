@@ -1,5 +1,5 @@
 <?php
-$data = flexi_image_data('flexi-thumb', $post, $popup);
+$data = flexi_image_data('thumb', $post, $popup);
 ?>
 
 <div class="pure-u-1 pure-u-md-1-<?php echo $column; ?> flexi_gallery_child flexi_padding"
@@ -11,7 +11,7 @@ $data = flexi_image_data('flexi-thumb', $post, $popup);
             <a
                 <?php echo $data['extra'] . ' href="' . $data['url'] . '" data-caption="' . $data['title'] . '" border="0"'; ?>>
                 <img class="flexi-fit_cover flexi_image_frame"
-                    src="<?php echo esc_url(flexi_image_src('flexi-thumb', $post)); ?>">
+                    src="<?php echo esc_url(flexi_image_src('thumb', $post)); ?>">
                 <?php echo ' <div class="flexi_figcaption" id="flexi_cap_' . get_the_ID() . '"></div>'; ?>
             </a>
         </div>

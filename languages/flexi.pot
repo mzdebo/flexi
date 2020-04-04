@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Flexi\n"
-"POT-Creation-Date: 2020-04-02 14:30+0545\n"
+"POT-Creation-Date: 2020-04-04 12:04+0545\n"
 "PO-Revision-Date: 2020-02-09 12:49+0545\n"
 "Last-Translator: \n"
 "Language-Team: navneet@odude.com\n"
@@ -207,7 +207,7 @@ msgid "Author"
 msgstr ""
 
 #: includes/class-flexi-admin-column.php:23
-msgid "Detail Layout"
+msgid "Detail Page"
 msgstr ""
 
 #: includes/class-flexi-admin-column.php:24
@@ -448,7 +448,7 @@ msgid "Media settings"
 msgstr ""
 
 #: includes/class-flexi-settings.php:130
-msgid "The sizes listed below determine the maximum dimensions in pixels to use when adding an image to the Media Library."
+msgid "The sizes listed below determine the maximum dimensions in pixels. It will be applied only to new images."
 msgstr ""
 
 #: includes/class-flexi-settings.php:135
@@ -722,7 +722,7 @@ msgid "If popup is unchecked, It will open content in single dedicated page."
 msgstr ""
 
 #: includes/class-flexi-settings.php:399
-msgid "Select Detail layout"
+msgid "Select Detail Page"
 msgstr ""
 
 #: includes/class-flexi-settings.php:410
@@ -737,72 +737,61 @@ msgstr ""
 msgid "Thumbnail size"
 msgstr ""
 
-#: includes/class-flexi-settings.php:423 includes/class-flexi-settings.php:444
-#: includes/class-flexi-settings.php:458
+#: includes/class-flexi-settings.php:423 includes/class-flexi-settings.php:446
+#: includes/class-flexi-settings.php:460
 msgid "Width"
 msgstr ""
 
-#: includes/class-flexi-settings.php:424 includes/class-flexi-settings.php:445
-#: includes/class-flexi-settings.php:459
+#: includes/class-flexi-settings.php:424 includes/class-flexi-settings.php:447
+#: includes/class-flexi-settings.php:461
 msgid "Height"
 msgstr ""
 
 #: includes/class-flexi-settings.php:425
-msgid "flexi-thumb .px"
+msgid "Applied at gallery page"
 msgstr ""
 
-#: includes/class-flexi-settings.php:436
-msgid "Crop thumbnail to exact dimensions (normally thumbnails are proportional)"
-msgstr ""
-
-#: includes/class-flexi-settings.php:443
+#: includes/class-flexi-settings.php:445
 msgid "Medium size"
 msgstr ""
 
-#: includes/class-flexi-settings.php:446
-msgid "flexi-medium .px"
+#: includes/class-flexi-settings.php:448
+msgid "medium"
 msgstr ""
 
-#: includes/class-flexi-settings.php:457
+#: includes/class-flexi-settings.php:459
 msgid "Large size"
 msgstr ""
 
-#: includes/class-flexi-settings.php:460
-msgid "flexi-large .px"
+#: includes/class-flexi-settings.php:462
+msgid "Specially applied at detail page"
 msgstr ""
 
-#: includes/class-flexi-settings.php:474
+#: includes/class-flexi-settings.php:476
 msgid "Image Detail Page"
 msgstr ""
 
-#: includes/class-flexi-settings.php:475
+#: includes/class-flexi-settings.php:477
 msgid "Replaces the SLUG value used by custom post type \"flexi\"."
 msgstr ""
 
-#: includes/class-flexi-settings.php:739
+#: includes/class-flexi-settings.php:741
 msgid "Select layout"
 msgstr ""
 
-#: includes/class-flexi-settings.php:821
+#: includes/class-flexi-settings.php:823
 msgid "Choose File"
 msgstr ""
 
-#: includes/class-flexi-settings.php:873
+#: includes/class-flexi-settings.php:875
 msgid "Select a page"
 msgstr ""
 
-#: includes/class-flexi-settings.php:896
+#: includes/class-flexi-settings.php:898
 msgid "Select category"
 msgstr ""
 
-#: includes/class-flexi-standalone-gallery.php:31
-#: public/partials/layout/gallery/masonry/footer.php:5
-#: public/partials/layout/gallery/regular/footer.php:5
-#: public/partials/layout/gallery/wide/footer.php:5
-msgid "No records"
-msgstr ""
-
-#: includes/class-flexi-standalone-gallery.php:35
+#: includes/class-flexi-standalone-gallery.php:40
 msgid "Wrong ID"
 msgstr ""
 
@@ -810,8 +799,8 @@ msgstr ""
 msgid "Profile"
 msgstr ""
 
-#: includes/class-flexi_ajax_delete.php:48 includes/functions.php:420
-#: includes/functions.php:422
+#: includes/class-flexi_ajax_delete.php:48 includes/functions.php:436
+#: includes/functions.php:438
 msgid "Login Please !"
 msgstr ""
 
@@ -1501,47 +1490,47 @@ msgstr ""
 msgid "Submission failed"
 msgstr ""
 
-#: includes/functions.php:245
+#: includes/functions.php:261
 msgid "Show All"
 msgstr ""
 
-#: includes/functions.php:351
+#: includes/functions.php:367
 msgid "Album"
 msgstr ""
 
-#: includes/functions.php:806
+#: includes/functions.php:822
 msgid "Required Flexi-PRO or UPG-PRO"
 msgstr ""
 
-#: includes/functions.php:1135
+#: includes/functions.php:1151
 msgid "Title cannot be blank."
 msgstr ""
 
-#: includes/functions.php:1138
+#: includes/functions.php:1154
 msgid "This file is not supported or file too big."
 msgstr ""
 
-#: includes/functions.php:1141
+#: includes/functions.php:1157
 msgid "This file type is not supported. Only image files are allowed."
 msgstr ""
 
-#: includes/functions.php:1144
+#: includes/functions.php:1160
 msgid "Captcha security code is invalid."
 msgstr ""
 
-#: includes/functions.php:1166
+#: includes/functions.php:1182
 msgid "Flexi Primary Gallery"
 msgstr ""
 
-#: includes/functions.php:1173
+#: includes/functions.php:1189
 msgid "Flexi User Dashboard"
 msgstr ""
 
-#: includes/functions.php:1180
+#: includes/functions.php:1196
 msgid "Flexi Submission Form"
 msgstr ""
 
-#: includes/functions.php:1187
+#: includes/functions.php:1203
 msgid "Flexi Edit/Modify"
 msgstr ""
 
@@ -1558,7 +1547,7 @@ msgid "My Dashboard"
 msgstr ""
 
 #: includes/user_dashboard/class-flexi-user-gallery.php:86
-#: public/partials/layout/detail/basic/single.php:13
+#: public/partials/layout/detail/basic/single.php:15
 msgid "Under Review"
 msgstr ""
 
@@ -1596,4 +1585,10 @@ msgstr ""
 
 #: public/class-flexi-public.php:121
 msgid "Are you sure you want to delete?"
+msgstr ""
+
+#: public/partials/layout/gallery/masonry/footer.php:5
+#: public/partials/layout/gallery/regular/footer.php:5
+#: public/partials/layout/gallery/wide/footer.php:5
+msgid "No records"
 msgstr ""
