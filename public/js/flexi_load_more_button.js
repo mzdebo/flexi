@@ -1,16 +1,16 @@
 //Toggle submission form
-jQuery(document).ready(function() {
-  jQuery("#flexi_submit_form").click(function(e) {
+jQuery(document).ready(function () {
+  jQuery("#flexi_submit_form").click(function (e) {
     jQuery("#flexi_toggle_form").slideToggle("slow");
   });
 });
 
 //Load more button
-jQuery(document).ready(function() {
+jQuery(document).ready(function () {
   var paged = 1;
   var count = 0;
 
-  jQuery(".flexi_load_more").click(function(e) {
+  jQuery(".flexi_load_more").click(function (e) {
     e.preventDefault();
     gallery_layout = jQuery("#gallery_layout").text();
     popup = jQuery("#popup").text();
@@ -25,7 +25,7 @@ jQuery(document).ready(function() {
     orderby = jQuery("#orderby").text();
     user = jQuery("#user").text();
     keyword = jQuery("#keyword").text();
-    reset = jQuery("#reset").text();
+    reset = jQuery(this).attr("data-reset");
 
     if (reset == "true") {
       paged = 1;
@@ -51,23 +51,21 @@ jQuery(document).ready(function() {
         postsperpage: postsperpage,
         orderby: orderby,
         user: user,
-        keyword: keyword
+        keyword: keyword,
       },
-      beforeSend: function() {
+      beforeSend: function () {
         //alert("about to send");
         jQuery("#flexi_load_more").slideUp();
         jQuery("#flexi_loader").show();
       },
-      success: function(response) {
-        jQuery("#flexi_main_loop")
-          .append(response.msg)
-          .fadeIn("normal");
+      success: function (response) {
+        jQuery("#flexi_main_loop").append(response.msg).fadeIn("normal");
         paged++;
         count = response.count;
 
         //alert(max_paged + "--" + paged);
       },
-      complete: function(data) {
+      complete: function (data) {
         // Hide image container
         jQuery("#flexi_loader").hide();
         jQuery("#flexi_load_more").slideDown();
@@ -76,7 +74,7 @@ jQuery(document).ready(function() {
         // alert(count);
         if (count > 0) jQuery("#flexi_no_record").hide();
         if (paged > max_paged) jQuery("#flexi_load_more").slideUp();
-      }
+      },
     });
   });
 });

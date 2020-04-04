@@ -124,13 +124,18 @@ class Flexi_Meta_boxes
    // 'closed'     => true, // Keep the metabox closed by default
   ));
 
+  $shortcode = __('Save & reopen to get shortcode', 'flexi');
+  if (esc_attr__(isset($_GET['post']))) {
+   $shortcode = '[flexi-standalone id="' . $_GET['post'] . '"]';
+  }
+
   // Regular text field
   $cmb_side->add_field(array(
    'name'        => 'Shortcode for standalone gallery',
    'description' => 'Display gallery of images available only on this post only.<br>No layouts<br>No Settings',
    'id'          => 'flexi_standalone_shortcode',
    'type'        => 'text',
-   'default'     => esc_attr__(isset($_GET['post']) ? '[flexi-standalone id="' . $_GET['post'] . '"]' : __('Save & reopen to get shortcode', 'flexi'), 'flexi'),
+   'default'     => $shortcode,
    'save_field'  => false, // Otherwise CMB2 will end up removing the value.
    'attributes'  => array(
     'readonly' => 'readonly',
