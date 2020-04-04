@@ -1,5 +1,21 @@
 /* Flexi Image */
 /* Fit image into div */
+
+.flexi-image-wrapper_auto {
+  width: 99%;
+  height: calc(var(--flexi_t_height) * 3);
+  border: 1px solid #eee;
+}
+.flexi-image-wrapper_auto img {
+  object-fit: contain;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+}
+
 .flexi-image-wrapper {
   width: var(--flexi_t_width);
   height: var(--flexi_t_height);

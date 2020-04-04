@@ -1,7 +1,7 @@
-(function( $ ) {
-	'use strict';
+(function($) {
+  "use strict";
 
-	/**
+  /**
 	 * All of the code for your public-facing JavaScript source
 	 * should reside in this file.
 	 *
@@ -17,7 +17,7 @@
 	 *
 	 * When the window is loaded:
 	 *
-	 * $( window ).load(function() {
+	 $( window ).load(function() {
 	 *
 	 * });
 	 *
@@ -29,4 +29,12 @@
 	 * practising this, we should strive to set a better example in our own work.
 	 */
 
-})( jQuery );
+  $(window).load(function() {
+    $("#flexi_thumb_image .flexi-image-wrapper-icon").hover(function() {
+      var photo_fullsize = $(this)
+        .find("img")
+        .attr("large-src");
+      $("#flexi_large_image").attr("src", photo_fullsize);
+    });
+  });
+})(jQuery);

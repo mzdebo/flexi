@@ -5,22 +5,7 @@
 </a>
  */
 ?>
-<style>
-.flexi-image-wrapper_auto {
-  width: 99%;
-  height: calc(var(--flexi_t_height)*3);
-  border: 1px solid #eee;
-}
-.flexi-image-wrapper_auto img {
-  object-fit: contain;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  max-width: 100%;
-  max-height: 100%;
-}
-  </style>
+
 <div id="flexi_content_<?php echo get_the_ID(); ?>">
 
   <div class="pure-g">
@@ -70,15 +55,3 @@ echo flexi_custom_field_loop($post, 'detail');
   <?php flexi_list_album($post, 'flexi-icon-list-frame');?>
 
 </div>
-<script>
-jQuery(document).ready(function() {
-
-  jQuery("#flexi_thumb_image .flexi-image-wrapper-icon").hover(function(){
-
-    var photo_fullsize =  jQuery(this).find('img').attr('large-src');
-    jQuery('#flexi_large_image').attr('src',photo_fullsize);
-});
-
-
-});
-</script>
