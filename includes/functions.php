@@ -832,6 +832,7 @@ function flexi_droplist_album($taxonomy = 'flexi_category', $selected_album = ""
   'name'         => 'cat',
   'id'           => '',
   'echo'         => 1,
+  'orderby'      => 'name',
   'show_count'   => 0,
   'hierarchical' => 1,
   'taxonomy'     => $taxonomy,

@@ -543,7 +543,7 @@ action="' . admin_url("admin-ajax.php") . '"
 
   if ("#" != $link) {
    $extra_icon = array(
-    array("dashicons-plus", __('New Post', 'flexi'), $link, $id, 'pure-button ' . $class),
+    array("dashicons-plus", __('New', 'flexi'), $link, $id, 'pure-button ' . $class),
 
    );
   }
@@ -565,7 +565,7 @@ action="' . admin_url("admin-ajax.php") . '"
 
    if ("#" != $link) {
     $extra_icon = array(
-     array("dashicons-visibility", __('View Post', 'flexi'), $link, $id, 'pure-button'),
+     array("dashicons-visibility", __('View', 'flexi'), $link, $id, 'pure-button'),
 
     );
    }
