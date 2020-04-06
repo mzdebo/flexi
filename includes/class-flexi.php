@@ -105,6 +105,10 @@ class Flexi
   */
  private function load_dependencies()
  {
+
+  //Block
+  require_once plugin_dir_path(dirname(__FILE__)) . 'block/plugin.php';
+
   //Widgets
   require_once plugin_dir_path(dirname(__FILE__)) . 'includes/widgets/categories.php';
 
