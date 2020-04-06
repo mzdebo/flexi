@@ -23,7 +23,7 @@ class Flexi_Standalone_Gallery
 
 
          <div class="flexi_margin-box" style="text-align: center;">
-                <div class="flexi_frame_1 flexi-image-wrapper_large"><img id="flexi_large_image" src="<?php echo flexi_image_src('flexi-large', $post); ?>"></div>
+                <div class="flexi-image-wrapper_large"><img id="flexi_large_image" src="<?php echo flexi_image_src('flexi-large', $post); ?>"></div>
       </div>
 
 

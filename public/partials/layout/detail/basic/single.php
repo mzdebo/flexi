@@ -15,7 +15,7 @@
           <div class="flexi_badge"> <?php echo __("Under Review", "flexi"); ?></div>
         </small><?php }?>
         <?php
-echo "<div class='flexi-image-wrapper_large flexi_frame_1'><img id='flexi_large_image' src='" . flexi_image_src('large') . "' ></div>";
+echo "<div class='flexi-image-wrapper_large'><img id='flexi_large_image' src='" . flexi_image_src('large') . "' ></div>";
 ?>
         <?php echo flexi_show_icon_grid(); ?>
 

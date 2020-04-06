@@ -1,10 +1,15 @@
 /* Flexi Image */
+.flexi-image-container {
+  max-width: 100%;
+}
+
 /* Fit image into div */
 
 .flexi-image-wrapper_large {
   width: var(--flexi_l_width);
   height: var(--flexi_l_height);
   border: 1px solid #eee;
+  display: table-cell;
 }
 .flexi-image-wrapper_large img {
   object-fit: contain;
