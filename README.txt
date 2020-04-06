@@ -4,7 +4,7 @@ Donate link: https://odude.com/
 Tags: gallery, image gallery, images, photo gallery
 Requires at least: 4.0.0
 Requires PHP: 5.5
-Tested up to: 5.3
+Tested up to: 5.4
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -79,6 +79,9 @@ Unless we release FLEXI-PRO version, you can use UPG-PRO which will enabled all 
 2. Multi file upload
 
 == Changelog ==
+= 1.0.11 =
+* Fixed detail page responsive image
+
 = 1.0.10 =
 * Fixed user dashboard
 
