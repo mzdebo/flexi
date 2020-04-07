@@ -27,14 +27,18 @@ const { registerBlockType } = wp.blocks; // Import registerBlockType() from wp.b
  */
 registerBlockType("cgb/block-flexi-block", {
 	// Block name. Block names must be string that contains a namespace prefix. Example: my-plugin/my-custom-block.
-	title: __("flexi-block - 1 Block"), // Block title.
+	title: __("flexi-block - 11 Block"), // Block title.
 	icon: "shield", // Block icon from Dashicons → https://developer.wordpress.org/resource/dashicons/.
 	category: "common", // Block category — Group blocks together based on common traits E.g. common, formatting, layout widgets, embed.
 	keywords: [
-		__("flexi-block — 1 Block"),
-		__("xxx Example"),
+		__("flexi-block — 11 Block"),
+		__("xxxw Example"),
 		__("create-guten-block"),
 	],
+	attributes: {
+		content: { type: "string" },
+		color: { type: "string" },
+	},
 
 	/**
 	 * The edit function describes the structure of your block in the context of the editor.
@@ -55,15 +59,6 @@ registerBlockType("cgb/block-flexi-block", {
 				<p>
 					CGB BLOCK: <code>flexi-block</code> is a new Gutenberg block
 				</p>
-				<p>
-					It was created via{" "}
-					<code>
-						<a href="https://github.com/ahmadawais/create-guten-block">
-							create-guten-block
-						</a>
-					</code>
-					.
-				</p>
 			</div>
 		);
 	},
@@ -80,22 +75,6 @@ registerBlockType("cgb/block-flexi-block", {
 	 * @returns {Mixed} JSX Frontend HTML.
 	 */
 	save: (props) => {
-		return (
-			<div className={props.className}>
-				<p>— Hello vv from the frontend.</p>
-				<p>
-					CGB BLOCK: <code>flexi-block</code> is a new Gutenberg block.
-				</p>
-				<p>
-					It was created via{" "}
-					<code>
-						<a href="https://github.com/ahmadawais/create-guten-block">
-							create-guten-block
-						</a>
-					</code>
-					.
-				</p>
-			</div>
-		);
+		return null;
 	},
 });
