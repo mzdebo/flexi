@@ -11,6 +11,22 @@ import "./style.scss";
 
 const { __ } = wp.i18n; // Import __() from wp.i18n
 const { registerBlockType } = wp.blocks; // Import registerBlockType() from wp.blocks
+const {
+	RichText,
+	AlignmentToolbar,
+	BlockControls,
+	BlockAlignmentToolbar,
+	InspectorControls,
+} = wp.editor;
+const {
+	Toolbar,
+	Button,
+	Tooltip,
+	PanelBody,
+	PanelRow,
+	FormToggle,
+	ServerSideRender,
+} = wp.components;
 
 /**
  * Register: aa Gutenberg Block.
@@ -27,17 +43,19 @@ const { registerBlockType } = wp.blocks; // Import registerBlockType() from wp.b
  */
 registerBlockType("cgb/block-flexi-block", {
 	// Block name. Block names must be string that contains a namespace prefix. Example: my-plugin/my-custom-block.
-	title: __("flexi-block - 11 Block"), // Block title.
+	title: __("flexi-block - x1 Block"), // Block title.
 	icon: "shield", // Block icon from Dashicons → https://developer.wordpress.org/resource/dashicons/.
 	category: "common", // Block category — Group blocks together based on common traits E.g. common, formatting, layout widgets, embed.
 	keywords: [
-		__("flexi-block — 11 Block"),
-		__("xxxw Example"),
+		__("flexi-block — x1 Block"),
+		__("xxx Example"),
 		__("create-guten-block"),
 	],
 	attributes: {
-		content: { type: "string" },
-		color: { type: "string" },
+		check_box: {
+			type: "boolean",
+			default: false,
+		},
 	},
 
 	/**
@@ -51,11 +69,29 @@ registerBlockType("cgb/block-flexi-block", {
 	 * @param {Object} props Props.
 	 * @returns {Mixed} JSX Component.
 	 */
-	edit: (props) => {
-		// Creates a <p class='wp-block-cgb-block-flexi-block'></p>.
+	edit: function (props) {
+		const { className } = props;
+		const { attributes, setAttributes } = props;
+
 		return (
 			<div className={props.className}>
-				<p>— Hello from 11111 the backend.</p>
+				<InspectorControls>
+					<PanelBody title={__("Settings One")}>
+						<FormToggle
+							checked={attributes.check_box}
+							onChange={() =>
+								setAttributes({ check_box: !attributes.check_box })
+							}
+						/>
+					</PanelBody>
+
+					<PanelBody title={__("Settings Two")}></PanelBody>
+				</InspectorControls>
+				<ServerSideRender
+					block="cgb/block-flexi-block"
+					attributes={props.attributes}
+				/>
+				<p>— Hello from one the backend. </p>
 				<p>
 					CGB BLOCK: <code>flexi-block</code> is a new Gutenberg block
 				</p>
