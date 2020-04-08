@@ -10,9 +10,9 @@ import "./editor.scss";
 import "./style.scss";
 
 const { __ } = wp.i18n; // Import __() from wp.i18n
-const { registerBlockType } = wp.blocks; // Import registerBlockType() from wp.blocks
+const { registerBlockType, RichText } = wp.blocks; // Import registerBlockType() from wp.blocks
 const {
-	RichText,
+	ColorPalette,
 	AlignmentToolbar,
 	BlockControls,
 	BlockAlignmentToolbar,
@@ -21,12 +21,20 @@ const {
 const {
 	Toolbar,
 	Button,
+	Text,
 	Tooltip,
 	PanelBody,
 	PanelRow,
 	FormToggle,
+	ToggleControl,
 	ServerSideRender,
+	TextControl,
+	Disabled,
+	RangeControl,
 } = wp.components;
+
+const { Component, Fragment } = wp.element;
+const { withState } = wp.compose;
 
 /**
  * Register: aa Gutenberg Block.
@@ -52,7 +60,19 @@ registerBlockType("cgb/block-flexi-block", {
 		__("create-guten-block"),
 	],
 	attributes: {
-		check_box: {
+		layout: {
+			type: "string",
+			default: "regular",
+		},
+		column: {
+			type: "number",
+			default: 2,
+		},
+		perpage: {
+			type: "number",
+			default: 10,
+		},
+		popup: {
 			type: "boolean",
 			default: false,
 		},
@@ -70,33 +90,72 @@ registerBlockType("cgb/block-flexi-block", {
 	 * @returns {Mixed} JSX Component.
 	 */
 	edit: function (props) {
-		const { className } = props;
-		const { attributes, setAttributes } = props;
+		const { setAttributes, attributes, className, focus } = props;
+		var column = props.attributes.column;
+		var perpage = props.attributes.perpage;
+		var layout = props.attributes.layout; // To bind attribute layout
+		var popup = props.attributes.popup; // To bind attribute layout
 
-		return (
-			<div className={props.className}>
-				<InspectorControls>
-					<PanelBody title={__("Settings One")}>
-						<FormToggle
-							checked={attributes.check_box}
-							onChange={() =>
-								setAttributes({ check_box: !attributes.check_box })
-							}
+		function onChangeLayout(content) {
+			props.setAttributes({ layout: content });
+		}
+
+		function onChangeColumn(changes) {
+			props.setAttributes({ column: changes });
+		}
+
+		function onChangePerpage(changes) {
+			props.setAttributes({ perpage: changes });
+		}
+
+		function toggleAttribute(attribute) {
+			return (newValue) => {
+				props.setAttributes({ [attribute]: newValue });
+			};
+		}
+
+		return [
+			<Fragment>
+				<div className={props.className}>
+					<InspectorControls>
+						<PanelBody title={__("Settings One")} initialOpen={true}>
+							<TextControl
+								label="Input text"
+								value={layout}
+								onChange={onChangeLayout}
+							/>
+							<RangeControl
+								label="Columns"
+								value={column}
+								onChange={onChangeColumn}
+								min={1}
+								max={10}
+							/>
+							<RangeControl
+								label="Post Per Page"
+								value={perpage}
+								onChange={onChangePerpage}
+								min={1}
+								max={100}
+							/>
+
+							<ToggleControl
+								label="Popup"
+								checked={popup}
+								onChange={toggleAttribute("popup")}
+							/>
+						</PanelBody>
+					</InspectorControls>
+
+					<Disabled>
+						<ServerSideRender
+							block="cgb/block-flexi-block"
+							attributes={attributes}
 						/>
-					</PanelBody>
-
-					<PanelBody title={__("Settings Two")}></PanelBody>
-				</InspectorControls>
-				<ServerSideRender
-					block="cgb/block-flexi-block"
-					attributes={props.attributes}
-				/>
-				<p>— Hello from one the backend. </p>
-				<p>
-					CGB BLOCK: <code>flexi-block</code> is a new Gutenberg block
-				</p>
-			</div>
-		);
+					</Disabled>
+				</div>
+			</Fragment>,
+		];
 	},
 
 	/**
@@ -111,6 +170,7 @@ registerBlockType("cgb/block-flexi-block", {
 	 * @returns {Mixed} JSX Frontend HTML.
 	 */
 	save: (props) => {
+		//props.attributes.button_color //This way get attribute value
 		return null;
 	},
 });
