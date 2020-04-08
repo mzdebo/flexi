@@ -26,6 +26,7 @@ const {
 	PanelBody,
 	PanelRow,
 	FormToggle,
+	SelectControl,
 	ToggleControl,
 	ServerSideRender,
 	TextControl,
@@ -76,6 +77,10 @@ registerBlockType("cgb/block-flexi-block", {
 			type: "boolean",
 			default: false,
 		},
+		orderby: {
+			type: "string",
+			default: "asc",
+		},
 	},
 
 	/**
@@ -95,6 +100,7 @@ registerBlockType("cgb/block-flexi-block", {
 		var perpage = props.attributes.perpage;
 		var layout = props.attributes.layout; // To bind attribute layout
 		var popup = props.attributes.popup; // To bind attribute layout
+		var orderby = props.attributes.orderby; // To bind attribute layout
 
 		function onChangeLayout(content) {
 			props.setAttributes({ layout: content });
@@ -143,6 +149,22 @@ registerBlockType("cgb/block-flexi-block", {
 								label="Popup"
 								checked={popup}
 								onChange={toggleAttribute("popup")}
+							/>
+
+							<SelectControl
+								label="Order By"
+								value={orderby}
+								options={[
+									{
+										label: "Ascending by Title",
+										value: "asc",
+									},
+									{
+										label: "Descending by Title",
+										value: "desc",
+									},
+								]}
+								onChange={(value) => setAttributes({ orderby: value })}
 							/>
 						</PanelBody>
 					</InspectorControls>

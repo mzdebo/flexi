@@ -34,6 +34,10 @@ register_block_type(
     'type'    => 'boolean',
     'default' => false,
    ),
+   'orderby' => array(
+    'type'    => 'string',
+    'default' => 'asc',
+   ),
   ),
   'render_callback' => 'hi_roy_render_callback',
  )
