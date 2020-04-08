@@ -60,7 +60,11 @@ function hi_roy_render_callback($args)
    $popup = "off";
   }
 
-  $shortcode = '[flexi-gallery column="' . $args['column'] . '" perpage="' . $args['perpage'] . '" popup="' . $popup . '" ]';
+  $shortcode = '[flexi-gallery
+  column="' . $args['column'] . '"
+  perpage="' . $args['perpage'] . '"
+  layout="' . $args['layout'] . '"
+  popup="' . $popup . '" ]';
  }
  print_r($args);
  //echo do_shortcode($shortcode);
