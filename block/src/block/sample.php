@@ -26,7 +26,7 @@ register_block_type(
     'type'    => 'integer',
     'default' => 2,
    ),
-   'id'      => array(
+   'cat'     => array(
     'type'    => 'integer',
     'default' => 0,
    ),

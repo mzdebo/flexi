@@ -42,7 +42,7 @@ function flexi_block_cgb_block_assets()
  wp_register_script(
   'flexi_block-cgb-block-js', // Handle.
   plugins_url('/dist/blocks.build.js', dirname(__FILE__)), // Block.build.js: We register the block here. Built with Webpack.
-  array('wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor', 'wp-components', 'wp-api-fetch'), // Dependencies, defined above.
+  array('wp-data', 'wp-compose', 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor', 'wp-components', 'wp-api-fetch'), // Dependencies, defined above.
   null, // filemtime( plugin_dir_path( __DIR__ ) . 'dist/blocks.build.js' ), // Version: filemtime — Gets file modification time.
   true// Enqueue the script in the footer.
  );

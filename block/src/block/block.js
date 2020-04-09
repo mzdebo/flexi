@@ -9,6 +9,9 @@
 import "./editor.scss";
 import "./style.scss";
 
+// Import block dependencies and components
+import edit from "./edit";
+
 const { __ } = wp.i18n; // Import __() from wp.i18n
 const { registerBlockType, RichText } = wp.blocks; // Import registerBlockType() from wp.blocks
 const {
@@ -36,6 +39,7 @@ const {
 
 const { Component, Fragment } = wp.element;
 const { withState } = wp.compose;
+const { withSelect } = wp.data;
 
 /**
  * Register: aa Gutenberg Block.
@@ -65,7 +69,7 @@ registerBlockType("cgb/block-flexi-block", {
 			type: "string",
 			default: "regular",
 		},
-		id: {
+		cat: {
 			type: "number",
 			default: 0,
 		},
@@ -87,143 +91,10 @@ registerBlockType("cgb/block-flexi-block", {
 		},
 	},
 
-	/**
-	 * The edit function describes the structure of your block in the context of the editor.
-	 * This represents what the editor will render when the block is used.
-	 *
-	 * The "edit" property must be a valid function.
-	 *
-	 * @link https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/
-	 *
-	 * @param {Object} props Props.
-	 * @returns {Mixed} JSX Component.
-	 */
-	edit: function (props) {
-		const { setAttributes, attributes, className, focus } = props;
-		var column = props.attributes.column;
-		var perpage = props.attributes.perpage;
-		var layout = props.attributes.layout; // To bind attribute layout
-		var popup = props.attributes.popup; // To bind attribute layout
-		var orderby = props.attributes.orderby; // To bind attribute layout
-		//	"/wp/v2/flexi_category"
-		/*
-		var aaa = wp.data
-			.select("core")
-			.getEntityRecords("taxonomy", "flexi_category");
-		//console.log(aaa);
-		
-		wp.apiFetch({ path: "/wp/v2/flexi_category" })
-			// 'terms' contains valid term objects
-			.then((terms) => console.log(terms));
+	edit,
 
-		var journey = props.attributes.journey; // To bind attribute layout
-		function onChangeJourney(newJourney) {
-			setAttributes({ journey: newJourney });
-		}
-
-		const journeyOptions = [];
-		wp.apiFetch({ path: "/wp/v2/flexi_category" }).then((posts) =>
-			posts.map(function (post) {
-				//replace space with hyphen for class
-				let optionvalue = post.journey_path.replace(/\s/g, "-");
-				journeyOptions.push({ value: optionvalue, label: post.journey_path });
-			})
-		);
-		console.log(journeyOptions);
-*/
-
-		function onChangeLayout(content) {
-			props.setAttributes({ layout: content });
-		}
-
-		function onChangeColumn(changes) {
-			props.setAttributes({ column: changes });
-		}
-
-		function onChangePerpage(changes) {
-			props.setAttributes({ perpage: changes });
-		}
-
-		function toggleAttribute(attribute) {
-			return (newValue) => {
-				props.setAttributes({ [attribute]: newValue });
-			};
-		}
-
-		return [
-			<Fragment>
-				<div className={props.className}>
-					<InspectorControls>
-						<PanelBody title={__("Settings One")} initialOpen={true}>
-							<TextControl
-								label="Input text"
-								value={layout}
-								onChange={onChangeLayout}
-							/>
-
-							<RangeControl
-								label="Columns"
-								value={column}
-								onChange={onChangeColumn}
-								min={1}
-								max={10}
-							/>
-							<RangeControl
-								label="Post Per Page"
-								value={perpage}
-								onChange={onChangePerpage}
-								min={1}
-								max={100}
-							/>
-
-							<ToggleControl
-								label="Popup"
-								checked={popup}
-								onChange={toggleAttribute("popup")}
-							/>
-
-							<SelectControl
-								label="Order By"
-								value={orderby}
-								options={[
-									{
-										label: "Ascending by Title",
-										value: "asc",
-									},
-									{
-										label: "Descending by Title",
-										value: "desc",
-									},
-								]}
-								onChange={(value) => setAttributes({ orderby: value })}
-							/>
-						</PanelBody>
-					</InspectorControls>
-
-					<Disabled>
-						<ServerSideRender
-							block="cgb/block-flexi-block"
-							attributes={attributes}
-						/>
-					</Disabled>
-				</div>
-			</Fragment>,
-		];
-	},
-
-	/**
-	 * The save function defines the way in which the different attributes should be combined
-	 * into the final markup, which is then serialized by Gutenberg into post_content.
-	 *
-	 * The "save" property must be specified and must be a valid function.
-	 *
-	 * @link https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/
-	 *
-	 * @param {Object} props Props.
-	 * @returns {Mixed} JSX Frontend HTML.
-	 */
-	save: (props) => {
-		//props.attributes.button_color //This way get attribute value
+	// Render via PHP
+	save: function (props) {
 		return null;
 	},
 });
