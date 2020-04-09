@@ -65,6 +65,10 @@ registerBlockType("cgb/block-flexi-block", {
 			type: "string",
 			default: "regular",
 		},
+		id: {
+			type: "number",
+			default: 0,
+		},
 		column: {
 			type: "number",
 			default: 2,
@@ -101,6 +105,32 @@ registerBlockType("cgb/block-flexi-block", {
 		var layout = props.attributes.layout; // To bind attribute layout
 		var popup = props.attributes.popup; // To bind attribute layout
 		var orderby = props.attributes.orderby; // To bind attribute layout
+		//	"/wp/v2/flexi_category"
+		/*
+		var aaa = wp.data
+			.select("core")
+			.getEntityRecords("taxonomy", "flexi_category");
+		//console.log(aaa);
+		
+		wp.apiFetch({ path: "/wp/v2/flexi_category" })
+			// 'terms' contains valid term objects
+			.then((terms) => console.log(terms));
+
+		var journey = props.attributes.journey; // To bind attribute layout
+		function onChangeJourney(newJourney) {
+			setAttributes({ journey: newJourney });
+		}
+
+		const journeyOptions = [];
+		wp.apiFetch({ path: "/wp/v2/flexi_category" }).then((posts) =>
+			posts.map(function (post) {
+				//replace space with hyphen for class
+				let optionvalue = post.journey_path.replace(/\s/g, "-");
+				journeyOptions.push({ value: optionvalue, label: post.journey_path });
+			})
+		);
+		console.log(journeyOptions);
+*/
 
 		function onChangeLayout(content) {
 			props.setAttributes({ layout: content });
@@ -130,6 +160,7 @@ registerBlockType("cgb/block-flexi-block", {
 								value={layout}
 								onChange={onChangeLayout}
 							/>
+
 							<RangeControl
 								label="Columns"
 								value={column}

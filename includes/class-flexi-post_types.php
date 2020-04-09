@@ -431,7 +431,7 @@ class Flexi_Post_Types
      * If you want to add custom capabilities to the post type.
      */
     'custom_caps'         => true,
-
+    'show_in_rest'        => true,
     /**
      * Assign capabilities for roles.
      */
@@ -446,16 +446,18 @@ class Flexi_Post_Types
     'taxonomies'          => array(
 
      array(
-      'taxonomy'   => 'flexi_category',
-      'plural'     => 'Flexi Categories',
-      'single'     => 'Flexi Category',
-      'post_types' => array('flexi'),
+      'taxonomy'     => 'flexi_category',
+      'show_in_rest' => true,
+      'plural'       => 'Flexi Categories',
+      'single'       => 'Flexi Category',
+      'post_types'   => array('flexi'),
      ),
      array(
-      'taxonomy'   => 'flexi_tag',
-      'plural'     => 'Flexi Tags',
-      'single'     => 'Flexi Tag',
-      'post_types' => array('flexi'),
+      'taxonomy'     => 'flexi_tag',
+      'show_in_rest' => true,
+      'plural'       => 'Flexi Tags',
+      'single'       => 'Flexi Tag',
+      'post_types'   => array('flexi'),
 
      ),
     ),

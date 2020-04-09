@@ -26,6 +26,10 @@ register_block_type(
     'type'    => 'integer',
     'default' => 2,
    ),
+   'id'      => array(
+    'type'    => 'integer',
+    'default' => 0,
+   ),
    'perpage' => array(
     'type'    => 'integer',
     'default' => 10,
