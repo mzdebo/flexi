@@ -18,36 +18,44 @@ register_block_type(
   // Enqueue blocks.editor.build.css in the editor only.
   'editor_style'    => 'flexi_block-cgb-block-editor-css',
   'attributes'      => array(
-   'layout'  => array(
+   'layout'   => array(
     'type'    => 'string',
     'default' => 'regular',
    ),
-   'column'  => array(
+   'column'   => array(
     'type'    => 'integer',
     'default' => 2,
    ),
-   'cat'     => array(
+   'cat'      => array(
     'type'    => 'integer',
     'default' => 0,
    ),
-   'perpage' => array(
+   'perpage'  => array(
     'type'    => 'integer',
     'default' => 10,
    ),
-   'popup'   => array(
+   'popup'    => array(
     'type'    => 'boolean',
     'default' => false,
    ),
-   'orderby' => array(
+   'tag_show' => array(
+    'type'    => 'boolean',
+    'default' => false,
+   ),
+   'orderby'  => array(
     'type'    => 'string',
     'default' => 'asc',
    ),
+   'tag'      => array(
+    'type'    => 'string',
+    'default' => '',
+   ),
   ),
-  'render_callback' => 'hi_roy_render_callback',
+  'render_callback' => 'flexi_gallery_render_callback',
  )
 );
 
-function hi_roy_render_callback($args)
+function flexi_gallery_render_callback($args)
 {
 
  if (!current_user_can('administrator')) {
@@ -72,11 +80,14 @@ function hi_roy_render_callback($args)
   column="' . $args['column'] . '"
   perpage="' . $args['perpage'] . '"
   layout="' . $args['layout'] . '"
-  popup="' . $popup . '" ]';
+  popup="' . $popup . '"
+  tag="' . $args['tag'] . '"
+   ]';
  }
  print_r($args);
  //echo do_shortcode($shortcode);
  echo '<div>' . $shortcode . '</div>';
+ //echo do_shortcode('[flexi-gallery]');
  return ob_get_clean();
 
 }

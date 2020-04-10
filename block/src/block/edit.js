@@ -55,12 +55,21 @@ class FlexiGalleryEdit extends Component {
 	render() {
 		const { attributes, setAttributes, className } = this.props;
 
-		const { cat, layout, column, orderby, perpage, popup } = attributes;
+		const {
+			cat,
+			tag,
+			tag_show,
+			layout,
+			column,
+			orderby,
+			perpage,
+			popup,
+		} = attributes;
 
 		const categories = this.getCategoriesTree();
 
-		function onChangeLayout(content) {
-			setAttributes({ layout: content });
+		function onChangeTag(content) {
+			setAttributes({ tag: content });
 		}
 
 		function onChangeColumn(changes) {
@@ -83,16 +92,43 @@ class FlexiGalleryEdit extends Component {
 					<InspectorControls>
 						<PanelBody title={__("Flexi Gallery Settings", "flexi")}>
 							<SelectControl
-								label="Category Label"
+								label="Select Category"
 								value={cat}
 								options={categories}
 								onChange={(value) => setAttributes({ cat: Number(value) })}
 							/>
-							<TextControl
-								label="Input text"
+
+							<SelectControl
+								label="Layout"
 								value={layout}
-								onChange={onChangeLayout}
+								options={[
+									{
+										label: "Masonry",
+										value: "masonry",
+									},
+									{
+										label: "Regular",
+										value: "regular",
+									},
+									{
+										label: "Wide",
+										value: "wide",
+									},
+								]}
+								onChange={(value) => setAttributes({ layout: value })}
 							/>
+
+							<TextControl
+								label="Tag name separated by commas"
+								value={tag}
+								onChange={onChangeTag}
+							/>
+							<ToggleControl
+								label="Display tags above gallery"
+								checked={tag_show}
+								onChange={toggleAttribute("tag_show")}
+							/>
+
 							<RangeControl
 								label="Columns"
 								value={column}
@@ -119,12 +155,24 @@ class FlexiGalleryEdit extends Component {
 								value={orderby}
 								options={[
 									{
-										label: "Ascending by Title",
-										value: "asc",
+										label: "Title",
+										value: "title",
 									},
 									{
-										label: "Descending by Title",
-										value: "desc",
+										label: "Date",
+										value: "date",
+									},
+									{
+										label: "Modified Date",
+										value: "modified",
+									},
+									{
+										label: "Flexi ID",
+										value: "id",
+									},
+									{
+										label: "Random",
+										value: "rand",
 									},
 								]}
 								onChange={(value) => setAttributes({ orderby: value })}

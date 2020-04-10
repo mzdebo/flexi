@@ -69,6 +69,10 @@ registerBlockType("cgb/block-flexi-block", {
 			type: "string",
 			default: "regular",
 		},
+		tag: {
+			type: "string",
+			default: "",
+		},
 		cat: {
 			type: "number",
 			default: 0,
@@ -82,6 +86,10 @@ registerBlockType("cgb/block-flexi-block", {
 			default: 10,
 		},
 		popup: {
+			type: "boolean",
+			default: false,
+		},
+		tag_show: {
 			type: "boolean",
 			default: false,
 		},
