@@ -76,18 +76,39 @@ function flexi_gallery_render_callback($args)
    $popup = "off";
   }
 
+  if (isset($args['tag_show']) && '1' == $args['tag_show']) {
+   $tag_show = "on";
+  } else {
+   $tag_show = "off";
+  }
+
+  $cat = get_term_by('id', $args['cat'], 'flexi_category');
+  if ($cat) {
+   $cat = $cat->slug;
+  } else {
+   $cat = "";
+  }
+
   $shortcode = '[flexi-gallery
   column="' . $args['column'] . '"
   perpage="' . $args['perpage'] . '"
   layout="' . $args['layout'] . '"
   popup="' . $popup . '"
+  album="' . $cat . '"
   tag="' . $args['tag'] . '"
+  orderby="' . $args['orderby'] . '"
+  tag_show="' . $tag_show . '"
    ]';
  }
- print_r($args);
- //echo do_shortcode($shortcode);
- echo '<div>' . $shortcode . '</div>';
- //echo do_shortcode('[flexi-gallery]');
+ //print_r($args);
+
+ echo do_shortcode($shortcode);
+
+ if (defined('REST_REQUEST') && REST_REQUEST) {
+  echo "<b>Below is the shortcode generated for this page<b><hr>";
+  echo '<code>' . $shortcode . '</code>';
+ }
+
  return ob_get_clean();
 
 }

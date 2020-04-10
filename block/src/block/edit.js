@@ -90,32 +90,12 @@ class FlexiGalleryEdit extends Component {
 			<Fragment>
 				<div className={className}>
 					<InspectorControls>
-						<PanelBody title={__("Flexi Gallery Settings", "flexi")}>
+						<PanelBody title={__("Category & Tags", "flexi")}>
 							<SelectControl
 								label="Select Category"
 								value={cat}
 								options={categories}
 								onChange={(value) => setAttributes({ cat: Number(value) })}
-							/>
-
-							<SelectControl
-								label="Layout"
-								value={layout}
-								options={[
-									{
-										label: "Masonry",
-										value: "masonry",
-									},
-									{
-										label: "Regular",
-										value: "regular",
-									},
-									{
-										label: "Wide",
-										value: "wide",
-									},
-								]}
-								onChange={(value) => setAttributes({ layout: value })}
 							/>
 
 							<TextControl
@@ -127,27 +107,6 @@ class FlexiGalleryEdit extends Component {
 								label="Display tags above gallery"
 								checked={tag_show}
 								onChange={toggleAttribute("tag_show")}
-							/>
-
-							<RangeControl
-								label="Columns"
-								value={column}
-								onChange={onChangeColumn}
-								min={1}
-								max={10}
-							/>
-							<RangeControl
-								label="Post Per Page"
-								value={perpage}
-								onChange={onChangePerpage}
-								min={1}
-								max={100}
-							/>
-
-							<ToggleControl
-								label="Popup"
-								checked={popup}
-								onChange={toggleAttribute("popup")}
 							/>
 
 							<SelectControl
@@ -176,6 +135,47 @@ class FlexiGalleryEdit extends Component {
 									},
 								]}
 								onChange={(value) => setAttributes({ orderby: value })}
+							/>
+						</PanelBody>
+						<PanelBody title={__("Layout Controls", "flexi")}>
+							<SelectControl
+								label="Layout"
+								value={layout}
+								options={[
+									{
+										label: "Masonry",
+										value: "masonry",
+									},
+									{
+										label: "Regular",
+										value: "regular",
+									},
+									{
+										label: "Wide",
+										value: "wide",
+									},
+								]}
+								onChange={(value) => setAttributes({ layout: value })}
+							/>
+							<RangeControl
+								label="Columns"
+								value={column}
+								onChange={onChangeColumn}
+								min={1}
+								max={10}
+							/>
+							<RangeControl
+								label="Post Per Page"
+								value={perpage}
+								onChange={onChangePerpage}
+								min={1}
+								max={100}
+							/>
+
+							<ToggleControl
+								label="Popup"
+								checked={popup}
+								onChange={toggleAttribute("popup")}
 							/>
 						</PanelBody>
 					</InspectorControls>
