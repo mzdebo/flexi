@@ -103,19 +103,21 @@ function flexi_gallery_render_callback($args)
  //print_r($args);
 
  echo do_shortcode($shortcode);
-
+ //echo $shortcode;
  if (defined('REST_REQUEST') && REST_REQUEST) {
-  echo "<div class='' style='clear:both'>";
-  echo "<b>Below is the shortcode generated for this page<b><hr>";
-  echo '<code>' . $shortcode . '</code></div><hr>';
+  echo "<div style='clear:both;border: 1px solid #999;  font-size: 10px;background: #eee'>";
+  echo "<b>Above preview is just for reference.<br>Some settings may not work on specific layout.<br>Below is the shortcode generated for this page<b><hr>";
+  echo '<code>' . $shortcode . '</code></div>';
+
   ?>
-<link rel='stylesheet' id='flexi_public_css-css'  href='<?php echo FLEXI_ROOT_URL; ?>../public/css/flexi-public.css?ver=<?php echo FLEXI_VERSION; ?>' media='all' />
-<link rel='stylesheet' id='flexi_fancybox-css'  href='<?php echo FLEXI_ROOT_URL; ?>../public/css/jquery.fancybox.min.css?ver=<?php echo FLEXI_VERSION; ?>' media='all' />
-<link rel='stylesheet' id='flexi_purecss_base-css'  href='<?php echo FLEXI_ROOT_URL; ?>../public/css/purecss/base-min.css?ver=<?php echo FLEXI_VERSION; ?>' media='all' />
-<link rel='stylesheet' id='flexi_purecss_grids-css'  href='<?php echo FLEXI_ROOT_URL; ?>../public/css/purecss/grids-min.css?ver=<?php echo FLEXI_VERSION; ?>' media='all' />
-<link rel='stylesheet' id='flexi_purecss_responsive-css'  href='<?php echo FLEXI_ROOT_URL; ?>../public/css/purecss/grids-responsive-min.css?ver=<?php echo FLEXI_VERSION; ?>' media='all' />
-<link rel='stylesheet' id='flexi_purecss_buttons-css'  href='<?php echo FLEXI_ROOT_URL; ?>../public/css/purecss/buttons-min.css?ver=<?php echo FLEXI_VERSION; ?>' media='all' />
-<link rel='stylesheet' id='flexi_purecss_forms-css'  href='<?php echo FLEXI_ROOT_URL; ?>../public/css/purecss/forms-min.css?ver=<?php echo FLEXI_VERSION; ?>' media='all' />
+  <link rel='stylesheet' id='flexi_public_layout'  href='<?php echo FLEXI_PLUGIN_URL; ?>/public/partials/layout/gallery/<?php echo $args['layout']; ?>/style.css?ver=<?php echo FLEXI_VERSION; ?>' media='all' />
+<link rel='stylesheet' id='flexi_public_css-css'  href='<?php echo FLEXI_PLUGIN_URL; ?>/public/css/flexi-public.css?ver=<?php echo FLEXI_VERSION; ?>' media='all' />
+<link rel='stylesheet' id='flexi_fancybox-css'  href='<?php echo FLEXI_PLUGIN_URL; ?>/public/css/jquery.fancybox.min.css?ver=<?php echo FLEXI_VERSION; ?>' media='all' />
+<link rel='stylesheet' id='flexi_purecss_base-css'  href='<?php echo FLEXI_PLUGIN_URL; ?>/public/css/purecss/base-min.css?ver=<?php echo FLEXI_VERSION; ?>' media='all' />
+<link rel='stylesheet' id='flexi_purecss_grids-css'  href='<?php echo FLEXI_PLUGIN_URL; ?>/public/css/purecss/grids-min.css?ver=<?php echo FLEXI_VERSION; ?>' media='all' />
+<link rel='stylesheet' id='flexi_purecss_responsive-css'  href='<?php echo FLEXI_PLUGIN_URL; ?>/public/css/purecss/grids-responsive-min.css?ver=<?php echo FLEXI_VERSION; ?>' media='all' />
+<link rel='stylesheet' id='flexi_purecss_buttons-css'  href='<?php echo FLEXI_PLUGIN_URL; ?>/public/css/purecss/buttons-min.css?ver=<?php echo FLEXI_VERSION; ?>' media='all' />
+<link rel='stylesheet' id='flexi_purecss_forms-css'  href='<?php echo FLEXI_PLUGIN_URL; ?>/public/css/purecss/forms-min.css?ver=<?php echo FLEXI_VERSION; ?>' media='all' />
    <?php
 
  }

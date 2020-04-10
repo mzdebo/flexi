@@ -252,7 +252,7 @@ class Flexi_Shortcode_Gallery
 
    $check_file = FLEXI_PLUGIN_DIR . 'public/partials/layout/gallery/' . $layout . '/loop.php';
    if (file_exists($check_file)) {
-    wp_register_style('flexi_' . $layout . '_layout', plugin_dir_url(__FILE__) . '../public/partials/layout/gallery/' . $layout . '/style.css', null, FLEXI_VERSION);
+    wp_register_style('flexi_' . $layout . '_layout', FLEXI_PLUGIN_URL . '/public/partials/layout/gallery/' . $layout . '/style.css', null, FLEXI_VERSION);
     wp_enqueue_style('flexi_' . $layout . '_layout');
     require FLEXI_PLUGIN_DIR . 'public/partials/layout/gallery/attach_header.php';
     while ($query->have_posts()): $query->the_post();
