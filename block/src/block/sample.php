@@ -20,7 +20,7 @@ register_block_type(
   'attributes'      => array(
    'layout'   => array(
     'type'    => 'string',
-    'default' => 'regular',
+    'default' => 'masonry',
    ),
    'column'   => array(
     'type'    => 'integer',
@@ -98,15 +98,18 @@ function flexi_gallery_render_callback($args)
   tag="' . $args['tag'] . '"
   orderby="' . $args['orderby'] . '"
   tag_show="' . $tag_show . '"
-   ]';
+  ] ';
  }
  //print_r($args);
 
  echo do_shortcode($shortcode);
  //echo $shortcode;
  if (defined('REST_REQUEST') && REST_REQUEST) {
-  echo "<div style='clear:both;border: 1px solid #999;  font-size: 10px;background: #eee'>";
-  echo "<b>Above preview is just for reference.<br>Some settings may not work on specific layout.<br>Below is the shortcode generated for this page<b><hr>";
+  echo "<div style='clear:both;border: 1px solid #999; background: #eee'>";
+  echo "<ul><li>Above preview is just for reference.
+  <li> Ajax function like page load & popup will not be executed.
+  <li>Some settings may not work on specific layout.
+  <li>Below is the shortcode generated for this page</ul>";
   echo '<code>' . $shortcode . '</code></div>';
 
   ?>
