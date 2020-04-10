@@ -179,12 +179,11 @@ class FlexiGalleryEdit extends Component {
 							/>
 						</PanelBody>
 					</InspectorControls>
-					<Disabled>
-						<ServerSideRender
-							block="cgb/block-flexi-block"
-							attributes={attributes}
-						/>
-					</Disabled>
+
+					<ServerSideRender
+						block="cgb/block-flexi-block"
+						attributes={attributes}
+					/>
 				</div>
 			</Fragment>
 		);

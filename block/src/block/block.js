@@ -67,7 +67,7 @@ registerBlockType("cgb/block-flexi-block", {
 	attributes: {
 		layout: {
 			type: "string",
-			default: "regular",
+			default: "masonry",
 		},
 		tag: {
 			type: "string",
@@ -79,11 +79,11 @@ registerBlockType("cgb/block-flexi-block", {
 		},
 		column: {
 			type: "number",
-			default: 2,
+			default: 4,
 		},
 		perpage: {
 			type: "number",
-			default: 10,
+			default: 8,
 		},
 		popup: {
 			type: "boolean",

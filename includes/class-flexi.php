@@ -84,6 +84,7 @@ class Flexi
   // Path to the plugin directory
   if (!defined('FLEXI_PLUGIN_DIR')) {
    define('FLEXI_PLUGIN_DIR', plugin_dir_path(dirname(__FILE__)));
+   define('FLEXI_ROOT_URL', plugin_dir_url(__FILE__));
   }
  }
 
