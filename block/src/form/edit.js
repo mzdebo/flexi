@@ -69,6 +69,10 @@ class FlexiGalleryEdit extends Component {
 			enable_category,
 			enable_tag,
 			enable_desp,
+			enable_file,
+			enable_bulk_file,
+			file_label,
+			enable_security,
 		} = attributes;
 
 		const categories = this.getCategoriesTree();
@@ -167,6 +171,36 @@ class FlexiGalleryEdit extends Component {
 								label="Tag Title"
 								value={tag_label}
 								onChange={toggleAttribute("tag_label")}
+							/>
+						</PanelBody>
+						<PanelBody
+							title={__("File Attach Field", "flexi")}
+							initialOpen={false}
+						>
+							<ToggleControl
+								label="Enable File Upload"
+								checked={enable_file}
+								onChange={toggleAttribute("enable_file")}
+							/>
+							<ToggleControl
+								label="Enable Bulk File Upload"
+								checked={enable_bulk_file}
+								onChange={toggleAttribute("enable_bulk_file")}
+							/>
+							<TextControl
+								label="Upload Title"
+								value={file_label}
+								onChange={toggleAttribute("file_label")}
+							/>
+						</PanelBody>
+						<PanelBody
+							title={__("Security reCaptcha Field", "flexi")}
+							initialOpen={false}
+						>
+							<ToggleControl
+								label="Enable Google reCaptcha"
+								checked={enable_security}
+								onChange={toggleAttribute("enable_security")}
 							/>
 						</PanelBody>
 						<PanelBody title={__("Submit Button", "flexi")} initialOpen={false}>

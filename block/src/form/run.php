@@ -20,7 +20,7 @@ register_block_type(
   'attributes'      => array(
    'enable_ajax'       => array(
     'type'    => 'boolean',
-    'default' => false,
+    'default' => true,
    ),
    'form_class'        => array(
     'type'    => 'string',
@@ -70,7 +70,22 @@ register_block_type(
     'type'    => 'boolean',
     'default' => false,
    ),
-
+   'enable_file'       => array(
+    'type'    => 'boolean',
+    'default' => false,
+   ),
+   'enable_bulk_file'  => array(
+    'type'    => 'boolean',
+    'default' => false,
+   ),
+   'file_label'        => array(
+    'type'    => 'string',
+    'default' => 'Select File',
+   ),
+   'enable_security'   => array(
+    'type'    => 'boolean',
+    'default' => false,
+   ),
   ),
   'render_callback' => 'flexi_form_render_callback',
  )
@@ -111,6 +126,19 @@ function flexi_form_render_callback($args)
 
   if (isset($args['enable_desp']) && '1' == $args['enable_desp']) {
    $shortcode .= '[flexi-form-tag type="article" title="' . $args['desp_label'] . '" placeholder="' . $args['desp_placeholder'] . '"]';
+  }
+
+  if (isset($args['enable_file']) && '1' == $args['enable_file']) {
+   if (isset($args['enable_bulk_file']) && '1' == $args['enable_bulk_file']) {
+    $shortcode .= '[flexi-form-tag type="file_multiple" title="' . $args['file_label'] . '" class="flexi_drag_file" multiple="true"]';
+   } else {
+    $shortcode .= '[flexi-form-tag type="file" title="' . $args['file_label'] . '"]';
+   }
+
+  }
+
+  if (isset($args['enable_security']) && '1' == $args['enable_security']) {
+   $shortcode .= '[flexi-form-tag type="captcha" title="Security"]';
   }
 
   $shortcode .= '[flexi-form-tag type="submit" name="submit" value="' . $args['button_label'] . '"]';

@@ -56,7 +56,7 @@ register_block_type(
    ),
    'hover_caption' => array(
     'type'    => 'string',
-    'default' => '',
+    'default' => 'flexi_caption_none',
    ),
   ),
   'render_callback' => 'flexi_gallery_render_callback',

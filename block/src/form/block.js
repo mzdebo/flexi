@@ -68,7 +68,7 @@ registerBlockType("cgb/block-flexi-block-form", {
 	attributes: {
 		enable_ajax: {
 			type: "boolean",
-			default: false,
+			default: true,
 		},
 		form_class: {
 			type: "string",
@@ -115,6 +115,22 @@ registerBlockType("cgb/block-flexi-block-form", {
 			default: false,
 		},
 		enable_category: {
+			type: "boolean",
+			default: false,
+		},
+		enable_file: {
+			type: "boolean",
+			default: false,
+		},
+		enable_bulk_file: {
+			type: "boolean",
+			default: false,
+		},
+		file_label: {
+			type: "string",
+			default: "Select File",
+		},
+		enable_security: {
 			type: "boolean",
 			default: false,
 		},

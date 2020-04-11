@@ -89,7 +89,7 @@ class Flexi_Addon_Captcha
 
  public function flexi_display_captcha_code()
  {
-  $title    = "Security Check";
+  $title    = __("Security Check", "flexi");
   $site_key = flexi_get_option('captcha_key', 'flexi_captcha_settings', '');
   //$secret_key=flexi_get_option('captcha_secret', 'flexi_captcha_settings', '');
   $captcha      = "";
