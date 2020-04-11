@@ -210,7 +210,7 @@ class FlexiGalleryEdit extends Component {
 								options={[
 									{
 										label: "-- None --",
-										value: "",
+										value: "flexi_caption_none",
 									},
 									{
 										label: "Slide Left",

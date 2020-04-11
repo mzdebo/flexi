@@ -23,5 +23,5 @@ if (!defined('ABSPATH')) {
 if (function_exists('register_block_type')) {
  // Gutenberg is  active.
  require_once plugin_dir_path(__FILE__) . 'src/init.php';
- require_once plugin_dir_path(__FILE__) . 'src/block/sample.php';
+ require_once plugin_dir_path(__FILE__) . 'src/gallery/run.php';
 }

@@ -1032,7 +1032,7 @@ function flexi_create_pages()
         <!-- wp:shortcode -->
 		[flexi-form class="pure-form pure-form-stacked" title="Submit to Flexi" name="my_form" ajax="true"]
 		[flexi-form-tag type="post_title" title="Title" value="" placeholder="main title"]
-		[flexi-form-tag type="category" title="Select category" taxonomy="flexi_cate" filter="image"]
+		[flexi-form-tag type="category" title="Select category" taxonomy="flexi_cate"]
 		[flexi-form-tag type="tag" title="Insert tag"]
 		[flexi-form-tag type="article" title="Description"  placeholder="Content"]
 		[flexi-form-tag type="file" title="Select file"]

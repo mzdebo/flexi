@@ -99,7 +99,7 @@ registerBlockType("cgb/block-flexi-block", {
 		},
 		hover_caption: {
 			type: "string",
-			default: "",
+			default: "flexi_caption_none",
 		},
 	},
 

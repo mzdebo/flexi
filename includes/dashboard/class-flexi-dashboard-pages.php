@@ -50,7 +50,7 @@ Page should contain <code>[flexi-form]</code> shortcode enclosed with <code>[fle
      <p>
      [flexi-form class="pure-form pure-form-stacked" title="Submit to Flexi" name="my_form" ajax="true"]<br>
 		[flexi-form-tag type="post_title" title="Title" value="" placeholder="main title"]<br>
-		[flexi-form-tag type="category" title="Select category" taxonomy="flexi_cate" filter="image"]<br>
+		[flexi-form-tag type="category" title="Select category" taxonomy="flexi_cate"]<br>
 		[flexi-form-tag type="tag" title="Insert tag"]<br>
 		[flexi-form-tag type="article" title="Description"  placeholder="Content"]<br>
 		[flexi-form-tag type="file" title="Select file"]<br>
