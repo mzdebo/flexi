@@ -86,6 +86,38 @@ registerBlockType("cgb/block-flexi-block-form", {
 			type: "string",
 			default: "",
 		},
+		button_label: {
+			type: "string",
+			default: "Submit",
+		},
+		category_label: {
+			type: "string",
+			default: "Select Category",
+		},
+		tag_label: {
+			type: "string",
+			default: "Insert Tag",
+		},
+		desp_label: {
+			type: "string",
+			default: "Description",
+		},
+		desp_placeholder: {
+			type: "string",
+			default: "",
+		},
+		enable_tag: {
+			type: "boolean",
+			default: false,
+		},
+		enable_desp: {
+			type: "boolean",
+			default: false,
+		},
+		enable_category: {
+			type: "boolean",
+			default: false,
+		},
 	},
 
 	edit,

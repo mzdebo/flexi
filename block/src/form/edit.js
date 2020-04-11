@@ -61,6 +61,14 @@ class FlexiGalleryEdit extends Component {
 			form_title,
 			title_label,
 			title_placeholder,
+			button_label,
+			category_label,
+			tag_label,
+			desp_label,
+			desp_placeholder,
+			enable_category,
+			enable_tag,
+			enable_desp,
 		} = attributes;
 
 		const categories = this.getCategoriesTree();
@@ -110,6 +118,55 @@ class FlexiGalleryEdit extends Component {
 								label="Title Placeholder"
 								value={title_placeholder}
 								onChange={toggleAttribute("title_placeholder")}
+							/>
+						</PanelBody>
+						<PanelBody
+							title={__("Description Field", "flexi")}
+							initialOpen={false}
+						>
+							<ToggleControl
+								label="Enable Description"
+								checked={enable_desp}
+								onChange={toggleAttribute("enable_desp")}
+							/>
+
+							<TextControl
+								label="Description Title"
+								value={desp_label}
+								onChange={toggleAttribute("desp_label")}
+							/>
+							<TextControl
+								label="Description Placeholder"
+								value={desp_placeholder}
+								onChange={toggleAttribute("desp_placeholder")}
+							/>
+						</PanelBody>
+						<PanelBody
+							title={__("Category Field", "flexi")}
+							initialOpen={false}
+						>
+							<ToggleControl
+								label="Enable Category"
+								checked={enable_category}
+								onChange={toggleAttribute("enable_category")}
+							/>
+
+							<TextControl
+								label="Category Title"
+								value={category_label}
+								onChange={toggleAttribute("category_label")}
+							/>
+						</PanelBody>
+						<PanelBody title={__("Tag Field", "flexi")} initialOpen={false}>
+							<ToggleControl
+								label="Enable Tag"
+								checked={enable_tag}
+								onChange={toggleAttribute("enable_tag")}
+							/>
+							<TextControl
+								label="Tag Title"
+								value={tag_label}
+								onChange={toggleAttribute("tag_label")}
 							/>
 						</PanelBody>
 						<PanelBody title={__("Submit Button", "flexi")} initialOpen={false}>
