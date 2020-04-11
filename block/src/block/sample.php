@@ -18,35 +18,43 @@ register_block_type(
   // Enqueue blocks.editor.build.css in the editor only.
   'editor_style'    => 'flexi_block-cgb-block-editor-css',
   'attributes'      => array(
-   'layout'   => array(
+   'layout'        => array(
     'type'    => 'string',
     'default' => 'masonry',
    ),
-   'column'   => array(
+   'column'        => array(
     'type'    => 'integer',
     'default' => 2,
    ),
-   'cat'      => array(
+   'cat'           => array(
     'type'    => 'integer',
     'default' => 0,
    ),
-   'perpage'  => array(
+   'perpage'       => array(
     'type'    => 'integer',
     'default' => 10,
    ),
-   'popup'    => array(
+   'popup'         => array(
     'type'    => 'boolean',
     'default' => false,
    ),
-   'tag_show' => array(
+   'tag_show'      => array(
     'type'    => 'boolean',
     'default' => false,
    ),
-   'orderby'  => array(
+   'orderby'       => array(
     'type'    => 'string',
     'default' => 'asc',
    ),
-   'tag'      => array(
+   'tag'           => array(
+    'type'    => 'string',
+    'default' => '',
+   ),
+   'hover_effect'  => array(
+    'type'    => 'string',
+    'default' => '',
+   ),
+   'hover_caption' => array(
     'type'    => 'string',
     'default' => '',
    ),
@@ -98,6 +106,8 @@ function flexi_gallery_render_callback($args)
   tag="' . $args['tag'] . '"
   orderby="' . $args['orderby'] . '"
   tag_show="' . $tag_show . '"
+  hover_effect="' . $args['hover_effect'] . '"
+  hover_caption="' . $args['hover_caption'] . '"
   ] ';
  }
  //print_r($args);
@@ -106,10 +116,10 @@ function flexi_gallery_render_callback($args)
  //echo $shortcode;
  if (defined('REST_REQUEST') && REST_REQUEST) {
   echo "<div style='clear:both;border: 1px solid #999; background: #eee'>";
-  echo "<ul><li>Above preview is just for reference.
+  echo "<ul><li>Preview is for reference and may not view same.
   <li> Ajax function like page load & popup will not be executed.
   <li>Some settings may not work on specific layout.
-  <li>Below is the shortcode generated for this page</ul>";
+  <li>Below shortcode generated for this page</ul>";
   echo '<code>' . $shortcode . '</code></div>';
 
   ?>

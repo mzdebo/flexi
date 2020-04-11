@@ -18,6 +18,11 @@ if (file_exists($header_file)) {
  require $header_file;
 }
 
+//Display basic pagination at guten block editor
+if (defined('REST_REQUEST') && REST_REQUEST) {
+ $navigation = "page";
+}
+
 if ('scroll' == $navigation || 'button' == $navigation) {
 
  ?>

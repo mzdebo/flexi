@@ -31,7 +31,7 @@ class FlexiGalleryEdit extends Component {
 
 		let categories = [
 			{
-				label: "-- Select Parent --",
+				label: "-- Select All --",
 				value: 0,
 			},
 		];
@@ -64,6 +64,8 @@ class FlexiGalleryEdit extends Component {
 			orderby,
 			perpage,
 			popup,
+			hover_caption,
+			hover_effect,
 		} = attributes;
 
 		const categories = this.getCategoriesTree();
@@ -99,7 +101,7 @@ class FlexiGalleryEdit extends Component {
 							/>
 
 							<TextControl
-								label="Tag name separated by commas"
+								label="Tag slug name separated by commas"
 								value={tag}
 								onChange={onChangeTag}
 							/>
@@ -176,6 +178,62 @@ class FlexiGalleryEdit extends Component {
 								label="Popup"
 								checked={popup}
 								onChange={toggleAttribute("popup")}
+							/>
+						</PanelBody>
+						<PanelBody title={__("Effects", "flexi")}>
+							<SelectControl
+								label="Image Hover Effect"
+								value={hover_effect}
+								options={[
+									{
+										label: "-- None --",
+										value: "",
+									},
+									{
+										label: "Blur",
+										value: "flexi_effect_1",
+									},
+									{
+										label: "Grayscale",
+										value: "flexi_effect_2",
+									},
+									{
+										label: "Zoom",
+										value: "flexi_effect_3",
+									},
+								]}
+								onChange={(value) => setAttributes({ hover_effect: value })}
+							/>
+							<SelectControl
+								label="Image Hover Caption"
+								value={hover_caption}
+								options={[
+									{
+										label: "-- None --",
+										value: "",
+									},
+									{
+										label: "Slide Left",
+										value: "flexi_caption_1",
+									},
+									{
+										label: "Pull up with Info",
+										value: "flexi_caption_2",
+									},
+									{
+										label: "Slide Right with Info",
+										value: "flexi_caption_3",
+									},
+									{
+										label: "Pull Up",
+										value: "flexi_caption_4",
+									},
+									{
+										label: "Top & Bottom",
+										value: "flexi_caption_5",
+									},
+								]}
+								onChange={(value) => setAttributes({ hover_caption: value })}
 							/>
 						</PanelBody>
 					</InspectorControls>

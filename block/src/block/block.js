@@ -93,6 +93,14 @@ registerBlockType("cgb/block-flexi-block", {
 			type: "string",
 			default: "asc",
 		},
+		hover_effect: {
+			type: "string",
+			default: "",
+		},
+		hover_caption: {
+			type: "string",
+			default: "",
+		},
 	},
 
 	edit,
