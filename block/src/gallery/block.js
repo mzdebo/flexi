@@ -57,9 +57,14 @@ const { withSelect } = wp.data;
 registerBlockType("cgb/block-flexi-block", {
 	// Block name. Block names must be string that contains a namespace prefix. Example: my-plugin/my-custom-block.
 	title: __("Flexi Gallery"), // Block title.
-	icon: "shield", // Block icon from Dashicons → https://developer.wordpress.org/resource/dashicons/.
-	category: "common", // Block category — Group blocks together based on common traits E.g. common, formatting, layout widgets, embed.
+	icon: "format-gallery", // Block icon from Dashicons → https://developer.wordpress.org/resource/dashicons/.
+	category: "flexi", // Block category — Group blocks together based on common traits E.g. common, formatting, layout widgets, embed.
 	keywords: [__("Image"), __("gallery"), __("picture")],
+	example: {
+		attributes: {
+			content: "Generates Flexi Gallery shortcode",
+		},
+	},
 	attributes: {
 		layout: {
 			type: "string",

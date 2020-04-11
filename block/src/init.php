@@ -70,3 +70,25 @@ function flexi_block_cgb_block_assets()
 
 // Hook: Block assets.
 add_action('init', 'flexi_block_cgb_block_assets');
+
+//Flexi own category for guten block
+
+function flexi_block_categories($categories, $post)
+{
+/*
+if ('post' !== $post->post_type) {
+return $categories;
+}
+ */
+ return array_merge(
+  $categories,
+  array(
+   array(
+    'slug'  => 'flexi',
+    'title' => __('Flexi Plugin', 'flexi'),
+    'icon'  => 'playlist-video',
+   ),
+  )
+ );
+}
+add_filter('block_categories', 'flexi_block_categories', 10, 2);
