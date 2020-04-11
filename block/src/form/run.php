@@ -18,21 +18,25 @@ register_block_type(
   // Enqueue blocks.editor.build.css in the editor only.
   'editor_style'    => 'flexi_block-cgb-block-editor-css',
   'attributes'      => array(
-   'enable_ajax' => array(
+   'enable_ajax'       => array(
     'type'    => 'boolean',
     'default' => false,
    ),
-   'form_class'  => array(
+   'form_class'        => array(
     'type'    => 'string',
     'default' => 'pure-form pure-form-stacked',
    ),
-   'form_title'  => array(
+   'form_title'        => array(
     'type'    => 'string',
     'default' => 'My Form',
    ),
-   'label_title' => array(
+   'title_label'       => array(
     'type'    => 'string',
     'default' => 'Title',
+   ),
+   'title_placeholder' => array(
+    'type'    => 'string',
+    'default' => '',
    ),
   ),
   'render_callback' => 'flexi_form_render_callback',
@@ -60,9 +64,9 @@ function flexi_form_render_callback($args)
    $enable_ajax = "false";
   }
 
-  $shortcode = '[flexi-form class="' . $args['form_class'] . '" title="' . $args['form_title'] . '" name="my_form" ajax="' . $enable_ajax . '"]';
+  $shortcode .= '[flexi-form class="' . $args['form_class'] . '" title="' . $args['form_title'] . '" name="my_form" ajax="' . $enable_ajax . '"]';
 
-  $shortcode .= '[flexi-form-tag type="post_title" title="' . $args['label_title'] . '" value="" placeholder="main title"]';
+  $shortcode .= '[flexi-form-tag type="post_title" title="' . $args['title_label'] . '" value="" placeholder="' . $args['title_placeholder'] . '"]';
 
   $shortcode .= '[/flexi-form]';
  }
@@ -71,7 +75,7 @@ function flexi_form_render_callback($args)
  echo do_shortcode($shortcode);
  //echo $shortcode;
  if (defined('REST_REQUEST') && REST_REQUEST) {
-  echo "<div style='clear:both;border: 1px solid #999; background: #eee'>";
+  echo "<hr><div style='clear:both;border: 1px solid #999; background: #eee'>";
   echo "<ul><li>Preview is for reference and may not view same.
   <li>Below shortcode generated for this page</ul>";
   echo '<code>' . $shortcode . '</code></div>';

@@ -149,7 +149,7 @@ action="' . admin_url("admin-ajax.php") . '"
    }
   }
   $abc = ob_get_clean();
-  if (is_singular()) {
+  if (is_singular() || (defined('REST_REQUEST') && REST_REQUEST)) {
    return $abc;
   } else {
    return '';
@@ -492,7 +492,7 @@ action="' . admin_url("admin-ajax.php") . '"
   }
 
   $abc = ob_get_clean();
-  if (is_singular()) {
+  if (is_singular() || (defined('REST_REQUEST') && REST_REQUEST)) {
    return $abc;
   } else {
    return '';

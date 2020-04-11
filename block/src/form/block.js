@@ -78,9 +78,13 @@ registerBlockType("cgb/block-flexi-block-form", {
 			type: "string",
 			default: "My Form",
 		},
-		label_title: {
+		title_label: {
 			type: "string",
 			default: "Title",
+		},
+		title_placeholder: {
+			type: "string",
+			default: "",
 		},
 	},
 

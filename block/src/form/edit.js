@@ -55,7 +55,13 @@ class FlexiGalleryEdit extends Component {
 	render() {
 		const { attributes, setAttributes, className } = this.props;
 
-		const { enable_ajax, form_class, form_title, label_title } = attributes;
+		const {
+			enable_ajax,
+			form_class,
+			form_title,
+			title_label,
+			title_placeholder,
+		} = attributes;
 
 		const categories = this.getCategoriesTree();
 
@@ -69,7 +75,7 @@ class FlexiGalleryEdit extends Component {
 			<Fragment>
 				<div className={className}>
 					<InspectorControls>
-						<PanelBody title={__("Form Settings", "flexi")}>
+						<PanelBody title={__("Form Settings", "flexi")} initialOpen={false}>
 							<ToggleControl
 								label="Enable Ajax Submission"
 								checked={enable_ajax}
@@ -94,13 +100,25 @@ class FlexiGalleryEdit extends Component {
 								onChange={(value) => setAttributes({ form_class: value })}
 							/>
 						</PanelBody>
-						<PanelBody title={__("Title Field", "flexi")}></PanelBody>
-						<TextControl
-							label="Label of Form Title"
-							value={label_title}
-							onChange={toggleAttribute("label_title")}
-						/>
-						<PanelBody title={__("Effects", "flexi")}></PanelBody>
+						<PanelBody title={__("Title Field", "flexi")} initialOpen={false}>
+							<TextControl
+								label="Label of Form Title"
+								value={title_label}
+								onChange={toggleAttribute("title_label")}
+							/>
+							<TextControl
+								label="Title Placeholder"
+								value={title_placeholder}
+								onChange={toggleAttribute("title_placeholder")}
+							/>
+						</PanelBody>
+						<PanelBody title={__("Submit Button", "flexi")} initialOpen={false}>
+							<TextControl
+								label="Label of Submit Button"
+								value={button_label}
+								onChange={toggleAttribute("button_label")}
+							/>
+						</PanelBody>
 					</InspectorControls>
 
 					<ServerSideRender
