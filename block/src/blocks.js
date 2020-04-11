@@ -10,3 +10,4 @@
  */
 
 import "./gallery/block.js";
+import "./form/block.js";
