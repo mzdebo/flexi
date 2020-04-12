@@ -15,7 +15,7 @@ if ('scroll' == $navigation || 'button' == $navigation) {
  echo "<div id='reset' style='display:none'>false</div>";
  echo "<a id='load_more_reset' class='flexi_load_more' style='margin:5px; font-size: 80%;' href='admin-ajax.php?action=flexi_load_more' data-post_id='" . get_the_ID() . "' data-paged='" . $query->max_num_pages . "' data-reset='true'></a>";
  ?>
-<div id='flexi_loader' style='display: none;text-align:center;'>
+<div id='flexi_loader_gallery' style='display: none;text-align:center;'>
  <img src="<?php echo FLEXI_PLUGIN_URL . '/public/images/loading.gif'; ?>">
 
  </div>

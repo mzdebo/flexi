@@ -1,11 +1,11 @@
 //Load more button
-jQuery(document).ready(function() {
+jQuery(document).ready(function () {
   var paged = 1;
   var count = 0;
   var canBeLoaded = true, // this param allows to initiate the AJAX call only if necessary
     bottomOffset = 2000; // the distance (in px) from the page bottom when you want to load more posts
 
-  jQuery(window).scroll(function(e) {
+  jQuery(window).scroll(function (e) {
     e.preventDefault();
     gallery_layout = jQuery("#gallery_layout").text();
     popup = jQuery("#popup").text();
@@ -49,17 +49,17 @@ jQuery(document).ready(function() {
           postsperpage: postsperpage,
           orderby: orderby,
           user: user,
-          keyword: keyword
+          keyword: keyword,
         },
-        beforeSend: function() {
+        beforeSend: function () {
           //alert("about to send");
           jQuery("#flexi_load_more").slideUp();
-          jQuery("#flexi_loader").show();
+          jQuery("#flexi_loader_gallery").show();
           // you can also add your own preloader here
           // you see, the AJAX call is in process, we shouldn't run it again until complete
           canBeLoaded = false;
         },
-        success: function(response) {
+        success: function (response) {
           jQuery("#flexi_main_loop").append(response.msg);
           canBeLoaded = true; // the ajax is completed, now we can run it again
           paged++;
@@ -67,9 +67,9 @@ jQuery(document).ready(function() {
 
           //alert(max_paged + "--" + paged);
         },
-        complete: function(data) {
+        complete: function (data) {
           // Hide image container
-          jQuery("#flexi_loader").hide();
+          jQuery("#flexi_loader_gallery").hide();
 
           if (count > 0) {
             jQuery("#flexi_no_record").hide();
@@ -81,7 +81,7 @@ jQuery(document).ready(function() {
             //Stop scrolling. No more post left.
             canBeLoaded = false;
           }
-        }
+        },
       });
     }
   });

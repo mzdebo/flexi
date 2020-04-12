@@ -56,7 +56,7 @@ jQuery(document).ready(function () {
       beforeSend: function () {
         //alert("about to send");
         jQuery("#flexi_load_more").slideUp();
-        jQuery("#flexi_loader").show();
+        jQuery("#flexi_loader_gallery").show();
       },
       success: function (response) {
         jQuery("#flexi_main_loop").append(response.msg).fadeIn("normal");
@@ -67,7 +67,7 @@ jQuery(document).ready(function () {
       },
       complete: function (data) {
         // Hide image container
-        jQuery("#flexi_loader").hide();
+        jQuery("#flexi_loader_gallery").hide();
         jQuery("#flexi_load_more").slideDown();
 
         // alert("response complete");

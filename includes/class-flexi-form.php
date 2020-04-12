@@ -84,7 +84,7 @@ class Flexi_Shortcode_Form
 
     if ('false' == $attr['ajax']) {
 
-     echo '<form class="' . $attr['class'] . '" method="post" enctype="multipart/form-data" action="">';
+     echo '<div id="flexi_form"><form class="' . $attr['class'] . '" method="post" enctype="multipart/form-data" action="">';
 
     } else {
 
@@ -144,7 +144,7 @@ action="' . admin_url("admin-ajax.php") . '"
 
     echo '<input type="hidden" name="upload_type" value="flexi">';
 
-    echo '</form>';
+    echo '</form></div>';
 
    }
   }
