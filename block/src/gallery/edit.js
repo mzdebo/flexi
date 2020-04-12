@@ -66,6 +66,8 @@ class FlexiGalleryEdit extends Component {
 			popup,
 			hover_caption,
 			hover_effect,
+			height,
+			width,
 		} = attributes;
 
 		const categories = this.getCategoriesTree();
@@ -92,7 +94,7 @@ class FlexiGalleryEdit extends Component {
 			<Fragment>
 				<div className={className}>
 					<InspectorControls>
-						<PanelBody title={__("Category & Tags", "flexi")}>
+						<PanelBody title={__("Filters", "flexi")} initialOpen={false}>
 							<SelectControl
 								label="Select Category"
 								value={cat}
@@ -139,7 +141,10 @@ class FlexiGalleryEdit extends Component {
 								onChange={(value) => setAttributes({ orderby: value })}
 							/>
 						</PanelBody>
-						<PanelBody title={__("Layout Controls", "flexi")}>
+						<PanelBody
+							title={__("Layout Controls", "flexi")}
+							initialOpen={false}
+						>
 							<SelectControl
 								label="Layout"
 								value={layout}
@@ -173,6 +178,21 @@ class FlexiGalleryEdit extends Component {
 								min={1}
 								max={100}
 							/>
+							<RangeControl
+								label="Thumbnail Image Width .px"
+								value={width}
+								onChange={toggleAttribute("width")}
+								min={50}
+								max={500}
+							/>
+
+							<RangeControl
+								label="Thumbnail Image Height .px"
+								value={height}
+								onChange={toggleAttribute("height")}
+								min={50}
+								max={500}
+							/>
 
 							<ToggleControl
 								label="Popup"
@@ -180,7 +200,7 @@ class FlexiGalleryEdit extends Component {
 								onChange={toggleAttribute("popup")}
 							/>
 						</PanelBody>
-						<PanelBody title={__("Effects", "flexi")}>
+						<PanelBody title={__("Effects", "flexi")} initialOpen={false}>
 							<SelectControl
 								label="Image Hover Effect"
 								value={hover_effect}

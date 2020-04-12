@@ -79,6 +79,11 @@ Unless we release FLEXI-PRO version, you can use UPG-PRO which will enabled all 
 2. Multi file upload
 
 == Changelog ==
+= 1.0.12 =
+* Introduced Guten block editor
+* 2 Guten block type (Gallery & Form)
+* Added height & width parameter to shortcode
+
 = 1.0.11 =
 * Fixed detail page responsive image
 

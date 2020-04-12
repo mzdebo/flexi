@@ -52,5 +52,6 @@ echo "<div id='hover_caption' style='display:none'>" . $hover_caption . "</div>"
 :root {
   --flexi_user_width: <?php echo $width; ?>px;
   --flexi_user_height: <?php echo $height; ?>px;
+  --flexi_user_column: <?php echo $column; ?>;
 }
   </style>

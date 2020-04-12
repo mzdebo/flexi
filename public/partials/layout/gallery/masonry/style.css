@@ -20,7 +20,7 @@
 }
 @media only screen and (min-width: 1024px) {
   .flexi_masonry {
-    columns: 5;
+    columns: var(--flexi_user_column);
   }
 }
 .flexi_masonry-item,

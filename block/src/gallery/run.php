@@ -58,6 +58,14 @@ register_block_type(
     'type'    => 'string',
     'default' => 'flexi_caption_none',
    ),
+   'width'         => array(
+    'type'    => 'integer',
+    'default' => 150,
+   ),
+   'height'        => array(
+    'type'    => 'integer',
+    'default' => 150,
+   ),
   ),
   'render_callback' => 'flexi_gallery_render_callback',
  )
@@ -105,6 +113,8 @@ function flexi_gallery_render_callback($args)
   tag_show="' . $tag_show . '"
   hover_effect="' . $args['hover_effect'] . '"
   hover_caption="' . $args['hover_caption'] . '"
+  width="' . $args['width'] . '"
+  height="' . $args['height'] . '"
   ] ';
  }
  //print_r($args);

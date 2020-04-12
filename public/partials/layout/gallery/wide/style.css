@@ -17,8 +17,6 @@
 }
 
 .flexi_media {
-  width: var(--flexi_t_width);
-  height: var(--flexi_t_height);
   margin: -1px 20px 0 -1px;
   float: left;
 }

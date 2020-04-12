@@ -106,6 +106,14 @@ registerBlockType("cgb/block-flexi-block", {
 			type: "string",
 			default: "flexi_caption_none",
 		},
+		width: {
+			type: "number",
+			default: 150,
+		},
+		height: {
+			type: "number",
+			default: 150,
+		},
 	},
 
 	edit,

@@ -35,6 +35,11 @@
 }
 
 .flexi-image-wrapper {
+  width: var(--flexi_user_width);
+  height: var(--flexi_user_height);
+  border: 1px solid #eee;
+}
+.flexi-image-wrapper-thumb {
   width: var(--flexi_t_width);
   height: var(--flexi_t_height);
   border: 1px solid #eee;
@@ -45,6 +50,7 @@
   border: 1px solid #eee;
 }
 .flexi-image-wrapper img,
+.flexi-image-wrapper-thumb img,
 .flexi-image-wrapper-icon img {
   object-fit: cover;
   min-width: 100%;
