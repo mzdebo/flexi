@@ -1,7 +1,7 @@
 === Flexi Gallery ===
 Contributors: odude
 Donate link: https://odude.com/
-Tags: gallery, image gallery, images, photo gallery
+Tags: gallery, photo gallery, image gallery, wordpress gallery plugin, responsive gallery
 Requires at least: 4.0.0
 Requires PHP: 5.5
 Tested up to: 5.4
@@ -9,50 +9,60 @@ Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-User can submit images/content and display it as gallery.
+Advance responsive photo gallery plugin submitted by user without login.
 
 == Description ==
+
+No more looking for fast, easy gallery plugin with simple and very beautiful, highly customizable design.
+With our plugin you can let your visitors to post images, content from frontend without login and convert those content into gallery. If you allow membership, visitors can manage their submitted post & administrator have option for it's visibility. At the same time WordPress professionals get advanced tools and freedom of creativity. 
+Just download and use blocks to generate gallery & forms.
+Fall in Love with this plugin like we do!
 
 <a href="https://odude.com/demo/flexi/">Flexi Gallery Demo</a>
 
 <a href="https://odude.com/docs/flexi-gallery/">Documentation</a>
 
-Flexi is replacement of UPG which is only for images. 
-> Simplified version of UPG plugin
+= KEY FEATURES =
+
+*   **Gutenberg block** - implemented Gutenberg gallery block for simple and fast configuration of the plugin in Gutenberg editor
+*   **Advance Shortcode** - Generate Gallery , Forms and all other features comes with shortocde. 
+*   **Fully responsive and Mobile features** - plugin implemented with advanced settings for different devices screen size.
+*   **3 Hover effects** - & **5 Caption effect** at gallery page.
+*   **3 Gallery layout** & **1 Detail Page** - Masonry , Wide & Regular
+*   **Advanced Load more function** - implemented very attractive navigation mode. Auto pre loading images like endless list of the images. Available navigation options are **Page Number** , **Load More Button**, **Load on mouse scroll**
+*   **Tags for images** - every image contain tags for easy navigation and visitor can create new one during submission.
+*   **Multi Categories** - multi categories albums support. You can create your own galleries tree, depend of your needs with thumbnail of each category
+*   **User 'My Dashboard'** -  Page to modify, delete own submitted records.
+*   **Lightbox or Popup** - Options to enabled popup for large image on thumbnail click & can disable it to open full **Detail Page** for added features.
+*   **Extra Controls** - Lots of controls like 'Number of column' , 'Records per page', 'Image dimension' , 'Layouts' , 'Icons visibility' and many more.
+*   **Standalone Gallery** - It will display large image with small thumbnail separated from gallery group.
+*   **Gallery Filter** - Gallery can be filter based on different type (user, category, tags)
+*   **Gallery Sorting** - Gallery sorting based on (ID, date, name, random, modified)
+*   **Submission Form** - Form can be generated with guten block and advance features and sorting options with the help of powerful shortcode.
+*   **Powerful Ajax** - Gallery, form have ajax and classic support. No change in page URL if ajax is enabled.
 
 
-= Gallery =
-* 3 layout options (Masonry, Regular, Simple)
-* Options to specify number of columns and records per page.
-* 3 Navigation system (Page Number, Load More Button, Load on Mouse scroll)
-* User 'My Dashboard' page to modify, delete own submitted records.
-* Various thumbnail animation effect on mouse hover records.
-* Options to display records in lightbox or in full detail page.
 
-= Forms =
-* Let visitors to submit records from frontend (with & without membership).
-* Options to temporary disable submission from settings
-* Let users to modify submitted content.
-* Full shortcode based form system, so that you can create complex form with your own css format.
-* Option to select category and insert new Tags
-* Bulk image post on one click
-* Option to publish/draft records submitted by user
-* Google reCaptcha support for form security
+= CORE FEATURES =
 
-= Detail =
-* Display full detail page if lightbox is disabled
-* Option to change the slug of the URL for better SEO
-* Ability to create multiple template. Currently one one 'basic' layout is installed.
+*   **No extra files on media manager** - It uses Wordpress default image handling. It will not create any additional image size on server which saves your space. Due to this features you can install other 3rd party plugins for image management. But you have option to set width & height of images based on true css only.
+ **Implemented to avoid AJAX libs conflicts** - code implemented in native WordPress style as result our plugin don't have any conflicts and work really stable.
+ *   **SEO Friendly** - designed as a wordpress regular post with additional features.
+ *   **Multisite Support** - implemented multisite support. You can install plugin in admin dashboard and enable plugin for all child blogs.
+ * **Custom Fields** - Collect extra information from visitors while submitting form and display/hide it at gallery, lightbox & detail page. 
 
-= Extra Settings = 
-* Full control over media sizes for thumbnail, medium & large size dimension
-* Option to show/hide delete, edit, profile, detail icon
-* Select login page of 3rd party plugins.
+
+= PRO KEY FEATURES =
+
+* **Batch images upload** - Allow to upload batch of the images by one click. Just drag and drop set of the gallery images and it's upload automatically to the server.
+* **Google reCaptcha** support for form security while submitting form.
+* **Custom Fields** extra 7 fields on top of free version. 
 
 = Addons =
-* Ultimate-Member plugin. It will display user submitted records on user profile tab.
-* BuddyPress plugin. It will display user submitted records on user profile section.
-* Google reCaptcha for secure form submission
+* **Ultimate-Member plugin**. It will display user submitted records on user profile tab.
+* **BuddyPress plugin**. It will display user submitted records on user profile section.
+* **Google reCaptcha** for secure form submission
+* **10 Custom fields**
 
 
 == Installation ==
@@ -62,9 +72,15 @@ Search for 'flexi' and install it as other regular plugins.
 
 == Frequently Asked Questions ==
 
-= Is it only for images ? =
+= How to create gallery ? =
+**Process 1:**
+Click on ADD NEW PAGE in wordpress dashboard, at block editor insert FLEXI FORM & similarly on new page insert FLEXI GALLERY block. View form page to collect data and gallery page to display.
 
-Yes,  currently it only supports images. 
+**Process 2:**
+Some pages are automatically created including submission page [flexi-form] & gallery page[flexi-primary]. View and use those pages.
+
+**Process 3:**
+At Wordpress dashboard, click on ADD NEW FLEXI POST and select file and upload as like regular wordpress post. Then create new page and use shortcode as [flexi-gallery] to view all post as gallery.
 
 = Which one to use UPG or Flexi ? =
 
@@ -72,6 +88,9 @@ UPG is very advance and people feel it complicated. Flexi is only for images wit
 
 = Can I use UPG-PRO =
 Unless we release FLEXI-PRO version, you can use UPG-PRO which will enabled all other premium features.  
+
+= Important Settings  =
+At Flexi Settings all configuration are ready, but do check all automatically created pages should be assigned at selected field. Do not delete page even if not required. 
 
 == Screenshots ==
 
