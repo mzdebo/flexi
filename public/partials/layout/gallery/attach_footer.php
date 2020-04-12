@@ -48,3 +48,9 @@ echo "<div id='padding' style='display:none'>" . $padding . "</div>";
 echo "<div id='hover_effect' style='display:none'>" . $hover_effect . "</div>";
 echo "<div id='hover_caption' style='display:none'>" . $hover_caption . "</div>";
 ?>
+<style>
+:root {
+  --flexi_user_width: <?php echo $width; ?>px;
+  --flexi_user_height: <?php echo $height; ?>px;
+}
+  </style>

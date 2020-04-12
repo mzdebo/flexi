@@ -87,6 +87,18 @@ class Flexi_Shortcode_Gallery
    $column = flexi_get_option('column', 'flexi_image_layout_settings', 3);
   }
 
+  if (isset($params['width']) && $params['width'] > 0) {
+   $width = $params['width'];
+  } else {
+   $width = flexi_get_option('t_width', 'flexi_media_settings', 150);
+  }
+
+  if (isset($params['height']) && $params['height'] > 0) {
+   $height = $params['height'];
+  } else {
+   $height = flexi_get_option('t_height', 'flexi_media_settings', 150);
+  }
+
   if (isset($params['page'])) {
    $page = $params['page'];
   }

@@ -94,9 +94,6 @@ register_block_type(
 function flexi_form_render_callback($args)
 {
 
- if (!current_user_can('administrator')) {
-  return __('you are not authorized to view this block.', 'flexi');
- }
  // generate the output html
  ob_start();
  $shortcode = '';

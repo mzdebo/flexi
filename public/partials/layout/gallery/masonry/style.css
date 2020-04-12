@@ -1,30 +1,30 @@
-.masonry-wrapper {
+.flexi_masonry-wrapper {
   padding: 1.5em;
   max-width: 960px;
   margin-right: auto;
   margin-left: auto;
 }
-.masonry {
+.flexi_masonry {
   columns: 1;
   column-gap: 1px;
 }
-.masonry-item {
+.flexi_masonry-item {
   display: inline-block;
   vertical-align: top;
   margin-bottom: 1px;
 }
 @media only screen and (max-width: 1023px) and (min-width: 768px) {
-  .masonry {
+  .flexi_masonry {
     columns: 2;
   }
 }
 @media only screen and (min-width: 1024px) {
-  .masonry {
+  .flexi_masonry {
     columns: 5;
   }
 }
-.masonry-item,
-.masonry-content {
+.flexi_masonry-item,
+.flexi_masonry-content {
   border-radius: 4px;
   overflow: hidden;
 }
