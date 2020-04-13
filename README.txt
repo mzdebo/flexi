@@ -18,6 +18,8 @@ With our plugin you can let your visitors to post images, content from frontend 
 Just download and use blocks to generate gallery & forms.
 Fall in Love with this plugin like we do!
 
+Look Screenshots below for quick understanding of it's scope. You can do lot more then listed. :)
+
 <a href="https://odude.com/demo/flexi/">Flexi Gallery Demo</a>
 
 <a href="https://odude.com/docs/flexi-gallery/">Documentation</a>
@@ -40,29 +42,28 @@ Fall in Love with this plugin like we do!
 *   **Gallery Sorting** - Gallery sorting based on (ID, date, name, random, modified)
 *   **Submission Form** - Form can be generated with guten block and advance features and sorting options with the help of powerful shortcode.
 *   **Powerful Ajax** - Gallery, form have ajax and classic support. No change in page URL if ajax is enabled.
-
+* **Ultimate-Member plugin**. It will display user submitted records on user profile tab.
+* **BuddyPress plugin**. It will display user submitted records on user profile section.
 
 
 = CORE FEATURES =
 
 *   **No extra files on media manager** - It uses Wordpress default image handling. It will not create any additional image size on server which saves your space. Due to this features you can install other 3rd party plugins for image management. But you have option to set width & height of images based on true css only.
- **Implemented to avoid AJAX libs conflicts** - code implemented in native WordPress style as result our plugin don't have any conflicts and work really stable.
- *   **SEO Friendly** - designed as a wordpress regular post with additional features.
- *   **Multisite Support** - implemented multisite support. You can install plugin in admin dashboard and enable plugin for all child blogs.
- * **Custom Fields** - Collect extra information from visitors while submitting form and display/hide it at gallery, lightbox & detail page. 
+*   **Implemented to avoid AJAX libs conflicts** - code implemented in native WordPress style as result our plugin don't have any conflicts and work really stable.
+*   **SEO Friendly** - designed as a wordpress regular post with additional features.
+*   **Multisite Support** - implemented multisite support. You can install plugin in admin dashboard and enable plugin for all child blogs.
+*   **Custom Fields** - Collect extra information from visitors while submitting form and display/hide it at gallery, lightbox & detail page. 
 
+= Widgets =
+
+* **List Album** List all or selected album at sidebar or any widget location.
 
 = PRO KEY FEATURES =
 
 * **Batch images upload** - Allow to upload batch of the images by one click. Just drag and drop set of the gallery images and it's upload automatically to the server.
 * **Google reCaptcha** support for form security while submitting form.
 * **Custom Fields** extra 7 fields on top of free version. 
-
-= Addons =
-* **Ultimate-Member plugin**. It will display user submitted records on user profile tab.
-* **BuddyPress plugin**. It will display user submitted records on user profile section.
-* **Google reCaptcha** for secure form submission
-* **10 Custom fields**
+* **Edit Post** Let visitors to update the submitted post.
 
 
 == Installation ==
@@ -95,7 +96,15 @@ At Flexi Settings all configuration are ready, but do check all automatically cr
 == Screenshots ==
 
 1. Simple Gallery Demo
-2. Multi file upload
+2. Multi file upload with Live reload of gallery
+3. Masonry Layout
+4. Regular Layout
+5. Wide Layout
+6. Flexi Guten Block editor
+7. Detail Page
+8. Backend List post
+9. Frontend User Dashboard
+10. Simple easy setting page
 
 == Changelog ==
 = 1.0.12 =

@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Flexi\n"
-"POT-Creation-Date: 2020-04-04 12:04+0545\n"
+"POT-Creation-Date: 2020-04-13 14:59+0545\n"
 "PO-Revision-Date: 2020-02-09 12:49+0545\n"
 "Last-Translator: \n"
 "Language-Team: navneet@odude.com\n"
@@ -20,7 +20,7 @@ msgstr ""
 msgid "flexi"
 msgstr ""
 
-#: admin/class-flexi-admin.php:117
+#: admin/class-flexi-admin.php:117 block/src/gallery/block.js:59
 msgid "Flexi Gallery"
 msgstr ""
 
@@ -58,6 +58,219 @@ msgstr ""
 
 #: admin/partials/settings.php:28
 msgid "Plugin Settings"
+msgstr ""
+
+#: block/node_modules/cgb-scripts/template/src/block/block.js:30
+msgid "<% blockName %> - CGB Block"
+msgstr ""
+
+#: block/node_modules/cgb-scripts/template/src/block/block.js:34
+msgid "<% blockName %> — CGB Block"
+msgstr ""
+
+#: block/node_modules/cgb-scripts/template/src/block/block.js:35
+msgid "CGB Example"
+msgstr ""
+
+#: block/node_modules/cgb-scripts/template/src/block/block.js:36
+msgid "create-guten-block"
+msgstr ""
+
+#: block/node_modules/webpack/node_modules/yargs-parser/index.js:306
+#: block/node_modules/yargs-parser/index.js:301
+#, javascript-format
+msgid "Not enough arguments following: %s"
+msgstr ""
+
+#: block/node_modules/webpack/node_modules/yargs-parser/index.js:454
+#: block/node_modules/yargs-parser/index.js:449
+#, javascript-format
+msgid "Invalid JSON config file: %s"
+msgstr ""
+
+#: block/node_modules/webpack/node_modules/yargs/lib/usage.js:169
+#: block/node_modules/yargs/lib/usage.js:169
+msgid "Commands:"
+msgstr ""
+
+#: block/node_modules/webpack/node_modules/yargs/lib/usage.js:177
+#: block/node_modules/webpack/node_modules/yargs/lib/usage.js:407
+#: block/node_modules/yargs/lib/usage.js:177
+#: block/node_modules/yargs/lib/usage.js:407
+msgid "default:"
+msgstr ""
+
+#: block/node_modules/webpack/node_modules/yargs/lib/usage.js:179
+#: block/node_modules/yargs/lib/usage.js:179
+msgid "aliases:"
+msgstr ""
+
+#: block/node_modules/webpack/node_modules/yargs/lib/usage.js:241
+#: block/node_modules/yargs/lib/usage.js:241
+msgid "boolean"
+msgstr ""
+
+#: block/node_modules/webpack/node_modules/yargs/lib/usage.js:242
+#: block/node_modules/yargs/lib/usage.js:242
+msgid "count"
+msgstr ""
+
+#: block/node_modules/webpack/node_modules/yargs/lib/usage.js:243
+#: block/node_modules/webpack/node_modules/yargs/lib/usage.js:244
+#: block/node_modules/yargs/lib/usage.js:243
+#: block/node_modules/yargs/lib/usage.js:244
+msgid "string"
+msgstr ""
+
+#: block/node_modules/webpack/node_modules/yargs/lib/usage.js:245
+#: block/node_modules/yargs/lib/usage.js:245
+msgid "array"
+msgstr ""
+
+#: block/node_modules/webpack/node_modules/yargs/lib/usage.js:246
+#: block/node_modules/yargs/lib/usage.js:246
+msgid "number"
+msgstr ""
+
+#: block/node_modules/webpack/node_modules/yargs/lib/usage.js:250
+#: block/node_modules/yargs/lib/usage.js:250
+msgid "required"
+msgstr ""
+
+#: block/node_modules/webpack/node_modules/yargs/lib/usage.js:251
+#: block/node_modules/yargs/lib/usage.js:251
+msgid "choices:"
+msgstr ""
+
+#: block/node_modules/webpack/node_modules/yargs/lib/usage.js:270
+#: block/node_modules/yargs/lib/usage.js:270
+msgid "Examples:"
+msgstr ""
+
+#: block/node_modules/webpack/node_modules/yargs/lib/usage.js:385
+#: block/node_modules/yargs/lib/usage.js:385
+msgid "generated-value"
+msgstr ""
+
+#: block/node_modules/webpack/node_modules/yargs/lib/validation.js:27
+#: block/node_modules/webpack/node_modules/yargs/lib/validation.js:50
+#: block/node_modules/yargs/lib/validation.js:26
+#: block/node_modules/yargs/lib/validation.js:49
+#, javascript-format
+msgid "Not enough non-option arguments: got %s, need at least %s"
+msgstr ""
+
+#: block/node_modules/webpack/node_modules/yargs/lib/validation.js:38
+#: block/node_modules/yargs/lib/validation.js:37
+#, javascript-format
+msgid "Too many non-option arguments: got %s, maximum of %s"
+msgstr ""
+
+#: block/node_modules/webpack/node_modules/yargs/lib/validation.js:186
+#: block/node_modules/yargs/lib/validation.js:185
+msgid "Invalid values:"
+msgstr ""
+
+#: block/node_modules/webpack/node_modules/yargs/lib/validation.js:189
+#: block/node_modules/yargs/lib/validation.js:188
+#, javascript-format
+msgid "Argument: %s, Given: %s, Choices: %s"
+msgstr ""
+
+#: block/node_modules/webpack/node_modules/yargs/lib/validation.js:219
+#: block/node_modules/yargs/lib/validation.js:218
+#, javascript-format
+msgid "Argument check failed: %s"
+msgstr ""
+
+#: block/node_modules/webpack/node_modules/yargs/lib/validation.js:284
+#: block/node_modules/yargs/lib/validation.js:283
+msgid "Implications failed:"
+msgstr ""
+
+#: block/node_modules/webpack/node_modules/yargs/lib/validation.js:314
+#: block/node_modules/yargs/lib/validation.js:313
+#, javascript-format
+msgid "Arguments %s and %s are mutually exclusive"
+msgstr ""
+
+#: block/node_modules/webpack/node_modules/yargs/lib/validation.js:333
+#: block/node_modules/yargs/lib/validation.js:332
+#, javascript-format
+msgid "Did you mean %s?"
+msgstr ""
+
+#: block/src/form/block.js:59 includes/functions.php:1207
+msgid "Flexi Submission Form"
+msgstr ""
+
+#: block/src/form/block.js:62 block/src/gallery/block.js:62
+#: includes/class-flexi-admin-column.php:18
+msgid "Image"
+msgstr ""
+
+#: block/src/form/block.js:62
+msgid "submit"
+msgstr ""
+
+#: block/src/form/block.js:62
+msgid "form"
+msgstr ""
+
+#: block/src/form/edit.js:90
+msgid "Form Settings"
+msgstr ""
+
+#: block/src/form/edit.js:115
+msgid "Title Field"
+msgstr ""
+
+#: block/src/form/edit.js:128
+msgid "Description Field"
+msgstr ""
+
+#: block/src/form/edit.js:149
+msgid "Category Field"
+msgstr ""
+
+#: block/src/form/edit.js:164
+msgid "Tag Field"
+msgstr ""
+
+#: block/src/form/edit.js:177
+msgid "File Attach Field"
+msgstr ""
+
+#: block/src/form/edit.js:197
+msgid "Security reCaptcha Field"
+msgstr ""
+
+#: block/src/form/edit.js:206
+msgid "Submit Button"
+msgstr ""
+
+#: block/src/gallery/block.js:62
+msgid "gallery"
+msgstr ""
+
+#: block/src/gallery/block.js:62
+msgid "picture"
+msgstr ""
+
+#: block/src/gallery/edit.js:97
+msgid "Filters"
+msgstr ""
+
+#: block/src/gallery/edit.js:145
+msgid "Layout Controls"
+msgstr ""
+
+#: block/src/gallery/edit.js:203
+msgid "Effects"
+msgstr ""
+
+#: block/src/init.php:88
+msgid "Flexi Plugin"
 msgstr ""
 
 #: includes/addon/class-flexi-buddypress.php:30
@@ -116,6 +329,10 @@ msgstr ""
 
 #: includes/addon/class-flexi-captcha.php:78
 msgid "Google Captcha secret Key"
+msgstr ""
+
+#: includes/addon/class-flexi-captcha.php:92
+msgid "Security Check"
 msgstr ""
 
 #: includes/addon/class-flexi-captcha.php:142
@@ -192,10 +409,6 @@ msgstr ""
 
 #: includes/addon/class-flexi-ultimate-member.php:77
 msgid "Ultimate Member's icons to be used at profile page. Eg. um-faicon-picture-o"
-msgstr ""
-
-#: includes/class-flexi-admin-column.php:18
-msgid "Image"
 msgstr ""
 
 #: includes/class-flexi-admin-column.php:19
@@ -275,14 +488,14 @@ msgid "Modify"
 msgstr ""
 
 #: includes/class-flexi-form.php:546
-msgid "New Post"
+msgid "New"
 msgstr ""
 
 #: includes/class-flexi-form.php:568
-msgid "View Post"
+msgid "View"
 msgstr ""
 
-#: includes/class-flexi-gallery.php:272
+#: includes/class-flexi-gallery.php:284
 msgid "Layout not available"
 msgstr ""
 
@@ -298,7 +511,7 @@ msgstr ""
 msgid "Flexi Shortcode"
 msgstr ""
 
-#: includes/class-flexi-metabox.php:133
+#: includes/class-flexi-metabox.php:127
 msgid "Save & reopen to get shortcode"
 msgstr ""
 
@@ -448,7 +661,7 @@ msgid "Media settings"
 msgstr ""
 
 #: includes/class-flexi-settings.php:130
-msgid "The sizes listed below determine the maximum dimensions in pixels. It will be applied only to new images."
+msgid "The sizes listed below determine only the image container size. It do not affect original sizes."
 msgstr ""
 
 #: includes/class-flexi-settings.php:135
@@ -795,12 +1008,12 @@ msgstr ""
 msgid "Wrong ID"
 msgstr ""
 
-#: includes/class-flexi-user.php:30
+#: includes/class-flexi-user.php:31
 msgid "Profile"
 msgstr ""
 
-#: includes/class-flexi_ajax_delete.php:48 includes/functions.php:436
-#: includes/functions.php:438
+#: includes/class-flexi_ajax_delete.php:48 includes/functions.php:437
+#: includes/functions.php:439
 msgid "Login Please !"
 msgstr ""
 
@@ -1494,43 +1707,39 @@ msgstr ""
 msgid "Show All"
 msgstr ""
 
-#: includes/functions.php:367
+#: includes/functions.php:368
 msgid "Album"
 msgstr ""
 
-#: includes/functions.php:822
+#: includes/functions.php:823
 msgid "Required Flexi-PRO or UPG-PRO"
 msgstr ""
 
-#: includes/functions.php:1151
+#: includes/functions.php:1162
 msgid "Title cannot be blank."
 msgstr ""
 
-#: includes/functions.php:1154
+#: includes/functions.php:1165
 msgid "This file is not supported or file too big."
 msgstr ""
 
-#: includes/functions.php:1157
+#: includes/functions.php:1168
 msgid "This file type is not supported. Only image files are allowed."
 msgstr ""
 
-#: includes/functions.php:1160
+#: includes/functions.php:1171
 msgid "Captcha security code is invalid."
 msgstr ""
 
-#: includes/functions.php:1182
+#: includes/functions.php:1193
 msgid "Flexi Primary Gallery"
 msgstr ""
 
-#: includes/functions.php:1189
+#: includes/functions.php:1200
 msgid "Flexi User Dashboard"
 msgstr ""
 
-#: includes/functions.php:1196
-msgid "Flexi Submission Form"
-msgstr ""
-
-#: includes/functions.php:1203
+#: includes/functions.php:1214
 msgid "Flexi Edit/Modify"
 msgstr ""
 
@@ -1587,8 +1796,8 @@ msgstr ""
 msgid "Are you sure you want to delete?"
 msgstr ""
 
-#: public/partials/layout/gallery/masonry/footer.php:5
-#: public/partials/layout/gallery/regular/footer.php:5
+#: public/partials/layout/gallery/masonry/footer.php:6
+#: public/partials/layout/gallery/regular/footer.php:6
 #: public/partials/layout/gallery/wide/footer.php:5
 msgid "No records"
 msgstr ""

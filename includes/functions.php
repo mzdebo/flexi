@@ -307,11 +307,11 @@ function flexi_list_album($post, $class = "flexi-icon-list-frame")
  }
 
  for ($x = 0; $x < count($term_list); $x++) {
+  if ('-1' != $term_list[$x]->name) {
+   $link = get_permalink(flexi_get_option('primary_page', 'flexi_image_layout_settings', 0));
+   $link = add_query_arg("flexi_category", $term_list[$x]->slug, $link);
 
-  $link = get_permalink(flexi_get_option('primary_page', 'flexi_image_layout_settings', 0));
-  $link = add_query_arg("flexi_category", $term_list[$x]->slug, $link);
-
-  echo '
+   echo '
 
 <li>
 
@@ -328,16 +328,17 @@ function flexi_list_album($post, $class = "flexi-icon-list-frame")
     </li>
 ';
 
-  //echo '<a href="' . $link . '" class="' . $class . '">' . $term_list[$x]->name . '</a>';
-  /*
- echo ' <div class="item">
- <img class="' . $class . '" src="' . flexi_album_image($term_list[$x]->slug) . '">
- <div class="content">
- <a href="' . $link . '" class="header"> ' . $term_list[$x]->name . '</a>
- ' . $term_list[$x]->description . '
- </div>
- </div>';
-  */
+   //echo '<a href="' . $link . '" class="' . $class . '">' . $term_list[$x]->name . '</a>';
+   /*
+  echo ' <div class="item">
+  <img class="' . $class . '" src="' . flexi_album_image($term_list[$x]->slug) . '">
+  <div class="content">
+  <a href="' . $link . '" class="header"> ' . $term_list[$x]->name . '</a>
+  ' . $term_list[$x]->description . '
+  </div>
+  </div>';
+   */
+  }
  }
 
  if (count($term_list) > 0) {
