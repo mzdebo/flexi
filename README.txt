@@ -107,6 +107,9 @@ At Flexi Settings all configuration are ready, but do check all automatically cr
 10. Simple easy setting page
 
 == Changelog ==
+= 1.0.13 =
+* Fixed mobile responsive and lightbox grid link
+
 = 1.0.12 =
 * Introduced Guten block editor
 * 2 Guten block type (Gallery & Form)

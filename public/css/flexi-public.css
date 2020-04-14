@@ -39,6 +39,14 @@
   height: var(--flexi_user_height);
   border: 1px solid #eee;
 }
+@media only screen and (max-width: 768px) {
+  .flexi-image-wrapper {
+    width: var(--flexi_m_width);
+    height: var(--flexi_m_height);
+    border: 1px solid #eee;
+  }
+}
+
 .flexi-image-wrapper-thumb {
   width: var(--flexi_t_width);
   height: var(--flexi_t_height);
@@ -208,6 +216,11 @@
 
 div.flexi_gallery_grid {
   border: 0px solid #ccc;
+  box-sizing: border-box;
+}
+.flexi_responsive_fixed {
+  padding: 0 6px;
+  float: left;
   box-sizing: border-box;
 }
 

@@ -93,7 +93,7 @@ function flexi_standalone_gallery($post_id, $img_size = 'thumbnail', $width = 15
 
    $image_alt = flexi_get_attachment($attachment_id);
 
-   echo '<div class="flexi_responsive"><div class="flexi_gallery_grid"><div class="flexi-image-wrapper-icon"><a data-fancybox="flexi_standalone_gallery" href="' . wp_get_attachment_image_src($attachment_id, 'flexi_large')[0] . '" data-caption="' . $image_alt['title'] . '" border="0">';
+   echo '<div class="flexi_responsive_fixed"><div class="flexi_gallery_grid"><div class="flexi-image-wrapper-icon"><a data-fancybox="flexi_standalone_gallery" href="' . wp_get_attachment_image_src($attachment_id, 'flexi_large')[0] . '" data-caption="' . $image_alt['title'] . '" border="0">';
    echo '<img src="' . wp_get_attachment_image_src($attachment_id, $img_size)[0] . '" large-src="' . wp_get_attachment_image_src($attachment_id, 'flexi_large')[0] . '">';
    echo '</a></div></div></div>';
 
@@ -1115,7 +1115,7 @@ function flexi_show_icon_grid()
   $nonce = wp_create_nonce($icon[$r][3]);
 
   if ("" != $icon[$r][0]) {
-   $list .= '<a class="' . $icon[$r][3] . '" href="' . $icon[$r][2] . '" title="' . $icon[$r][1] . '" data-nonce="' . $nonce . '" data-post_id="' . $icon[$r][4] . '"><small><span class="dashicons ' . $icon[$r][0] . '"></span></small></a>';
+   $list .= '<a class="' . $icon[$r][3] . '" href="' . $icon[$r][2] . '" title="' . $icon[$r][1] . '" data-nonce="' . $nonce . '" data-post_id="' . $icon[$r][4] . '"><small><span class="dashicons ' . $icon[$r][0] . '">&nbsp;</span></small></a>';
   }
 
  }
