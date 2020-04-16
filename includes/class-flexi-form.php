@@ -87,7 +87,7 @@ class Flexi_Shortcode_Form
      echo '<div id="flexi_form"><form class="' . $attr['class'] . '" method="post" enctype="multipart/form-data" action="">';
 
     } else {
-
+     //Submission processed at flexi_ajax_post.php
      ?>
 
     <div id="flexi_ajax">
@@ -138,6 +138,7 @@ action="' . admin_url("admin-ajax.php") . '"
     echo '<input type="hidden" name="form_name" value="' . $attr['name'] . '">';
     echo '<input type="hidden" name="media_private" value="' . $attr['media_private'] . '">';
     echo '<input type="hidden" name="edit" value="' . $attr['edit'] . '">';
+    echo '<input type="hidden" name="type" value="' . $attr['type'] . '">';
     if (isset($_GET['id'])) {
      echo '<input type="hidden" name="flexi_id" value="' . $_GET['id'] . '">';
     }
@@ -156,7 +157,7 @@ action="' . admin_url("admin-ajax.php") . '"
   }
  }
 
- //Examine & save the form submitted
+ //Examine & save the form submitted if ajax is off
  public function process_new_forms($attr)
  {
   $title    = '';
@@ -167,6 +168,7 @@ action="' . admin_url("admin-ajax.php") . '"
   $verify   = '';
   $content  = '';
   $category = '';
+  $url      = '';
 
   //var_dump($attr);
 
@@ -180,10 +182,22 @@ action="' . admin_url("admin-ajax.php") . '"
   $content  = $attr['content'];
   $category = $attr['category'];
   $tags     = $attr['tags'];
+  $url      = $attr['user-submitted-url'];
 
-  //$result = array();
-  $result = flexi_submit($title, $files, $content, $category, $preview, $tags);
-  //flexi_log($title . '-' . $content . '-' . $category . '-' . $preview . '-' . $tags);
+  if (isset($_POST['type'])) {
+   if ('url' == $_POST['type']) {
+    $result = flexi_submit_url($title, $url, $content, $category, $preview, $tags);
+
+   } else {
+    $result = flexi_submit($title, $files, $content, $category, $preview, $tags);
+
+   }
+
+  } else {
+
+   $result = flexi_submit($title, $files, $content, $category, $preview, $tags);
+  }
+
   //var_dump($result);
 
   $post_id = false;
@@ -241,6 +255,7 @@ action="' . admin_url("admin-ajax.php") . '"
   $verify   = '';
   $content  = '';
   $category = '';
+  $url      = '';
   if (isset($_POST['flexi_id'])) {
    $post_id = $_POST['flexi_id'];
   }
@@ -257,6 +272,7 @@ action="' . admin_url("admin-ajax.php") . '"
   $content  = $attr['content'];
   $category = $attr['category'];
   $tags     = $attr['tags'];
+  $url      = $attr['user-submitted-url'];
 
   $result = flexi_update_post($post_id, $title, $files, $content, $category, $tags);
 
@@ -319,9 +335,11 @@ action="' . admin_url("admin-ajax.php") . '"
 
   } else if ('video_url' == $attr['type']) {
    echo $frm->addLabelFor("user-submitted-url", $attr['title']);
-   // arguments: type, name, value
-   echo $frm->addInput('url', "user-submitted-url", $attr['value'], array('placeholder' => $attr['placeholder'], 'class' => $attr['class'], 'required' => $attr['required']));
-
+   if ('' == $attr['edit']) {
+    echo $frm->addInput('url', "user-submitted-url", $attr['value'], array('placeholder' => $attr['placeholder'], 'class' => $attr['class'], 'required' => $attr['required']));
+   } else {
+    echo $frm->addInput('url', "user-submitted-url", flexi_get_detail($_GET['id'], 'flexi_url'), array('placeholder' => $attr['placeholder'], 'class' => $attr['class'], 'required' => $attr['required']));
+   }
   } else if ('category' == $attr['type']) {
    echo $frm->addLabelFor('cat', $attr['title']);
    if ('' == $attr['edit']) {

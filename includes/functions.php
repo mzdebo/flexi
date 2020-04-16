@@ -1,4 +1,9 @@
 <?php
+//Functions used during submission of image only
+require_once plugin_dir_path(__FILE__) . 'functions_post_image.php';
+//Functions used during submission of URL only
+require_once plugin_dir_path(__FILE__) . 'functions_post_url.php';
+
 //Gets link of post author with it's avatar icon.
 function flexi_author($author = '', $redirect = true)
 {
@@ -479,11 +484,18 @@ function flexi_default_args($params)
   'ajax'          => 'true',
   'media_private' => 'false',
   'edit'          => 'false',
+  'type'          => 'image',
  );
  if (isset($_POST['user-submitted-title'])) {
   $value['user-submitted-title'] = sanitize_text_field($_POST['user-submitted-title']);
  } else {
   $value['user-submitted-title'] = '';
+ }
+
+ if (isset($_POST['user-submitted-url'])) {
+  $value['user-submitted-url'] = sanitize_text_field($_POST['user-submitted-url']);
+ } else {
+  $value['user-submitted-url'] = '';
  }
 
  if (isset($_POST['user-submitted-content'])) {
@@ -510,6 +522,11 @@ function flexi_default_args($params)
  if (isset($_POST['edit'])) {
   $value['edit'] = $_POST['edit'];
  }
+
+ if (isset($_POST['type'])) {
+    $value['type'] = $_POST['type'];
+   }
+
  if (isset($_POST['flexi_id'])) {
   $value['flexi_id'] = $_POST['flexi_id'];
  } else {
@@ -517,143 +534,6 @@ function flexi_default_args($params)
  }
 
  return shortcode_atts($value, $params);
-}
-
-//Submits new post.
-//$title = Title of post
-//$files = files selected
-//$content= Description
-//category =Album name
-//$preview = layout name for post detail page. Not required if lightbox is enabled.
-function flexi_submit($title, $files, $content, $category, $preview, $tags = '')
-{
- $post_type    = 'flexi';
- $taxonomy     = 'flexi_category';
- $tag_taxonomy = 'flexi_tag';
-
- $newPost            = array('id' => false, 'error' => false);
- $newPost['error'][] = "";
- $file_count         = 0;
- if (empty($title)) {
-  $newPost['error'][] = 'required-title';
- }
-
- //if (empty($content))  $newPost['error'][] = 'required-description';
-
- $newPost['error'][] = apply_filters('flexi_verify_submit', "");
-
- if (isset($files['tmp_name'][0])) {
-  $check_file_exist = $files['tmp_name'][0];
- } else {
-  $check_file_exist = "";
- }
-
- //It will only check file type is image
- if (!empty($check_file_exist)) {
-  $file_data  = flexi_check_images($files, $newPost);
-  $file_count = $file_data['file_count'];
-
-  //echo "<h1>$file_count</h1>";
-  //error_log("File count ".$file_count);
-
-  $newPost['error'] = array_unique(array_merge($file_data['error'], $newPost['error']));
- }
-
- foreach ($newPost['error'] as $e) {
-
-  if (!empty($e)) {
-   //error_log("Error: ".$e);
-   unset($newPost['id']);
-   return $newPost;
-  }
- }
-
- $postData = flexi_prepare_post($title, $content, $post_type);
- do_action('flexi_insert_before', $postData);
- //Include important files required during upload
- flexi_include_deps();
- $i = 0;
- if (0 == $file_count) {
-  //Execute loop at least once
-  $file_count = 1;
- }
-
- for ($x = 1; $x <= $file_count; $x++) {
-
-  $newPost['id'] = wp_insert_post($postData);
-  if ($newPost['id']) {
-   //echo "Successfully added $x <hr>";
-   $post_id = $newPost['id'];
-
-   //Submit extra fields data
-   for ($z = 1; $z <= 10; $z++) {
-    if (isset($_POST['flexi_field_' . $z])) {
-     add_post_meta($post_id, 'flexi_field_' . $z, $_POST['flexi_field_' . $z]);
-    }
-
-   }
-   //Ended to submit extra fields
-
-   if ('' != $category) {
-    wp_set_object_terms($post_id, array($category), $taxonomy);
-   }
-
-   if (taxonomy_exists($tag_taxonomy)) {
-    //Set TAGS
-    if ('' != $tags) {
-     wp_set_object_terms($post_id, explode(",", $tags), $tag_taxonomy);
-    }
-
-   }
-
-   //Assign preview layout
-   add_post_meta($post_id, 'flexi_layout', $preview);
-
-   $attach_ids = array();
-   if ($files && !empty($check_file_exist)) {
-    $key = apply_filters('flexi_file_key', 'user-submitted-image-{$i}');
-
-    $_FILES[$key]             = array();
-    $_FILES[$key]['name']     = $files['name'][$i];
-    $_FILES[$key]['tmp_name'] = $files['tmp_name'][$i];
-    $_FILES[$key]['type']     = $files['type'][$i];
-    $_FILES[$key]['error']    = $files['error'][$i];
-    $_FILES[$key]['size']     = $files['size'][$i];
-
-    $attach_id = media_handle_upload($key, $post_id);
-
-    //$my_image_alt = preg_replace( ‘%[^0-9a-z]+%i’, ‘ ‘, $title );
-    //$my_image_alt = preg_replace( ‘%[\s]+%’, ‘ ‘, $my_image_alt );
-    //update_post_meta( $attach_id, '_wp_attachment_image_alt', $my_image_alt );
-
-    if (!is_wp_error($attach_id) && wp_attachment_is_image($attach_id)) {
-
-     $attach_ids[] = $attach_id;
-     add_post_meta($post_id, 'flexi_image_id', $attach_id);
-     add_post_meta($post_id, 'flexi_image', flexi_image_src('large', get_post($post_id)));
-    } else {
-     wp_delete_attachment($attach_id);
-     wp_delete_post($post_id, true);
-     $newPost['error'][] = 'upload-error';
-     unset($newPost['id']);
-     return $newPost;
-    }
-    $i++;
-   } else {
-    //Checking in setting if image is compulsory during submission.
-    /*
-   if ('1' == $options['image_required']) {
-   $newPost['error'][] = 'no-files';
-   }
-    */
-   }
-  } else {
-   $newPost['error'][] = 'post-fail';
-  }
- }
-
- do_action('flexi_insert_after', $newPost);
- return $newPost;
 }
 
 //Update/edit the post with reference of post ID
@@ -721,100 +601,11 @@ function flexi_update_post($post_id, $title, $files, $content, $category, $tags 
  }
 }
 
-//During image upload process, it check the file is valid image type.
-function flexi_check_images($files)
-{
- $temp  = false;
- $errr  = false;
- $error = array();
-
- if (isset($files['tmp_name'])) {
-  $temp = array_filter($files['tmp_name']);
- }
-
- if (isset($files['error'])) {
-  $errr = array_filter($files['error']);
- }
-
- $file_count = 0;
- if (!empty($temp)) {
-  foreach ($temp as $key => $value) {
-   if (is_uploaded_file($value)) {
-    $file_count++;
-   }
-  }
-
- }
- if (true) {
-
-  $i = 0;
-
-  $image = @getimagesize($temp[$i]);
-
-  if (false === $image) {
-   $error[] = 'file-type';
-   //error_log("Check file size");
-   //break;
-  } else {
-   if (function_exists('exif_imagetype')) {
-    if (isset($temp[$i]) && !exif_imagetype($temp[$i])) {
-     $error[] = 'exif_imagetype';
-     //break;
-    }
-   }
-
-  }
-
-  //$file = wp_max_upload_size( $temp[$i] );
-  // if ( $file['error'] != '0' )
-  //{
-  // if($temp[$i] < wp_max_upload_size())
-  // $error[] = 'max-filesize';
-  //}
-
- } else {
-  $files = false;
- }
- $file_data = array('error' => $error, 'file_count' => $file_count);
-
- //error_log("file count ".$file_count);
-
- return $file_data;
-}
-
 //Sanitize the $content.
 function flexi_sanitize_content($content)
 {
  $allowed_tags = wp_kses_allowed_html('post');
  return wp_kses(stripslashes($content), $allowed_tags);
-}
-
-//Before posting, assigning required metadata to the post.
-function flexi_prepare_post($title, $content, $post_type = 'flexi')
-{
- $postData                 = array();
- $postData['post_title']   = $title;
- $postData['post_content'] = $content;
- $postData['post_author']  = flexi_get_author();
- $postData['post_type']    = 'flexi';
-
- //upg_log($content."---".$post_type);
-
- if (flexi_get_option('publish', 'flexi_form_settings', 1) == 1) {
-  $postData['post_status'] = 'publish';
- }
-
- return apply_filters('flexi_post_data', $postData);
-}
-
-//Including the files used during the time of file upload. It is required to get default wordpress file handling.
-function flexi_include_deps()
-{
- if (!function_exists('media_handle_upload')) {
-  require_once ABSPATH . '/wp-admin/includes/media.php';
-  require_once ABSPATH . '/wp-admin/includes/file.php';
-  require_once ABSPATH . '/wp-admin/includes/image.php';
- }
 }
 
 //Required Flexi-PRO
@@ -1115,7 +906,7 @@ function flexi_show_icon_grid()
   $nonce = wp_create_nonce($icon[$r][3]);
 
   if ("" != $icon[$r][0]) {
-   $list .= '<a class="' . $icon[$r][3] . '" href="' . $icon[$r][2] . '" title="' . $icon[$r][1] . '" data-nonce="' . $nonce . '" data-post_id="' . $icon[$r][4] . '"><small><span class="dashicons ' . $icon[$r][0] . '">&nbsp;</span></small></a>';
+   $list .= '<a class="' . $icon[$r][3] . '" href="' . $icon[$r][2] . '" title="' . $icon[$r][1] . '" data-nonce="' . $nonce . '" data-post_id="' . $icon[$r][4] . '"><small>&nbsp;<span class="dashicons ' . $icon[$r][0] . '">&nbsp;</span>&nbsp;</small></a>';
   }
 
  }

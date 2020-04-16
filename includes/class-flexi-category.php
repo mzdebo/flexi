@@ -12,6 +12,7 @@ class Flexi_Category
   add_filter("manage_edit-" . $taxonomy_tag . "_columns", array($this, 'new_column_tag'));
   add_action('manage_' . $taxonomy_tag . '_custom_column', array($this, 'manage_tag_columns'), 10, 3);
 
+  add_action('template_redirect', array($this, 'category_rewrite_view_link'));
  }
  public function new_column_category($columns)
  {
@@ -70,6 +71,37 @@ class Flexi_Category
     break;
   }
  }
+
+ //Redirect to category page with view is clicked at category & tag of admin dashboard
+ public function category_rewrite_view_link()
+ {
+
+  $redirect_url = '';
+  if (!is_feed()) {
+   if (is_tax('flexi_category')) {
+
+    $term         = get_queried_object();
+    $redirect_url = flexi_get_category_page_link($term, 'flexi_category');
+
+   }
+
+   if (is_tax('flexi_tag')) {
+
+    $term         = get_queried_object();
+    $redirect_url = flexi_get_category_page_link($term, 'flexi_tag');
+
+   }
+  }
+
+  // Redirect
+  if (!empty($redirect_url)) {
+
+   wp_redirect($redirect_url);
+   exit();
+  }
+
+ }
+
 }
 //Execute
 $category = new Flexi_Category();

@@ -92,6 +92,7 @@ class Flexi_Meta_boxes
    'name'         => 'Thumbnail file',
    'desc'         => 'Upload an image',
    'id'           => 'flexi_image_category',
+   'show_names'   => true, // Show field names on the left
    'type'         => 'file',
    // Optional:
    'options'      => array(

@@ -40,6 +40,8 @@ function flexi_ajax_post()
  $tag_taxonomy  = $attr['tag_taxonomy'];
  $edit          = $attr['edit'];
  $flexi_id      = $attr['flexi_id'];
+ $type          = $attr['type'];
+ $url           = $attr['user-submitted-url'];
 
  if ('flexi' == $upload_type) {
 
@@ -50,7 +52,13 @@ function flexi_ajax_post()
 
   if ("false" == $edit) {
    //Insert new post
-   $result  = flexi_submit($title, $files, $content, $category, $preview, $tags);
+   if ('url' == $attr['type']) {
+
+    $result = flexi_submit_url($title, $url, $content, $category, $preview, $tags);
+
+   } else {
+    $result = flexi_submit($title, $files, $content, $category, $preview, $tags);
+   }
    $post_id = false;
    if (isset($result['id'])) {
     $post_id = $result['id'];

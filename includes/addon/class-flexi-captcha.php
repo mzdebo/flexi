@@ -106,15 +106,17 @@ $captcha = '<div class="g-recaptcha" data-sitekey="' . $site_key . '"></div>';
 
  public function enqueue_styles_head()
  {
-  global $post;
-  $enable_addon = flexi_get_option('enable_captcha', 'flexi_extension', 0);
-  if ("1" == $enable_addon) {
-   if (has_shortcode($post->post_content, 'flexi-form')) {
-    ?>
+  if (!is_admin()) {
+   global $post;
+   $enable_addon = flexi_get_option('enable_captcha', 'flexi_extension', 0);
+   if ("1" == $enable_addon) {
+    if (has_shortcode($post->post_content, 'flexi-form')) {
+     ?>
  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
   <?php
 }
+   }
   }
  }
 
