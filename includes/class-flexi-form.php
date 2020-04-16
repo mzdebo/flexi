@@ -343,7 +343,7 @@ action="' . admin_url("admin-ajax.php") . '"
   } else if ('category' == $attr['type']) {
    echo $frm->addLabelFor('cat', $attr['title']);
    if ('' == $attr['edit']) {
-    echo flexi_droplist_album();
+    echo flexi_droplist_album('flexi_category', '', array(), $attr['id']);
    } else {
     $old_category_id = flexi_get_album($_GET['id'], 'term_id');
     echo flexi_droplist_album('flexi_category', $old_category_id);

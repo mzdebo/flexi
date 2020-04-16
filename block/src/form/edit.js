@@ -31,7 +31,7 @@ class FlexiGalleryEdit extends Component {
 
 		let categories = [
 			{
-				label: "-- Select All --",
+				label: "-- Show all Category --",
 				value: 0,
 			},
 		];
@@ -63,6 +63,7 @@ class FlexiGalleryEdit extends Component {
 			title_placeholder,
 			button_label,
 			category_label,
+			cat,
 			tag_label,
 			desp_label,
 			desp_placeholder,
@@ -133,17 +134,20 @@ class FlexiGalleryEdit extends Component {
 								checked={enable_desp}
 								onChange={toggleAttribute("enable_desp")}
 							/>
-
-							<TextControl
-								label="Description Title"
-								value={desp_label}
-								onChange={toggleAttribute("desp_label")}
-							/>
-							<TextControl
-								label="Description Placeholder"
-								value={desp_placeholder}
-								onChange={toggleAttribute("desp_placeholder")}
-							/>
+							{enable_desp && (
+								<TextControl
+									label="Description Title"
+									value={desp_label}
+									onChange={toggleAttribute("desp_label")}
+								/>
+							)}
+							{enable_desp && (
+								<TextControl
+									label="Description Placeholder"
+									value={desp_placeholder}
+									onChange={toggleAttribute("desp_placeholder")}
+								/>
+							)}
 						</PanelBody>
 						<PanelBody
 							title={__("Category Field", "flexi")}
@@ -154,12 +158,21 @@ class FlexiGalleryEdit extends Component {
 								checked={enable_category}
 								onChange={toggleAttribute("enable_category")}
 							/>
-
-							<TextControl
-								label="Category Title"
-								value={category_label}
-								onChange={toggleAttribute("category_label")}
-							/>
+							{enable_category && (
+								<TextControl
+									label="Category Title"
+									value={category_label}
+									onChange={toggleAttribute("category_label")}
+								/>
+							)}
+							{enable_category && (
+								<SelectControl
+									label="Select Parent Category"
+									value={cat}
+									options={categories}
+									onChange={(value) => setAttributes({ cat: Number(value) })}
+								/>
+							)}
 						</PanelBody>
 						<PanelBody title={__("Tag Field", "flexi")} initialOpen={false}>
 							<ToggleControl
@@ -167,31 +180,37 @@ class FlexiGalleryEdit extends Component {
 								checked={enable_tag}
 								onChange={toggleAttribute("enable_tag")}
 							/>
-							<TextControl
-								label="Tag Title"
-								value={tag_label}
-								onChange={toggleAttribute("tag_label")}
-							/>
+							{tag_label && (
+								<TextControl
+									label="Tag Title"
+									value={tag_label}
+									onChange={toggleAttribute("tag_label")}
+								/>
+							)}
 						</PanelBody>
 						<PanelBody
-							title={__("File Attach Field", "flexi")}
+							title={__("Media Input Field", "flexi")}
 							initialOpen={false}
 						>
 							<ToggleControl
-								label="Enable File Upload"
+								label="Enable Image Upload"
 								checked={enable_file}
 								onChange={toggleAttribute("enable_file")}
 							/>
-							<ToggleControl
-								label="Enable Bulk File Upload"
-								checked={enable_bulk_file}
-								onChange={toggleAttribute("enable_bulk_file")}
-							/>
-							<TextControl
-								label="Upload Title"
-								value={file_label}
-								onChange={toggleAttribute("file_label")}
-							/>
+							{enable_bulk_file && (
+								<ToggleControl
+									label="Enable Bulk File Upload"
+									checked={enable_bulk_file}
+									onChange={toggleAttribute("enable_bulk_file")}
+								/>
+							)}
+							{enable_file && (
+								<TextControl
+									label="Upload Title"
+									value={file_label}
+									onChange={toggleAttribute("file_label")}
+								/>
+							)}
 						</PanelBody>
 						<PanelBody
 							title={__("Security reCaptcha Field", "flexi")}

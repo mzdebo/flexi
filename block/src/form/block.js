@@ -94,6 +94,10 @@ registerBlockType("cgb/block-flexi-block-form", {
 			type: "string",
 			default: "Select Category",
 		},
+		cat: {
+			type: "number",
+			default: 0,
+		},
 		tag_label: {
 			type: "string",
 			default: "Insert Tag",

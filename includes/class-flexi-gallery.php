@@ -180,6 +180,20 @@ class Flexi_Shortcode_Gallery
    $navigation = flexi_get_option('navigation', 'flexi_image_layout_settings', 'button');
   }
 
+//Filter gallery based on images, url and more.
+  if (isset($params['filter'])) {
+   if ('image' == $params['filter']) {
+    $filter = 'flexi_image';
+   } else if ('url' == $params['filter']) {
+    $filter = 'flexi_url';
+   } else {
+    $filter = trim($params['filter']);
+   }
+
+  } else {
+   $filter = '';
+  }
+
   if ("" != $album && "" != $keyword) {
    $relation = "AND";
   } else {
@@ -226,6 +240,14 @@ class Flexi_Shortcode_Gallery
     'orderby'        => $orderby,
     'order'          => 'DESC',
 
+   );
+  }
+
+  if ('' != $filter) {
+   $args['meta_query'] = array(
+    array(
+     'key' => $filter,
+    ),
    );
   }
 

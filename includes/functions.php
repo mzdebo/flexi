@@ -524,8 +524,8 @@ function flexi_default_args($params)
  }
 
  if (isset($_POST['type'])) {
-    $value['type'] = $_POST['type'];
-   }
+  $value['type'] = $_POST['type'];
+ }
 
  if (isset($_POST['flexi_id'])) {
   $value['flexi_id'] = $_POST['flexi_id'];
@@ -615,27 +615,35 @@ function flexi_pro_required()
 }
 
 //Drop down list of albums
-function flexi_droplist_album($taxonomy = 'flexi_category', $selected_album = "", $skip = array())
+function flexi_droplist_album($taxonomy = 'flexi_category', $selected_album = "", $skip = array(), $parent = '')
 {
+
+ if (0 == $parent) {
+  $parent = '';
+ }
 
  $dropdown_args = array(
 
-  'selected'     => $selected_album,
-  'name'         => 'cat',
-  'id'           => '',
-  'echo'         => 1,
-  'orderby'      => 'name',
-  'show_count'   => 0,
-  'hierarchical' => 1,
-  'taxonomy'     => $taxonomy,
-  'value_field'  => 'term_id',
-  'hide_empty'   => 0,
-  'exclude'      => $skip,
+  'selected'          => $selected_album,
+  'name'              => 'cat',
+  'id'                => '',
+  'echo'              => 1,
+  'orderby'           => 'name',
+  'order'             => 'ASC',
+  'show_count'        => 0,
+  'hierarchical'      => 1,
+  'taxonomy'          => $taxonomy,
+  'value_field'       => 'term_id',
+  'hide_empty'        => 0,
+  'exclude'           => $skip,
+  'child_of'          => $parent,
+  'show_option_none'  => '-- ' . __('None', 'flexi') . ' --',
+  'option_none_value' => -1,
  );
 
  wp_dropdown_categories($dropdown_args);
 
- // var_dump($args);
+ //var_dump($dropdown_args);
 
 }
 
@@ -824,7 +832,7 @@ function flexi_create_pages()
         <!-- wp:shortcode -->
 		[flexi-form class="pure-form pure-form-stacked" title="Submit to Flexi" name="my_form" ajax="true"]
 		[flexi-form-tag type="post_title" title="Title" value="" placeholder="main title"]
-		[flexi-form-tag type="category" title="Select category" taxonomy="flexi_cate"]
+		[flexi-form-tag type="category" title="Select category"]
 		[flexi-form-tag type="tag" title="Insert tag"]
 		[flexi-form-tag type="article" title="Description"  placeholder="Content"]
 		[flexi-form-tag type="file" title="Select file"]

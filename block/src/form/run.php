@@ -46,6 +46,10 @@ register_block_type(
     'type'    => 'string',
     'default' => 'Select Category',
    ),
+   'cat'               => array(
+    'type'    => 'integer',
+    'default' => 0,
+   ),
    'tag_label'         => array(
     'type'    => 'string',
     'default' => 'Insert Tag',
@@ -114,7 +118,7 @@ function flexi_form_render_callback($args)
   $shortcode .= '[flexi-form-tag type="post_title" title="' . $args['title_label'] . '" value="" placeholder="' . $args['title_placeholder'] . '"]';
 
   if (isset($args['enable_category']) && '1' == $args['enable_category']) {
-   $shortcode .= '[flexi-form-tag type="category" title="' . $args['category_label'] . '" taxonomy="flexi_cate"]';
+   $shortcode .= '[flexi-form-tag type="category" title="' . $args['category_label'] . '" id="' . $args['cat'] . '"]';
   }
 
   if (isset($args['enable_tag']) && '1' == $args['enable_tag']) {

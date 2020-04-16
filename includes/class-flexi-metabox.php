@@ -71,6 +71,17 @@ class Flexi_Meta_boxes
    ),
   ));
 
+  $cmb->add_field(array(
+   'name'       => 'oEmbed URL',
+   'desc'       => 'Enter a youtube, twitter, or instagram URL. Supports services listed at <a href="http://codex.wordpress.org/Embeds">http://codex.wordpress.org/Embeds</a>.',
+   'id'         => 'flexi_url',
+   'type'       => 'oembed',
+   'width'      => '200',
+   'attributes' => array(
+    'width' => '200',
+   ),
+  ));
+
   // Add meta box to flexi_category
   /**
    * Initiate the metabox
