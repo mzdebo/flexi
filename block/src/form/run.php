@@ -22,6 +22,10 @@ register_block_type(
     'type'    => 'boolean',
     'default' => true,
    ),
+   'flexi_type'        => array(
+    'type'    => 'string',
+    'default' => 'image',
+   ),
    'form_class'        => array(
     'type'    => 'string',
     'default' => 'pure-form pure-form-stacked',
@@ -86,6 +90,14 @@ register_block_type(
     'type'    => 'string',
     'default' => 'Select File',
    ),
+   'url_label'         => array(
+    'type'    => 'string',
+    'default' => 'Insert oEmbed URL',
+   ),
+   'enable_url'        => array(
+    'type'    => 'boolean',
+    'default' => false,
+   ),
    'enable_security'   => array(
     'type'    => 'boolean',
     'default' => false,
@@ -113,7 +125,13 @@ function flexi_form_render_callback($args)
    $enable_ajax = "false";
   }
 
-  $shortcode .= '[flexi-form class="' . $args['form_class'] . '" title="' . $args['form_title'] . '" name="my_form" ajax="' . $enable_ajax . '"]';
+  if (isset($args['flexi_type']) && 'plain' == $args['flexi_type']) {
+   $flexi_type = '';
+  } else {
+   $flexi_type = 'type="' . $args['flexi_type'] . '"';
+  }
+
+  $shortcode .= '[flexi-form class="' . $args['form_class'] . '" title="' . $args['form_title'] . '" name="' . sanitize_title_with_dashes($args['form_title']) . '" ajax="' . $enable_ajax . '" ' . $flexi_type . ']';
 
   $shortcode .= '[flexi-form-tag type="post_title" title="' . $args['title_label'] . '" value="" placeholder="' . $args['title_placeholder'] . '"]';
 
@@ -136,6 +154,10 @@ function flexi_form_render_callback($args)
     $shortcode .= '[flexi-form-tag type="file" title="' . $args['file_label'] . '"]';
    }
 
+  }
+
+  if (isset($args['enable_url']) && '1' == $args['enable_url']) {
+   $shortcode .= '[flexi-form-tag type="video_url" title="' . $args['url_label'] . '" value="" placeholder="eg. https://www.youtube.com/watch?v=uqyVWtWFQkY"]';
   }
 
   if (isset($args['enable_security']) && '1' == $args['enable_security']) {

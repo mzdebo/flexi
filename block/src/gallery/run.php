@@ -50,6 +50,10 @@ register_block_type(
     'type'    => 'string',
     'default' => '',
    ),
+   'filter'        => array(
+    'type'    => 'string',
+    'default' => 'none',
+   ),
    'hover_effect'  => array(
     'type'    => 'string',
     'default' => '',
@@ -95,9 +99,15 @@ function flexi_gallery_render_callback($args)
    $tag_show = "off";
   }
 
+  if (isset($args['filter']) && 'none' == $args['filter']) {
+   $filter = '';
+  } else {
+   $filter = 'filter="' . $args['filter'] . '"';
+  }
+
   $cat = get_term_by('id', $args['cat'], 'flexi_category');
   if ($cat) {
-   $cat = $cat->slug;
+   $cat = 'album="' . $cat->slug . '"';
   } else {
    $cat = "";
   }
@@ -107,7 +117,7 @@ function flexi_gallery_render_callback($args)
   perpage="' . $args['perpage'] . '"
   layout="' . $args['layout'] . '"
   popup="' . $popup . '"
-  album="' . $cat . '"
+  ' . $cat . '
   tag="' . $args['tag'] . '"
   orderby="' . $args['orderby'] . '"
   tag_show="' . $tag_show . '"
@@ -115,6 +125,7 @@ function flexi_gallery_render_callback($args)
   hover_caption="' . $args['hover_caption'] . '"
   width="' . $args['width'] . '"
   height="' . $args['height'] . '"
+  ' . $filter . '
   ] ';
  }
  //print_r($args);

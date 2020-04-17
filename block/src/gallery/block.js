@@ -74,6 +74,10 @@ registerBlockType("cgb/block-flexi-block", {
 			type: "string",
 			default: "",
 		},
+		filter: {
+			type: "string",
+			default: "none",
+		},
 		cat: {
 			type: "number",
 			default: 0,

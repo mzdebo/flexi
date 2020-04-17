@@ -68,6 +68,7 @@ class FlexiGalleryEdit extends Component {
 			hover_effect,
 			height,
 			width,
+			filter,
 		} = attributes;
 
 		const categories = this.getCategoriesTree();
@@ -94,7 +95,10 @@ class FlexiGalleryEdit extends Component {
 			<Fragment>
 				<div className={className}>
 					<InspectorControls>
-						<PanelBody title={__("Filters", "flexi")} initialOpen={false}>
+						<PanelBody
+							title={__("Gallery based on Selection", "flexi")}
+							initialOpen={false}
+						>
 							<SelectControl
 								label="Select Category"
 								value={cat}
@@ -107,6 +111,26 @@ class FlexiGalleryEdit extends Component {
 								value={tag}
 								onChange={onChangeTag}
 							/>
+							<SelectControl
+								label="Filter"
+								value={filter}
+								options={[
+									{
+										label: "None",
+										value: "none",
+									},
+									{
+										label: "Image",
+										value: "image",
+									},
+									{
+										label: "URL",
+										value: "url",
+									},
+								]}
+								onChange={(value) => setAttributes({ filter: value })}
+							/>
+
 							<ToggleControl
 								label="Display tags above gallery"
 								checked={tag_show}

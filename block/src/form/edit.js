@@ -58,6 +58,7 @@ class FlexiGalleryEdit extends Component {
 		const {
 			enable_ajax,
 			form_class,
+			flexi_type,
 			form_title,
 			title_label,
 			title_placeholder,
@@ -74,6 +75,8 @@ class FlexiGalleryEdit extends Component {
 			enable_bulk_file,
 			file_label,
 			enable_security,
+			url_label,
+			enable_url,
 		} = attributes;
 
 		const categories = this.getCategoriesTree();
@@ -93,6 +96,26 @@ class FlexiGalleryEdit extends Component {
 								label="Enable Ajax Submission"
 								checked={enable_ajax}
 								onChange={toggleAttribute("enable_ajax")}
+							/>
+
+							<SelectControl
+								label="Submission Content Type"
+								value={flexi_type}
+								options={[
+									{
+										label: "Plain",
+										value: "plain",
+									},
+									{
+										label: "Image",
+										value: "image",
+									},
+									{
+										label: "oEmbed URL",
+										value: "url",
+									},
+								]}
+								onChange={(value) => setAttributes({ flexi_type: value })}
 							/>
 
 							<TextControl
@@ -188,30 +211,51 @@ class FlexiGalleryEdit extends Component {
 								/>
 							)}
 						</PanelBody>
-						<PanelBody
-							title={__("Media Input Field", "flexi")}
-							initialOpen={false}
-						>
-							<ToggleControl
-								label="Enable Image Upload"
-								checked={enable_file}
-								onChange={toggleAttribute("enable_file")}
-							/>
-							{enable_bulk_file && (
+						{flexi_type == "image" && (
+							<PanelBody
+								title={__("Image Upload Field", "flexi")}
+								initialOpen={false}
+							>
 								<ToggleControl
-									label="Enable Bulk File Upload"
-									checked={enable_bulk_file}
-									onChange={toggleAttribute("enable_bulk_file")}
+									label="Enable Image Upload"
+									checked={enable_file}
+									onChange={toggleAttribute("enable_file")}
 								/>
-							)}
-							{enable_file && (
-								<TextControl
-									label="Upload Title"
-									value={file_label}
-									onChange={toggleAttribute("file_label")}
+								{enable_bulk_file && (
+									<ToggleControl
+										label="Enable Bulk File Upload"
+										checked={enable_bulk_file}
+										onChange={toggleAttribute("enable_bulk_file")}
+									/>
+								)}
+								{enable_file && (
+									<TextControl
+										label="Upload Title"
+										value={file_label}
+										onChange={toggleAttribute("file_label")}
+									/>
+								)}
+							</PanelBody>
+						)}
+						{flexi_type == "url" && (
+							<PanelBody
+								title={__("URL Submit Field", "flexi")}
+								initialOpen={false}
+							>
+								<ToggleControl
+									label="Enable oEmbed URL"
+									checked={enable_url}
+									onChange={toggleAttribute("enable_url")}
 								/>
-							)}
-						</PanelBody>
+								{enable_url && (
+									<TextControl
+										label="URL Field Title"
+										value={url_label}
+										onChange={toggleAttribute("url_label")}
+									/>
+								)}
+							</PanelBody>
+						)}
 						<PanelBody
 							title={__("Security reCaptcha Field", "flexi")}
 							initialOpen={false}

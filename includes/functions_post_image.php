@@ -85,7 +85,7 @@ function flexi_submit($title, $files, $content, $category, $preview, $tags = '')
 
    //Assign preview layout
    add_post_meta($post_id, 'flexi_layout', $preview);
-   add_post_meta($post_id, 'flexi_type', 'blank');
+   add_post_meta($post_id, 'flexi_type', 'plain');
    $attach_ids = array();
    //Execute only if files is available
    if ($files && !empty($check_file_exist)) {

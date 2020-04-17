@@ -70,6 +70,10 @@ registerBlockType("cgb/block-flexi-block-form", {
 			type: "boolean",
 			default: true,
 		},
+		flexi_type: {
+			type: "string",
+			default: "image",
+		},
 		form_class: {
 			type: "string",
 			default: "pure-form pure-form-stacked",
@@ -133,6 +137,14 @@ registerBlockType("cgb/block-flexi-block-form", {
 		file_label: {
 			type: "string",
 			default: "Select File",
+		},
+		url_label: {
+			type: "string",
+			default: "Insert oEmbed URL",
+		},
+		enable_url: {
+			type: "boolean",
+			default: false,
 		},
 		enable_security: {
 			type: "boolean",
