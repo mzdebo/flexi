@@ -2,6 +2,22 @@
  * All of the CSS for your admin-specific functionality should be
  * included in this file.
  */
+/* Dashboard */
+.about-wrap img.flexi-help-screenshot {
+  float: right;
+  margin: 10px;
+  width: inherit;
+}
+
+.flexi-badge-logo {
+  position: absolute;
+  top: 15px;
+  right: 0;
+  background: url(../img/flexi_logo.png) no-repeat;
+  width: 200px;
+  height: 200px;
+}
+
 /* Tool Tip */
 
 .tooltip-container {

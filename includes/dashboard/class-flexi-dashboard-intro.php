@@ -32,13 +32,29 @@ class Flexi_Admin_Dashboard_Intro
  public function flexi_dashboard_content()
  {
   ob_start();
-
-  //$em = new Flexi_oEmbed();
-  //echo $em->getUrlThumbnail('https://www.youtube.com/watch?v=bx_Nmd6cEl8', '') . " youtube<hr>";
-  //echo $em->getUrlThumbnail('https://vimeo.com/192376447', '') . ' viemo <hr>';
-  //echo $em->getUrlThumbnail('https://www.dailymotion.com/video/x7tca1o?playlist=x6lgtp', '') . ' dailymotion <hr>';
-
   ?>
+<div class="changelog section-getting-started">
+			<div class="feature-section">
+				<h2>Creating Your First Gallery</h2>
+
+				<img src="https://ps.w.org/flexi/assets/screenshot-6.gif?rev=2282300" class="flexi-help-screenshot">
+				<img src="https://ps.w.org/flexi/assets/screenshot-2.gif?rev=2282300" class="flexi-help-screenshot">
+
+				<h4>1. Pages → Add New</h4>
+				<p>To create your first gallery, simply create a page and use Guten Block editor by click on + icon</p>
+
+				<h4>2. Insert Flexi Plugin Blocks</h4>
+				<p>1st block for form submission & 2nd block to display gallery. You are free to create separate pages for form & gallery.</p>
+
+				<h4>3. Link pages to Appearance → Menus</h4>
+				<p>Add these pages to menu so that visitor can find it. Thats all!</p>
+
+				<h4>#. Guten Block not available ?</h4>
+				<p>At top of this page you will see FLEXI PAGES tab, under that some pages are automatically generated. Add those pages to menu & view page as visitors. All is ready to go with the power of shortcode. These pages are totally based on Flexi settings and shortcodes.</p>
+			</div>
+		</div>
+
+
      <h3>Flow chart of Flexi plugin</h3>
 
  <div class="flexi_tree" style="text-align: right;">

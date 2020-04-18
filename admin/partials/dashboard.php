@@ -1,9 +1,11 @@
 <div class="wrap about-wrap">
-	<h1><?php echo __('Welcome to Flexi', 'flexi'); ?></h1>
+	<h1><?php echo __('Welcome to Flexi', 'flexi') . ' ' . FLEXI_VERSION; ?></h1>
 		<div class="about-text">
 		<?php echo __('Let visitors to post images from frontend with full controls.', 'flexi'); ?>
 		<br><a href="https://odude.com/docs/flexi-gallery/" target="_blank">Online Documentation</a>
+		<br><a href="https://odude.com/demo/flexi/" target="_blank">Live Demo</a>
 		</div>
+		<div class="flexi-badge-logo"></div>
 <nav class="nav-tab-wrapper">
 <?php
 //Get the active tab from the $_GET param

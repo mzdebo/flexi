@@ -110,12 +110,13 @@ $captcha = '<div class="g-recaptcha" data-sitekey="' . $site_key . '"></div>';
    global $post;
    $enable_addon = flexi_get_option('enable_captcha', 'flexi_extension', 0);
    if ("1" == $enable_addon) {
-    if (has_shortcode($post->post_content, 'flexi-form')) {
-     ?>
+    //has_shortcode didn't work if guten block from is working
+    //if (has_shortcode($post->post_content, 'flexi-form')) {
+    ?>
  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
   <?php
-}
+//}
    }
   }
  }
@@ -165,5 +166,5 @@ $captcha = '<div class="g-recaptcha" data-sitekey="' . $site_key . '"></div>';
 
 }
 
-//Ultimate Member: Setting at Flexi & Tab at profile page
+//Enable recaptcha
 $captcha = new Flexi_Addon_Captcha();

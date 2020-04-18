@@ -195,7 +195,7 @@ class FLEXI_Admin_Settings
     array(
      'name'              => 'my_login',
      'label'             => __('Select Login Page', 'flexi'),
-     'description'       => __('Login page where user enters username & passwords. Install 3rd party plugins eg. Login Page, Ultimate-Member, Social Login.', 'flexi'),
+     'description'       => __('Optional: Login page where user enters username & passwords. Install 3rd party plugins eg. Login Page, Ultimate-Member, Social Login.', 'flexi'),
      'type'              => 'pages',
      'sanitize_callback' => 'sanitize_key',
     ),
