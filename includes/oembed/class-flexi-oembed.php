@@ -45,6 +45,8 @@ class Flexi_oEmbed
  public function getDailyMotionId($url)
  {
 
+  //return 'http://www.dailymotion.com/thumbnail/video/' . $id;
+
   if (preg_match('!^.+dailymotion\.com/(video|hub)/([^_]+)[^#]*(#video=([^_&]+))?|(dai\.ly/([^_]+))!', $url, $m)) {
    if (isset($m[6])) {
     return $m[6];

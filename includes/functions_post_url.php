@@ -88,13 +88,13 @@ function flexi_allowed_embed_url($url)
 
    $check = false;
    if (false !== strpos($raw_provider['host'], 'youtube')) {
-    flexi_log('yyy');
+
     $check = true;
    } else if (false !== strpos($raw_provider['host'], 'vimeo')) {
-    flexi_log('vvvv');
+
     $check = true;
    } else {
-    flexi_log('ff');
+
     $check = false;
    }
    return $check;

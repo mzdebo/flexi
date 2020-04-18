@@ -678,9 +678,12 @@ function flexi_image_src($size = 'thumbnail', $post = '')
  if ($image_attributes) {
   return $image_attributes[0];
  } else {
-  //If no image ID found, check if it has direct URL and display it
-  $thumb_url = get_post_meta($post->ID, 'flexi_image', '');
-
+  //If no image ID found, check if it has direct URL for thumbnail & for large size give video URL
+  if ('large' == $size) {
+   $thumb_url = get_post_meta($post->ID, 'flexi_url', '');
+  } else {
+   $thumb_url = get_post_meta($post->ID, 'flexi_image', '');
+  }
   if (!empty($thumb_url)) {
    return $thumb_url[0];
   } else {
@@ -692,6 +695,29 @@ function flexi_image_src($size = 'thumbnail', $post = '')
    }
   }
  }
+}
+
+function flexi_large_media($post_id, $class = 'flexi_large_image')
+{
+ $post      = get_post($post_id);
+ $media_url = esc_url(flexi_image_src('large', $post));
+ if ($post) {
+  $flexi_type = get_post_meta($post->ID, 'flexi_type', '');
+  if (isset($flexi_type[0]) && 'url' == $flexi_type[0]) {
+   $attr = array(
+    'src' => $media_url,
+
+   );
+
+   //echo wp_video_shortcode( $attr );
+   return wp_oembed_get($attr['src']);
+
+   return "<img id='" . $class . "' src='" . $media_url . "' >";
+  } else {
+   return "<img id='" . $class . "' src='" . $media_url . "' >";
+  }
+ }
+
 }
 
 //Returns author ID of logged in user. If not returns the id of default user in UPG settings.
