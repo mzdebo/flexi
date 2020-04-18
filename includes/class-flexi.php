@@ -107,6 +107,9 @@ class Flexi
  private function load_dependencies()
  {
 
+  //oEmbed URL
+  require_once plugin_dir_path(dirname(__FILE__)) . 'includes/oembed/class-flexi-oembed.php';
+
   //Block
   require_once plugin_dir_path(dirname(__FILE__)) . 'block/plugin.php';
 

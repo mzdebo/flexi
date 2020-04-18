@@ -64,6 +64,10 @@ function flexi_submit_url($title, $url, $content, $category, $preview, $tags = '
   add_post_meta($post_id, 'flexi_url', $url);
   //Assign Flexi Type
   add_post_meta($post_id, 'flexi_type', 'url');
+  //Assign thumbnail
+  $em    = new Flexi_oEmbed();
+  $thumb = $em->getUrlThumbnail($url, $post_id);
+  add_post_meta($post_id, 'flexi_image', $thumb);
 
  } else {
   $newPost['error'][] = 'post-fail';
@@ -81,7 +85,22 @@ function flexi_allowed_embed_url($url)
  if (wp_http_validate_url($url)) {
   $raw_provider = parse_url($oembed->get_provider($url));
   if (isset($raw_provider['host'])) {
-   return true;
+
+   $check = false;
+   if (false !== strpos($raw_provider['host'], 'youtube')) {
+    flexi_log('yyy');
+    $check = true;
+   } else if (false !== strpos($raw_provider['host'], 'vimeo')) {
+    flexi_log('vvvv');
+    $check = true;
+   } else {
+    flexi_log('ff');
+    $check = false;
+   }
+   return $check;
+   //www.dailymotion.com
+
+   // return true;
   }
  }
  return false;

@@ -98,7 +98,7 @@ function flexi_ajax_post()
      // $err .= $reindex_array[$x] . "  ";
      $msg .= flexi_error_code($reindex_array[$x]);
     }
-    $response['msg'] = $msg;
+    $response['msg'] = $msg . ' ' . flexi_post_toolbar_grid('', true);
     //flexi_log($reindex_array);
     /*
    if (in_array('file-type', $result['error'])) {

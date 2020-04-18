@@ -186,9 +186,11 @@ action="' . admin_url("admin-ajax.php") . '"
 
   if (isset($_POST['type'])) {
    if ('url' == $_POST['type']) {
+
     $result = flexi_submit_url($title, $url, $content, $category, $preview, $tags);
 
    } else {
+
     $result = flexi_submit($title, $files, $content, $category, $preview, $tags);
 
    }

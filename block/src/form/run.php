@@ -133,7 +133,7 @@ function flexi_form_render_callback($args)
 
   $shortcode .= '[flexi-form class="' . $args['form_class'] . '" title="' . $args['form_title'] . '" name="' . sanitize_title_with_dashes($args['form_title']) . '" ajax="' . $enable_ajax . '" ' . $flexi_type . ']';
 
-  $shortcode .= '[flexi-form-tag type="post_title" title="' . $args['title_label'] . '" value="" placeholder="' . $args['title_placeholder'] . '"]';
+  $shortcode .= '[flexi-form-tag type="post_title" title="' . $args['title_label'] . '" value="" placeholder="' . $args['title_placeholder'] . '" required="true"]';
 
   if (isset($args['enable_category']) && '1' == $args['enable_category']) {
    $shortcode .= '[flexi-form-tag type="category" title="' . $args['category_label'] . '" id="' . $args['cat'] . '"]';
@@ -149,15 +149,15 @@ function flexi_form_render_callback($args)
 
   if (isset($args['enable_file']) && '1' == $args['enable_file']) {
    if (isset($args['enable_bulk_file']) && '1' == $args['enable_bulk_file']) {
-    $shortcode .= '[flexi-form-tag type="file_multiple" title="' . $args['file_label'] . '" class="flexi_drag_file" multiple="true"]';
+    $shortcode .= '[flexi-form-tag type="file_multiple" title="' . $args['file_label'] . '" class="flexi_drag_file" multiple="true" required="true"]';
    } else {
-    $shortcode .= '[flexi-form-tag type="file" title="' . $args['file_label'] . '"]';
+    $shortcode .= '[flexi-form-tag type="file" title="' . $args['file_label'] . '" required="true"]';
    }
 
   }
 
   if (isset($args['enable_url']) && '1' == $args['enable_url']) {
-   $shortcode .= '[flexi-form-tag type="video_url" title="' . $args['url_label'] . '" value="" placeholder="eg. https://www.youtube.com/watch?v=uqyVWtWFQkY"]';
+   $shortcode .= '[flexi-form-tag type="video_url" title="' . $args['url_label'] . '" value="" placeholder="eg. https://www.youtube.com/watch?v=uqyVWtWFQkY" required="true"]';
   }
 
   if (isset($args['enable_security']) && '1' == $args['enable_security']) {

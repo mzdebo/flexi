@@ -32,6 +32,12 @@ class Flexi_Admin_Dashboard_Intro
  public function flexi_dashboard_content()
  {
   ob_start();
+
+  //$em = new Flexi_oEmbed();
+  //echo $em->getUrlThumbnail('https://www.youtube.com/watch?v=bx_Nmd6cEl8', '') . " youtube<hr>";
+  //echo $em->getUrlThumbnail('https://vimeo.com/192376447', '') . ' viemo <hr>';
+  //echo $em->getUrlThumbnail('https://www.dailymotion.com/video/x7tca1o?playlist=x6lgtp', '') . ' dailymotion <hr>';
+
   ?>
      <h3>Flow chart of Flexi plugin</h3>
 

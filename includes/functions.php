@@ -678,10 +678,18 @@ function flexi_image_src($size = 'thumbnail', $post = '')
  if ($image_attributes) {
   return $image_attributes[0];
  } else {
-  if ('thumbnail' == $size) {
-   return plugins_url('../public/images/noimg_thumb.jpg', __FILE__);
+  //If no image ID found, check if it has direct URL and display it
+  $thumb_url = get_post_meta($post->ID, 'flexi_image', '');
+
+  if (!empty($thumb_url)) {
+   return $thumb_url[0];
   } else {
-   return plugins_url('../public/images/noimg.png', __FILE__);
+
+   if ('thumbnail' == $size) {
+    return FLEXI_ROOT_URL . 'public/images/noimg_thumb.jpg';
+   } else {
+    return FLEXI_ROOT_URL . 'public/images/noimg.png';
+   }
   }
  }
 }
@@ -972,7 +980,8 @@ function flexi_error_code($err)
  } else {
   $msg .= $err;
  }
- $msg .= "</div>" . flexi_post_toolbar_grid('', true);
+ //$msg .= "</div>" . flexi_post_toolbar_grid('', true);
+ $msg .= "</div>";
  return $msg;
 }
 /**
