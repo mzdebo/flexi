@@ -9,7 +9,12 @@ class Flexi_oEmbed
 
  public function getUrlThumbnail($url, $post_id)
  {
-  require_once ABSPATH . 'wp-includes/class-wp-oembed.php';
+  $check_file = ABSPATH . 'wp-includes/class-wp-oembed.php';
+  if (file_exists($check_file)) {
+   require_once ABSPATH . 'wp-includes/class-wp-oembed.php';
+  } else {
+   require_once ABSPATH . 'wp-includes/class-oembed.php';
+  }
   $oembed = new WP_oEmbed;
 
   if (!wp_http_validate_url($url)) {

@@ -80,7 +80,13 @@ function flexi_submit_url($title, $url, $content, $category, $preview, $tags = '
 
 function flexi_allowed_embed_url($url)
 {
- require_once ABSPATH . 'wp-includes/class-wp-oembed.php';
+ $check_file = ABSPATH . 'wp-includes/class-wp-oembed.php';
+ if (file_exists($check_file)) {
+  require_once ABSPATH . 'wp-includes/class-wp-oembed.php';
+ } else {
+  require_once ABSPATH . 'wp-includes/class-oembed.php';
+ }
+
  $oembed = new WP_oEmbed;
  if (wp_http_validate_url($url)) {
   $raw_provider = parse_url($oembed->get_provider($url));
@@ -104,4 +110,5 @@ function flexi_allowed_embed_url($url)
   }
  }
  return false;
+
 }
