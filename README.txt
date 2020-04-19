@@ -1,7 +1,7 @@
 === Flexi Gallery ===
 Contributors: odude
 Donate link: https://odude.com/
-Tags: gallery, photo gallery, image gallery, wordpress gallery plugin, responsive gallery
+Tags: gallery, photo gallery, image gallery, video gallery, responsive gallery
 Requires at least: 4.0.0
 Requires PHP: 5.5
 Tested up to: 5.4
@@ -9,12 +9,12 @@ Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Advance responsive photo gallery plugin submitted by user without login.
+Advance responsive photo,video gallery plugin submitted by user without login.
 
 == Description ==
 
 No more looking for fast, easy gallery plugin with simple and very beautiful, highly customizable design.
-With our plugin you can let your visitors to post images, content from frontend without login and convert those content into gallery. If you allow membership, visitors can manage their submitted post & administrator have option for it's visibility. At the same time WordPress professionals get advanced tools and freedom of creativity. 
+With our plugin you can let your visitors to post images, youtube video, vimeo video & text content from frontend without login and convert those content into gallery. If you allow membership, visitors can manage their submitted post & administrator have option for it's visibility. At the same time WordPress professionals get advanced tools and freedom of creativity. 
 Just download and use blocks to generate gallery & forms.
 Fall in Love with this plugin like we do!
 
@@ -24,27 +24,46 @@ Look Screenshots below for quick understanding of it's scope. You can do lot mor
 
 <a href="https://odude.com/docs/flexi-gallery/">Documentation</a>
 
+= Flexi is divided into 3 parts =
+1- Forms - Let visitors submit content from frontend (Eg. youtube, vimeo, images)
+2- Gallery - Showcase of content into various layouts (Eg. Masonry Layout)
+3- Detail - View content into popup or in full detail single page. (Eg. Lightbox)
+
+
 = KEY FEATURES =
 
-*   **Gutenberg block** - implemented Gutenberg gallery block for simple and fast configuration of the plugin in Gutenberg editor
-*   **Advance Shortcode** - Generate Gallery , Forms and all other features comes with shortocde. 
-*   **Fully responsive and Mobile features** - plugin implemented with advanced settings for different devices screen size.
+*   **Gutenberg block** - Implemented Flexi Block for simple and fast configuration of the plugin in Gutenberg editor. Shortcode is generated along with live preview. 
+*   **Advance Shortcode** - Generate Gallery & Forms and all other features with shortcode. 
+*   **Fully responsive and Mobile features** - Plugin implemented with advanced settings for different devices screen size.
 *   **3 Hover effects** - & **5 Caption effect** at gallery page.
-*   **3 Gallery layout** & **1 Detail Page** - Masonry , Wide & Regular
+*   **3 Gallery layout** & **1 Detail Page** - Masonry , Wide & Regular layout
 *   **Advanced Load more function** - implemented very attractive navigation mode. Auto pre loading images like endless list of the images. Available navigation options are **Page Number** , **Load More Button**, **Load on mouse scroll**
 *   **Tags for images** - every image contain tags for easy navigation and visitor can create new one during submission.
 *   **Multi Categories** - multi categories albums support. You can create your own galleries tree, depend of your needs with thumbnail of each category
-*   **User 'My Dashboard'** -  Page to modify, delete own submitted records.
+*   **User 'My Dashboard'** -  Page to view,modify, delete own submitted records.
 *   **Lightbox or Popup** - Options to enabled popup for large image on thumbnail click & can disable it to open full **Detail Page** for added features.
 *   **Extra Controls** - Lots of controls like 'Number of column' , 'Records per page', 'Image dimension' , 'Layouts' , 'Icons visibility' and many more.
 *   **Standalone Gallery** - It will display large image with small thumbnail separated from gallery group.
-*   **Gallery Filter** - Gallery can be filter based on different type (user, category, tags)
+*   **Gallery Filter** - Gallery can be filter based on different type (user, category, tags, type)
 *   **Gallery Sorting** - Gallery sorting based on (ID, date, name, random, modified)
-*   **Submission Form** - Form can be generated with guten block and advance features and sorting options with the help of powerful shortcode.
+*   **Submission Form** - Form can be generated with Guten block and advance features and sorting options with the help of powerful shortcode. Separate forms for video urls & images.
 *   **Powerful Ajax** - Gallery, form have ajax and classic support. No change in page URL if ajax is enabled.
+*   **Icon Management** - Toggle view of various icons like view,trash, edit, profile
+*   **Temporary Disable** - Ability to temporary disable all forms in one click from settings.
+*   **Custom Fields** - Collect extra information from visitors while submitting form and display/hide it at gallery, lightbox & detail page. 
+*   **Moderation** - All submitted can be moderated so that it is visible only after approval by administrator.
+
+= WORKS GREAT WITH =
+
 * **Ultimate-Member plugin**. It will display user submitted records on user profile tab.
 * **BuddyPress plugin**. It will display user submitted records on user profile section.
 
+= VIDEO URL =
+
+* **Video URL** - Copy/Paste YouTube.com & Vimeo.com video URL into submission form
+* **Auto Thumbnail** -  Thumbnail image for video is auto generated. No need to post thumbnail manually.
+* **Lightbox** - Video is played over popup with full media controls given by provider.
+* **Full Page** - Option to view video in full page with video detail long description & custom fields submitted by visitors.
 
 = CORE FEATURES =
 
@@ -52,7 +71,6 @@ Look Screenshots below for quick understanding of it's scope. You can do lot mor
 *   **Implemented to avoid AJAX libs conflicts** - code implemented in native WordPress style as result our plugin don't have any conflicts and work really stable.
 *   **SEO Friendly** - designed as a wordpress regular post with additional features.
 *   **Multisite Support** - implemented multisite support. You can install plugin in admin dashboard and enable plugin for all child blogs.
-*   **Custom Fields** - Collect extra information from visitors while submitting form and display/hide it at gallery, lightbox & detail page. 
 
 = Widgets =
 
@@ -63,7 +81,10 @@ Look Screenshots below for quick understanding of it's scope. You can do lot mor
 * **Batch images upload** - Allow to upload batch of the images by one click. Just drag and drop set of the gallery images and it's upload automatically to the server.
 * **Google reCaptcha** support for form security while submitting form.
 * **Custom Fields** extra 7 fields on top of free version. 
-* **Edit Post** Let visitors to update the submitted post.
+* **Edit Post** Let visitors to update the submitted post with own set of fields. 
+
+> If any suggestion, contact me directly at navneet@odude.com
+> Byte update at https://github.com/gupta977/flexi
 
 
 == Installation ==
@@ -107,6 +128,11 @@ At Flexi Settings all configuration are ready, but do check all automatically cr
 10. Simple easy setting page
 
 == Changelog ==
+= 1.0.14 = 
+* Added YouTube & Viemo Video support
+* Automatic thumbnail generation for video urls
+* 
+
 = 1.0.13 =
 * Fixed mobile responsive and lightbox grid link
 
