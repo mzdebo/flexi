@@ -72,6 +72,7 @@ Only works with minimum WordPress version 5.3
 *   **Implemented to avoid AJAX libs conflicts** - code implemented in native WordPress style as result our plugin don't have any conflicts and work really stable.
 *   **SEO Friendly** - designed as a wordpress regular post with additional features.
 *   **Multisite Support** - implemented multisite support. You can install plugin in admin dashboard and enable plugin for all child blogs.
+*   **Delete Post** - I permanently delete media files associated with post after it is trashed by user or administrator. No more unused images on your server.
 
 = Widgets =
 
@@ -133,6 +134,7 @@ At Flexi Settings all configuration are ready, but do check all automatically cr
 * Added YouTube & Viemo Video support
 * Automatic thumbnail generation for video urls
 * Updated Flexi Dashboard
+* Delete media from folder when post deleted
 
 = 1.0.13 =
 * Fixed mobile responsive and lightbox grid link

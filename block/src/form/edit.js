@@ -221,7 +221,7 @@ class FlexiGalleryEdit extends Component {
 									checked={enable_file}
 									onChange={toggleAttribute("enable_file")}
 								/>
-								{enable_bulk_file && (
+								{enable_file && (
 									<ToggleControl
 										label="Enable Bulk File Upload"
 										checked={enable_bulk_file}

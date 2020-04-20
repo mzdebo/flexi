@@ -6,6 +6,8 @@ class flexi_delete_post
  {
   add_action("wp_ajax_flexi_ajax_delete", array($this, "flexi_ajax_delete"));
   add_action("wp_ajax_nopriv_flexi_ajax_delete", array($this, "flexi_my_must_login"));
+  //Delete image attached when post is deleted
+  add_action('before_delete_post', array($this, 'flexi_before_delete_post'));
 
  }
  public function flexi_ajax_delete()
@@ -109,4 +111,17 @@ class flexi_delete_post
 
   return $icon;
  }
+
+ //Permanently delete media when post is deleted by administrator
+ public function flexi_before_delete_post($post_id)
+ {
+  // We check if the global post type isn't ours and just return
+  global $post_type;
+  if ('flexi' != $post_type) {
+   return;
+  }
+  $this->flexi_delete_post_media($post_id);
+
+ }
+
 }

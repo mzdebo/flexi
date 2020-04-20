@@ -157,7 +157,7 @@ function flexi_form_render_callback($args)
   }
 
   if (isset($args['enable_url']) && '1' == $args['enable_url']) {
-   $shortcode .= '[flexi-form-tag type="video_url" title="' . $args['url_label'] . '" value="" placeholder="eg. https://www.youtube.com/watch?v=uqyVWtWFQkY" required="true"]';
+   $shortcode .= '[flexi-form-tag type="video_url" title="' . $args['url_label'] . '" value="" placeholder="eg. https://www.youtube.com/watch?v=uqyVWtWFQkY" required="true" class="pure-input-1"]';
   }
 
   if (isset($args['enable_security']) && '1' == $args['enable_security']) {
