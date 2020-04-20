@@ -303,7 +303,7 @@ class Flexi_Shortcode_Gallery
      return '';
     }
    } else {
-    echo __("Layout not available", 'flexi') . ': ' . $layout;
+    return __("Layout not available", 'flexi') . ': ' . $layout;
    }
   }
  }
