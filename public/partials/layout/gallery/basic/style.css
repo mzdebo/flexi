@@ -2,7 +2,7 @@
   font-family: Arial, Helvetica, sans-serif;
   margin: 0 auto;
   text-align: center;
-  padding: 1px;
+  padding: 2px;
 }
 
 .flexi-list-small .flexi-list-sub {
@@ -40,11 +40,4 @@
   overflow: hidden;
   text-overflow: ellipsis;
   font-weight: bold;
-}
-
-.flexi-list-small .flexi_details .flexi-author {
-  display: block;
-  border: 1px solid #eee;
-  font-size: 10px;
-  margin: 0;
 }

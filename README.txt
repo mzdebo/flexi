@@ -135,6 +135,7 @@ At Flexi Settings all configuration are ready, but do check all automatically cr
 * Automatic thumbnail generation for video urls
 * Updated Flexi Dashboard
 * Delete media from folder when post deleted
+* Added 'Basic Gallery Layout'
 
 = 1.0.13 =
 * Fixed mobile responsive and lightbox grid link

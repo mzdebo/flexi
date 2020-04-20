@@ -170,7 +170,7 @@ class FlexiGalleryEdit extends Component {
 							initialOpen={false}
 						>
 							<SelectControl
-								label="Layout"
+								label="Select Layout"
 								value={layout}
 								options={[
 									{
@@ -184,6 +184,10 @@ class FlexiGalleryEdit extends Component {
 									{
 										label: "Wide",
 										value: "wide",
+									},
+									{
+										label: "Basic",
+										value: "basic",
 									},
 								]}
 								onChange={(value) => setAttributes({ layout: value })}

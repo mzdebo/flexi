@@ -2,7 +2,7 @@
 $data = flexi_image_data('thumbnail', $post, $popup);
 
 echo '<div class="flexi_responsive flexi_gallery_child" id="flexi_' . get_the_ID() . '"  data-tags="' . $tags . '">';
-echo '<div class="flexi_gallery_grid flexi_padding flexi_effect" id="' . $hover_effect . '">';
+echo '<div class="flexi_gallery_grid flexi_effect" id="' . $hover_effect . '">';
 ?>
 
 <div class="flexi-list-small">
@@ -25,7 +25,6 @@ echo '</div>';
 
         <div class="flexi_details">
             <h3><?php echo $data['title']; ?></h3>
-            <p class="flexi-author"><?php echo flexi_show_icon_grid(); ?></p>
         </div>
 
 </div>

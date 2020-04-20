@@ -219,13 +219,13 @@ div.flexi_gallery_grid {
   box-sizing: border-box;
 }
 .flexi_responsive_fixed {
-  padding: 0 6px;
+  padding: 0px;
   float: left;
   box-sizing: border-box;
 }
 
 .flexi_responsive {
-  padding: 0 6px;
+  padding: var(--flexi_padding);
   float: left;
   box-sizing: border-box;
 }
