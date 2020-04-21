@@ -59,7 +59,6 @@ Look Screenshots below for quick understanding of it's scope. You can do lot mor
 * **BuddyPress plugin**. It will display user submitted records on user profile section.
 
 = VIDEO URL =
-Only works with minimum WordPress version 5.3
 
 * **Video URL** - Copy/Paste YouTube.com & Vimeo.com video URL into submission form
 * **Auto Thumbnail** -  Thumbnail image for video is auto generated. No need to post thumbnail manually.
@@ -130,6 +129,12 @@ At Flexi Settings all configuration are ready, but do check all automatically cr
 10. Simple easy setting page
 
 == Changelog ==
+
+= 1.0.15 =
+* Fixed header error while deleting flexi post
+* language file regenerated
+
+
 = 1.0.14 = 
 * Added YouTube & Viemo Video support
 * Automatic thumbnail generation for video urls

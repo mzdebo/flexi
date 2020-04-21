@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Flexi\n"
-"POT-Creation-Date: 2020-04-13 14:59+0545\n"
+"POT-Creation-Date: 2020-04-20 22:36+0545\n"
 "PO-Revision-Date: 2020-02-09 12:49+0545\n"
 "Last-Translator: \n"
 "Language-Team: navneet@odude.com\n"
@@ -15,6 +15,8 @@ msgstr ""
 "Language: en\n"
 "X-Poedit-KeywordsList: __;_e;esc_html_e;esc_html__\n"
 "X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: block/node_modules\n"
+"X-Poedit-SearchPathExcluded-1: includes/cmb2\n"
 
 #: admin/class-flexi-admin.php:116
 msgid "flexi"
@@ -60,147 +62,7 @@ msgstr ""
 msgid "Plugin Settings"
 msgstr ""
 
-#: block/node_modules/cgb-scripts/template/src/block/block.js:30
-msgid "<% blockName %> - CGB Block"
-msgstr ""
-
-#: block/node_modules/cgb-scripts/template/src/block/block.js:34
-msgid "<% blockName %> — CGB Block"
-msgstr ""
-
-#: block/node_modules/cgb-scripts/template/src/block/block.js:35
-msgid "CGB Example"
-msgstr ""
-
-#: block/node_modules/cgb-scripts/template/src/block/block.js:36
-msgid "create-guten-block"
-msgstr ""
-
-#: block/node_modules/webpack/node_modules/yargs-parser/index.js:306
-#: block/node_modules/yargs-parser/index.js:301
-#, javascript-format
-msgid "Not enough arguments following: %s"
-msgstr ""
-
-#: block/node_modules/webpack/node_modules/yargs-parser/index.js:454
-#: block/node_modules/yargs-parser/index.js:449
-#, javascript-format
-msgid "Invalid JSON config file: %s"
-msgstr ""
-
-#: block/node_modules/webpack/node_modules/yargs/lib/usage.js:169
-#: block/node_modules/yargs/lib/usage.js:169
-msgid "Commands:"
-msgstr ""
-
-#: block/node_modules/webpack/node_modules/yargs/lib/usage.js:177
-#: block/node_modules/webpack/node_modules/yargs/lib/usage.js:407
-#: block/node_modules/yargs/lib/usage.js:177
-#: block/node_modules/yargs/lib/usage.js:407
-msgid "default:"
-msgstr ""
-
-#: block/node_modules/webpack/node_modules/yargs/lib/usage.js:179
-#: block/node_modules/yargs/lib/usage.js:179
-msgid "aliases:"
-msgstr ""
-
-#: block/node_modules/webpack/node_modules/yargs/lib/usage.js:241
-#: block/node_modules/yargs/lib/usage.js:241
-msgid "boolean"
-msgstr ""
-
-#: block/node_modules/webpack/node_modules/yargs/lib/usage.js:242
-#: block/node_modules/yargs/lib/usage.js:242
-msgid "count"
-msgstr ""
-
-#: block/node_modules/webpack/node_modules/yargs/lib/usage.js:243
-#: block/node_modules/webpack/node_modules/yargs/lib/usage.js:244
-#: block/node_modules/yargs/lib/usage.js:243
-#: block/node_modules/yargs/lib/usage.js:244
-msgid "string"
-msgstr ""
-
-#: block/node_modules/webpack/node_modules/yargs/lib/usage.js:245
-#: block/node_modules/yargs/lib/usage.js:245
-msgid "array"
-msgstr ""
-
-#: block/node_modules/webpack/node_modules/yargs/lib/usage.js:246
-#: block/node_modules/yargs/lib/usage.js:246
-msgid "number"
-msgstr ""
-
-#: block/node_modules/webpack/node_modules/yargs/lib/usage.js:250
-#: block/node_modules/yargs/lib/usage.js:250
-msgid "required"
-msgstr ""
-
-#: block/node_modules/webpack/node_modules/yargs/lib/usage.js:251
-#: block/node_modules/yargs/lib/usage.js:251
-msgid "choices:"
-msgstr ""
-
-#: block/node_modules/webpack/node_modules/yargs/lib/usage.js:270
-#: block/node_modules/yargs/lib/usage.js:270
-msgid "Examples:"
-msgstr ""
-
-#: block/node_modules/webpack/node_modules/yargs/lib/usage.js:385
-#: block/node_modules/yargs/lib/usage.js:385
-msgid "generated-value"
-msgstr ""
-
-#: block/node_modules/webpack/node_modules/yargs/lib/validation.js:27
-#: block/node_modules/webpack/node_modules/yargs/lib/validation.js:50
-#: block/node_modules/yargs/lib/validation.js:26
-#: block/node_modules/yargs/lib/validation.js:49
-#, javascript-format
-msgid "Not enough non-option arguments: got %s, need at least %s"
-msgstr ""
-
-#: block/node_modules/webpack/node_modules/yargs/lib/validation.js:38
-#: block/node_modules/yargs/lib/validation.js:37
-#, javascript-format
-msgid "Too many non-option arguments: got %s, maximum of %s"
-msgstr ""
-
-#: block/node_modules/webpack/node_modules/yargs/lib/validation.js:186
-#: block/node_modules/yargs/lib/validation.js:185
-msgid "Invalid values:"
-msgstr ""
-
-#: block/node_modules/webpack/node_modules/yargs/lib/validation.js:189
-#: block/node_modules/yargs/lib/validation.js:188
-#, javascript-format
-msgid "Argument: %s, Given: %s, Choices: %s"
-msgstr ""
-
-#: block/node_modules/webpack/node_modules/yargs/lib/validation.js:219
-#: block/node_modules/yargs/lib/validation.js:218
-#, javascript-format
-msgid "Argument check failed: %s"
-msgstr ""
-
-#: block/node_modules/webpack/node_modules/yargs/lib/validation.js:284
-#: block/node_modules/yargs/lib/validation.js:283
-msgid "Implications failed:"
-msgstr ""
-
-#: block/node_modules/webpack/node_modules/yargs/lib/validation.js:314
-#: block/node_modules/yargs/lib/validation.js:313
-#, javascript-format
-msgid "Arguments %s and %s are mutually exclusive"
-msgstr ""
-
-#: block/node_modules/webpack/node_modules/yargs/lib/validation.js:333
-#: block/node_modules/yargs/lib/validation.js:332
-#, javascript-format
-msgid "Did you mean %s?"
-msgstr ""
-
-#: block/src/form/block.js:59 includes/functions.php:1207
+#: block/src/form/block.js:59 includes/functions.php:1041
 msgid "Flexi Submission Form"
 msgstr ""
 
@@ -217,35 +79,39 @@ msgstr ""
 msgid "form"
 msgstr ""
 
-#: block/src/form/edit.js:90
+#: block/src/form/edit.js:94
 msgid "Form Settings"
 msgstr ""
 
-#: block/src/form/edit.js:115
+#: block/src/form/edit.js:139
 msgid "Title Field"
 msgstr ""
 
-#: block/src/form/edit.js:128
+#: block/src/form/edit.js:152
 msgid "Description Field"
 msgstr ""
 
-#: block/src/form/edit.js:149
+#: block/src/form/edit.js:176
 msgid "Category Field"
 msgstr ""
 
-#: block/src/form/edit.js:164
+#: block/src/form/edit.js:200
 msgid "Tag Field"
 msgstr ""
 
-#: block/src/form/edit.js:177
-msgid "File Attach Field"
+#: block/src/form/edit.js:216
+msgid "Image Upload Field"
 msgstr ""
 
-#: block/src/form/edit.js:197
+#: block/src/form/edit.js:242
+msgid "URL Submit Field"
+msgstr ""
+
+#: block/src/form/edit.js:260
 msgid "Security reCaptcha Field"
 msgstr ""
 
-#: block/src/form/edit.js:206
+#: block/src/form/edit.js:269
 msgid "Submit Button"
 msgstr ""
 
@@ -257,15 +123,15 @@ msgstr ""
 msgid "picture"
 msgstr ""
 
-#: block/src/gallery/edit.js:97
-msgid "Filters"
+#: block/src/gallery/edit.js:99
+msgid "Gallery based on Selection"
 msgstr ""
 
-#: block/src/gallery/edit.js:145
+#: block/src/gallery/edit.js:169
 msgid "Layout Controls"
 msgstr ""
 
-#: block/src/gallery/edit.js:203
+#: block/src/gallery/edit.js:231
 msgid "Effects"
 msgstr ""
 
@@ -335,11 +201,11 @@ msgstr ""
 msgid "Security Check"
 msgstr ""
 
-#: includes/addon/class-flexi-captcha.php:142
+#: includes/addon/class-flexi-captcha.php:145
 msgid "Please complete the security spam check."
 msgstr ""
 
-#: includes/addon/class-flexi-captcha.php:145
+#: includes/addon/class-flexi-captcha.php:148
 msgid "Google Server Error"
 msgstr ""
 
@@ -427,19 +293,19 @@ msgstr ""
 msgid "Date"
 msgstr ""
 
-#: includes/class-flexi-category.php:21 includes/class-flexi-category.php:50
+#: includes/class-flexi-category.php:22 includes/class-flexi-category.php:51
 msgid "Name"
 msgstr ""
 
-#: includes/class-flexi-category.php:22 includes/class-flexi-category.php:51
+#: includes/class-flexi-category.php:23 includes/class-flexi-category.php:52
 msgid "Shortcode"
 msgstr ""
 
-#: includes/class-flexi-category.php:23 includes/class-flexi-category.php:52
+#: includes/class-flexi-category.php:24 includes/class-flexi-category.php:53
 msgid "Slug"
 msgstr ""
 
-#: includes/class-flexi-category.php:24 includes/class-flexi-category.php:53
+#: includes/class-flexi-category.php:25 includes/class-flexi-category.php:54
 msgid "Posts"
 msgstr ""
 
@@ -471,31 +337,31 @@ msgstr ""
 msgid "Processing"
 msgstr ""
 
-#: includes/class-flexi-form.php:207 includes/flexi_ajax_post.php:78
+#: includes/class-flexi-form.php:223 includes/flexi_ajax_post.php:86
 msgid "Successfully posted"
 msgstr ""
 
-#: includes/class-flexi-form.php:210 includes/class-flexi-form.php:271
+#: includes/class-flexi-form.php:226 includes/class-flexi-form.php:289
 msgid "Your submission is under review."
 msgstr ""
 
-#: includes/class-flexi-form.php:268 includes/flexi_ajax_post.php:116
+#: includes/class-flexi-form.php:286 includes/flexi_ajax_post.php:124
 msgid "Successfully updated"
 msgstr ""
 
-#: includes/class-flexi-form.php:516
+#: includes/class-flexi-form.php:536
 msgid "Modify"
 msgstr ""
 
-#: includes/class-flexi-form.php:546
+#: includes/class-flexi-form.php:566
 msgid "New"
 msgstr ""
 
-#: includes/class-flexi-form.php:568
+#: includes/class-flexi-form.php:588
 msgid "View"
 msgstr ""
 
-#: includes/class-flexi-gallery.php:284
+#: includes/class-flexi-gallery.php:306
 msgid "Layout not available"
 msgstr ""
 
@@ -503,15 +369,15 @@ msgstr ""
 msgid "Flexi Meta Controls"
 msgstr ""
 
-#: includes/class-flexi-metabox.php:80
+#: includes/class-flexi-metabox.php:91
 msgid "Category Thumbnail"
 msgstr ""
 
-#: includes/class-flexi-metabox.php:118
+#: includes/class-flexi-metabox.php:130
 msgid "Flexi Shortcode"
 msgstr ""
 
-#: includes/class-flexi-metabox.php:127
+#: includes/class-flexi-metabox.php:139
 msgid "Save & reopen to get shortcode"
 msgstr ""
 
@@ -713,7 +579,7 @@ msgid "Select Login Page"
 msgstr ""
 
 #: includes/class-flexi-settings.php:198
-msgid "Login page where user enters username & passwords. Install 3rd party plugins eg. Login Page, Ultimate-Member, Social Login."
+msgid "Optional: Login page where user enters username & passwords. Install 3rd party plugins eg. Login Page, Ultimate-Member, Social Login."
 msgstr ""
 
 #: includes/class-flexi-settings.php:208
@@ -741,8 +607,7 @@ msgid "Effect on mouse over image."
 msgstr ""
 
 #: includes/class-flexi-settings.php:234 includes/class-flexi-settings.php:247
-#: includes/cmb2/includes/CMB2_Field.php:1448
-#: includes/cmb2/includes/CMB2_Field.php:1452
+#: includes/functions.php:640
 msgid "None"
 msgstr ""
 
@@ -1012,734 +877,64 @@ msgstr ""
 msgid "Profile"
 msgstr ""
 
-#: includes/class-flexi_ajax_delete.php:48 includes/functions.php:437
-#: includes/functions.php:439
+#: includes/class-flexi_ajax_delete.php:50 includes/functions.php:442
+#: includes/functions.php:444
 msgid "Login Please !"
 msgstr ""
 
-#: includes/class-flexi_ajax_delete.php:98
+#: includes/class-flexi_ajax_delete.php:100
 msgid "Delete"
 msgstr ""
 
-#: includes/cmb2/example-functions.php:117
-msgid "Test Metabox"
-msgstr ""
-
-#: includes/cmb2/example-functions.php:150
-#: includes/cmb2/example-functions.php:490
-msgid "Test Text"
-msgstr ""
-
-#: includes/cmb2/example-functions.php:151
-#: includes/cmb2/example-functions.php:164
-#: includes/cmb2/example-functions.php:177
-#: includes/cmb2/example-functions.php:184
-#: includes/cmb2/example-functions.php:197
-#: includes/cmb2/example-functions.php:205
-#: includes/cmb2/example-functions.php:214
-#: includes/cmb2/example-functions.php:222
-#: includes/cmb2/example-functions.php:237
-#: includes/cmb2/example-functions.php:245
-#: includes/cmb2/example-functions.php:253
-#: includes/cmb2/example-functions.php:270
-#: includes/cmb2/example-functions.php:279
-#: includes/cmb2/example-functions.php:295
-#: includes/cmb2/example-functions.php:302
-#: includes/cmb2/example-functions.php:309
-#: includes/cmb2/example-functions.php:334
-#: includes/cmb2/example-functions.php:347
-#: includes/cmb2/example-functions.php:360
-#: includes/cmb2/example-functions.php:372
-#: includes/cmb2/example-functions.php:381
-#: includes/cmb2/example-functions.php:389
-#: includes/cmb2/example-functions.php:398
-#: includes/cmb2/example-functions.php:405
-#: includes/cmb2/example-functions.php:419
-#: includes/cmb2/example-functions.php:491
-#: includes/cmb2/example-functions.php:583
-#: includes/cmb2/example-functions.php:591
-#: includes/cmb2/example-functions.php:598
-#: includes/cmb2/example-functions.php:605
-#: includes/cmb2/example-functions.php:612
-#: includes/cmb2/example-functions.php:619
-#: includes/cmb2/example-functions.php:626
-#: includes/cmb2/example-functions.php:653
-#: includes/cmb2/example-functions.php:661
-#: includes/cmb2/example-functions.php:668
-#: includes/cmb2/example-functions.php:717
-msgid "field description (optional)"
-msgstr ""
-
-#: includes/cmb2/example-functions.php:163
-msgid "Test Text Small"
-msgstr ""
-
-#: includes/cmb2/example-functions.php:176
-msgid "Test Text Medium"
-msgstr ""
-
-#: includes/cmb2/example-functions.php:183
-msgid "Read-only Disabled Field"
-msgstr ""
-
-#: includes/cmb2/example-functions.php:196
-msgid "Custom Rendered Field"
-msgstr ""
-
-#: includes/cmb2/example-functions.php:204
-msgid "Website URL"
-msgstr ""
-
-#: includes/cmb2/example-functions.php:213
-msgid "Test Text Email"
-msgstr ""
-
-#: includes/cmb2/example-functions.php:221
-msgid "Test Time"
-msgstr ""
-
-#: includes/cmb2/example-functions.php:229
-#: includes/cmb2/example-functions.php:230
-msgid "Time zone"
-msgstr ""
-
-#: includes/cmb2/example-functions.php:236
-msgid "Test Date Picker"
-msgstr ""
-
-#: includes/cmb2/example-functions.php:244
-msgid "Test Date Picker (UNIX timestamp)"
-msgstr ""
-
-#: includes/cmb2/example-functions.php:252
-msgid "Test Date/Time Picker Combo (UNIX timestamp)"
-msgstr ""
-
-#: includes/cmb2/example-functions.php:269
-msgid "Test Money"
-msgstr ""
-
-#: includes/cmb2/example-functions.php:278
-msgid "Test Color Picker"
-msgstr ""
-
-#: includes/cmb2/example-functions.php:294
-msgid "Test Text Area"
-msgstr ""
-
-#: includes/cmb2/example-functions.php:301
-msgid "Test Text Area Small"
-msgstr ""
-
-#: includes/cmb2/example-functions.php:308
-msgid "Test Text Area for Code"
-msgstr ""
-
-#: includes/cmb2/example-functions.php:326
-msgid "Test Title Weeeee"
-msgstr ""
-
-#: includes/cmb2/example-functions.php:327
-msgid "This is a title description"
-msgstr ""
-
-#: includes/cmb2/example-functions.php:333
-msgid "Test Select"
-msgstr ""
-
-#: includes/cmb2/example-functions.php:339
-#: includes/cmb2/example-functions.php:352
-#: includes/cmb2/example-functions.php:364
-msgid "Option One"
-msgstr ""
-
-#: includes/cmb2/example-functions.php:340
-#: includes/cmb2/example-functions.php:353
-#: includes/cmb2/example-functions.php:365
-msgid "Option Two"
-msgstr ""
-
-#: includes/cmb2/example-functions.php:341
-#: includes/cmb2/example-functions.php:354
-#: includes/cmb2/example-functions.php:366
-msgid "Option Three"
-msgstr ""
-
-#: includes/cmb2/example-functions.php:346
-msgid "Test Radio inline"
-msgstr ""
-
-#: includes/cmb2/example-functions.php:359
-msgid "Test Radio"
-msgstr ""
-
-#: includes/cmb2/example-functions.php:371
-msgid "Test Taxonomy Radio"
-msgstr ""
-
-#: includes/cmb2/example-functions.php:380
-msgid "Test Taxonomy Select"
-msgstr ""
-
-#: includes/cmb2/example-functions.php:388
-msgid "Test Taxonomy Multi Checkbox"
-msgstr ""
-
-#: includes/cmb2/example-functions.php:397
-msgid "Test Checkbox"
-msgstr ""
-
-#: includes/cmb2/example-functions.php:404
-msgid "Test Multi Checkbox"
-msgstr ""
-
-#: includes/cmb2/example-functions.php:410
-msgid "Check One"
-msgstr ""
-
-#: includes/cmb2/example-functions.php:411
-msgid "Check Two"
-msgstr ""
-
-#: includes/cmb2/example-functions.php:412
-msgid "Check Three"
-msgstr ""
-
-#: includes/cmb2/example-functions.php:418
-msgid "Test wysiwyg"
-msgstr ""
-
-#: includes/cmb2/example-functions.php:428
-msgid "Test Image"
-msgstr ""
-
-#: includes/cmb2/example-functions.php:429
-msgid "Upload an image or enter a URL."
-msgstr ""
-
-#: includes/cmb2/example-functions.php:435
-msgid "Multiple Files"
-msgstr ""
-
-#: includes/cmb2/example-functions.php:436
-msgid "Upload or add multiple images/attachments."
-msgstr ""
-
-#: includes/cmb2/example-functions.php:443
-msgid "oEmbed"
-msgstr ""
-
-#: includes/cmb2/example-functions.php:446
-#, php-format
-msgid "Enter a youtube, twitter, or instagram URL. Supports services listed at %s."
-msgstr ""
-
-#: includes/cmb2/example-functions.php:479
-msgid "About Page Metabox"
-msgstr ""
-
-#: includes/cmb2/example-functions.php:510
-msgid "Repeating Field Group"
-msgstr ""
-
-#: includes/cmb2/example-functions.php:518
-msgid "Generates reusable form entries"
-msgstr ""
-
-#: includes/cmb2/example-functions.php:520
-msgid "Entry {#}"
-msgstr ""
-
-#: includes/cmb2/example-functions.php:521
-msgid "Add Another Entry"
-msgstr ""
-
-#: includes/cmb2/example-functions.php:522
-msgid "Remove Entry"
-msgstr ""
-
-#: includes/cmb2/example-functions.php:536
-msgid "Entry Title"
-msgstr ""
-
-#: includes/cmb2/example-functions.php:543
-msgid "Description"
-msgstr ""
-
-#: includes/cmb2/example-functions.php:544
-msgid "Write a short description for this entry"
-msgstr ""
-
-#: includes/cmb2/example-functions.php:550
-msgid "Entry Image"
-msgstr ""
-
-#: includes/cmb2/example-functions.php:556
-msgid "Image Caption"
-msgstr ""
-
-#: includes/cmb2/example-functions.php:575
-msgid "User Profile Metabox"
-msgstr ""
-
-#: includes/cmb2/example-functions.php:582
-#: includes/cmb2/example-functions.php:652
-msgid "Extra Info"
-msgstr ""
-
-#: includes/cmb2/example-functions.php:590
-msgid "Avatar"
-msgstr ""
-
-#: includes/cmb2/example-functions.php:597
-msgid "Facebook URL"
-msgstr ""
-
-#: includes/cmb2/example-functions.php:604
-msgid "Twitter URL"
-msgstr ""
-
-#: includes/cmb2/example-functions.php:611
-msgid "Google+ URL"
-msgstr ""
-
-#: includes/cmb2/example-functions.php:618
-msgid "Linkedin URL"
-msgstr ""
-
-#: includes/cmb2/example-functions.php:625
-msgid "User Field"
-msgstr ""
-
-#: includes/cmb2/example-functions.php:645
-msgid "Category Metabox"
-msgstr ""
-
-#: includes/cmb2/example-functions.php:660
-msgid "Term Image"
-msgstr ""
-
-#: includes/cmb2/example-functions.php:667
-msgid "Arbitrary Term Field"
-msgstr ""
-
-#: includes/cmb2/example-functions.php:686
-msgid "Theme Options"
-msgstr ""
-
-#: includes/cmb2/example-functions.php:716
-msgid "Site Background Color"
-msgstr ""
-
-#: includes/cmb2/example-functions.php:753
-#, php-format
-msgid "%s &mdash; Updated!"
-msgstr ""
-
-#: includes/cmb2/example-functions.php:787
-msgid "REST Test Box"
-msgstr ""
-
-#: includes/cmb2/example-functions.php:796
-msgid "REST Test Text"
-msgstr ""
-
-#: includes/cmb2/example-functions.php:797
-msgid "Will show in the REST API for this box and for pages."
-msgstr ""
-
-#: includes/cmb2/example-functions.php:803
-msgid "REST Editable Test Text"
-msgstr ""
-
-#: includes/cmb2/example-functions.php:804
-msgid "Will show in REST API \"editable\" contexts only (`POST` requests)."
-msgstr ""
-
-#: includes/cmb2/includes/CMB2.php:199
-msgid "Metabox configuration is required to have an ID parameter."
-msgstr ""
-
-#: includes/cmb2/includes/CMB2_Ajax.php:75
-msgid "Please Try Again"
-msgstr ""
-
-#: includes/cmb2/includes/CMB2_Ajax.php:181
-msgid "Remove Embed"
-msgstr ""
-
-#: includes/cmb2/includes/CMB2_Ajax.php:189
-#: includes/cmb2/includes/helper-functions.php:107
-#, php-format
-msgid "No oEmbed Results Found for %1$s. View more info at %2$s."
-msgstr ""
-
-#: includes/cmb2/includes/CMB2_Base.php:422
-#, php-format
-msgid "The \"%1$s\" field parameter has been deprecated in favor of the \"%2$s\" parameter."
-msgstr ""
-
-#: includes/cmb2/includes/CMB2_Base.php:426
-#, php-format
-msgid "Using the \"%1$s\" field parameter as a callback has been deprecated in favor of the \"%2$s\" parameter."
-msgstr ""
-
-#: includes/cmb2/includes/CMB2_Base.php:456
-#, php-format
-msgid "%1$s was called with a parameter that is <strong>deprecated</strong> since version %2$s! %3$s"
-msgstr ""
-
-#: includes/cmb2/includes/CMB2_Base.php:458
-#, php-format
-msgid "%1$s was called with a parameter that is <strong>deprecated</strong> since version %2$s with no alternative available."
-msgstr ""
-
-#: includes/cmb2/includes/CMB2_Base.php:491
-#: includes/cmb2/includes/CMB2_Hookup_Base.php:102
-#: includes/cmb2/includes/CMB2_Options.php:247
-#: includes/cmb2/includes/CMB2_Options_Hookup.php:357
-#: includes/cmb2/includes/types/CMB2_Type_Base.php:173
-#, php-format
-msgid "Invalid %1$s property: %2$s"
-msgstr ""
-
-#: includes/cmb2/includes/CMB2_Base.php:509
-#: includes/cmb2/includes/types/CMB2_Type_Base.php:157
-#, php-format
-msgid "Invalid %1$s method: %2$s"
-msgstr ""
-
-#: includes/cmb2/includes/CMB2_Field.php:1415
-msgid "Add Group"
-msgstr ""
-
-#: includes/cmb2/includes/CMB2_Field.php:1416
-msgid "Remove Group"
-msgstr ""
-
-#: includes/cmb2/includes/CMB2_Field.php:1563
-msgid "Sorry, this field does not have a cmb_id specified."
-msgstr ""
-
-#: includes/cmb2/includes/CMB2_Field_Display.php:432
-#: includes/cmb2/includes/CMB2_JS.php:230
-#: includes/cmb2/includes/types/CMB2_Type_File_Base.php:79
-msgid "File:"
-msgstr ""
-
-#: includes/cmb2/includes/CMB2_Hookup_Base.php:44
-#, php-format
-msgid "%1$s should be implemented by the extended class."
-msgstr ""
-
-#: includes/cmb2/includes/CMB2_JS.php:165
-#: includes/cmb2/includes/CMB2_JS.php:210
-msgid "Clear"
-msgstr ""
-
-#: includes/cmb2/includes/CMB2_JS.php:166
-msgid "Default"
-msgstr ""
-
-#: includes/cmb2/includes/CMB2_JS.php:167
-msgid "Select Color"
-msgstr ""
-
-#: includes/cmb2/includes/CMB2_JS.php:168
-msgid "Current Color"
-msgstr ""
-
-#: includes/cmb2/includes/CMB2_JS.php:201
-msgid "Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday"
-msgstr ""
-
-#: includes/cmb2/includes/CMB2_JS.php:202
-msgid "Su, Mo, Tu, We, Th, Fr, Sa"
-msgstr ""
-
-#: includes/cmb2/includes/CMB2_JS.php:203
-msgid "Sun, Mon, Tue, Wed, Thu, Fri, Sat"
-msgstr ""
-
-#: includes/cmb2/includes/CMB2_JS.php:204
-msgid "January, February, March, April, May, June, July, August, September, October, November, December"
-msgstr ""
-
-#: includes/cmb2/includes/CMB2_JS.php:205
-msgid "Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec"
-msgstr ""
-
-#: includes/cmb2/includes/CMB2_JS.php:206
-msgid "Next"
-msgstr ""
-
-#: includes/cmb2/includes/CMB2_JS.php:207
-msgid "Prev"
-msgstr ""
-
-#: includes/cmb2/includes/CMB2_JS.php:208
-msgid "Today"
-msgstr ""
-
-#: includes/cmb2/includes/CMB2_JS.php:209
-#: includes/cmb2/includes/CMB2_JS.php:219
-msgid "Done"
-msgstr ""
-
-#: includes/cmb2/includes/CMB2_JS.php:213
-msgid "Choose Time"
-msgstr ""
-
-#: includes/cmb2/includes/CMB2_JS.php:214
-msgid "Time"
-msgstr ""
-
-#: includes/cmb2/includes/CMB2_JS.php:215
-msgid "Hour"
-msgstr ""
-
-#: includes/cmb2/includes/CMB2_JS.php:216
-msgid "Minute"
-msgstr ""
-
-#: includes/cmb2/includes/CMB2_JS.php:217
-msgid "Second"
-msgstr ""
-
-#: includes/cmb2/includes/CMB2_JS.php:218
-msgid "Now"
-msgstr ""
-
-#: includes/cmb2/includes/CMB2_JS.php:226
-msgid "Use this file"
-msgstr ""
-
-#: includes/cmb2/includes/CMB2_JS.php:227
-msgid "Use these files"
-msgstr ""
-
-#: includes/cmb2/includes/CMB2_JS.php:228
-#: includes/cmb2/includes/types/CMB2_Type_File_Base.php:64
-msgid "Remove Image"
-msgstr ""
-
-#: includes/cmb2/includes/CMB2_JS.php:229
-#: includes/cmb2/includes/CMB2_Types.php:406
-#: includes/cmb2/includes/types/CMB2_Type_File_Base.php:84
-msgid "Remove"
-msgstr ""
-
-#: includes/cmb2/includes/CMB2_JS.php:231
-#: includes/cmb2/includes/types/CMB2_Type_File_Base.php:82
-msgid "Download"
-msgstr ""
-
-#: includes/cmb2/includes/CMB2_JS.php:232
-msgid "Select / Deselect All"
-msgstr ""
-
-#: includes/cmb2/includes/CMB2_Options_Hookup.php:139
-msgid "Nothing to update."
-msgstr ""
-
-#: includes/cmb2/includes/CMB2_Options_Hookup.php:143
-msgid "Settings updated."
-msgstr ""
-
-#: includes/cmb2/includes/CMB2_Types.php:226
-msgid "Custom CMB2 field type classes must extend CMB2_Type_Base."
-msgstr ""
-
-#: includes/cmb2/includes/CMB2_Types.php:344
-msgid "Add Row"
-msgstr ""
-
-#: includes/cmb2/includes/CMB2_Types.php:406
-msgid "Remove Row"
-msgstr ""
-
-#: includes/cmb2/includes/CMB2_hookup.php:182
-msgid "Term Metadata is a WordPress 4.4+ feature. Please upgrade your WordPress install."
-msgstr ""
-
-#: includes/cmb2/includes/CMB2_hookup.php:186
-msgid "Term metaboxes configuration requires a \"taxonomies\" parameter."
-msgstr ""
-
-#: includes/cmb2/includes/CMB2_hookup.php:466
-#, php-format
-msgid "Toggle panel: %s"
-msgstr ""
-
-#: includes/cmb2/includes/helper-functions.php:307
-msgid "Save"
-msgstr ""
-
-#: includes/cmb2/includes/rest-api/CMB2_REST_Controller.php:257
-msgid "This box does not have read permissions."
-msgstr ""
-
-#: includes/cmb2/includes/rest-api/CMB2_REST_Controller.php:277
-msgid "This box does not have write permissions."
-msgstr ""
-
-#: includes/cmb2/includes/rest-api/CMB2_REST_Controller.php:300
-msgid "No box found by that id. A box needs to be registered with the \"show_in_rest\" parameter configured."
-msgstr ""
-
-#: includes/cmb2/includes/rest-api/CMB2_REST_Controller.php:378
-msgid "A human-readable description of the object."
-msgstr ""
-
-#: includes/cmb2/includes/rest-api/CMB2_REST_Controller.php:385
-msgid "The id for the object."
-msgstr ""
-
-#: includes/cmb2/includes/rest-api/CMB2_REST_Controller.php:392
-msgid "The title for the object."
-msgstr ""
-
-#: includes/cmb2/includes/rest-api/CMB2_REST_Controller_Boxes.php:51
-msgid "Includes the registered fields for the box in the response."
-msgstr ""
-
-#: includes/cmb2/includes/rest-api/CMB2_REST_Controller_Boxes.php:72
-msgid "Includes the fully rendered attributes, 'form_open', 'form_close', as well as the enqueued 'js_dependencies' script handles, and 'css_dependencies' stylesheet handles."
-msgstr ""
-
-#: includes/cmb2/includes/rest-api/CMB2_REST_Controller_Boxes.php:122
-msgid "No boxes found."
-msgstr ""
-
-#: includes/cmb2/includes/rest-api/CMB2_REST_Controller_Fields.php:27
-msgid "Includes the box object which the fields are registered to in the response."
-msgstr ""
-
-#: includes/cmb2/includes/rest-api/CMB2_REST_Controller_Fields.php:30
-msgid "When the '_rendered' argument is passed, the renderable field attributes will be returned fully rendered. By default, the names of the callback handers for the renderable attributes will be returned."
-msgstr ""
-
-#: includes/cmb2/includes/rest-api/CMB2_REST_Controller_Fields.php:33
-#: includes/cmb2/includes/rest-api/CMB2_REST_Controller_Fields.php:36
-msgid "To view or modify the field's value, the 'object_id' and 'object_type' arguments are required."
-msgstr ""
-
-#: includes/cmb2/includes/rest-api/CMB2_REST_Controller_Fields.php:236
-msgid "CMB2 Field value cannot be updated without the value parameter specified."
-msgstr ""
-
-#: includes/cmb2/includes/rest-api/CMB2_REST_Controller_Fields.php:297
-msgid "CMB2 Field value cannot be modified without the object_id and object_type parameters specified."
-msgstr ""
-
-#: includes/cmb2/includes/rest-api/CMB2_REST_Controller_Fields.php:312
-#: includes/cmb2/includes/rest-api/CMB2_REST_Controller_Fields.php:341
-msgid "No field found by that id."
-msgstr ""
-
-#: includes/cmb2/includes/rest-api/CMB2_REST_Controller_Fields.php:415
-#, php-format
-msgid "Value Error for %s"
-msgstr ""
-
-#: includes/cmb2/includes/shim/WP_REST_Controller.php:25
-#, php-format
-msgid "Method '%s' must be overridden."
-msgstr ""
-
-#: includes/cmb2/includes/shim/WP_REST_Controller.php:35
-#: includes/cmb2/includes/shim/WP_REST_Controller.php:47
-#: includes/cmb2/includes/shim/WP_REST_Controller.php:59
-#: includes/cmb2/includes/shim/WP_REST_Controller.php:71
-#: includes/cmb2/includes/shim/WP_REST_Controller.php:83
-#: includes/cmb2/includes/shim/WP_REST_Controller.php:95
-#: includes/cmb2/includes/shim/WP_REST_Controller.php:107
-#: includes/cmb2/includes/shim/WP_REST_Controller.php:119
-#: includes/cmb2/includes/shim/WP_REST_Controller.php:131
-#: includes/cmb2/includes/shim/WP_REST_Controller.php:143
-#: includes/cmb2/includes/shim/WP_REST_Controller.php:155
-#: includes/cmb2/includes/shim/WP_REST_Controller.php:168
-#, php-format
-msgid "Method '%s' not implemented. Must be overridden in subclass."
-msgstr ""
-
-#: includes/cmb2/includes/shim/WP_REST_Controller.php:273
-msgid "Current page of the collection."
-msgstr ""
-
-#: includes/cmb2/includes/shim/WP_REST_Controller.php:281
-msgid "Maximum number of items to be returned in result set."
-msgstr ""
-
-#: includes/cmb2/includes/shim/WP_REST_Controller.php:290
-msgid "Limit results to those matching a string."
-msgstr ""
-
-#: includes/cmb2/includes/shim/WP_REST_Controller.php:308
-msgid "Scope under which the request is made; determines fields present in response."
-msgstr ""
-
-#: includes/cmb2/includes/types/CMB2_Type_File.php:76
-msgid "Add or Upload File"
-msgstr ""
-
-#: includes/cmb2/includes/types/CMB2_Type_File_List.php:41
-msgid "Add or Upload Files"
-msgstr ""
-
-#: includes/cmb2/includes/types/CMB2_Type_Taxonomy_Base.php:115
-msgid "No terms"
-msgstr ""
-
-#: includes/flexi_ajax_post.php:81
+#: includes/flexi_ajax_post.php:89
 msgid "Your submission is under review"
 msgstr ""
 
-#: includes/flexi_ajax_post.php:119
+#: includes/flexi_ajax_post.php:127
 msgid "Your modification is under review."
 msgstr ""
 
-#: includes/flexi_ajax_post.php:123
+#: includes/flexi_ajax_post.php:131
 msgid "Submission failed"
 msgstr ""
 
-#: includes/functions.php:261
+#: includes/functions.php:266
 msgid "Show All"
 msgstr ""
 
-#: includes/functions.php:368
+#: includes/functions.php:373
 msgid "Album"
 msgstr ""
 
-#: includes/functions.php:823
+#: includes/functions.php:614
 msgid "Required Flexi-PRO or UPG-PRO"
 msgstr ""
 
-#: includes/functions.php:1162
+#: includes/functions.php:995
 msgid "Title cannot be blank."
 msgstr ""
 
-#: includes/functions.php:1165
+#: includes/functions.php:998
 msgid "This file is not supported or file too big."
 msgstr ""
 
-#: includes/functions.php:1168
+#: includes/functions.php:1001
 msgid "This file type is not supported. Only image files are allowed."
 msgstr ""
 
-#: includes/functions.php:1171
+#: includes/functions.php:1004
 msgid "Captcha security code is invalid."
 msgstr ""
 
-#: includes/functions.php:1193
+#: includes/functions.php:1027
 msgid "Flexi Primary Gallery"
 msgstr ""
 
-#: includes/functions.php:1200
+#: includes/functions.php:1034
 msgid "Flexi User Dashboard"
 msgstr ""
 
-#: includes/functions.php:1214
+#: includes/functions.php:1048
 msgid "Flexi Edit/Modify"
 msgstr ""
 
@@ -1796,6 +991,7 @@ msgstr ""
 msgid "Are you sure you want to delete?"
 msgstr ""
 
+#: public/partials/layout/gallery/basic/footer.php:6
 #: public/partials/layout/gallery/masonry/footer.php:6
 #: public/partials/layout/gallery/regular/footer.php:6
 #: public/partials/layout/gallery/wide/footer.php:5

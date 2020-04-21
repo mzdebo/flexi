@@ -137,8 +137,12 @@ class Flexi_Meta_boxes
   ));
 
   $shortcode = __('Save & reopen to get shortcode', 'flexi');
-  if (esc_attr__(isset($_GET['post']))) {
-   $shortcode = '[flexi-standalone id="' . $_GET['post'] . '"]';
+  try {
+   if (isset($_GET['post'])) {
+    $shortcode = '[flexi-standalone id="' . $_GET['post'] . '"]';
+   }
+  } catch (Exception $e) {
+   //Do nothing
   }
 
   // Regular text field
