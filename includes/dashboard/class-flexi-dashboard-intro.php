@@ -33,7 +33,6 @@ class Flexi_Admin_Dashboard_Intro
  {
   ob_start();
   ?>
- <H1><?php echo get_option('FLEXI_PRO', 'FAIL'); ?></H1>
 <div class="changelog section-getting-started">
 			<div class="feature-section">
 				<h2>Creating Your First Gallery</h2>

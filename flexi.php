@@ -43,6 +43,9 @@ define('FLEXI_FOLDER', dirname(plugin_basename(__FILE__)));
 define('FLEXI_PLUGIN_URL', content_url('/plugins/' . FLEXI_FOLDER));
 define('FLEXI_BASE_DIR', WP_CONTENT_DIR . '/plugins/' . FLEXI_FOLDER . '/');
 define('FLEXI_ROOT_URL', plugin_dir_url(__FILE__));
+define('FLEXI_HOST', "http://localhost/wp5/wp-json/lmfwc/v2/licenses/");
+define('FLEXI_CK', 'ck_b0d9582c42d5cad63628e908ce93541a58f251c4');
+define('FLEXI_CS', 'cs_cc712624fd72df896c0e7a0667b0cc039c5a1a92');
 if (!defined('FLEXI_PRO')) {
  define('FLEXI_PRO', 'FAIL', true);
 }
