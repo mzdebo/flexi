@@ -29,11 +29,24 @@ class Flexi_Admin_Dashboard_Pro
  public function flexi_dashboard_content()
  {
   ob_start();
+  if (isset($_POST['flexi_license'])) {
+   flexi_process_license($_POST['flexi_license']);
+  }
   ?>
+<H1><?php echo get_option('FLEXI_PRO', 'FAIL'); ?></H1>
+FLC3-D3-DB-D1XI
+<div class="update-nag">
+
+<form method="post">
+<b>Enter license key: </b>
+<input type="text" name="flexi_license" class="regular-text" value="<?php echo get_option('FLEXI_PRO_LICENSE', ''); ?>">
+<input type="submit" value="Activate" class="button-primary">
+</form>
+</div>
 
 <h3>Flexi Pro</h3>
-<b>Flexi Version: </b> <?php echo FLEXI_VERSION; ?> (Beta Version)<br>
-<b>Flexi PRO status:</b> <?php if (flexi_load_setting()) {echo "Enabled";} else {echo "Disabled";}?>
+<b>Flexi Version: </b> <?php echo FLEXI_VERSION; ?><br>
+<b>Flexi PRO status:</b> <?php if (is_flexi_pro()) {echo "Enabled";} else {echo "Disabled";}?>
 
 <h3>Features of Flexi PRO</h3>
 <ul>

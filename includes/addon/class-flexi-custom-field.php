@@ -86,7 +86,7 @@ class Flexi_Addon_Custom_Fields
    );
 
    $count = 3;
-   if (flexi_load_setting()) {
+   if (is_flexi_pro()) {
     $count = 10;
    }
 

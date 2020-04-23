@@ -59,7 +59,7 @@ class Flexi_Shortcode_Form
 
   //Prevent form update if not UPG pro
   if ($current_page_id == $edit_page_id) {
-   if (!flexi_load_setting()) {
+   if (!is_flexi_pro()) {
     $edit_post = false;
     echo flexi_pro_required();
    }
@@ -376,7 +376,7 @@ action="' . admin_url("admin-ajax.php") . '"
    echo $frm->addInput('file', "user-submitted-image[]", '', array('id' => 'file', 'class' => $attr['class'], 'accept' => 'image/*', 'required' => $attr['required']));
 
   } else if ('file_multiple' == $attr['type']) {
-   if (flexi_load_setting()) {
+   if (is_flexi_pro()) {
     echo $frm->startTag('div', array('class' => $attr['class']));
     echo $frm->addInput('file', "user-submitted-image[]", '', array('id' => 'file', 'class' => $attr['class'] . '_hide', 'accept' => 'image/*', 'required' => $attr['required'], 'multiple' => $attr['multiple']));
     echo "<p>" . $attr['title'] . "</p>";

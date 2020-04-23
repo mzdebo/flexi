@@ -751,10 +751,10 @@ function is_flexi_page($field_name, $section_name)
 }
 
 //Check If Flexi-PRO
-function flexi_load_setting()
+function is_flexi_pro()
 {
  include_once ABSPATH . 'wp-admin/includes/plugin.php';
- if (is_plugin_active('wp-upg-pro/wp-upg-pro.php')) {
+ if (is_plugin_active('flexi-pro/flexi-pro.php')) {
   return true;
  } else {
   return false;

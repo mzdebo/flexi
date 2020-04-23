@@ -43,6 +43,9 @@ define('FLEXI_FOLDER', dirname(plugin_basename(__FILE__)));
 define('FLEXI_PLUGIN_URL', content_url('/plugins/' . FLEXI_FOLDER));
 define('FLEXI_BASE_DIR', WP_CONTENT_DIR . '/plugins/' . FLEXI_FOLDER . '/');
 define('FLEXI_ROOT_URL', plugin_dir_url(__FILE__));
+if (!defined('FLEXI_PRO')) {
+ define('FLEXI_PRO', 'FAIL', true);
+}
 /**
  * The code that runs during plugin activation.
  * This action is documented in includes/class-flexi-activator.php
