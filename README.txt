@@ -129,6 +129,8 @@ At Flexi Settings all configuration are ready, but do check all automatically cr
 10. Simple easy setting page
 
 == Changelog ==
+= 1.0.16 = 
+* Updated License security
 
 = 1.0.15 =
 * Fixed header error while deleting flexi post

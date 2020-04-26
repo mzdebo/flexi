@@ -9,14 +9,14 @@
  * that starts the plugin.
  *
  * @link              https://odude.com/
- * @since             1.0.15
+ * @since             1.0.16
  * @package           Flexi
  *
  * @wordpress-plugin
  * Plugin Name:       Flexi Gallery
  * Plugin URI:        https://odude.com/
  * Description:       User submitted images/video into gallery
- * Version:           1.0.15
+ * Version:           1.0.16
  * Author:            ODude
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
@@ -37,15 +37,15 @@ if (!defined('WPINC')) {
 
 // The current version of the plugin
 if (!defined('FLEXI_VERSION')) {
- define('FLEXI_VERSION', '1.0.15');
+ define('FLEXI_VERSION', '1.0.16');
 }
 define('FLEXI_FOLDER', dirname(plugin_basename(__FILE__)));
 define('FLEXI_PLUGIN_URL', content_url('/plugins/' . FLEXI_FOLDER));
 define('FLEXI_BASE_DIR', WP_CONTENT_DIR . '/plugins/' . FLEXI_FOLDER . '/');
 define('FLEXI_ROOT_URL', plugin_dir_url(__FILE__));
-define('FLEXI_HOST', "http://localhost/wp5/wp-json/lmfwc/v2/licenses/");
-define('FLEXI_CK', 'ck_b0d9582c42d5cad63628e908ce93541a58f251c4');
-define('FLEXI_CS', 'cs_cc712624fd72df896c0e7a0667b0cc039c5a1a92');
+define('FLEXI_HOST', "https://odude.com/wp-json/lmfwc/v2/licenses/");
+define('FLEXI_CK', 'ck_cc93b6452693ea129f6fb4696f50275a4282840a');
+define('FLEXI_CS', 'cs_5bab8367ab36992b00f1fe69d866c3bbf4820dbe');
 if (!defined('FLEXI_PRO')) {
  define('FLEXI_PRO', 'FAIL', true);
 }
