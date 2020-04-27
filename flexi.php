@@ -1,5 +1,4 @@
 <?php
-
 /**
  * The plugin bootstrap file
  *
@@ -46,9 +45,6 @@ define('FLEXI_ROOT_URL', plugin_dir_url(__FILE__));
 define('FLEXI_HOST', "https://odude.com/wp-json/lmfwc/v2/licenses/");
 define('FLEXI_CK', 'ck_cc93b6452693ea129f6fb4696f50275a4282840a');
 define('FLEXI_CS', 'cs_5bab8367ab36992b00f1fe69d866c3bbf4820dbe');
-if (!defined('FLEXI_PRO')) {
- define('FLEXI_PRO', 'FAIL', true);
-}
 /**
  * The code that runs during plugin activation.
  * This action is documented in includes/class-flexi-activator.php

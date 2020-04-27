@@ -146,7 +146,7 @@ class FlexiGalleryEdit extends Component {
 										value: "title",
 									},
 									{
-										label: "Date",
+										label: "Recent Date",
 										value: "date",
 									},
 									{
